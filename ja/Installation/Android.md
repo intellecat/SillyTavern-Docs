@@ -3,11 +3,11 @@ label: Android (Termux)
 route: /installation/android-(termux)/
 ---
 
-# Android (Termux) Installation
+# Android (Termux)インストール
 
 SillyTavernは、Termuxを使用してAndroidデバイス上でネイティブに実行できます。
 
-## Installing Termux
+## Termuxのインストール
 
 !!!tip
 Google Play StoreからTermuxをインストールすることは避けてください。そのバージョンはもはやメンテナンスされていません。
@@ -29,7 +29,7 @@ Google Play StoreからTermuxをインストールすることは避けてくだ
    pkg update && pkg upgrade
    ```
 
-## Installing Dependencies
+## 依存関係のインストール
 
 必要なパッケージをインストールします:
 
@@ -41,7 +41,7 @@ pkg install git nodejs-lts nano
 32ビットAndroidを実行している場合は、追加の手順について以下の[Common Errors](#common-errors)セクションを参照してください。
 !!!
 
-## Installing SillyTavern
+## SillyTavernのインストール
 
 SillyTavernリポジトリをcloneします（[ブランチの選択方法](/Installation/index.md#branches)）:
 
@@ -57,7 +57,7 @@ SillyTavernリポジトリをcloneします（[ブランチの選択方法](/Ins
     git clone https://github.com/SillyTavern/SillyTavern -b staging
     ```
 
-## Running SillyTavern
+## SillyTavernの実行
 
 SillyTavernを実行するには、cloneしたディレクトリに移動してstartスクリプトを実行します:
 
@@ -75,7 +75,7 @@ git pull --rebase --autostash
 
 このプロセスを簡素化するショートカットを作成する方法については、以下の[Aliases](#optional-create-aliases)セクションを参照してください。
 
-## Common Errors
+## 一般的なエラー
 
 ### Unsupported platform: android arm LEtime-web
 
@@ -89,7 +89,7 @@ pkg install esbuild
 
 その後、上記のインストール手順を続行します。
 
-### Performance tweaks
+### パフォーマンス調整
 
 !!!info
 パフォーマンスを向上させるための一般的なヒントについては、該当する[FAQセクション](/Usage/faq.md#performance-tips)を参照してください。
@@ -113,7 +113,7 @@ backups:
 Termuxに含まれている`nano`テキストエディタを使用して、`config.yaml`ファイルを編集します: `nano ~/SillyTavern/config.yaml`
 !!!
 
-## Optional: Create Aliases
+## オプション：エイリアスの作成
 
 ワークフローを簡単にするために、一般的なコマンドのショートカットを作成できます。
 
@@ -148,7 +148,7 @@ Termuxに含まれている`nano`テキストエディタを使用して、`conf
 - `stup` SillyTavernを更新
 - `pkgup` Termuxパッケージを更新
 
-## Further Reading
+## 参考資料
 
 !!!info
 以下にリンクされているガイドは、SillyTavernチームによってメンテナンスされていません。

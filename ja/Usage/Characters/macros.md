@@ -114,7 +114,7 @@ route: /usage/core-concepts/macros/
 | `{{var::name}}` | スコープ付き変数「name」の値に置き換えられます（STscript のみ）。 |
 | `{{var::name::index}}` | スコープ付き変数「name」のインデックスの値に置き換えられます（STscript の配列/オブジェクト用）。 |
 
-## Extension-specific Macros
+## 拡張機能固有のマクロ
 
 拡張機能によって追加され、特定の条件下でのみ機能します。
 

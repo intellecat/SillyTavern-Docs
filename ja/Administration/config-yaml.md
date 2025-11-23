@@ -135,7 +135,7 @@ SILLYTAVERN_LISTEN=true SILLYTAVERN_PORT=8000 node server.js
 
 ## Security設定
 
-### IP Whitelisting
+### IPホワイトリスト
 
 | 設定 | 説明 | デフォルト | 許可される値 |
 |---------|-------------|---------|-----------------|
@@ -144,7 +144,7 @@ SILLYTAVERN_LISTEN=true SILLYTAVERN_PORT=8000 node server.js
 | `whitelist` | 許可されたIPアドレスのリスト | `["::1", "127.0.0.1"]` | 有効なIPアドレスの配列 |
 | `whitelistDockerHosts` | Docker host IPを自動的にwhitelistに追加します | `true` | `true`, `false` |
 
-### Host Whitelisting
+### ホストホワイトリスト
 
 | 設定 | 説明 | デフォルト | 許可される値 |
 |---------|-------------|---------|-----------------|

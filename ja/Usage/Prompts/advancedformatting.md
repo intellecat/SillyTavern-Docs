@@ -69,7 +69,7 @@ System Prompt は [Story String](context-template.md#story-string) の一部で�
 
 プロンプト ガイドの詳細については [prompting guide](index.md#main-prompt-system-prompt) を参照してください。
 
-## Context Template
+## コンテキストテンプレート
 
 !!! Applies to: Text Completion APIs
 Chat Completion APIs で同等の設定については、[Prompt Manager](prompt-manager.md) を使用してください。

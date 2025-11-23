@@ -12,7 +12,7 @@ route: /usage/prompts/reasoning/
 
 1. 推論モデルを使用する場合、モデルの内部推論プロセスは、この推論が最終出力に表示されない場合でも（例えば、o3-miniまたはGemini Thinking）、応答トークンの割り当ての一部を消費します。応答が不完全またはemptyで返されていることに気付いた場合は、**<i class="fa-solid fa-sliders"></i> AI Response Configuration**パネルで見つかる Max Response Length設定を調整してみてください。推論モデルの場合、標準会話モデルと比較して、1024～4096トークンのどこかから、大幅に高いトークン制限を使用することが典型的です。
 
-## Configuration
+## 設定
 
 !!!
 ほとんどの推論関連の設定は、**<i class="fa-solid fa-font"></i> Advanced Formatting**パネルの「Reasoning」セクションで設定できます。

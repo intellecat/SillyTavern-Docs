@@ -96,7 +96,7 @@ STでのメッセージがYourPersona:とCharacter:の間の一連のメッセ�
   - [Henky's United](https://github.com/henk717/KoboldAI)
   - [0cc4m's 4bit-supporting United](https://github.com/0cc4m/KoboldAI)
 
-## Cloud LLM APIs
+## クラウドLLM API
 
 - これらのLLM APIはクラウドサービスとして実行され、PC上のリソースを必要としません
 - ほとんどのローカルLLMよりも強力/スマート

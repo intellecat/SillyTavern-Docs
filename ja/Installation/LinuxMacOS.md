@@ -4,9 +4,9 @@ order: 5
 route: /installation/linuxmacos/
 ---
 
-# Linux/MacOS Install
+# Linux/MacOSインストール
 
-## Manual Git install
+## 手動Gitインストール
 
 MacOS / Linuxでは、これらすべてをTerminalで実行します。
 
@@ -24,14 +24,14 @@ MacOS / Linuxでは、これらすべてをTerminalで実行します。
 
 ## SillyTavern Launcher
 
-### For Linux users
+### Linuxユーザー向け
 1. お気に入りのterminalを開き、gitをインストールします
 2. 次のコマンドでSillytavern Launcherをダウンロードします: `git clone https://github.com/SillyTavern/SillyTavern-Launcher.git`
 3. 次のコマンドでSillyTavern-Launcherに移動します: `cd SillyTavern-Launcher`
 4. 次のコマンドでinstall launcherを起動し、インストールしたいものを選択します: `chmod +x install.sh && ./install.sh`
 5. インストール後、次のコマンドでlauncherを起動します: `chmod +x launcher.sh && ./launcher.sh`
 
-### For Mac users
+### Macユーザー向け
 1. terminalを開き、次のコマンドでbrewをインストールします: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
 2. 次のコマンドでgitをインストールします: `brew install git`
 3. 次のコマンドでSillytavern Launcherをダウンロードします: `git clone https://github.com/SillyTavern/SillyTavern-Launcher.git`

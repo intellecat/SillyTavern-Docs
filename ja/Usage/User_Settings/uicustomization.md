@@ -3,7 +3,7 @@ order: 20
 route: /usage/core-concepts/uicustomization/
 ---
 
-# UI Customization
+# UIカスタマイズ
 
 ## UI Theme
 

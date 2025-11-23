@@ -46,7 +46,7 @@ SillyTavernの機能でテストされた、または依存する推奨ガイド
 
 これは、すべてのAIモデルが一度に処理できるコンテキストの量に制限があるためです。
 
-## 'Context'?
+## 'Context'とは？
 
 これは、応答を生成するように要求するたびにAIに送信される情報です。SillyTavernは、情報をAIモデルに送信する前に、使用可能なコンテキストトークンを割り当てる最良の方法を自動的に計算します。
 
@@ -139,7 +139,7 @@ MarkdownとHTMLフォーマットをサポートします。
 
 [Natural](/Usage/Characters/groupchats.md#natural-order)アクティベーション順序を使用する場合のグループチャットでキャラクターの応答がトリガーされる確率を決定します。0％から100％の範囲で、50％がデフォルト値です。
 
-### Examples of dialogue
+### 対話の例
 
 キャラクターがどのように話すかを説明します。各例の前に、`<START>`タグを追加する必要があります。例の対話のブロックは、コンテキストに空きスペースがある場合にのみ挿入され、ブロックごとにコンテキストから押し出されます。`<START>`は単なるマーカーであるため、プロンプトには存在しません。Text Completion APIのAdvanced FormattingからのExample Separator、Chat Completion APIの「New Example Chat」ユーティリティプロンプトの内容に置き換えられます。
 

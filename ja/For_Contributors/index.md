@@ -1,6 +1,6 @@
 ---
 order: 30
-label: Development and Automation
+label: 開発と自動化
 icon: command-palette
 expanded: true
 route: /ja/for-contributors/

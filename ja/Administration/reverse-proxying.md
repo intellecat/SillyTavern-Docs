@@ -15,7 +15,7 @@ Termuxのセットアップが混乱していますか? 所有しているすべ
 このガイドは初心者向けでは**ありません**。これは非常に技術的です。
 !!!
 
-## 公正な警告
+## 事前警告
 
 !!!info Windowsユーザー向け
 このガイドはWindowsユーザー向けではありません。このガイドに従うには、Linux VMまたはWSL2を使用することをお勧めします。
@@ -35,7 +35,7 @@ Termuxのセットアップが混乱していますか? 所有しているすべ
 
 ## インストール
 
-### Linux (Bare-Metal SillyTavern)
+### Linux (ベアメタルSillyTavern)
 
 Linuxの場合、[Traefik](https://traefik.io/traefik/)を介してSillyTavernをリバースプロキシします。_NGINX_や_Caddy_などの他のオプションもありますが、このガイドでは、私たち自身が使用しているTraefikを使用します。
 
@@ -237,7 +237,7 @@ Linuxの場合、[Traefik](https://traefik.io/traefik/)を介してSillyTavern�
     !!!
 23. お楽しみください! :D
 
-### Linux (Docker SillyTavern)
+### Linux (Docker版SillyTavern)
 
 !!!warning 注意
 私たちはDocker上ではなく、bare-metal上でSillyTavernを実行していることに注意してください。これは、STで使用する傾向がある他のDockerコンテナでDockerで行うであろうことの大まかなアイデアです。
@@ -356,6 +356,6 @@ Linuxの場合、[Traefik](https://traefik.io/traefik/)を介してSillyTavern�
     !!!
 15. お楽しみください! :D
 
-## CloudflareのDNSの更新
+## Cloudflare DNSの更新
 
 [**DDClient**](https://ddclient.net/)を使用すると、ISPがパブリックIPを変更した場合に、パブリックIPをCloudflareに同期できます。これにより、何も起こらなかったかのようにSTインスタンスに引き続きアクセスできます。

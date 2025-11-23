@@ -3,7 +3,7 @@ order: 10
 label: Windows
 route: /installation/windows/
 ---
-# Windows Installation
+# Windowsインストール
 
 !!!warning
 Windowsが管理するフォルダ（Program Files、System32など）にはインストールしないでください。
@@ -13,7 +13,7 @@ Windowsが管理するフォルダ（Program Files、System32など）にはイ�
 WINDOWS 7へのインストールは不可能です。NODEJS 18.16が実行できないためです
 !!!
 
-## Installing via Git
+## Gitを使用したインストール
 
 1. [NodeJS](https://nodejs.org/en)をインストールします（最新のLTSバージョンを推奨）
 2. [Git for Windows](https://gitforwindows.org/)をインストールします
@@ -28,7 +28,7 @@ WINDOWS 7へのインストールは不可能です。NODEJS 18.16が実行で�
 7. すべてがcloneされたら、`Start.bat`をダブルクリックして、NodeJSが必要なものをインストールします。
 8. その後、サーバーが起動し、SillyTavernがブラウザに表示されます。
 
-## Installing via SillyTavern Launcher
+## SillyTavern Launcherを使用したインストール
 
 1.  キーボードで**`WINDOWS + R`**を押してRun dialogボックスを開きます。次に、以下のコマンドを実行してgitをインストールします:
     ```shell
@@ -39,7 +39,7 @@ WINDOWS 7へのインストールは不可能です。NODEJS 18.16が実行で�
     git clone https://github.com/SillyTavern/SillyTavern-Launcher.git && cd SillyTavern-Launcher && start installer.bat
     ```
 
-## Installing via GitHub Desktop
+## GitHub Desktopを使用したインストール
 （これにより、GitHub Desktopでのみgitが使用できるようになります。コマンドラインでも`git`を使用したい場合は、[Git for Windows](https://gitforwindows.org/)もインストールする必要があります）
 
 1. [NodeJS](https://nodejs.org/en)をインストールします（最新のLTSバージョンを推奨）

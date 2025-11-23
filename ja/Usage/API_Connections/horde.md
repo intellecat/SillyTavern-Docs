@@ -26,7 +26,7 @@ Hordeを使用する場合、名前、メールアドレスなどの個人情報
 
 ![Horde Worker Info Popup](/static/horde-worker.png)
 
-## Setup
+## セットアップ
 
 - SillyTavernは追加のセットアップなしで、そのままHordeに接続できます。
 - ST API PanelのAPI Dropdown Selectorから「AI Horde」を選択します。

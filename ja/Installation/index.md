@@ -5,7 +5,7 @@ expanded: true
 route: /installation/
 ---
 
-# Installation
+# インストール
 
 お使いのプラットフォームに応じたインストールガイドに従ってください:
 
@@ -14,14 +14,14 @@ route: /installation/
 * [Android](/Installation/Android.md)
 * [Docker](/Installation/Docker.md)
 
-## Branches
+## ブランチ
 
 SillyTavernは、すべてのユーザーにスムーズな体験を提供するため、2ブランチシステムを使用して開発されています。
 
 * `release` -🌟 **ほとんどのユーザーに推奨。** これは最も安定した推奨ブランチで、メジャーリリースがプッシュされたときのみ更新されます。大多数のユーザーに適しています。通常、月に1回更新されます。
 * `staging` - ⚠️ **一般的な使用には推奨されません。** このブランチには最新の機能がありますが、いつでも動作しなくなる可能性があるため注意が必要です。パワーユーザーや熱心なユーザー向けです。1日に数回更新されます。
 
-## Global / Standalone mode
+## Global / Standaloneモード
 
 SillyTavernの実行モードには、設定とデータのパスの扱い方が異なる2つのモードがあります。
 
@@ -32,7 +32,7 @@ SillyTavernの実行モードには、設定とデータのパスの扱い方が
 [公式npmパッケージ](https://www.npmjs.com/package/sillytavern)を使用してインストールした場合（例：`npx sillytavern@latest`）、デフォルトでglobalモードで実行されます。
 !!!
 
-### Data paths
+### データパス
 
 **Standalone mode**のパスは、SillyTavernインストールディレクトリからの相対パスです:
 
@@ -45,7 +45,7 @@ SillyTavernの実行モードには、設定とデータのパスの扱い方が
 * **Windows**: `%APPDATA%\SillyTavern\config.yaml` および`%APPDATA%\SillyTavern\data\`
 * **MacOS**: `~/Library/Application Support/SillyTavern/config.yaml` および`~/Library/Application Support/SillyTavern/data/`
 
-### How to run in global mode
+### Globalモードで実行する方法
 
 !!!warning
 globalモードで実行する場合、`dataRoot`と`configPath`は[CLI引数](../Administration/config-yaml.md#command-line-arguments)または[config.yaml](../Administration/config-yaml.md)で上書きできません。

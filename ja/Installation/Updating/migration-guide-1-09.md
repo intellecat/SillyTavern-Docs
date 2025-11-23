@@ -3,9 +3,9 @@ order: 109
 route: /installation/updating/migration-guide-1-09/
 ---
 
-# 1.9.0 Migration Guide
+# 1.9.0 マイグレーションガイド
 
-## How to migrate to a new branch if I use main/dev?
+## main/devを使用している場合、新しいブランチに移行する方法は？
 
 _**新規インストールを行うことをお勧めします。**_ ただし、既存のSillyTavernのコピーを使用したい場合は、以下の手順に従ってください。
 
@@ -43,6 +43,6 @@ git checkout -t st/release
 
 その後、ステップ5から続行します。
 
-### ZIP installs
+### ZIPインストール
 
 あなたには何も変わりません。通常どおりにブランチ/release ZIPをダウンロードするだけです。

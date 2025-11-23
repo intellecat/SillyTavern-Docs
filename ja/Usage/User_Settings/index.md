@@ -22,7 +22,7 @@ Doki Doki Literature Clubなどの有名なVNゲームのような、スプラ�
 :::
 
 
-## General Settings
+## 一般設定
 
 これらは、SillyTavernの全体的な経験に影響を与える中核設定です。
 

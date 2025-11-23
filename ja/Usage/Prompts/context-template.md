@@ -4,7 +4,7 @@ templating: false
 route: /usage/prompts/context-template/
 ---
 
-# Context Template
+# コンテキストテンプレート
 
 !!! Applies to: Text Completion APIs
 Chat Completion APIs で同等の設定については、[Prompt Manager](prompt-manager.md) を使用してください。

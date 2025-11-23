@@ -1,11 +1,11 @@
 ---
-label: Single Sign-On (SSO)
+label: シングルサインオン (SSO)
 icon: key
 order: -20
 route: /administration/sso/
 ---
 
-# Single Sign-On (SSO)
+# シングルサインオン (SSO)
 
 SSOを使用すると、ユーザーを作成し、保護したいサイトに表示されるログインポータルを使用して、さまざまなページを保護できます。セットアップは複雑ですが、SSOを学び、インターネット上でSTインスタンスをより安全に保護する良い方法です。
 
@@ -15,7 +15,7 @@ SSOはHTTP Basic Authenticationよりも優れたセキュリティと機能を�
 
 [**Authelia**](https://www.authelia.com/)と[**Authentik**](https://goauthentik.io/)は、SillyTavernで使用できるオープンソースのSSOプロバイダーです。
 
-## SSOでサインイン
+## SSOを使用したサインイン
 
 SSO提供のユーザー名がSillyTavernユーザーアカウントのユーザーハンドルと**正確に**一致する場合、SSOによってそのユーザーとしてSillyTavernにサインインできます。この機能を有効にするには、[config.yaml](/Administration/config-yaml.md#sso-auto-login)ファイルに次のオプションのいずれかを変更します:
 

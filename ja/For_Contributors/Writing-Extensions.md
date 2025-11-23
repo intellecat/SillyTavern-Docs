@@ -5,7 +5,7 @@ templating: false
 route: /for-contributors/writing-extensions/
 ---
 
-# UI Extensions
+# UI拡張機能
 
 UI extensionsは、SillyTavernのイベントとAPIにフックすることで機能を拡張します。これらはブラウザコンテキストで実行され、DOM、JavaScript API、SillyTavernコンテキストへの事実上無制限のアクセス権を持ちます。Extensionsは、UIの変更、内部APIの呼び出し、チャットデータとの対話が可能です。このガイドでは、独自のextensionsの作成方法を説明します(JavaScriptの知識が必要です)。
 
@@ -385,7 +385,7 @@ manifestにi18nオブジェクトを追加し、サポートされているロ�
 }
 ```
 
-## Slash commandsの登録(新しい方法)
+## スラッシュコマンドの登録(新しい方法)
 
 後方互換性のために`registerSlashCommand`は引き続き存在しますが、新しいslash commandsは`SlashCommandParser.addCommandObject()`を通じて登録して、コマンドとそのパラメータに関する拡張詳細をパーサー(ひいてはオートコンプリートとコマンドヘルプ)に提供する必要があります。
 
@@ -490,7 +490,7 @@ const eventType = 'myCustomEvent';
 await eventSource.emit(eventType, { data: 'custom event data' });
 ```
 
-## Prompt Interceptors
+## プロンプトインターセプター
 
 Prompt Interceptorsは、テキスト生成リクエストが行われる前に、チャットデータの変更、インジェクションの追加、または生成の中止などのアクティビティをextensionが実行する方法を提供します。
 
@@ -554,7 +554,7 @@ const result = await generateQuietPrompt({
 });
 ```
 
-### Raw generation
+### Raw生成
 
 `generateRaw()`関数は、チャットコンテキストなしでテキストを生成するために使用されます。プロンプト構築プロセスを完全に制御したい場合に役立ちます。
 

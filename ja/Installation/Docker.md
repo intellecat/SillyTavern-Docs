@@ -4,17 +4,17 @@ label: Docker
 route: /installation/docker/
 ---
 
-# Docker Installation
+# Dockerインストール
 
 !!!
 この手順は、Dockerがインストールされており、コンテナのインストールのためにコマンドラインにアクセスでき、その一般的な操作に精通していることを前提としています。
 !!!
 
-## Using the GitHub Container Registry
+## GitHub Container Registryの使用
 
 ビルド済みイメージを使用することが、DockerでSillyTavernを始める最速かつ最も簡単な方法です。GitHub Container Registryから最新のイメージをpullできます。
 
-### Docker Compose (recommended)
+### Docker Compose (推奨)
 
 [GitHubリポジトリ](https://github.com/SillyTavern/SillyTavern/blob/release/docker/docker-compose.yml)から`docker-compose.yml`ファイルをダウンロードし、ファイルが配置されているディレクトリで次のコマンドを実行します。これにより、GitHub Container Registryから最新のreleaseイメージがpullされ、コンテナが起動し、必要なボリュームが自動的に作成されます。
 
@@ -28,28 +28,28 @@ docker compose up
 - 安定版releaseの代わりに開発ブランチを使用したい場合は、`image`タグを`staging`に変更します。
 - 環境変数を使用してサーバー設定を調整したい場合は、[Environment Variables](/Administration/config-yaml.md#environment-variables)ページを確認してください。
 
-### Docker CLI (advanced)
+### Docker CLI (上級者向け)
 
 SillyTavernを機能させるには、2つの必須ディレクトリマッピングと1つのポートマッピングが必要です。コマンドで、次の場所で選択したものを置き換えます:
 
-#### Container Variables
+#### コンテナ変数
 
-##### Volume Mappings
+##### ボリュームマッピング
 
 - `CONFIG_PATH` - ホストマシン上でSillyTavern設定ファイルが保存されるディレクトリ
 - `DATA_PATH` - ホストマシン上でSillyTavernユーザーデータ（キャラクターを含む）が保存されるディレクトリ
 - `PLUGINS_PATH` - （オプション）ホストマシン上でSillyTavernサーバープラグインが保存されるディレクトリ
 - `EXTENSIONS_PATH` - （オプション）ホストマシン上でグローバルUI extensionsが保存されるディレクトリ
 
-##### Port Mappings
+##### ポートマッピング
 
 - `PUBLIC_PORT` - トラフィックを公開するポート。これは、仮想マシンコンテナの外部からインスタンスにアクセスするため必須です。セキュリティのための別のサービスを実装せずに、これをインターネットに公開しないでください。
 
-##### Additional Settings
+##### 追加設定
 
 - `SILLYTAVERN_VERSION` - [GitHub Packagesページ](https://github.com/SillyTavern/SillyTavern/pkgs/container/sillytavern)で、タグ付きイメージバージョンのリストを確認できます。イメージタグ"latest"は、現在のreleaseで最新の状態を保ちます。それぞれのブランチのnightlyイメージを指す"staging"も利用できます。
 
-#### Running the container
+#### コンテナの実行
 
 1. コマンドラインを開きます
 2. 設定ファイルとデータファイルを保存したいフォルダで、次のコマンドを実行します:
@@ -76,7 +76,7 @@ docker run \
 デフォルトでは、コンテナはフォアグラウンドで実行されます。バックグラウンドで実行したい場合は、`docker run`コマンドに`-d`フラグを追加してください。
 !!!
 
-## Building the Docker Image
+## Dockerイメージのビルド
 
 !!!info
 次のセクションでは、非root（非管理者）フォルダにSillyTavernをインストールしたことを前提としています。rootフォルダにSillyTavernをインストールした場合、これらのコマンドの一部を管理者権限［`sudo`、`doas`、Command Prompt (Administrator)］で実行する必要がある場合があります。
@@ -197,7 +197,7 @@ MacにGitをインストールするには、[Homebrew](https://brew.sh/)もイ�
 
 5.  新しいブラウザを開いて[http://localhost:8000](http://localhost:8000)にアクセスします。数秒でSillyTavernが読み込まれるはずです。
 
-## Configuring SillyTavern
+## SillyTavernの設定
 
 SillyTavernの設定ファイル（config.yaml）は、`config`フォルダ内にあります。configファイルの設定は、Dockerなしで設定する場合と変わりありませんが、変更を保存するには、管理者権限で`nano`またはコードエディタを実行する必要があります。
 
@@ -210,11 +210,11 @@ docker compose restart sillytavern
 
 !!!
 
-## Locating User Data
+## ユーザーデータの場所
 
 SillyTavernのdataフォルダは、`data`フォルダ内にあります。ファイルのバックアップは簡単に行えますが、復元またはコンテンツの追加には、管理者権限で行う必要がある場合があります。
 
-## Running Server Plugins
+## サーバープラグインの実行
 
 [HoYoWiki-Scraper-TS](https://github.com/Bronya-Rand/HoYoWiki-Scraper-TS)や[SillyTavern-Fandom-Scraper](https://github.com/SillyTavern/SillyTavern-Fandom-Scraper)のようなpluginsをDocker内で実行することは、Dockerなしでシステムで実行する場合と変わりありませんが、そのためにはDocker Composeスクリプトにわずかな変更を加える必要があります。
 
@@ -245,9 +245,9 @@ SillyTavernのdataフォルダは、`data`フォルダ内にあります。フ�
     docker compose restart sillytavern
     ```
 
-## Common issues with Docker
+## Dockerの一般的な問題
 
-### SELinux Permission Issues with Mounted Volumes
+### マウントされたボリュームでのSELinux権限の問題
 
 SELinuxが有効なLinuxディストリビューション（RHEL、CentOS、Fedoraなど）では、セキュリティポリシーのため、Dockerコンテナがマウントされたボリュームにアクセスできない場合があります。これにより、コンテナがマウントされたディレクトリへの読み取りまたは書き込みを試みるときに、permission deniedエラーが発生する可能性があります。
 
@@ -267,7 +267,7 @@ volumes:
   - ./data:/home/node/app/data:Z
 ```
 
-### Forbidden by Whitelist
+### ホワイトリストによる禁止
 
 !!!
 [whitelistDockerHosts](/Administration/config-yaml.md#ip-whitelisting)設定値が`true`に設定されている場合、Docker gateway IPsは自動的にホワイトリストに登録されるはずです。

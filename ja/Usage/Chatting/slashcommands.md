@@ -3,7 +3,7 @@ icon: rel-file-path
 route: /usage/core-concepts/slashcommands/
 ---
 
-# Slash commands
+# スラッシュコマンド
 
 !!!warning
 **これは網羅的なリストではなく、めったに更新されません。**

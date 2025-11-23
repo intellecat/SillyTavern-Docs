@@ -4,7 +4,7 @@ templating: false
 route: /usage/prompts/prompt-manager/
 ---
 
-# Prompt Manager
+# プロンプトマネージャー
 
 Prompt Manager は Chat Completion APIs の [プロンプト構築](index.md) 戦略を より制御できるシステムです。
 
@@ -152,7 +152,7 @@ Chat Completion モデルが推論を使用する場合、これらの設定は�
 
 [Reasoning Effort](/Usage/Prompts/reasoning.md#reasoning-effort) を参照してください。
 
-## "Prompts"
+## "プロンプト"
 
 Prompt Manager は Chat Completion モデルに送信されるプロンプトのバックボーンを形成します。これは何が送信され、その *順序* を制御します。
 
@@ -160,7 +160,7 @@ Prompt Manager は Chat Completion モデルに送信されるプロンプトの
 
 現在の Chat Completion プリセットが含むすべての（デフォルト以外の）プロンプトのドロップダウン リストが含まれます。これらのプロンプトのいずれかが発信メッセージに追加されるには、ドロップダウン リストから選択してから、**Insert prompt** ボタンを押してプロンプト マネージャーに追加する必要があります。このドロップダウン リストに追加するために新しいプロンプトを作成するには、**New prompt** ボタンを押します。新しいプロンプトが書き込まれて保存されると、ドロップダウンに追加され、その後、挿入できます。
 
-### Prompts List
+### プロンプト List
 
 これは、Chat Completion モデルに送信される可能性がある選択されたプロンプトをリストする drag-and-drop インターフェイスです。**top** に近いプロンプトが最初に送信されます。リストの**下部**は最後に送信されます（通常、これはあなたの **Post-History Instructions** です）。
 
@@ -168,7 +168,7 @@ Prompt Manager は Chat Completion モデルに送信されるプロンプトの
 デフォルト プロンプトは選択されたプロンプトのリストから削除できません。これには Main Prompt、World Info (before/after)、Persona Description、Character Description、Character Personality、Scenario、Enhance Definitions、Auxiliary Prompt、Chat Examples、Chat History、および Post-History Instructions が含まれます。これらが必要ない場合は、**OFF** にトグルできますが、全体を削除または削除することはできません。
 !!!
 
-## Editing a Prompt
+## プロンプトの編集
 
 プロンプットの **pencil ボタン** をクリックすると、**Edit インターフェイス** に移動します。ここでプロンプトを直接編集できます。
 
@@ -216,6 +216,6 @@ Position が **In-Chat** に設定されている場合、これはプロンプ�
 
 Position が **In-Chat** に設定されている場合、これはプロンプトがチャット履歴内で送信される順序を定義します。数字が低いほど、その送信時期が早くなります。
 
-## Building Your Prompt: Tips and Tricks
+## プロンプトの構築：ヒントとコツ
 
 効果的なプロンプトを書く方法の詳細については、SillyTavern ドキュメントの [プロンプト構築](index.md) セクションにアクセスしてください。情報は大部分が Chat Completion プリセットに適用できます。

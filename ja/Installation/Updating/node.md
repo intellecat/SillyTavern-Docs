@@ -3,13 +3,13 @@ order: -50
 route: /installation/updating/node/
 ---
 
-# How to update Node.js
+# Node.jsの更新方法
 
 セキュリティとパフォーマンスの理由から、Node.jsランタイムを最新の状態に保つことが重要です。以下は、オペレーティングシステムに応じてNode.jsを更新する手順です。
 
 最新のLong Term Support (LTS)バージョンを使用することをお勧めします。これは[Node.js公式ウェブサイト](https://nodejs.org/en/about/previous-releases)で確認できます。
 
-## How to check your current Node.js version
+## 現在のNode.jsバージョンの確認方法
 
 1. terminalまたはコマンドプロンプトを開きます。
 2. 次のコマンドを入力してEnterを押します:
@@ -39,7 +39,7 @@ nvm install lts
 nvm use lts
 ```
 
-## Windows - Regular Installation
+## Windows - 通常インストール
 
 1. Node.jsの[downloadページ](https://nodejs.org/en/download/)にアクセスします。
 2. LTSバージョンのWindows Installerをダウンロードします。
@@ -72,7 +72,7 @@ pkg upgrade nodejs-lts
 
 更新プロセス中に表示される可能性のあるプロンプトを、仮想キーボードで`Y`を押して受け入れることを忘れないでください。
 
-## macOS - Regular Installation
+## macOS - 通常インストール
 
 1. Node.jsの[downloadページ](https://nodejs.org/en/download/)にアクセスします。
 2. LTSバージョンのmacOS Installerをダウンロードします。
@@ -87,7 +87,7 @@ brew update
 brew upgrade node
 ```
 
-## Linux - Package Manager
+## Linux - パッケージマネージャー
 
 LinuxでNode.jsを更新する方法は、ディストリビューションによって異なります。
 

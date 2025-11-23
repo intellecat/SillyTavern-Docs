@@ -5,7 +5,7 @@ templating: false
 route: /usage/prompts/
 ---
 
-# Prompts
+# プロンプト
 
 AI にメッセージを送信すると、入力したテキストが他のテキストと結合され、AI に送信される単一のリクエストが形成されます。この統合テキストは「プロンプト」またはときには「リクエスト」または「コンテキスト」と呼ばれます。
 
@@ -35,7 +35,7 @@ AI に送信されたプロンプトを読むことは、AI に何が指示さ�
 * SillyTavern を実行しているターミナル ウィンドウのログを確認
 * ブラウザの開発者ツールのコンソールを確認
 
-## Changing how the Prompt is Built
+## プロンプトの構築方法の変更
 
 プロンプトのすべての部分を AI に適切な方法で提示することは、最高の応答を得るために重要です。プロンプトの構築方法を制御できます。
 
@@ -172,7 +172,7 @@ Post-History Instructions は [Prompt Manager](prompt-manager.md) のデフォ�
 
 +++
 
-## Adding to the Prompt (World Info)
+## プロンプトへの追加 (World Info)
 
 [World Info](/Usage/worldinfo.md) 機能を使用して、プロンプト内の任意の場所に追加情報を挿入できます。情報をいつ挿入するかについての条件を設定することで、AI に特定の詳細を含めるよう案内し、応答方法を変更したり、新しい要素を会話に追加したりできます。
 

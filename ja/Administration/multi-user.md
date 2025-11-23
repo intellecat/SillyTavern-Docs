@@ -1,5 +1,5 @@
 ---
-title: Multi-user mode
+title: マルチユーザーモード
 icon: people
 order: -10
 route: /administration/multi-user/
@@ -29,7 +29,7 @@ enableDiscreetLogin: true
 ユーザーリストから`default-user`アカウントを_削除_することはできません。これは、`enableUserAccounts`が`false`に設定されている場合にユーザーデータの提供に使用されるためです。ただし、リストから非表示にしてログインを禁止するために_無効化_することはできます。
 !!!
 
-## User handles
+## ユーザーハンドル
 
 handleはユーザーの一意の識別子です。小文字、数字、ダッシュのみで構成できます。
 
@@ -51,13 +51,13 @@ handleはユーザーの一意の識別子です。小文字、数字、ダッ�
 
 すべてのユーザーアカウントは最初に通常ユーザーとして作成され、必要に応じて管理者に昇格できます。
 
-### ログイン画面
+## ログイン画面
 
 そこで使用するユーザーアカウントを選択できます。`enableDiscreetLogin`設定値に応じて2つのスタイルがあります。
 
 アクティブなユーザーが1人だけで、パスワード保護されていない場合、ログイン画面はバイパスされ、表示されません。
 
-### ユーザープロファイル
+## ユーザープロファイル
 
 トップメニューバーの「User settings」パネルの下にある「Account」ボタンを使用して、アカウント自己管理メニューにアクセスできます。
 
@@ -78,7 +78,7 @@ Usage: node recover.js [account] (password)
 Example: node recover.js admin SecurePassword
 ```
 
-## Content scaffolding
+## コンテンツスキャフォールディング
 
 ユーザーにカスタムコンテンツを追加するには、content scaffolding機能を使用できます。この機能により、サーバーの起動時に各ユーザーのデータディレクトリにコピーされるファイルのセットを定義できます。
 
@@ -90,7 +90,7 @@ Scaffoldされたファイルはdefaultファイルの前にコピーされま�
 すべてのユーザーデータディレクトリには、scaffoldおよびdefaultディレクトリからコピーされたすべてのファイルをリストする`content.log`ファイルがあります。次回の再起動時にサーバーにコンテンツを再度同期させるには、このファイルを削除します。
 !!!
 
-### 認識されるコンテンツタイプ
+## 認識されるコンテンツタイプ
 
 | Type                          | Value                |
 |-------------------------------|----------------------|
@@ -113,7 +113,7 @@ Scaffoldされたファイルはdefaultファイルの前にコピーされま�
 | System Prompt template        | `'sysprompt'`        |
 | Reasoning Formatting template | `'reasoning'`        |
 
-### 例 (`/default/scaffold/index.json`)
+## 例 (`/default/scaffold/index.json`)
 
 ```json
 [

@@ -4,7 +4,7 @@ icon: server
 route: /for-contributors/server-plugins/
 ---
 
-# Server Plugins
+# サーバープラグイン
 
 これらのプラグインは、新しいAPIエンドポイントの作成や、ブラウザ環境では利用できないNode.JSパッケージの使用など、UI extensionsだけでは実現不可能な機能を追加できます。
 

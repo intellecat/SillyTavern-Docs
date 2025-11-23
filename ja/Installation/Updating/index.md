@@ -1,12 +1,12 @@
 ---
-label: Updating
+label: 更新
 icon: repo-pull
 order: -1
 expanded: false
 route: /installation/updating/
 ---
 
-# How to Update SillyTavern
+# SillyTavernの更新方法
 
 以下から自分のOSを見つけて、STを更新する手順に従ってください。
 
@@ -33,7 +33,7 @@ gitを使用してインストールしたはずなので、SillyTavernディレ
 
 それが失敗した場合は、ここに戻って続きを読んでください。
 
-### Method 1 - GIT
+### 方法1 - GIT
 
 常にユーザーには'git'を使用してインストールすることを推奨しています。その理由は次のとおりです:
 
@@ -42,7 +42,7 @@ gitを使用してインストールしたはずなので、SillyTavernディレ
 
 更新は自動的かつ安全に適用されます。
 
-#### "Help I originally installed via Zip and now want to convert to Git install"
+#### 「ZipでインストールしましたがGitインストールに変換したい」
 
 賢明な選択です。
 
@@ -52,7 +52,7 @@ gitを使用してインストールしたはずなので、SillyTavernディレ
 
 gitを使用して別のフォルダに新しいSillyTavernをインストールしたら、このページに戻って以下の'Zip Update'手順の**ステップ4**に進んでください。
 
-### Method 2 - ZIP
+### 方法2 - ZIP
 
 zipでインストールすることに固執する場合は、更新の面倒なプロセスは次のとおりです:
 
@@ -64,11 +64,11 @@ zipでインストールすることに固執する場合は、更新の面倒�
 
     (*) '必要に応じて' = "それらのフォルダに関連するカスタムコンテンツを作成した場合"。
 
-    #### Updating >=1.12.0
+    #### 1.12.0以降への更新
 
     `/data`ディレクトリと`config.yaml`ファイルを、あるインストールから別のインストールにコピーします。保持したいサーバー全体のextensions（"All users"用にインストールされたもの）がある場合は、`/public/scripts/extensions/third-party`ディレクトリもコピーします。
 
-    #### Updating from <1.12.0 to >1.12.0
+    #### 1.12.0未満から1.12.0以降への更新
 
     1.12.0には自動移行手順が含まれています。以下の手順は、移行が中断されたかエラーが発生した場合*のみ*必要です。
 
@@ -108,9 +108,9 @@ zipでインストールすることに固執する場合は、更新の面倒�
 8. OSに適した方法でSillyTavernを再度起動し、正しく行われたことを祈ってください。
 9. すべてが表示されたら、古いSTフォルダを安全に削除できます。
 
-### Common Update Problems
+### 一般的な更新の問題
 
-#### "There are unresolved conflicts in the working directory."
+#### 「作業ディレクトリに未解決の競合があります」
 
 これは、リモートリポジトリで変更されたデフォルトファイル（設定プリセットなど）を変更したことを意味します。
 
@@ -122,7 +122,7 @@ git reset --hard
 git pull --rebase --autostash
 ```
 
-#### File changes prevent git pull
+#### ファイルの変更がgit pullを妨げる
 
 - SillyTavernシステムファイルを変更すると、`git pull`が機能しない場合があります。
 - 更新で重要なファイルを変更する必要がある場合があり、同じ問題が発生する可能性があります。
@@ -130,7 +130,7 @@ git pull --rebase --autostash
 - この場合、ファイルを別のフォルダに移動（またはファイルを削除）してから、`git pull`を実行できます。
 - 別の解決策は、`git pull --rebase --autostash`を使用することです
 
-#### Error: Cannot find module "***" when starting the server
+#### エラー：サーバー起動時に「モジュール "***" が見つかりません」
 
 - これは、SillyTavernが新しいnpmパッケージ要件を追加したことを意味します。
 - SillyTavernディレクトリで`npm install`を実行してこれを修正します。提供されているStart.batおよびstart.shスクリプトは、これを自動的に実行します。
@@ -162,11 +162,11 @@ npm install
 すべてがスムーズに進めば、dockerはイメージの再ダウンロードを開始し、すぐに稼働するはずです。問題が発生した場合は、このガイドの次のセクションを参照してください。
 
 ### Common Update Problems
-#### I use Docker and all my data is gone after the update!
+#### Dockerを使用していて、更新後にすべてのデータが消えました！
 
 1.12.0で導入された新しいデータモデルのボリュームマッピングを更新するには、[DockerコンテナのMigrationガイド](/Installation/Updating/ST-1.12.0-Migration-Guide.md#containerized-docker-installs)に従う必要があります
 
-#### Permission denied when running docker commands
+#### dockerコマンド実行時に権限が拒否されました
 
 これはLinuxの問題であり、権限が適切に設定されていないことを意味します。これを回避する方法は2つあります:
 
