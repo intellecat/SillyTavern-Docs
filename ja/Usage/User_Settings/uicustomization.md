@@ -3,11 +3,11 @@ order: 20
 route: /usage/core-concepts/uicustomization/
 ---
 
-# UIカスタマイズ
+# UIカスタマイズ (UI Customization)
 
-## UI Theme
+## UIテーマ (UI Theme)
 
-### Theme Management
+### テーマ管理 (Theme Management)
 
 テーマファイルでは、UIのカスタマイズを保存、共有、再利用できます。さまざまな気分や目的のための複数のテーマを保持し、すぐにそれらを切り替えることができます。
 
@@ -18,15 +18,15 @@ route: /usage/core-concepts/uicustomization/
 
 このセクションのすべての設定は、現在のテーマに保存されます。テーマを切り替えると、設定は新しいテーマの設定に置き換えられます。
 
-### Display Settings
+### 表示設定 (Display Settings)
 
 これらの表示オプションは、チャットインターフェイスでキャラクターとメッセージがどのように提示されるかに影響を与えます。
 
-#### Avatar Style
+#### アバタースタイル (Avatar Style)
 
 円、正方形、長方形、または丸い正方形から選択してください。この設定は、ユーザーAIアバターの両方に適用されます。
 
-#### Chat Style
+#### チャットスタイル (Chat Style)
 
 | Style        | Description                                                                                                                                                    | [Slash command](/For_Contributors/st-script.md#ui-styling) |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
@@ -34,7 +34,7 @@ route: /usage/core-concepts/uicustomization/
 | **Bubbles**  | 異なるメッセージのための「インスタントメッセンジャー」スタイルで、喜びのある丸角と微妙な3D効果。                                          | `/bubble`<br>`/bubbles`                                    |
 | **Document** | テキストに焦点を当てたレイアウトで、コンパクトなドキュメント風の外観。過去のメッセージのアバター、タイムスタンプ、メッセージコントロールボタンを非表示にします。 | `/single`<br>`/story`                                      |
 
-### Notifications
+### 通知 (Notifications)
 
 通知ポップアップ（トーストメッセージ）がスクリーンに表示される位置を設定します。
 
@@ -45,7 +45,7 @@ route: /usage/core-concepts/uicustomization/
 * 下中央
 * 右下
 
-### Theme Colors
+### テーマカラー (Theme Colors)
 
 UIの要素ごとのカラースキームをカスタマイズして、完璧なテーマを作成してください。色は色ピッカーを使用して選択でき、該当する場合、透明度オプションを含みます。
 
@@ -60,7 +60,7 @@ UIの要素ごとのカラースキームをカスタマイズして、完璧な
 * User Message
 * AI Message
 
-### Layout & Visual Settings
+### レイアウトと視覚設定 (Layout & Visual Settings)
 
 これらのスライダーを使用してインターフェイスの視覚的な提示を微調整してください。
 
@@ -69,7 +69,7 @@ UIの要素ごとのカラースキームをカスタマイズして、完璧な
 * **Blur Strength**: UIパネルぼかしを制御（0-30）
 * **Shadow Width**: テキストシャドウ強度を調整（0-5）
 
-### Theme Toggles
+### テーマ切り替え (Theme Toggles)
 
 これらのスイッチはさまざまなUI機能と動作を制御しています。一部のオプションはより低いエンドのデバイスでパフォーマンスを向上させることができますが、他はチャットインターフェイスに有用な情報または機能を追加できます。
 
@@ -93,7 +93,7 @@ UIの要素ごとのカラースキームをカスタマイズして、完璧な
 * **Tags as Folders**: タグをフォルダとして使用してキャラクターを整理
 * **Click to Edit**: メッセージをクリックしてメッセージエディターをすばやく開く
 
-### Custom CSS
+### カスタムCSS (Custom CSS)
 
 チャットインターフェイスの外観をさらにカスタマイズするためにカスタムCSSスタイルを適用できます。
 
@@ -105,7 +105,7 @@ UIの要素ごとのカラースキームをカスタマイズして、完璧な
 
 ---
 
-## Message Sound
+## メッセージサウンド (Message Sound)
 
 ボットから新しいメッセージを受信したときに再生する独自のカスタムサウンドを、SillyTavernフォルダの次のMP3ファイルを置き換えることで再生できます：
 
@@ -115,7 +115,7 @@ UIの要素ごとのカラースキームをカスタマイズして、完璧な
 
 「[Background Sound Only](index.md#miscellaneous)」オプションが有効になっている場合、SillyTavernウィンドウが**unfocused**の場合のみ、音が再生されます。
 
-## Formulas Rendering
+## 数式レンダリング (Formulas Rendering)
 
 数式のレンダリングを有効にするには、[LaTeX extension](https://github.com/SillyTavern/Extension-LaTeX)を使用してください。拡張機能を取得するには、SillyTavern内の「Download Extensions & Assets」メニューを介してインストールする必要があります。
 

@@ -4,13 +4,13 @@ icon: key-asterisk
 route: /usage/hotkeys/
 ---
 
-# HotKeys
+# ホットキー (HotKeys)
 
 **SillyTavern インスタンスで機能するホットキーの最新リストについては、チャットで `/help hotkeys` スラッシュ コマンドを使用してください。**
 
 **ホットキーはモバイル デバイスで無効になっています。**
 
-## Chat Hotkeys
+## チャットホットキー (Chat Hotkeys)
 
 * Up = チャットの最後のメッセージを編集
 * Ctrl+Up = チャットの最後のユーザー メッセージを編集
@@ -23,7 +23,7 @@ route: /usage/hotkeys/
   * *(メッセージ編集中かつメッセージ編集自動保存が有効な場合)* = 編集ボックスを閉じます。
   * *(AI メッセージが生成またはストリーミング中な場合)* = 生成をすぐに停止します。
 
-## Markdown Hotkeys
+## Markdownホットキー (Markdown Hotkeys)
 
 ユーザー設定タブで有効にする必要があります。chatbar および「M↓」アイコンでマークされたテキスト領域で機能します：
 

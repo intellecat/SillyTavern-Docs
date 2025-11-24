@@ -27,11 +27,11 @@ Author's Noteパネルの上部にあるボックスには、現在のチャッ�
 
 ### 配置オプション
 
-#### After Scenario
+#### シナリオの後 (After Scenario)
 
 これは、Character DefinitionのScenarioセクションの後、コンテキストの上部にAuthor's Noteを配置します。Scenarioが指定されていない場合は、Character Definitionの最後の部分の後、Exampleメッセージの前に配置されます。
 
-#### In-chat
+#### チャット内 (In-chat)
 
 これは、指定された深度でAuthor's Noteをチャット履歴に配置します。
 
@@ -41,7 +41,7 @@ Depth 4 = 最新の3つのチャット履歴メッセージの前に配置され
 
 _Author's Noteがプロンプトの下部に近いほど、次のAI応答への影響が大きくなります。_
 
-### Insertion Frequency
+### 挿入頻度 (Insertion Frequency)
 
 これは、Author's Noteをチャットに含める頻度です。
 
@@ -51,7 +51,7 @@ Frequency 1 = Author's Noteはすべてのユーザー入力プロンプトで�
 
 Frequency 4 = Author's Noteは4回目のユーザー入力プロンプトごとに挿入されます。
 
-### Default Author's Note
+### デフォルトのAuthor's Note
 
 パネルの下部にあるボックスには、各新しいチャットに適用されるDefault Author's Noteが含まれています。
 

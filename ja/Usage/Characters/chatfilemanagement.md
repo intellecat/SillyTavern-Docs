@@ -3,7 +3,7 @@ order: 80
 route: /usage/core-concepts/chatfilemanagement/
 ---
 
-# Chat File Management
+# チャットファイル管理
 
 このページでは、AIチャットファイルを管理する方法について説明します。
 
@@ -11,13 +11,13 @@ route: /usage/core-concepts/chatfilemanagement/
 これらのオプションの一部は、左下のオプションメニューから開く「Manage chat files」ダイアログで利用できます。
 !!!
 
-## Solo Chats vs Group Chats
+## ソロチャットとグループチャット
 
 キャラクターカードを使用する最も簡単な方法は、Soloチャットです。カードをクリックするだけでチャットを開始できます。
 
 いくつかのキャラクターカードができたら、「Create New Chat Group」ボタンを使用して、複数のキャラクターを含む[group chat](/Usage/Characters/groupchats.md)を作成することもできます。その後、キャラクターはお互いとあなたとやり取りします。
 
-## Chat import
+## チャットのインポート
 
 **Character.AIからSillyTavernにチャットをインポートします。**
 
@@ -31,17 +31,17 @@ Character.AIのチャットとボットをインポートするには、CAI Tool
 * KoboldAI Lite: <https://github.com/LostRuins/lite.koboldai.net>
 * RisuAI: <https://github.com/kwaroran/RisuAI>
 
-## Export as .jsonl
+## .jsonl としてエクスポート
 
 「Manage chat files」をクリックすると、チャットファイルリストの各エントリには、そのままインポートできる形式でエクスポートするボタンがあります。これを使用して、すべてのメタデータを含むチャットを共有または移行します（ただし、画像とファイルの添付ファイルは除外されます）。
 
 プライバシーを気にする場合は、エクスポートされたJSONLファイルを検査して、共有したくないものをスクラブしてください。
 
-## Export as .txt
+## .txt としてエクスポート
 
 「Download chat as plain text document」ボタンで、簡素化されたテキストのみのバージョンをエクスポートすることもできます。重要なメタデータが失われるため、再インポートすることはできません！
 
-## Checkpoints
+## チェックポイント
 
 「Checkpoints」は、現在のチャットのクローンです。つまり、特定のポイントまで指定されたチャットからすべてのメッセージをコピーし、ソースへのリンク（チャットファイル名による）を保存します。
 
@@ -54,7 +54,7 @@ Character.AIのチャットとボットをインポートするには、CAI Tool
 
 チェックポイントから親に戻るには、メッセージテキストボックスの左側にあるバーガーメニューボタンを入力し、「Back to parent chat」をクリックします。
 
-## Rename Chat
+## チャット名の変更
 
 デフォルトでは、チャットファイルには開始された日時の名前が付けられます。
 

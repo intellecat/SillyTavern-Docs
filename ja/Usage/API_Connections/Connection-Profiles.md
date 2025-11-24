@@ -4,11 +4,11 @@ route: /usage/core-concepts/connection-profiles/
 order: 100
 ---
 
-# Connection Profiles
+# 接続プロファイル
 
 異なるAPI、モデル、フォーマットテンプレート間を素早く切り替えるためにConnection Profilesを保存できます。これは複数のAPI接続を頻繁に使用する場合や、メニューを行き来することなく異なる構成に切り替える必要がある場合に便利です。
 
-## Connection Profilesへのアクセス
+## 接続プロファイルへのアクセス
 
 この機能はSillyTavern 1.12.6以降でデフォルトで有効になっており、組み込みエクステンションとしてAPI Connectionsメニューから利用できます。*無効化*したい場合は、Extensionsパネルを開き、「Manager extensions」をクリックし、リストからConnection Profilesを見つけて「Enabled」チェックボックスのチェックを外してから「Close」をクリックしてください。
 
@@ -16,7 +16,7 @@ order: 100
 
 Connection Profilesには以下の選択項目が保存されます。
 
-### Common
+### 共通
 
 * [API type, model and the server URL](/Usage/API_Connections/index.md)
 * [Secret Key](/Usage/faq.md#where-are-my-api-keys-stored-why-cant-i-see-them)
@@ -25,19 +25,19 @@ Connection Profilesには以下の選択項目が保存されます。
 * [Custom Stopping Strings](/Usage/Prompts/advancedformatting.md#custom-stopping-strings) (明示的に空にすることも可能)
 * [Reasoning Formatting](/Usage/Prompts/reasoning.md#configuration)
 
-### Text Completion APIs
+### Text Completion API
 
 * [System Prompt and its state](/Usage/Prompts/advancedformatting.md#system-prompt)
 * [Instruct Mode state and template](/Usage/Prompts/instructmode.md)
 * [Context Template](/Usage/Prompts/advancedformatting.md#context-template)
 * [Tokenizer](/Usage/Prompts/advancedformatting.md#tokenizer)
 
-### Chat Completion APIs
+### Chat Completion API
 
 * [Prompt Post-Processing](/Usage/API_Connections/openai.md#prompt-post-processing)
 * Proxy preset
 
-## Connection Profilesの管理
+## 接続プロファイルの管理
 
 !!!info 注意
 Profilesはドロップダウンフィールドの選択のみを保存し、基礎となる設定については何も知りません。つまり、別のプロファイルに切り替えることで未保存の変更が失われます。これを防ぐには、一時的な変更を失いたくない場合、すべてのプリセットとテンプレートを更新してください。
@@ -49,7 +49,7 @@ Profilesはドロップダウンフィールドの選択のみを保存し、基
 * 保存されたプロファイルから変更された選択を復元するには、「Reload」ボタンをクリックします。
 * プロファイルを削除するには、「Delete」ボタンをクリックして削除を確認します。**この操作は元に戻せません。**
 
-## Slash Commands
+## スラッシュコマンド
 
 Connection profilesは以下のslash commandsを使用して管理できます。
 

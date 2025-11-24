@@ -4,17 +4,17 @@ icon: desktop-download
 route: /usage/how-to-use-a-self-hosted-model/
 ---
 
-# Self-hosted AI models
+# セルフホスト型AIモデル
 
 !!!warning
 このガイドは著者の個人的な経験と知識に基づいており、絶対的な真実ではありません。すべての発言は一粒の塩を持って受け取るべきです。訂正や提案がある場合は、Discordで連絡するか、[SillyTavern documentation repository](https://github.com/SillyTavern/SillyTavern-Docs)にPRを送信してください。
 !!!
 
-## イントロ
+## はじめに
 
 このガイドは、PC上で実行されているローカルAI(今後は適切な用語を使用してLLMと呼びます)を使用してSillyTavernをセットアップするのに役立つことを目的としています。技術サポートの質問で人々を煩わせる前に、これを読んでください。
 
-### 最高の大規模言語モデルとは何ですか？
+### 最高の大規模言語モデル(LLM)とは何ですか？
 
 「最高」の標準化されたスケールがないため、この質問に答えることは不可能です。コミュニティには、少なくとも好まれる/定番のモデルについてある程度の意見を形成するのに十分なリソースと議論がRedditとDiscordで行われています。個人差があります。
 
@@ -52,7 +52,7 @@ route: /usage/how-to-use-a-self-hosted-model/
 * .safetensorsファイル(GPTQ、AWQ、HF量子化、または未量子化の可能性があります)の場合、ファイル名にmodel-00001-of-00003.safetensorsのような数字シーケンスが表示される場合、完全なモデルを取得するには、これらの3つの.safetensorsファイルすべて+リポジトリ内の他のすべてのファイル(tokenizer、configsなど)が必要です。
 * 2024年1月時点で、Mixtral MOE 8x7Bは、ローカルLLMの最先端として広く考えられています。実行するための32GBのRAMがある場合は、ぜひ試してください。32GB未満のRAMがある場合は、Kunoichi-DPO-v2-7Bを使用してください。サイズにもかかわらず、最初から素晴らしいです。
 
-### Kunoichi-DPO-v2-7Bのダウンロードのウォークスルー
+### Kunoichi-DPO-v2-7Bのダウンロード手順
 
 このガイドの残りの部分では、Kunoichi-DPO-v2-7Bモデルを使用します。これは、7GB RAMしか必要とせず、その重量をはるかに超えて打つ、Mistral 7Bベースの優れたモデルです。注: KunoichiはAlpacaプロンプティングを使用します。
 

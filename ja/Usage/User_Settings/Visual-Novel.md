@@ -8,19 +8,19 @@ tags:
 route: /usage/user-settings/visual-novel/
 ---
 
-# Visual Novel (VN) Mode
+# ビジュアルノベル (VN) モード (Visual Novel (VN) Mode)
 
 Visual Novel Modeは、SillyTavernの特別なスクリーン構成であり、Doki Doki Literature Club、The Fruits of Grisaia、Fate: Stay/nightなどの有名なVNゲームのようなVNのようなスプライト（またはキャラクターカード画像）を持つキャラクターとチャットすることができます。
 
-## Visual Novel Modeを切り替える
+## Visual Novel Modeを切り替える (Toggling Visual Novel Mode)
 
-### Visual Novel Modeを有効にする
+### Visual Novel Modeを有効にする (Enabling Visual Novel Mode)
 
 Visual Novel ModeはSillyTavernに組み込まれており、*User Settings*（User Settings Icon）に移動し、*No Text Shadows*の下に**Visual Novel Mode**をチェックして切り替えることができます。
 
 ![User Settings](/static/vn/vn-mode-toggle.png)
 
-### Visual Novel Modeを無効にする
+### Visual Novel Modeを無効にする (Disabling Visual Novel Mode)
 
 Visual Novel Modeの無効化は有効化と同じステップです。Visual Novel Modeをトグル解除して、通常のチャット画面に戻ります。
 
@@ -28,7 +28,7 @@ Visual Novel Modeの無効化は有効化と同じステップです。Visual No
 一部の拡張機能（Prome VN Extensionなど）は、独自のVNモードを使用する場合、「Visual Novel Mode」をオンに切り替えられます。*User Settings*メニューからVN Modeを有効/無効にすると、これらの拡張機能にも影響します。
 !!!
 
-## The Visual Novel UI
+## ビジュアルノベルUI (The Visual Novel UI)
 
 ![VN Display](/static/vn/vn-display.png)
 
@@ -36,7 +36,7 @@ Visual Novel Modeでは、UIは、中心に表示されるキャラクタース�
 
 ![Group VN Display](/static/vn/group-vn-display.png)
 
-### VN Mode with MovingUI
+### MovingUI付きVNモード (VN Mode with MovingUI)
 
 !!!info
 MovingUIを切り替えるには、*User Settings*に移動して**MovingUI**をチェックしてください。この機能は**デスクトップのみで**機能することに注意してください。
@@ -50,7 +50,7 @@ MovingUIを切り替えるには、*User Settings*に移動して**MovingUI**を
 
 ![Group VN Display (MovingUI)](/static/vn/vn-group-display-movingui.png)
 
-## キャラクタースプライトの取得
+## キャラクタースプライトの取得 (Acquiring Character Sprites)
 
 キャラクタースプライトを取得するには、Visual NovelまたはDDLC CounterSideなどのVisual Novel機能を使用するゲームなどの既存のキャラクターからスプライトを取得するためにインターネットを閲覧することで行うことができます。希望するキャラクターはスプライトで既にスプライトを持っていない場合、残っているいくつかのオプションがあります。
 
@@ -69,7 +69,7 @@ MovingUIを切り替えるには、*User Settings*に移動して**MovingUI**を
     ![Character Card Group Chat](/static/vn/extensions/prome/card-emulation.png)
     !!!
 
-## VN Extensions
+## VN拡張機能 (VN Extensions)
 
 ### Prome Visual Novel Extension
 

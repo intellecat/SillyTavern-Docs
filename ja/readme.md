@@ -1,5 +1,5 @@
 ---
-route: /ja/
+route: /
 ---
 
 # SillyTavernとは？

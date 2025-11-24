@@ -4,7 +4,7 @@ templating: false
 route: /usage/prompts/prompt-manager/
 ---
 
-# プロンプトマネージャー
+# プロンプトマネージャー (Prompt Manager)
 
 Prompt Manager は Chat Completion APIs の [プロンプト構築](index.md) 戦略を より制御できるシステムです。
 
@@ -18,15 +18,15 @@ Text Completion APIs で同等の設定については、[Advanced Formatting](a
 
 Prompt Manager にアクセスするには、ナビゲーション バーの「AI Response Configuration」ボタンをクリックします。Prompt Manager は [一般的な設定](/Usage/Common-Settings.md) パネルの下にあります。
 
-## Quick Prompts Edit
+## クイックプロンプト編集 (Quick Prompts Edit)
 
 **Main Prompt**、**Auxiliary Prompt**、**Post-History Instructions** などの一般的なプロンプト セクションをすばやく編集するスペースを提供します。これらのプロンプトの詳細については、[プロンプト構築](index.md) ページをご覧ください。
 
-## Utility Prompts
+## ユーティリティプロンプト (Utility Prompts)
 
 これらのプロンプトは Chat Completion モデルに送信され、送信されている情報を理解するのに役立てるか、特定の種類の相互作用中に特定の方法で行動するよう指示します。
 
-### Format Templates
+### フォーマットテンプレート (Format Templates)
 
 !!!tip
 形式テンプレートが設定されていない場合、情報は何もラップされずに送信されます。
@@ -40,13 +40,13 @@ Prompt Manager にアクセスするには、ナビゲーション バーの「A
 - `{{scenario}}` （Scenario 形式テンプレートの場合。
 - `{{personality}}` （Personality 形式テンプレートの場合。
 
-### Group Nudge Prompt Template
+### グループナッジプロンプトテンプレート (Group Nudge Prompt Template)
 
 グループ チャットでのみ使用されます。特定のキャラクターからの返信を強制するためにプロンプトの最後に配置されます。
 
 グループ Nudge 機能を無効にするには、これを空のままにします。
 
-### New Chat, New Group Chat, New Example Chat
+### 新しいチャット、新しいグループチャット、新しい例のチャット (New Chat, New Group Chat, New Example Chat)
 
 これらはチャット履歴の前および各 [Example Dialogue](/Usage/Characters/characterdesign.md#examples-of-dialogue) ブロックの前に送信され、背景情報が終了し、チャット履歴が開始される場所をモデルに通知します。
 
@@ -56,7 +56,7 @@ Prompt Manager にアクセスするには、ナビゲーション バーの「A
 
 この機能を無効にするには、これらを空のままにします。
 
-### Continue Nudge
+### 継続ナッジ (Continue Nudge)
 
 Continue がトリガーされた場合（Continue ボタンが押されたなど）、またはSTScript によってトリガーされた場合に何をするかをモデルに指示するためにプロンプトの最後に送信されます。
 
@@ -64,21 +64,21 @@ Continue がトリガーされた場合（Continue ボタンが押されたな�
 Chat Completion モデルは Text Completion モデルとは異なる方法で Continues を処理し、関係なく常にシームレスな結果が得られるとは限らないことに注意してください。
 !!!
 
-### Replace Empty Message
+### 空のメッセージを置換 (Replace Empty Message)
 
 テキスト ボックスが空で **Send a message** が押されたときに代わりに送信されるフィールドの内容を送信します。
 
-## Character Names Behavior
+## キャラクター名の動作 (Character Names Behavior)
 
 モデルにどのようにメッセージをキャラクターに関連付けるかについて指示するためのさまざまな戦略を提供します。Chat Completion モデルがメッセージがどのキャラクターに属しているかを判断するのに問題がある場合、別の戦略を選択する必要がある場合があります。
 
-## Continue Postfix
+## 継続ポストフィックス (Continue Postfix)
 
 Continue がトリガーされると、モデルによって返される「継続された」メッセージの先頭に、選択された Continue Postfix が前に追加されます。例えば、継続されたテキストの前にスペースを追加できます。
 
-## Additional Settings
+## 追加設定 (Additional Settings)
 
-### Wrap in Quotes
+### 引用符でラップ (Wrap in Quotes)
 
 !!!warning
 非推奨オプション。代わりに [Regex scripts](/extensions/Regex.md) を使用することをお勧めします。
@@ -86,7 +86,7 @@ Continue がトリガーされると、モデルによって返される「継�
 
 送信する前に隠れた引用符で全ユーザー メッセージをラップします。これは、キャラクターが音声を示すために引用符を使用しないセッション用です。セッションが音声を示すために引用符を使用する場合は、これをチェックしていない状態のままにします。
 
-### Continue Prefill
+### 継続プリフィル (Continue Prefill)
 
 !!!warning
 Chat Completion ソースのすべてで機能しない可能性があります。
@@ -94,7 +94,7 @@ Chat Completion ソースのすべてで機能しない可能性があります�
 
 Continue Nudge をシステム メッセージではなくアシスタント ロール メッセージとして送信します。これが有効な場合、Continue Nudge プロンプトは使用されません。
 
-### Squash system messages
+### システムメッセージの統合 (Squash system messages)
 
 !!!warning
 非推奨オプション。代わりに [Prompt Post-Processing](/Usage/API_Connections/openai.md#prompt-post-processing) を使用することをお勧めします。
@@ -102,7 +102,7 @@ Continue Nudge をシステム メッセージではなくアシスタント ロ
 
 連続したシステム メッセージを 1 つの統合メッセージに統合します（Example Dialogue を除く）。
 
-### Enable web search
+### ウェブ検索を有効化 (Enable web search)
 
 !!!
 [Web Search 拡張機能](/extensions/WebSearch.md) と混同しないでください。
@@ -110,11 +110,11 @@ Continue Nudge をシステム メッセージではなくアシスタント ロ
 
 Chat Completion バックエンドによって提供される Web 検索機能を有効にします。プロンプトは通常、モデル プロバイダーによる検索結果で充実させられ、追加のコストが発生する可能性があります。
 
-### Enable function calling
+### 関数呼び出しを有効化 (Enable function calling)
 
 [Function Calling](/For_Contributors/Function-Calling.md) を参照してください
 
-### Send inline images, Send inline videos
+### インライン画像/動画を送信 (Send inline images, Send inline videos)
 
 !!!
 [Image Captioning 拡張機能](/extensions/captioning.md) と混同しないでください。
@@ -122,7 +122,7 @@ Chat Completion バックエンドによって提供される Web 検索機能�
 
 Chat Completion モデルが送信されたイメージとビデオを処理するためのマルチモーダル機能を持っている場合、これはそれをするその機能を切り替えます。プロンプトにメディアを追加するには、「Magic Wand」メニューの **Attach A File** オプションを使用します。
 
-### Request inline images
+### インライン画像をリクエスト (Request inline images)
 
 !!!
 [Image Generation 拡張機能](/extensions/Stable-Diffusion.md) と混同しないでください。
@@ -130,7 +130,7 @@ Chat Completion モデルが送信されたイメージとビデオを処理す�
 
 モデルが画像添付ファイルを返すことを許可します。
 
-### Use system prompt
+### システムプロンプトを使用 (Use system prompt)
 
 !!!
 Google Gemini および Anthropic Claude バックエンドのみでサポートされています。
@@ -140,27 +140,27 @@ Google Gemini および Anthropic Claude バックエンドのみでサポート
 
 最初の非システム ロール（User/Assistant）を持つメッセージまでのすべてのシステム メッセージをマージし、別のシステム指示フィールドとして送信します。
 
-## Reasoning Settings
+## 推論設定 (Reasoning Settings)
 
 Chat Completion モデルが推論を使用する場合、これらの設定はその表示と機能に影響します。
 
-### Request model reasoning
+### モデル推論をリクエスト (Request model reasoning)
 
 [Adding Reasoning: By Backend](/Usage/Prompts/reasoning.md#by-backend) を参照してください。
 
-### Reasoning Effort
+### 推論の努力 (Reasoning Effort)
 
 [Reasoning Effort](/Usage/Prompts/reasoning.md#reasoning-effort) を参照してください。
 
-## "プロンプト"
+## "プロンプト" ("Prompts")
 
 Prompt Manager は Chat Completion モデルに送信されるプロンプトのバックボーンを形成します。これは何が送信され、その *順序* を制御します。
 
-### The 'Prompts' Dropdown
+### 'Prompts' ドロップダウン (The 'Prompts' Dropdown)
 
 現在の Chat Completion プリセットが含むすべての（デフォルト以外の）プロンプトのドロップダウン リストが含まれます。これらのプロンプトのいずれかが発信メッセージに追加されるには、ドロップダウン リストから選択してから、**Insert prompt** ボタンを押してプロンプト マネージャーに追加する必要があります。このドロップダウン リストに追加するために新しいプロンプトを作成するには、**New prompt** ボタンを押します。新しいプロンプトが書き込まれて保存されると、ドロップダウンに追加され、その後、挿入できます。
 
-### プロンプト List
+### プロンプトリスト (Prompt List)
 
 これは、Chat Completion モデルに送信される可能性がある選択されたプロンプトをリストする drag-and-drop インターフェイスです。**top** に近いプロンプトが最初に送信されます。リストの**下部**は最後に送信されます（通常、これはあなたの **Post-History Instructions** です）。
 
@@ -168,7 +168,7 @@ Prompt Manager は Chat Completion モデルに送信されるプロンプトの
 デフォルト プロンプトは選択されたプロンプトのリストから削除できません。これには Main Prompt、World Info (before/after)、Persona Description、Character Description、Character Personality、Scenario、Enhance Definitions、Auxiliary Prompt、Chat Examples、Chat History、および Post-History Instructions が含まれます。これらが必要ない場合は、**OFF** にトグルできますが、全体を削除または削除することはできません。
 !!!
 
-## プロンプトの編集
+## プロンプトの編集 (Editing Prompts)
 
 プロンプットの **pencil ボタン** をクリックすると、**Edit インターフェイス** に移動します。ここでプロンプトを直接編集できます。
 
@@ -176,15 +176,15 @@ Prompt Manager は Chat Completion モデルに送信されるプロンプトの
 これらのプロンプトへの変更を Chat Completion プリセットに永続的に保存するには、**Edit インターフェイス** の右下の **Save** ボタンをクリックし、**AI Response Configuration** セクションの上部にある **Save** ボタンを使用してプリセット自体を保存する必要があります！そうしないと、Chat Completion プリセットが別のプリセットに切り替えられたときに行われた変更は失われます。
 !!!
 
-### Name
+### 名前 (Name)
 
 プロンプトの名前。これは Chat Completion モデルに送信されません。参照用にのみ Prompt Manager 内にあります。
 
-### Role
+### ロール (Role)
 
 プロンプトを送信するロール。System、AI Assistant、または User から選択できます。
 
-### Triggers
+### トリガー (Triggers)
 
 このプロンプトが送信される生成タイプ。何も選択されていない場合、プロンプトはすべての生成タイプに対して送信されます。1 つ以上が選択されている場合、プロンプトはその特定の生成タイプでのみ送信されます：
 
@@ -199,15 +199,15 @@ Prompt Manager は Chat Completion モデルに送信されるプロンプトの
 「Regenerate」トリガーはグループ チャットでは利用できません。異なる再生成ロジックを使用しているため：最後の応答のすべてのメッセージが削除され、選択された [Group reply strategy](/Usage/Characters/groupchats.md#reply-order-strategies) に従って「Normal」生成タイプを使用してメッセージがキューに入れられます。
 !!!
 
-### Position
+### 位置 (Position)
 
 Position が **Relative** に設定されている場合、このプロンプトは、他のすべてのプロンプトとともに drag-and-drop インターフェイスに配置される場所に送信されます。それが **In-Chat** に設定され、**Depth** が与えられる場合、それは代わりにチャット履歴内の選択されたロールとして送信され、drag-and-drop インターフェイスの順序を無視します。
 
-### Depth
+### 深さ (Depth)
 
 Position が **In-Chat** に設定されている場合、これはプロンプトがチャット履歴内でどのくらい深く送信されるかを定義します。数が多いほど、より深く送信されます。たとえば、0 の深さは最後のチャット メッセージの後に送信され、1 の深さは最後のチャット メッセージの前に送信され、2 の深さは 2 番目から最後のチャット メッセージの前に送信されます。
 
-### Order
+### 順序 (Order)
 
 !!!
 同じロールと深さを持つプロンプトはグループ化され、Order 値でソートされます。
@@ -216,6 +216,6 @@ Position が **In-Chat** に設定されている場合、これはプロンプ�
 
 Position が **In-Chat** に設定されている場合、これはプロンプトがチャット履歴内で送信される順序を定義します。数字が低いほど、その送信時期が早くなります。
 
-## プロンプトの構築：ヒントとコツ
+## プロンプトの構築：ヒントとコツ (Building Prompts: Tips and Tricks)
 
 効果的なプロンプトを書く方法の詳細については、SillyTavern ドキュメントの [プロンプト構築](index.md) セクションにアクセスしてください。情報は大部分が Chat Completion プリセットに適用できます。

@@ -5,7 +5,7 @@ expanded: false
 route: /usage/chatting/
 ---
 
-# Chatting
+# チャット (Chatting)
 
 [API に接続](</Usage/API_Connections/index.md>) されている場合、画面下部のチャット バーにメッセージを入力して AI にメッセージを送信します。その後、<i class="fa-solid fa-paper-plane"></i> **Send** をクリックするか、Enter キーを押します。
 ![Chat bar](/static/chatbox.png)
@@ -30,25 +30,25 @@ AI は会話を続けるメッセージで応答します。
 また、**Right** 矢印キーを使用してスワイプしたり、**Up** 矢印キーを使用してチャットの最後のメッセージを編集したりすることもできます。より多くのホットキーについては、チャットで `/help hotkeys` [スラッシュ コマンド](/Usage/Chatting/slashcommands.md) を使用するか、[HotKeys](/Usage/Chatting/hotkeys.md) ページを確認してください。
 !!!
 
-## Message actions panel
+## メッセージアクションパネル (Message actions panel)
 
 省略記号（•••）ボタンを使用して個々のチャット メッセージを管理します。
 
 チャット内のすべてのメッセージに対してこれらのオプションを表示するには、ユーザー設定で [Expand Message Actions](/Usage/User_Settings/uicustomization.md#theme-toggles) 設定を有効にします。
 
-### Core Functions
+### コア機能 (Core Functions)
 
 * <i class="fa-solid fa-language"></i> **Translate**: メッセージを別の言語に変換
 * <i class="fa-solid fa-paintbrush"></i> **Generate Image**: [メッセージ コンテンツから画像を作成](/extensions/Stable-Diffusion.md)
 * <i class="fa-solid fa-bullhorn"></i> **Narrate**: [テキスト音声変換](/extensions/TTS.md) 変換
 * <i class="fa-solid fa-square-poll-horizontal"></i> **Prompt**: 生成プロンプトとトークン使用状況を表示
 
-### Message Visibility
+### メッセージの可視性 (Message Visibility)
 
 * <i class="fa-solid fa-eye"></i> **Included**: AI はこのメッセージを見る。クリックして除外
 * <i class="fa-solid fa-eye-slash"></i> **Excluded**: AI はこのメッセージを見ない。クリックして含める
 
-### Content Management
+### コンテンツ管理 (Content Management)
 
 * <i class="fa-solid fa-paperclip"></i> **Embed**: [ファイルまたは画像を添付](/Usage/Characters/data-bank.md#about-documents)
 * <i class="fa-solid fa-flag-checkered"></i> **Checkpoint**: ストーリー チェックポイントを作成
@@ -57,54 +57,54 @@ AI は会話を続けるメッセージで応答します。
 * <i class="fa-solid fa-copy"></i> **Copy**: メッセージ テキストをコピー
 * <i class="fa-solid fa-pencil"></i> **Edit**: メッセージ コンテンツを編集
 
-## Edit message content
+## メッセージコンテンツの編集 (Edit message content)
 
 チャット メッセージを <i class="fa-solid fa-pencil"></i> **Edit** するときに表示されるメッセージ操作ツールのコンパクト パネル。
 
-### Core Actions
+### コアアクション (Core Actions)
 
 * <i class="fa-solid fa-check"></i> **Confirm**: メッセージの変更を保存
 * <i class="fa-solid fa-xmark"></i> **Cancel**: メッセージの変更を破棄
 
-### Message Operations
+### メッセージ操作 (Message Operations)
 
 * <i class="fa-solid fa-copy"></i> **Copy**: メッセージ コンテンツを複製
 * <i class="fa-solid fa-trash-can"></i> **Delete**: メッセージを削除
 
-### Message Position
+### メッセージ位置 (Message Position)
 
 * <i class="fa-solid fa-chevron-up"></i> **Move Up**: メッセージをチャットの上方にシフト
 * <i class="fa-solid fa-chevron-down"></i> **Move Down**: メッセージをチャットの下方にシフト
 
 注：メッセージの位置に基づいて、移動コントロールが無効になる場合があります。
 
-## Chat options panel
+## チャットオプションパネル (Chat options panel)
 
 チャット インターフェイスの左下の <i class="fa-solid fa-bars"></i> **Options** ボタンを使用してチャット設定と操作を管理します。
 
-### Display Controls
+### 表示コントロール (Display Controls)
 
 * <i class="fa-lg fa-solid fa-times"></i> **Close chat**: 現在のチャット セッションを終了
 * <i class="fa-lg fa-solid fa-cog"></i> **Toggle Panels**: [インターフェイス パネル](/Usage/index.md#control-panels) を表示/非表示
 
-### Generation Settings
+### 生成設定 (Generation Settings)
 
 * <i class="fa-lg fa-solid fa-note-sticky"></i> **[Author's Note](/Usage/Characters/Author's-Note.md)**: カスタム コンテキスト インストラクション
 * <i class="fa-lg fa-solid fa-scale-balanced"></i> **[CFG Scale](/Usage/Prompts/CFG.md)**: 応答の創意性を調整
 * <i class="fa-lg fa-solid fa-pie-chart"></i> **[Token Probabilities](#token-probabilities-panel)**: トークン生成統計を表示
 
-### Chat Navigation
+### チャットナビゲーション (Chat Navigation)
 
 * <i class="fa-lg fa-solid fa-left-long"></i> **Back to parent chat**: メイン会話に戻る
 * <i class="fa-lg fa-solid fa-flag"></i> **Save checkpoint**: ストーリー チェックポイントを作成
 * <i class="fa-lg fa-solid fa-people-arrows"></i> **Convert to group**: [グループ チャット](/Usage/Characters/groupchats.md) に変換
 
-### Chat Management
+### チャット管理 (Chat Management)
 
 * <i class="fa-lg fa-solid fa-comments"></i> **Start new chat**: 新しい会話を開始
 * <i class="fa-lg fa-solid fa-address-book"></i> **Manage chat files**: インポート、エクスポート、名前変更などの [チャット ファイル操作](/Usage/Characters/chatfilemanagement.md)
 
-### Message Controls
+### メッセージコントロール (Message Controls)
 
 * <i class="fa-lg fa-solid fa-trash-can"></i> **Delete messages**: 複数のメッセージを選択して削除
 * <i class="fa-lg fa-solid fa-repeat"></i> **Regenerate**: 新しい応答を作成
@@ -113,7 +113,7 @@ AI は会話を続けるメッセージで応答します。
 
 注：一部のオプションはコンテキストとチャット状態に応じて非表示になる場合があります。
 
-## Token Probabilities Panel
+## トークン確率パネル (Token Probabilities Panel)
 
 Token Probabilities パネルを使用すると、テキスト生成の AI のサンプリング プロセスを詳しく調べることができます。AI が書いたものだけでなく、テキストの各ポイントで検討した他のオプションも表示されます。
 
@@ -129,7 +129,7 @@ Token Probabilities パネルを使用すると、テキスト生成の AI の�
 
 AI が異なる選択をすべき だと思うトークンが表示される場合は、代替を選択すると、メッセージがそのポイントから再生成され、別の応答が得られる可能性があります。
 
-### Rerolling
+### 再ロール (Rerolling)
 
 特定のトークンを変更して応答を再生成すると、変更されたトークンの前の新しい応答の部分は元の応答と同じになります。この部分は灰色で表示されます。生成されなかったため、この部分の確率情報はありません。
 
@@ -139,7 +139,7 @@ AI が異なる選択をすべき だと思うトークンが表示される場�
 
 灰色の部分でトークンをクリックする際に Ctrl キーを押したまま にすると、クリックされたトークンまでの灰色部分が保持され、テキストの残りが再生成されます。代替トークンの選択はこの場合保持できません。
 
-### Controls
+### コントロール (Controls)
 
 **Token Display**:
 
@@ -161,7 +161,7 @@ AI が異なる選択をすべき だと思うトークンが表示される場�
 * <i class="fa-solid fa-circle-chevron-up"></i> パネル コンテンツを展開/折りたたむ
 * <i class="fa-solid fa-circle-xmark"></i> パネルを閉じる
 
-### Availability
+### 可用性 (Availability)
 
 [ユーザー設定](/Usage/User_Settings/index.md#chatmessage-handling) で **Request token probabilities** を選択して、この機能を有効にする必要があります。
 

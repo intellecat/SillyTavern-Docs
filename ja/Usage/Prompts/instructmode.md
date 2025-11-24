@@ -11,7 +11,7 @@ Instruct Mode により、Alpaca、ChatML、Llama2 など、さまざまなプ�
 Chat Completion APIs で同等の設定については、[Prompt Manager](prompt-manager.md) を使用してください。
 !!!
 
-## API support
+## APIサポート (API support)
 
 ### Text Completion API
 
@@ -21,7 +21,7 @@ Chat Completion APIs で同等の設定については、[Prompt Manager](prompt
 * KoboldAI Classic
 * AI Horde
 
-#### Choosing a formatting
+#### フォーマットの選択 (Choosing a formatting)
 
 選択した instruct テンプレートは、バックエンドで実行されている実際のモデルの期待に一致する必要があります。
 
@@ -29,7 +29,7 @@ Chat Completion APIs で同等の設定については、[Prompt Manager](prompt
 
 例： [NeverSleep/Noromaid-13b-v0.1.1](https://huggingface.co/NeverSleep/Noromaid-13b-v0.1.1#prompt-template-custom-format-or-alpaca)
 
-### Chat Completion API (OpenAI、Claude など)
+### Chat Completion API (OpenAI, Claude, etc.)
 
 これはサポートされていません **（そして必要ありません）**。Chat Completion API。彼らは完全に異なるプロンプト ビルダーを使用します。
 
@@ -43,39 +43,39 @@ NovelAI の instruct モジュール を自動アクティブ化する例を以�
 User: { Write a happy song about Nintendo Switch. }
 ```
 
-## Instruct Mode Settings
+## Instruct Mode 設定 (Instruct Mode Settings)
 
-### System Prompt
+### システムプロンプト (System Prompt)
 
 !!!warning Recent change
 システム プロンプトは現在別の エンティティです。詳細については [Advanced Formatting](advancedformatting.md#system-prompt) ページを参照してください。
 !!!
 
-### Templates
+### テンプレート (Templates)
 
 よく知られている instruct モデルのためのシーケンスとプリメードテンプレートを提供します。
 
 *テンプレートを変更すると、保存されていない設定が最後に保存された状態にリセットされます！失いたくない変更をした場合は、テンプレートを保存することを忘れないでください。*
 
-### Activation Regex
+### アクティベーション正規表現 (Activation Regex)
 
 有効な正規表現として定義されている場合、モデルに接続されてその名前がこの正規表現に一致すると、このテンプレートが自動的に選択されます。
 
 Instruct Mode は事前に有効にする必要があります。テンプレート間で最初に一致する正規表現のみが選択されます（アルファベット順で評価）。
 
-### Wrap Sequences with Newline
+### シーケンスを改行でラップ (Wrap Sequences with Newline)
 
 各シーケンス テキストは、プロンプトに挿入されるときに改行文字でラップされます。Alpaca とその派生物に必要です。
 
 行終了を完全に制御したい場合は、無効にします。
 
-### Replace Macro in Sequences
+### シーケンス内のマクロを置換 (Replace Macro in Sequences)
 
 有効な場合、既知の \{\{macro\}\} 代替がメッセージ ラップ シーケンスで定義されていれば置き換えられます。
 
 また、特別な \{\{name\}\} マクロをメッセージ プレフィックスで使用して、実際にアクティブな \{\{char\}\} または \{\{user\}\} ではなく、メッセージに添付された実際の名前を参照できます。グループ チャットや /sendas コマンドを使用する場合に役立ちます。名前を決定できない場合は、「System」がフォールバック プレースホルダーとして使用されます。
 
-### Include Names
+### 名前を含める (Include Names)
 
 有効にした場合、チャット履歴ログのプレフィックス シーケンスの後に文字とユーザー名を追加します。
 
@@ -85,7 +85,7 @@ Instruct Mode は事前に有効にする必要があります。テンプレー
 * **Groups and Past Personas**: グループ文字と過去のペルソナからのメッセージにのみ名前プレフィックスを追加します。
 * **Always**: メッセージ コンテンツの前に常に名前プレフィックスを追加します。
 
-### Sequences: Story String Wrapping
+### シーケンス: ストーリー文字列のラッピング (Sequences: Story String Wrapping)
 
 !!!warning Recent change
 システム プロンプト ラップが削除され、Story String ラップに置き換えられました。
@@ -93,55 +93,55 @@ Instruct Mode は事前に有効にする必要があります。テンプレー
 
 位置が「デフォルト（コンテキストの上部）」に設定されている場合、Story String がどのようにラップされるかを定義します
 
-#### Story String Prefix
+#### ストーリー文字列プレフィックス (Story String Prefix)
 
 Story String の前に挿入されます。
 
-#### Story String Suffix
+#### ストーリー文字列サフィックス (Story String Suffix)
 
 Story String の後に挿入されます。
 
-### Sequences: Chat Messages Wrapping
+### シーケンス: チャットメッセージのラッピング (Sequences: Chat Messages Wrapping)
 
 これらの設定は、異なるロールに属するメッセージがプロンプト構築時にどのようにラップされるかを定義します。
 
 すべてのプレフィックス シーケンスも自動的に停止文字列として使用されます。
 
-#### User Message Prefix
+#### ユーザーメッセージプレフィックス (User Message Prefix)
 
 ユーザー メッセージの前および詐称時の最後のプロンプト行として挿入されます。
 
-#### User Message Suffix
+#### ユーザーメッセージサフィックス (User Message Suffix)
 
 ユーザー メッセージの後に挿入されます。
 
-#### Assistant Message Prefix
+#### アシスタントメッセージプレフィックス (Assistant Message Prefix)
 
 アシスタント メッセージの前および AI 応答を生成するときの最後のプロンプト行として挿入されます。
 
-#### Assistant Message Suffix
+#### アシスタントメッセージサフィックス (Assistant Message Suffix)
 
 アシスタント メッセージの後に挿入されます
 
-#### System Message Prefix
+#### システムメッセージプレフィックス (System Message Prefix)
 
 システム（スラッシュ コマンドまたは拡張機能によって追加された）メッセージの前に挿入されます。
 
-#### System Message Suffix
+#### システムメッセージサフィックス (System Message Suffix)
 
 システム メッセージの後に挿入されます。
 
-#### System same as User
+#### システムをユーザーと同じにする (System same as User)
 
 チェックされている場合は true に設定され、システム メッセージはユーザー ロール メッセージ シーケンスを使用します。
 
 それ以外の場合、システム メッセージは独自のシーケンス（空でない場合）を使用するか、まったくラップを実行しません（空の場合）。
 
-### Misc. Sequences
+### その他のシーケンス (Misc. Sequences)
 
 プロンプト構築をより細かく調整するためのさまざまな高度な設定
 
-#### First Assistant Prefix
+#### 最初のアシスタントプレフィックス (First Assistant Prefix)
 
 最初のアシスタント メッセージの前に挿入されます。
 
@@ -149,7 +149,7 @@ Story String の後に挿入されます。
 チャット履歴の最初のメッセージのみがカウントされます。実際にはプロンプトに最初に入るメッセージではありません！
 !!!
 
-#### Last Assistant Prefix
+#### 最後のアシスタントプレフィックス (Last Assistant Prefix)
 
 最後のアシスタント メッセージの前または AI 応答を生成するときの最後のプロンプト行として挿入されます。
 
@@ -157,17 +157,17 @@ Story String の後に挿入されます。
 バックグラウンドでテキストを生成するときには使用されません（例：Stable Diffusion プロンプトまたはサマリー）。System Instruction Prefix または Regular Assistant Prefix が代わりに使用されます。
 !!!
 
-#### System Instruction Prefix
+#### システム指示プレフィックス (System Instruction Prefix)
 
 バックグラウンド（例：Stable Diffusion プロンプトまたはサマリー）でニュートラル/システム テキストを生成するときの最後のプロンプト行として挿入されます。
 
-#### User Filler Message
+#### ユーザーフィラーメッセージ (User Filler Message)
 
 チャット履歴がユーザー メッセージで開始されない場合、チャット履歴の開始時に挿入されます。
 
 **Use case:** instruct フォーマットが *厳密に* ユーザー最初で要求され、交互ロールのみでメッセージが付いている場合、例：Llama 2 Chat、Mistral Instruct。
 
-#### Stop Sequence
+#### 停止シーケンス (Stop Sequence)
 
 返信の終了を示すテキスト。また、バックエンド API への停止文字列として送信されます。
 

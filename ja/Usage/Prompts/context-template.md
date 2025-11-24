@@ -4,7 +4,7 @@ templating: false
 route: /usage/prompts/context-template/
 ---
 
-# コンテキストテンプレート
+# コンテキストテンプレート (Context Template)
 
 !!! Applies to: Text Completion APIs
 Chat Completion APIs で同等の設定については、[Prompt Manager](prompt-manager.md) を使用してください。
@@ -14,7 +14,7 @@ Chat Completion APIs で同等の設定については、[Prompt Manager](prompt
 
 これらの設定は「[Advanced Formatting](advancedformatting.md)」パネルで編集します。
 
-## Story String
+## ストーリー文字列 (Story String)
 
 このフィールドは、プロンプト前置き（内部的には「story string」として知られている）のテンプレートです。これは、テキスト補完とインストラクト モデルの [Character Cards](/Usage/Characters/index.md) で定義された情報を追加するための主な方法です。
 
@@ -44,7 +44,7 @@ Story String で `{{mesExamples}}` を使用する場合は、<i class="fa-solid
 
 **WARNING**: 上記のいずれかのパラメーターがストーリー文字列テンプレートから欠落している場合、プロンプトにはまったく送信されません。
 
-### Prompt Anchors
+### プロンプトアンカー (Prompt Anchors)
 
 `{{anchorBefore}}` と `{{anchorAfter}}` は、さまざまな拡張機能と雑多な機能によって追加されたプロンプトの汎用プレースホルダーです（例：
 
@@ -54,7 +54,7 @@ Story String で `{{mesExamples}}` を使用する場合は、<i class="fa-solid
 * [STscript injections](/For_Contributors/st-script.md#prompt-injections)
 * [Web Search](/extensions/WebSearch.md)
 
-### Story String position
+### ストーリー文字列の位置 (Story String position)
 
 デフォルトでは、レンダリングされたストーリー文字列（すべてのプレースホルダーが置き換えられます）がプロンプトの非常に最初に配置され、その後に例のメッセージと表示されるチャット履歴が続きます。
 
@@ -69,7 +69,7 @@ Story String で `{{mesExamples}}` を使用する場合は、<i class="fa-solid
 2. **カスタム テンプレート**: ストーリー文字列テンプレートから [Story String Sequences](/Usage/Prompts/instructmode.md#sequences-story-string-wrapping) に静的要素を移動します。
 !!!
 
-### Story String wrapping
+### ストーリー文字列のラッピング (Story String wrapping)
 
 !!!
 次のセクションは、**Instruct Mode** が ON のときにのみ適用されます。
@@ -78,27 +78,27 @@ Story String で `{{mesExamples}}` を使用する場合は、<i class="fa-solid
 * **Default** position: レンダリングされたストーリー文字列は [Story String Sequences](/Usage/Prompts/instructmode.md#sequences-story-string-wrapping) で定義されたシーケンスを使用してラップされます。
 * **In-chat @ Depth** position: レンダリングされたストーリー文字列は、選択したロール（デフォルト：System）用に [Chat Messages Sequences](/Usage/Prompts/instructmode.md#sequences-chat-messages-wrapping) で定義されたシーケンスを使用してラップされます。
 
-## Example Separator
+## 例の区切り文字 (Example Separator)
 
 ブロック ヘッダーおよび例のダイアログ ブロック間の区切り文字として使用されます。例のダイアログ内の `<START>` タグのインスタンスは、このフィールドの内容に置き換えられます。
 
-## Chat Start
+## チャット開始 (Chat Start)
 
 レンダリングされたストーリー文字列の後およびサンプル ダイアログ ブロックの後に挿入されますが、コンテキスト内の最初のメッセージの前に挿入されます。
 
-## Separators as Stop Strings
+## 停止文字列としての区切り文字 (Separators as Stop Strings)
 
 「Example Separator」と「Chat Start」を停止文字列のリストに追加します。
 
 モデルが例のダイアログの全ブロックをハルシネートする傾向がある場合や、区切り文字が先行する場合に役立ちます。
 
-## Names as Stop Strings
+## 停止文字列としての名前 (Names as Stop Strings)
 
 キャラクター名とユーザー ペルソナ名を停止文字列のリストに追加します。
 
 モデルの詐称を防ぐために、オンに保つことをお勧めします。
 
-## Always add character's name to prompt
+## プロンプトに常にキャラクター名を追加 (Always add character's name to prompt)
 
 !!!info  
 Instruct Mode が ON の場合、この設定は効果がありません。名前の動作は代わりに選択された [Include Names](/Usage/Prompts/instructmode.md#include-names) オプションで定義されます。

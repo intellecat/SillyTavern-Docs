@@ -4,7 +4,7 @@ icon: gear
 route: /usage/user-settings/
 ---
 
-# ユーザー設定
+# ユーザー設定 (User Settings)
 
 
 :::callout
@@ -22,11 +22,11 @@ Doki Doki Literature Clubなどの有名なVNゲームのような、スプラ�
 :::
 
 
-## 一般設定
+## 一般設定 (General Settings)
 
 これらは、SillyTavernの全体的な経験に影響を与える中核設定です。
 
-### UI Language
+### UI言語 (UI Language)
 
 SillyTavernのユーザーインターフェイスは複数の言語で利用可能です。言語セレクターは、これらのオプションを提供します：
 * **デフォルト**: 利用可能な場合はシステム言語を使用
@@ -35,7 +35,7 @@ SillyTavernのユーザーインターフェイスは複数の言語で利用可
 
 注意：この設定は、UIテキストのみに影響を与えます。AI会話の翻訳の場合は、[Chat Translation](../../extensions/Translation.md)拡張機能を使用してください。
 
-### Software Version
+### ソフトウェアバージョン (Software Version)
 
 SillyTavernの現在のバージョンは、右上隅に表示されます。この情報は、以下の点で必須です：
 * 問題のトラブルシューティング
@@ -44,11 +44,11 @@ SillyTavernの現在のバージョンは、右上隅に表示されます。こ
 
 SillyTavernを最新バージョンに更新するには、[Updating](/Installation/Updating)ドキュメンテーションを参照してください。
 
-### Account Management
+### アカウント管理 (Account Management)
 
 SillyTavernユーザーアカウントを制御し、設定とユーザーデータを備えカウントして、[多元ユーザーモード](/Administration/multi-user.md)でユーザーロールと権限を管理してください。
 
-#### <i class="fa-fw fa-solid fa-user-shield"></i> Account
+#### <i class="fa-fw fa-solid fa-user-shield"></i> アカウント (Account)
 
 アカウントダイアログでは、プロファイル情報を表示および編集して、パスワードを変更してアカウント設定を管理できます。
 
@@ -73,7 +73,7 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
 * **Reset Settings**: すべての設定をファクトリーデフォルトに復元
 * **Reset Everything**: 完全なアカウントワイプとファクトリーリセット
 
-#### <i class="fa-fw fa-solid fa-user-tie"></i> Admin Panel
+#### <i class="fa-fw fa-solid fa-user-tie"></i> 管理パネル (Admin Panel)
 
 !!! 該当：[multi-user mode](/Administration/multi-user.md)
 
@@ -82,7 +82,7 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
 
 **Manage Users**を選択して既存のユーザーアカウントを表示および管理します。
 
-##### ユーザープロフィール
+##### ユーザープロフィール (User Profiles)
 
 - カスタムアバター管理（アップロード/削除）
 - Display nameおよびハンドル
@@ -90,7 +90,7 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
 - アカウント作成日
 - パスワード保護ステータス
 
-##### アカウント制御
+##### アカウント制御 (Account Controls)
 
 - <i class="fa-fw fa-solid fa-pencil"></i> Display nameを編集
 - <i class="fa-fw fa-solid fa-check"></i> アカウント有効化
@@ -98,13 +98,13 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
 - <i class="fa-fw fa-solid fa-arrow-up"></i> 管理者に昇格
 - <i class="fa-fw fa-solid fa-arrow-down"></i> 通常ユーザーに降格
 
-##### 管理アクション
+##### 管理アクション (Administrative Actions)
 
 - <i class="fa-fw fa-solid fa-download"></i> ユーザーデータバックアップをダウンロード
 - <i class="fa-fw fa-solid fa-key"></i> ユーザーパスワードを変更
 - <i class="fa-fw fa-solid fa-trash"></i> アカウント削除
 
-##### 新規ユーザー
+##### 新規ユーザー (New User)
 
 新規ユーザーアカウントを作成するために**New User**を選択してください。
 
@@ -115,27 +115,27 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
 
 新規ユーザーを作成するとユーザーハンドルをフォルダ名として使用して、`/data/`ディレクトリにサブフォルダが自動的に生成されます。
 
-#### <i class="fa-fw fa-solid fa-right-from-bracket"></i> Logout
+#### <i class="fa-fw fa-solid fa-right-from-bracket"></i> ログアウト (Logout)
 
 !!! 該当：[multi-user mode](/Administration/multi-user.md)
 !!!
 
 現在のセッションからログアウトしてください。
 
-### 設定検索
+### 設定検索 (Settings Search)
 
 特定の設定を素早く見つけるのに役立つ便利な検索バー：
 * キーワードを入力して、User Settings内の任意の場所で設定をフィルター処理してハイライト表示
 * 設定名と説明をサーチ
 * より効率的に複雑な設定を移動するのに役立ちます
 
-## UI Theme
+## UIテーマ (UI Theme)
 
 チャットインターフェイスの外観を好みに合わせて変更してください。
 
 詳細については、<i class="fa-fw fa-solid fa-user-gear" title="User Settings icon"></i> **User Settings**のこのセクションの設定に関する詳細については、[UI Customization](uicustomization.md#ui-theme)を参照してください。
 
-## Character Handling
+## キャラクター処理 (Character Handling)
 
 * **Char List Subheader**: [<i class="fa-fw fa-solid fa-address-card" title="Characters icon"></i> Characters](/Usage/Characters/characterdesign.md)リストのキャラクター名の下に表示する追加情報を選択：
     - キャラクターバージョン
@@ -152,7 +152,7 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
 * **Show avatar filenames**: キャラクターリスト内のキャラクターアバターの実際のファイル名を表示
 * **Spoiler Free Mode**: キャラクター定義をスポイラーボタン後ろにエディターパネル内に非表示
 
-## Miscellaneous
+## その他 (Miscellaneous)
 
 * **Reload Chat**: 現在のチャットをリロードして再描画
 * **[Debug Menu](#debug-menu)**: デバッグオプションへのアクセス
@@ -169,9 +169,9 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
     - <i class="fa-solid fa-recycle" title="Reset icon"></i> **Reset**ボタンでデフォルトの位置を復元
     - UI様式を保存/読み込むためのプリセットシステム
 
-## Chat/Message Handling
+## チャット/メッセージ処理 (Chat/Message Handling)
 
-### Message Display Settings
+### メッセージ表示設定 (Message Display Settings)
 
 メッセージがチャットインターフェイスでどのように読み込まれ、表示されるかを制御する。これらの設定は、全体的なチャットエクスペリエンスとパフォーマンスに影響を与えます。
 * **# Messages to Load**: ページネーション前に読み込むチャット履歴メッセージの数（0 = すべて）
@@ -181,7 +181,7 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
     - Always include examples
     - Never include examples
 
-### Input & Response Controls
+### 入力と応答コントロール (Input & Response Controls)
 
 メッセージがどのように送信されるか、AIがどのようにそれの応答を継続するかを決定する設定。
 * **Enter to Send**: 無効化、自動（PC）、または有効化の間で選択
@@ -191,7 +191,7 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
 * **Swipes**: 代替AIの応答のための矢印ボタンを表示（PCとモバイル）
 * **Gestures**: 生成のためのスワイプジェスチャーを有効化（モバイルのみ）
 
-### Auto-Management
+### 自動管理 (Auto-Management)
 
 チャットフローとコンテンツを管理するのに役立つ自動化機能。
 * **Auto-load Last Chat**: スタートアップで最新のチャットを自動的に読み込み
@@ -200,7 +200,7 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
 * **Confirm message deletion**: メッセージ削除前にプロンプト
 * **Auto-fix Markdown**: Markdown書式を自動的に修正
 
-#### Auto-swipe
+#### 自動スワイプ (Auto-swipe)
 
 設定可能な条件に基づいてAIメッセージを自動的に拒否および再生成します。
 * **Enable Auto-swipe**: auto-swipe機能のマスタートグル
@@ -208,7 +208,7 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
 * **Blacklisted words**: オートスワイプをトリガーできるカンマで区切られたワード一覧
 * **Blacklisted word count to swipe**: auto-swipleをトリガーするために検出される必要がある最小ブラックリスト語の数
 
-#### Auto-Continue
+#### 自動継続 (Auto-Continue)
 
 モデルが特定の長さに到達する前に停止した場合、自動的に応答を継続します。
 
@@ -220,7 +220,7 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
 * **Allow for Chat Completion APIs**: Chat Completion APIエンドポイントに対してauto-continue機能を有効化
 * **Target length (tokens)**: メッセージがこの値より短い場合は、継続をトリガーしたい目的のメッセージ長（トークン）（0-1024）
 
-### Message Formatting & Display
+### メッセージフォーマットと表示 (Message Formatting & Display)
 
 メッセージの形式化方法と表示されるコンテンツを制御します。
 * **Forbid External Media**: 外部ドメインの埋め込みメディアをブロック
@@ -231,12 +231,12 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
 * **Show group chat queue**: グループチャットの文字リストで返信順序を表示
 * **Pin greeting message styles**: 遅延読み込みのためにメッセージがアンロードされていても、常にスタイルタグをグリーティングから描画します。
 
-### Prompt Inspection and Debugging
+### プロンプト検査とデバッグ (Prompt Inspection and Debugging)
 
 * **Log prompts to console**: ブラウザーコンソールへのプロンプト出力
 * **Request token probabilities**: AIの応答からAPIのトークン確率をリクエスト。利用可能な場合、これらは<i class="fa-solid fa-bars" title="Burger Menu icon"></i>[Token Probabilities](../../Usage/Chatting/index.md#token-probabilities-panel)で表示されます。
 
-### オートコンプリート
+### オートコンプリート (Autocomplete)
 
 - 自動隠す詳細
 - マッチングスタイル（Starts with/Includes/Fuzzy）
@@ -245,7 +245,7 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
 - Font スケーリング
 - 幅コントロール
 
-## STscript Settings
+## STscript設定 (STscript Settings)
 
 [STscript parser](/For_Contributors/st-script.md#parser-flags)の設定オプション。
 
@@ -262,7 +262,7 @@ SillyTavernユーザーアカウントを制御し、設定とユーザーデー
 
 詳細については、[Replace Variable Macros](/For_Contributors/st-script.md#replace-variable-macros)を参照してください。
 
-## Clean-Up Menu
+## クリーンアップメニュー (Clean-Up Menu)
 
 Clean-Upメニューは、SillyTavernのインストールから不要なファイルを特定および削除するのに役立つデータ保守ツールを提供します。この機能は、データディレクトリを整理し、かなりのディスク容量を解放するのに役立ちます。
 
@@ -274,7 +274,7 @@ Clean-upツールはファイルを永続的に削除します。**このアク�
 不確実な場合は、Clean-upメニューを使用する前にデータをバックアップしてください。
 !!!
 
-### Clean-Upの使用方法
+### Clean-Upの使用方法 (How to use Clean-Up)
 
 1. **Miscellaneous**セクションの下の**Clean-Up**ボタンをクリック
 2. **Scan**をクリックしてインストール。これはデータディレクトリのサイズに応じて時間がかかる場合があります。
@@ -283,67 +283,67 @@ Clean-upツールはファイルを永続的に削除します。**このアク�
 5. **Download**を使用してファイルを削除前に保存
 6. 個別のファイルまたは必要に応じて全体のカテゴリーを削除
 
-### Clean-Upカテゴリーズ
+### Clean-Upカテゴリー (Clean-Up Categories)
 
 Clean-Upツールは、ルーズファイルを次のカテゴリーにスキャンします：
 
-#### ファイル
+#### ファイル (Files)
 
 * **見つけるもの**: チャットメッセージまたはData Bank エントリと関連付けられていないファイル
 * **Location**: `/data/<user-handle>/user/files/`
 * **Risk**: ⚠️ **チャットで参照されていない手動アップロードを削除します**
 * **クリーンするタイミング**: 参照されていないファイルが必要ない場合は削除が安全
 
-#### 画像
+#### 画像 (Images)
 
 * **見つけるもの**: チャットメッセージと関連付けられていない画像
 * **Location**: `/data/<user-handle>/user/images/`
 * **Risk**: ⚠️ **チャットで参照されていない手動アップロードを削除します**
 * **クリーンするタイミング**: 参照されていない画像が必要ない場合は削除が安全
 
-#### チャット
+#### チャット (Chats)
 
 * **見つけるもの**: 削除されたキャラクターと関連付けられたチャットファイル
 * **Location**: `data/<user-handle>/chats/`
 * **Risk**: ⚠️ **孤立したチャットは永久に失われます**
 * **クリーンするタイミング**: キャラクターを意図的に削除して、チャット履歴が必要ない場合は削除が安全
 
-#### グループチャット
+#### グループチャット (Group Chats)
 
 * **見つけるもの**: 削除されたグループと関連付けられたチャットファイル
 * **Location**: `data/<user-handle>/group chats/`
 * **Risk**: ⚠️ **孤立したグループチャットは永久に失われます**
 * **クリーンするタイミング**: グループを意図的に削除して、チャット履歴が必要ない場合は削除が安全
 
-#### アバターサムネイル
+#### アバターサムネイル (Avatar Thumbnails)
 
 * **見つけるもの**: 欠けているまたは削除されたキャラクターのアバターのサムネイル
 * **Location**: `data/<user-handle>/thumbnails/avatar`
 * **Risk**: ✅ **削除が安全** - 必要に応じてサムネイルは自動的に再生成されます。
 * **クリーンするタイミング**: 常に安全にクリーン、スペースの自由化に役立つ
 
-#### 背景サムネイル
+#### 背景サムネイル (Background Thumbnails)
 
 * **見つけるもの**: 欠けているまたは削除された背景のサムネイル
 * **Location**: `data/<user-handle>/thumbnails/bg`
 * **Risk**: ✅ **削除が安全** - 必要に応じてサムネイルは自動的に再生成されます。
 * **クリーンするタイミング**: 常に安全にクリーン、スペースの自由化に役立つ
 
-#### チャットバックアップ
+#### チャットバックアップ (Chat Backups)
 
 * **見つけるもの**: 自動的に生成されたチャットバックアップ
 * **Location**: `data/<user-handle>/backups/chat_*`
 * **Risk**: ⚠️ **バックアップファイルは永久に失われます**
 * **クリーンするタイミング**: 最近のバックアップを保つことを検討していますが、古いものは安全に削除できます
 
-#### 設定バックアップ
+#### 設定バックアップ (Settings Backups)
 
 * **見つけるもの**: 自動的に生成された設定バックアップ
 * **Location**: `data/<user-handle>/backups/settings_*`
 * **Risk**: ⚠️ **バックアップファイルは永久に失われます**
 * **クリーンするタイミング**: 最近のバックアップを保つことを検討していますが、古いものは安全に削除できます
 
-## Debug menu
+## デバッグメニュー (Debug menu)
 
 !!!warning これらの関数は高度なユーザーのみを対象としています。
 
@@ -354,25 +354,25 @@ Debug Menuは、トラブルシューティング、メンテナンス、およ�
 
 拡張機能がデバッグ機能を追加できるため、利用可能なオプションは、インストールした拡張機能に応じて異なります。
 
-### 翻訳ローカル関数
+### 翻訳ローカル関数 (Translation Locale Functions)
 * **Get missing translations**: 現在のロケール（または英語が選択された場合はすべてのロケール）を不足している翻訳についてレビューし、ブラウザーコンソールへの結果を出力
 * **Apply locale**: 選択された言語設定をリアップライして現在の言語設定をリフレッシュする
-### キャッシュストレージ管理
+### キャッシュストレージ管理 (Cache Storage Management)
 * **Clear WebSearch cache**: ローカルキャッシュから保存されているすべての検索結果を削除
 * **Purge all vector indices**: すべてのソース全体に保存されたすべてのベクトルを完全に削除
 * **Reset token cache**: 保存されたトークンカウントをクリア。すべてのチャットの完全な再トークン化を強制
 * **Delete itemized prompts**: ローカルストレージからすべての分類されたプロンプトを削除
-### データ統計
+### データ統計 (Data Statistics)
 * **Refresh Stat File**: 既存のチャットデータを使用して統計ファイルを再構築
 * **Backfill token counters**: 現在のチャット内のすべてのメッセージのトークンカウントを再計算
     - 異なるトークナイザーを持つモデル間で切り替えるときに役立つ
     - 完了後のチャットリロードをトリガー
     - ビジュアル変更のみ、チャットコンテンツを変更していません
-### API拡張テスト
+### API拡張テスト (API Extension Testing)
 * **Change Mancer base URL**: Mancer APIサーバーのベース URLを変更
 * **Test WebSearch extension**: 現在の設定を使用してテスト検索を実行
 * **Send a generation request**: 現在選択されているAPIを使用してテキスト生成をテスト
-### システムとデバッグツール
+### システムとデバッグツール (System and Debug Tools)
 * **Force onboarding**: オンボーディングプロセスを再スタート
 * **Toggle event tracing**: デバッグのためのイベントトラッキングを有効化/無効化
 * **Copy ST setup**: [Work in Progress] バグレポート用にシステム設定データをクリップボードにコピー

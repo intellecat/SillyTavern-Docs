@@ -3,7 +3,7 @@ order: 90
 route: /usage/core-concepts/macros/
 ---
 
-# Macros (replacement tags)
+# マクロ (置換タグ)
 
 !!! Note
 このリストは不完全または時代遅れの可能性があります。SillyTavern チャットで `/help macros` スラッシュ コマンドを使用して、インスタンスで機能するマクロのリストを取得します。
@@ -13,7 +13,7 @@ route: /usage/core-concepts/macros/
 
 注：一部の拡張機能は、特定の領域でのみ機能する特定のコンテキストマクロも追加できます（例：拡張機能プロンプトの特別なプレースホルダー）。マクロが特定の機能にバインドされていない限り、ここに文書化されません。
 
-## General Macros
+## 一般的なマクロ
 
 | Macro | Description |
 |-------|-------------|
@@ -66,7 +66,7 @@ route: /usage/core-concepts/macros/
 | `{{reverse:(content)}}` | マクロの内容を逆にします。 |
 | `{{outlet::(name)}}` | 名前付き [World Info outlet](/Usage/worldinfo.md#outlet-name) のコンテンツに置き換えられます。改行で区切られたアクティブ化されたエントリが含まれます。 |
 
-## Instruct Mode and Context Template Macros
+## Instruct Mode と Context Template マクロ
 
 (Advanced Formatting 設定で有効)
 
@@ -94,7 +94,7 @@ route: /usage/core-concepts/macros/
 | `{{systemPrompt}}` | システム プロンプト コンテンツ（許可された場合は利用可能なキャラクター プロンプト オーバーライドを含む）。 |
 | `{{defaultSystemPrompt}}` | システム プロンプト コンテンツ（キャラクター プロンプト オーバーライドを除く）。 |
 
-## Chat variables Macros
+## チャット変数マクロ
 
 - Local variables = 現在のチャットに一意
 - Global variables = どのチャットのどのキャラクターでも機能

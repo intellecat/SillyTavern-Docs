@@ -13,7 +13,7 @@ tags:
     ]
 ---
 
-# Data Bank (RAG)
+# データバンク (RAG)
 
 Retrieval-augmented generation (RAG) は、LLM に外部の知識源を提供する技術です。モデルの学習データ以外の情報にアクセスすることで、AI の回答の精度を向上させるのに役立ちます。
 
@@ -45,7 +45,7 @@ Data Bank の正式な一部ではありませんが、個々のメッセージ�
 
 様々な拡張機能とプラグインは、データを収集して処理する新しい方法も提供できます。詳細は以下を参照してください。
 
-## Data Sources
+## データソース
 
 任意のスコープにドキュメントを追加するには、「Add」をクリックし、利用可能なソースの 1 つを選択します。
 
@@ -99,7 +99,7 @@ YouTube ビデオのトランスクリプトを ID または URL でダウンロ
 
 [Fandom](https://www.fandom.com/) ウィキから ID または URL で記事をスクレイプします。一部のウィキは非常に大きいため、フィルター正規表現を使用してスコープを制限すると便利です。記事のタイトルに対してテストされます。フィルターが提供されない場合、すべてのページが対象です。すべてのページの個別ファイルとして保存することも、単一のドキュメントに結合することもできます。
 
-### Bronie Parser Extension (Third-Party)
+### Bronie Parser Extension (サードパーティ)
 
 !!!warning Note
 このソースはサードパーティからのもので、**SillyTavern チームに関連付けられていません**。このソースを使用するには、Bronya Rand の [Bronie Parser Extension](https://github.com/Bronya-Rand/Bronie-Parser-Extension) と、パーサーが機能するために必要なサーバー プラグインをインストールしている必要があります。
@@ -113,7 +113,7 @@ Bronya Rand の Bronie Parser Extension を使用すると、miHoYo/HoYoverse �
 
 開始するには、Bronya Rand の Bronie Parser Extension を [installation guide](https://github.com/Bronya-Rand/Bronie-Parser-Extension?tab=readme-ov-file#installation) に従ってインストールし、サポートされているサーバー プラグインを SillyTavern にインストールしてください。SillyTavern を再起動して、_Data Bank_ メニューに移動します。`+ Add` をクリックすると、最近インストールされたスクレーパーが可能なソースのリストに追加されているはずです。
 
-## Vector Storage
+## ベクトルストレージ
 
 では、特定の主題に関する優れた包括的な情報ライブラリを構築しました。次は何ですか？
 
@@ -131,7 +131,7 @@ Vectors 機能はデフォルトで無効になっているため、拡張機能
 
 Vector Storage 自体はベクトルを生成しません。互換性のある埋め込みプロバイダーを使用する必要があります。
 
-## Vector Providers
+## ベクトルプロバイダー
 
 !!!warning Warning
 Embeddings は、それを生成したのと同じモデルを使用して取得する場合にのみ使用できます。埋め込みモデルまたはソースを変更するときは、ベクトルを再計算する必要があります。
@@ -148,7 +148,7 @@ Embeddings は、それを生成したのと同じモデルを使用して取得
 5. vLLM - [vllm-project/vllm](https://github.com/vllm-project/vllm) から入手してください。API接続メニューで API URL と API キーを最初に設定します。
 6. Extras (deprecated) - SentenceTransformers ローダーを使用する [Extras API](https://github.com/SillyTavern/SillyTavern-extras) の下で実行されます。デフォルト モデル：[all-mpnet-base-v2](https://huggingface.co/sentence-transformers/all-mpnet-base-v2)。このソースはメンテナンスされておらず、将来的に削除される予定です。
 
-### API sources
+### APIソース
 
 これらのソースはすべてそれぞれのサービスの API キーが必要で、通常は使用コストがありますが、一般的にエンベディングの計算は非常に安価です。
 
@@ -160,7 +160,7 @@ Embeddings は、それを生成したのと同じモデルを使用して取得
 6. MistralAI
 7. NomicAI
 
-## Vectorization Settings
+## ベクトル化設定
 
 埋め込みプロバイダーを選択した後、ドキュメントの処理と取得のルールを定義する他の設定を忘れずに構成してください。
 
@@ -168,7 +168,7 @@ Embeddings は、それを生成したのと同じモデルを使用して取得
 ファイルの分割、ベクトル化、添付ファイルからの情報取得には時間がかかります。ファイルの初期インジェストに時間がかかる場合があります。RAG 検索クエリは通常、顕著なラグを生じないほど十分に高速です。
 !!!
 
-### Message attachments
+### メッセージ添付ファイル
 
 これらの設定は、メッセージに直接添付されるファイルを制御します。
 
@@ -183,7 +183,7 @@ Embeddings は、それを生成したのと同じモデルを使用して取得
 - Chunk overlap (%) - 隣接するチャンク間で共有されるチャンク サイズのパーセンテージを設定します。これにより、チャンク間のより滑らかな遷移が可能になりますが、冗長性も導入する可能性があります。
 - Retrieve chunks - 取得する最も関連性の高いファイル チャンクの最大数を設定します。元の順序で挿入されます。
 
-### Data Bank files
+### Data Bank ファイル
 
 これらの設定は Data Bank ドキュメントの処理方法を制御します。
 
@@ -200,7 +200,7 @@ Embeddings は、それを生成したのと同じモデルを使用して取得
 - Injection Template - 取得した情報がプロンプトに挿入される方法を定義します。特別な \{\{text\}\} マクロを使用して取得したテキストの位置を指定することも、他のマクロを使用することもできます。
 - Injection Position - プロンプト インジェクションを挿入する位置を設定します。Author's Note および World Info の場合と同じルールが適用されます。
 
-### Shared settings
+### 共通設定
 
 - Query messages - クエリのドキュメント チャンクに使用される最新のチャット メッセージの数。
 - Score threshold - 関連性スコア（0 - まったく一致なし、1 - 完全一致）に基づくチャンク取得の除外を調整します。値が高いほど、より正確な取得が可能になり、まったくランダムな情報がコンテキストに入るのを防ぎます。有効な値は 0.2（より緩い）から 0.5（より焦点を絞った）の範囲です。
@@ -215,6 +215,6 @@ Embeddings は、それを生成したのと同じモデルを使用して取得
 「Chat vectorization」設定については [Chat Vectorization](/extensions/Chat-vectorization.md) を参照してください。
 !!!
 
-## Conclusion
+## 結論
 
 おめでとうございます！チャット体験は RAG の力で向上しました。その機能は想像力によってのみ制限されています。いつものように、実験することを恐れないでください！

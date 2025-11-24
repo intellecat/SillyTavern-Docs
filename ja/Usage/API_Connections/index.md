@@ -5,12 +5,12 @@ expanded: false
 route: /usage/api-connections/
 ---
 
-# API Connections
+# API接続
 
 SillyTavernは幅広いLLM APIに接続できます。
 以下は、それぞれの長所、短所、使用例の説明です。
 
-## ELI5: Chat Completions vs Text Completions
+## ELI5: Chat Completions と Text Completions
 
 STで初めて「API Connections」ページに移動すると、「Chat Completion」や「Text Completion」などの用語を使用してオプションを選択するドロップダウンオプションがあります。これが何を意味するかを理解すると役立ちます。
 
@@ -22,7 +22,7 @@ STを使用してメッセージを送信すると、チャット、キャラク
 
 Chat Completionモデルは、その名前が示すように、プロンプトをUser(あなた)とAssistant(AI)またはSystem(中立)の間の一連のメッセージに構造化します。Chat Completionのためにトレーニングされたモデルは、AIが最後のメッセージに「応答」する「チャット」の感覚を作り出すのに役立ちます。ChatGPT Webサイトを使用しているとき、バックグラウンドでChat Completions APIを扱っています。
 
-### Text Completions (a.k.a just "Completions")
+### Text Completions (別名 "Completions")
 
 一方、Text Completionは、その名前が示すように、プロンプトを1つの長い文字列に変換し、モデルは単純にこれを続けようとします(文字通り、すべてのテキスト、数百のメッセージ、すべてのフォーマット、改行などが1つの非常に長い文に圧縮されることを想像してください)。
 
@@ -30,7 +30,7 @@ STでのメッセージがYourPersona:とCharacter:の間の一連のメッセ�
 
 ほとんどのText Completionモデルには、Chat Completionモデルと同じようにメッセージと指示に「応答」するのに役立つ推奨される「Instruct Template」があります(通常、モデルのドキュメントまたはダウンロードページに記載されています)。STには通常、「Advanced Formatting」ページで選択できるほとんど(すべてではないにしても)のInstruct Templatesがあります。
 
-## Local APIs
+## ローカルAPI
 
 - これらのLLM APIはPCで実行できます。
 - 使用は無料で、コンテンツフィルターがありません。
@@ -85,7 +85,7 @@ STでのメッセージがYourPersona:とCharacter:の間の一連のメッセ�
 - 低VRAMユーザーには推奨されません(CPUオフロードなし)
 - [GitHub](https://github.com/theroyallab/tabbyAPI)、[Setup Instructions](/Usage/API_Connections/tabbyapi.md)
 
-### KoboldAI Classic (deprecated, abandoned)
+### KoboldAI Classic (非推奨、開発終了)
 
 - PCで実行、100%プライベート、幅広いモデルが利用可能
 - AIの生成設定を最も直接的に制御
@@ -117,7 +117,7 @@ STでのメッセージがYourPersona:とCharacter:の間の一連のメッセ�
 - 新しいモデルのほとんど(gpt-4-turbo、gpt-4o)はマルチモダリティをサポート
 - [Website](https://platform.openai.com/)、[Setup Instructions](/Usage/API_Connections/openai.md#openai)
 
-### Claude (by Anthropic)
+### Claude (Anthropic)
 
 - AIチャットに創造的でユニークなライティングスタイルを求めるユーザーに推奨
 - クレジットの前払いが必要で、プロンプトごとに課金
@@ -125,14 +125,14 @@ STでのメッセージがYourPersona:とCharacter:の間の一連のメッセ�
 - 特定のプロンプトスタイルと返信操作のための[prefills](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/prefill-claudes-response)の利用が必要
 - [Website](https://console.anthropic.com/)、[Setup Instructions](/Usage/API_Connections/openai.md#claude)
 
-### Google AI Studio and Vertex AI
+### Google AI Studio と Vertex AI
 
 - レート制限付きの無料ティアがあり(Gemini Flash)、請求情報が必要な場合があります
 - [AI Studio](https://aistudio.google.com/)は通常、最新のモデルと機能を持っています
 - [Vertex AI](https://console.cloud.google.com/vertex-ai/studio)はセットアップが難しいですが、より安定しています
 - [Setup Instructions](/Usage/API_Connections/google.md)
 
-### Mistral (by Mistral AI)
+### Mistral (Mistral AI)
 
 - さまざまなサイズと使用例の効率的なモデル。[プラットフォーム](https://console.mistral.ai/api-keys/)でアカウントとAPIキーを作成できます。
 - 一般使用の場合は32kから128kのコンテキストサイズ、コーディングの場合は32kから256kのコンテキストサイズ。

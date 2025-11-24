@@ -4,30 +4,30 @@ icon: person-fill
 route: /usage/characters/
 ---
 
-# Characters
+# キャラクター
 
 キャラクターは、AI と会話でのロールを形作るために作成および管理できる AI アイデンティティです。各キャラクターには、名前、個性、会話履歴があります。必要なだけ多くのキャラクターを作成し、いつでもそれらを切り替えることができます。
 
 キャラクターはソロ チャットで使用することも、複数のキャラクターをグループ チャットに追加して相互に作用させることもできます。
 
-## Character Management Panel
+## キャラクター管理パネル
 
 ナビゲーション バーから <i class="fa-solid fa-address-card"></i> **Characters** パネルを開いて、キャラクター リストにアクセスします。キャラクターまたはグループをクリックしてチャットまたは編集したり、<i class="fa-solid fa-user-plus"></i> **Create New Character** を選択して新しいキャラクターを追加したりします。
 
-### Panel Controls
+### パネルコントロール
 
 * <i class="fa-solid fa-lock"></i> **Pin Panel**: インタラクション中にパネルを開いたままにする
 * <i class="fa-solid fa-list-ul"></i> **Character List**: キャラクター リスト ビューに戻る
 * **HotSwap Bar**: お気に入りのキャラクターにすばやくアクセス
 
-### Character List
+### キャラクターリスト
 
 * <i class="fa-solid fa-user-plus"></i> **Create New Character**: 新しいキャラクターを追加
 * <i class="fa-solid fa-file-import"></i> **Import Character**: ファイルからキャラクターを読み込む
 * <i class="fa-solid fa-cloud-arrow-down"></i> **External Import**: URL からインポート
 * <i class="fa-solid fa-users-gear"></i> **Create Group**: 新しいグループ チャットを開始
 
-#### Search and sort
+#### 検索と並べ替え
 
 * **Search Bar**: 名前または属性でキャラクターをフィルター
 * **Sort Dropdown**: 複数のソート オプション：
@@ -37,7 +37,7 @@ route: /usage/characters/
     - Size-based (Most/Least tokens)
     - Special (Favorites, Random)
 
-#### Filter characters by type or tag
+#### タイプまたはタグでキャラクターをフィルタリング
 
 * <i class="fa-solid fa-star"></i> **Favorites Filter**: お気に入りのキャラクターを表示
 * <i class="fa-solid fa-users"></i> **Groups Filter**: グループ チャットのみを表示
@@ -46,14 +46,14 @@ route: /usage/characters/
 * <i class="fa-solid fa-tags"></i> **Tag List**: 利用可能なすべてのタグを表示
 * <i class="fa-solid fa-filter-circle-xmark"></i> **Clear Filters**: すべてのフィルターをリセット
 
-### Character Creation/Edit Panel
+### キャラクター作成/編集パネル
 
 * **Avatar Image**: キャラクター プロフィール画像をアップロードしてプレビュー
 * **Token Count**: キャラクターの [Token usage](characterdesign.md#character-tokens)
 * <i class="fa-solid fa-ranking-star"></i> **Stats**: チャット履歴と使用統計
 * [Tag management](/Usage/Characters/Tags.md)
 
-#### Quick Actions
+#### クイックアクション
 
 - <i class="fa-solid fa-star"></i> お気に入りトグル
 - <i class="fa-solid fa-book"></i> 高度な定義
@@ -63,7 +63,7 @@ route: /usage/characters/
 - <i class="fa-solid fa-clone"></i> 複製
 - <i class="fa-solid fa-skull"></i> 削除
 
-#### Extended Options
+#### 拡張オプション
 
 * World Info linking
 * Card lore import
@@ -75,13 +75,13 @@ route: /usage/characters/
 * Tag import
 * Gallery view
 
-#### Content Fields
+#### コンテンツフィールド
 
 * **[Character Description](characterdesign.md#character-description)**: キャラクターの簡潔な説明
 * **[First Message](characterdesign.md#first-message)**: チャットを開始する際の初期グリーティングまたはプロンプト
 * **Alternative greetings**: チャットを開始するときにスワイプできる複数の最初のメッセージを定義
 
-### Advanced Definitions Panel
+### Advanced Definitions パネル
 
 <i class="fa-solid fa-book"></i> **Advanced Definitions** ボタンをクリックして、拡張キャラクター設定にアクセスします。
 
@@ -107,7 +107,7 @@ route: /usage/characters/
 * **Talkativeness** (Group Chats): Shy → Normal → Chatty のスライダー
 * **Example Messages**: キャラクターの執筆スタイルの例
 
-### Group Chat Management
+### グループチャット管理
 
 これがグループ チャットの場合は、このパネルからグループ メンバーと設定を管理できます。
 

@@ -3,7 +3,7 @@ order: 100
 route: /usage/core-concepts/advancedformatting/
 ---
 
-# Advanced Formatting
+# 高度なフォーマット (Advanced Formatting)
 
 このセクションで提供される設定により、[プロンプト構築](index.md) 戦略をより制御できます（主に Text Completion APIs の場合）。
 
@@ -21,18 +21,18 @@ route: /usage/core-concepts/advancedformatting/
 * [Custom Stopping Strings](#custom-stopping-strings)
 +++
 
-## Resetting Templates
+## テンプレートのリセット (Resetting Templates)
 
 デフォルトのテンプレートを元の状態に復元できます。これは UI を通じて、または関連するデータ ファイルを手動で削除することで実行できます。
 
-### UI Reset
+### UI リセット (UI Reset)
 
 1. **<i class="fa-solid fa-font"></i> Advanced Formatting** メニューを開きます。
 2. リセットするテンプレートを選択します。
 3. **<i class="fa-solid fa-recycle"></i> Restore current template** ボタンをクリックします。
 4. プロンプトされたときにアクションを確認します。
 
-### Manual Reset
+### 手動リセット (Manual Reset)
 
 !!!
 [config.yaml](/Administration/config-yaml.md#data-configuration) の `skipContentCheck` 設定が `false` に設定されていることを確認します。そうしないと、コンテンツ チェックがトリガーされません。
@@ -43,7 +43,7 @@ route: /usage/core-concepts/advancedformatting/
 3. テンプレート JSON ファイルを関連するサブディレクトリ（`context`、`instruct`、`sysprompt` など）から削除します。
 4. SillyTavern サーバーを再起動します。アプリケーションはデフォルト コンテンツを再入力し、削除されたデフォルト テンプレートを復元します。
 
-## Backend-defined templates
+## バックエンド定義テンプレート (Backend-defined templates)
 
 !!! Applies to: Text Completion APIs
 Chat Completion APIs には適用されません。異なるプロンプト ビルダーを使用します。
@@ -57,7 +57,7 @@ Chat Completion APIs には適用されません。異なるプロンプト ビ�
 4. 報告されたチャット テンプレート ハッシュは、[既知の SillyTavern テンプレート](https://github.com/SillyTavern/SillyTavern/blob/release/public/scripts/chat-templates.js) のいずれかと一致する必要があります。これにより、Llama 3、Gemma 2、Mistral V7 などのデフォルト テンプレートのみが対象となります。
 5. ハッシュが一致する場合、テンプレートは、テンプレート リストに存在する場合（名前変更または削除されていない場合）、自動的に選択されます。
 
-## System Prompt
+## システムプロンプト (System Prompt)
 
 !!! Applies to: Text Completion APIs
 Chat Completion APIs で同等の設定については、[Prompt Manager](prompt-manager.md) を使用してください。**Main Prompt** は Chat Completion APIs のシステム プロンプトと同等です。
@@ -69,7 +69,7 @@ System Prompt は [Story String](context-template.md#story-string) の一部で�
 
 プロンプト ガイドの詳細については [prompting guide](index.md#main-prompt-system-prompt) を参照してください。
 
-## コンテキストテンプレート
+## コンテキストテンプレート (Context Template)
 
 !!! Applies to: Text Completion APIs
 Chat Completion APIs で同等の設定については、[Prompt Manager](prompt-manager.md) を使用してください。
@@ -79,13 +79,13 @@ Chat Completion APIs で同等の設定については、[Prompt Manager](prompt
 
 このセクションのオプションについては [Context Template](context-template.md) で説明しています。
 
-## Tokenizer
+## トークナイザー (Tokenizer)
 
 Tokenizer は、テキストを「トークン」と呼ばれるより小さなユニットに分割するツールです。これらのトークンは個々の単語、または接頭辞、接尾辞、句読点などの単語の一部です。経験則として、1 つのトークンは通常、テキストの 3～4 文字に対応します。
 
 このセクションのオプションについては [Tokenizer](tokenizer.md) で説明しています。
 
-## Custom Stopping Strings
+## カスタム停止文字列 (Custom Stopping Strings)
 
 JSON でシリアル化された停止文字列の配列を受け入れます。例： `["\n", "\nUser:", "\nChar:"]`。形式がわからない場合は、[オンライン JSON バリデーター](https://jsonlint.com/) を使用してください。モデルの出力が停止文字列のいずれかで **終了** する場合、それらは出力から削除されます。
 
@@ -101,7 +101,7 @@ JSON でシリアル化された停止文字列の配列を受け入れます。
 8. Google AI Studio
 9. MistralAI
 
-## Start Reply With
+## 返信の開始 (Start Reply With)
 
 !!! Note
 デフォルトでは、Start Reply With プレフィックスは結果のメッセージに表示されません。「Show reply prefix in chat」を有効にして表示します。

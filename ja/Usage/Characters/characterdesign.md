@@ -4,7 +4,7 @@ route: /usage/core-concepts/characterdesign/
 templating: false
 ---
 
-# Character Design
+# キャラクターデザイン
 
 !!!tip
 Character Nameは唯一の必須フィールドです。残りの部分を空のままにしても、チャットでキャラクターを使用できます。
@@ -18,7 +18,7 @@ Character Nameは唯一の必須フィールドです。残りの部分を空の
 
 任意の長さ（200トークンでも2000トークンでも）にすることができ、任意のスタイル（自由テキスト、疑似コード会話スタイルなど）でフォーマットできます。
 
-### Methods and format
+### 方法とフォーマット
 
 キャラクターフォーマットの方法は、このドキュメントページの範囲を超えた複雑なトピックです。
 
@@ -28,7 +28,7 @@ SillyTavernの機能でテストされた、または依存する推奨ガイド
 * AliCat's Ali:Chat guide: <https://rentry.co/alichat>
 * kingbri's minimalistic guide: <https://rentry.co/kingbri-chara-guide>
 
-## Character tokens
+## キャラクタートークン
 
 **要約：2048コンテキストトークン制限のAIモデルで作業している場合、1000トークンのキャラクター定義はAIの「メモリ」を半分に削減します。**
 
@@ -66,7 +66,7 @@ SillyTavernの機能でテストされた、または依存する推奨ガイド
 * The first message box - チャットの開始時に一度だけ送信されます。
 * Example messages box - チャット履歴がコンテキストを満たすまでのみ保持されます（オプションでこれらをコンテキストに強制的に保持することができます）
 
-### Popular AI Model Context Token Limits
+### 人気のあるAIモデルのコンテキストトークン制限
 
 * LLaMA 3 and its finetunes - 8192
 * OpenAI GPT-4 - up to 128k
@@ -90,7 +90,7 @@ MarkdownとHTMLフォーマットをサポートします。
 
 ここに追加されたメッセージは、新しいチャットを開始するときに、キャラクターの最初のメッセージの追加の「スワイプ」として表示されます。キャラクターがグループチャットの一部である場合、システムはこれらの挨拶の1つをランダムに選択して会話を開始します。
 
-## Favorite Character
+## お気に入りキャラクター
 
 **<i class="fa-solid fa-star"></i> Add to Favorites**ボタンをクリックして、キャラクターをお気に入りとしてマークし、サイドメニューバーの「Favorites」ソートオプションを選択することですばやくフィルタリングできます。お気に入りのキャラクターはリストに金色のハイライトがあります。これにより、キャラクターポートレートがホットスワップエリアに表示されます（User Settingsで有効になっている場合）。
 
