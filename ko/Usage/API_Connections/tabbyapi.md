@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/tabbyapi/
+route: /ko/usage/api-connections/tabbyapi/
 label: TabbyAPI
 title: TabbyAPI
 ---

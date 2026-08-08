@@ -1,6 +1,6 @@
 ---
 order: 100
-route: /usage/core-concepts/characterdesign/
+route: /ko/usage/core-concepts/characterdesign/
 templating: false
 ---
 

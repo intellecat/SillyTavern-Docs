@@ -1,6 +1,6 @@
 ---
 order: 80
-route: /usage/core-concepts/chatfilemanagement/
+route: /ko/usage/core-concepts/chatfilemanagement/
 ---
 
 # 채팅 파일 관리

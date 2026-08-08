@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/dreamgen/
+route: /ko/usage/api-connections/dreamgen/
 label: DreamGen
 title: DreamGen
 ---
@@ -102,7 +102,7 @@ The next message is from {{char}} and is at most 50 words long<|eot_id|><|start_
 
 `/sys` 옵션을 사용하여 모델에 지침을 보냅니다. 몇 가지 예:
 
-> The inkeeper offers Daria and the others a pint of ale.
+> The innkeeper offers Daria and the others a pint of ale.
 
 > The next message is from Draco and should be at least 200 words, focusing on his inner conflict about the decision.
 

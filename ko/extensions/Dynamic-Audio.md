@@ -1,5 +1,5 @@
 ---
-route: /extensions/dynamic-audio/
+route: /ko/extensions/dynamic-audio/
 ---
 
 # Dynamic Audio

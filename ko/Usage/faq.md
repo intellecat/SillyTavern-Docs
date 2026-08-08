@@ -1,7 +1,7 @@
 ---
 order: 180
 icon: question
-route: /usage/faq/
+route: /ko/usage/faq/
 label: FAQ
 title: FAQ
 ---

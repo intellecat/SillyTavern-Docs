@@ -1,6 +1,6 @@
 ---
 order: 50
-route: /usage/core-concepts/authors-note/
+route: /ko/usage/core-concepts/authors-note/
 ---
 
 # 작가 노트

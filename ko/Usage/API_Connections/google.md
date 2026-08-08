@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/google/
+route: /ko/usage/api-connections/google/
 label: Google Gemini
 title: Google Gemini
 ---

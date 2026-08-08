@@ -1,6 +1,6 @@
 ---
 order: 30
-route: /usage/core-concepts/data-bank/
+route: /ko/usage/core-concepts/data-bank/
 tags:
     [
         vector storage,
@@ -159,6 +159,12 @@ Vector Storage 자체는 벡터를 생성하지 않으므로 호환 가능한 �
 5. TogetherAI
 6. MistralAI
 7. NomicAI
+8. OpenRouter
+9. Electron Hub
+10. Chutes
+11. NanoGPT
+12. SiliconFlow
+13. Cloudflare Workers AI
 
 ## 벡터화 설정
 

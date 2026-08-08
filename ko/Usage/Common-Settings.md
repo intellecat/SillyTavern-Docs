@@ -1,7 +1,7 @@
 ---
 order: 160
 icon: sliders
-route: /usage/common-settings/
+route: /ko/usage/common-settings/
 label: 공통 설정
 title: 공통 설정
 ---

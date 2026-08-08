@@ -1,6 +1,6 @@
 ---
 order: 109
-route: /installation/updating/migration-guide-1-09/
+route: /ko/installation/updating/migration-guide-1-09/
 ---
 
 # 1.9.0 마이그레이션 가이드

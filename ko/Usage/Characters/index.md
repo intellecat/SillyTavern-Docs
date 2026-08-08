@@ -1,7 +1,7 @@
 ---
 order: 100
 icon: person-fill
-route: /usage/characters/
+route: /ko/usage/characters/
 ---
 
 # 캐릭터
@@ -57,8 +57,8 @@ route: /usage/characters/
 
 - <i class="fa-solid fa-star"></i> 즐겨찾기 토글
 - <i class="fa-solid fa-book"></i> 고급 정의
-- <i class="fa-solid fa-globe"></i> 캐릭터 로어
-- <i class="fa-solid fa-passport"></i> 채팅 로어: 채팅을 [World Info](/Usage/worldinfo.md)에 연결
+- <i class="fa-solid fa-globe"></i> [캐릭터 로어](/Usage/worldinfo.md#character-lore)
+- <i class="fa-solid fa-passport"></i> [채팅 로어](/Usage/worldinfo.md#chat-lorebook): 채팅을 World Info에 연결
 - <i class="fa-solid fa-file-export"></i> 캐릭터 내보내기
 - <i class="fa-solid fa-clone"></i> 복제
 - <i class="fa-solid fa-skull"></i> 삭제

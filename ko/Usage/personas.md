@@ -1,7 +1,7 @@
 ---
 order: 110
 icon: smiley
-route: /usage/core-concepts/personas/
+route: /ko/usage/core-concepts/personas/
 templating: false
 label: 페르소나
 title: 페르소나
@@ -35,7 +35,7 @@ SillyTavern의 페르소나는 채팅에 참여할 때 사용하는 정체성입
 
 ## 페르소나 설명
 
-각 페르소나는 사용자 정의 텍스트 설명을 저장할 수 있습니다. 정신적, 신체적 특성, 나이, 직업 또는 개인적 세부 사항 등을 포함할 수 있습니다. `{{char}}` 또는 `{{user}}`와 같은 템플릿 매크로도 포함할 수 있습니다([매크로](/Usage/Characters/macros.md) 참조).
+각 페르소나는 사용자 정의 텍스트 설명을 저장할 수 있습니다. 정신적, 신체적 특성, 나이, 직업 또는 개인적 세부 사항 등을 포함할 수 있습니다. `{{char}}` 또는 `{{user}}`와 같은 템플릿 매크로도 포함할 수 있습니다([매크로](/usage/macros.md) 참조).
 
 페르소나 설명이 AI 프롬프트에 삽입되는 위치는 페르소나 관리 패널의 **위치** 설정에 따라 다릅니다:
 

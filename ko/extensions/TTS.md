@@ -1,6 +1,6 @@
 ---
 order: tts
-route: /extensions/tts/
+route: /ko/extensions/tts/
 ---
 
 # TTS
@@ -40,6 +40,7 @@ SillyTavern은 채팅의 일부를 음성으로 낭독하는 데 사용되는 �
 - **Ignore \*text, even "quotes", inside asterisks\*** - TTS는 `*별표*` 내의 텍스트를 재생하지 않으며, "따옴표"도 포함하지 않습니다 (내부 변수 이름 = `narrate_dialogues_only`)
 - *"only narrate quotes"와 "ignore asterisks" 체크박스를 모두 체크하면 TTS는 별표 안에 없는 "따옴표"만 읽고 다른 모든 것은 무시합니다.*
 - **Narrate only the translated text** - 번역된 텍스트만 낭독합니다.
+- **Apply regex** - TTS 공급자로 전송하기 전에 텍스트에 제공된 regex 패턴을 적용합니다. 이모지나 TTS 엔진이 잘 처리하지 못하는 비원어 문자 등 입력 텍스트에서 원치 않는 부분을 제거하는 데 유용합니다.
 
 예제 텍스트: `*Cohee approaches you with a faint "nya"* "Good evening, senpai", she says.`
 다음은 **Ignore \*text, even "quotes", inside asterisks\***와 **Only narrate "quotes"**의 부울 상태에 따라 텍스트가 어떻게 수정되는지 보여주는 표입니다:

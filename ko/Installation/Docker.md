@@ -1,7 +1,7 @@
 ---
 # icon: container
 label: Docker
-route: /installation/docker/
+route: /ko/installation/docker/
 ---
 
 # Docker 설치
@@ -245,6 +245,122 @@ Docker 내에서 [HoYoWiki-Scraper-TS](https://github.com/Bronya-Rand/HoYoWiki-S
     docker compose restart sillytavern
     ```
 
+## 루트가 아닌 사용자 모드
+
+기본적으로 컨테이너는 root로 실행됩니다. 마운트된 볼륨에서 생성된 파일이 특정 호스트 사용자 소유가 되도록 하려면(예를 들어 root 소유 파일을 방지하기 위해) 루트가 아닌 사용자 모드를 활성화할 수 있습니다.
+
+### 옵션 1: PUID/PGID (권장)
+
+컨테이너가 사용할 UID/GID로 `PUID` 및 `PGID` 환경 변수를 설정합니다. 진입점(entrypoint)이 필요한 디렉터리의 소유권을 업데이트한 다음 매핑된 사용자로 서버를 실행합니다.
+
+Docker Compose 예시:
+
+```yaml
+services:
+  sillytavern:
+    environment:
+      - PUID=1000
+      - PGID=1000
+```
+
+Docker CLI 예시:
+
+```bash
+docker run \
+  --name="sillytavern" \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -p "$PUBLIC_PORT:8000/tcp" \
+  -v "$CONFIG_PATH:/home/node/app/config:rw" \
+  -v "$DATA_PATH:/home/node/app/data:rw" \
+  -v "$EXTENSIONS_PATH:/home/node/app/public/scripts/extensions/third-party:rw" \
+  -v "$PLUGINS_PATH:/home/node/app/plugins:rw" \
+  ghcr.io/sillytavern/sillytavern:"$SILLYTAVERN_VERSION"
+```
+
+### 옵션 2: Docker `--user` 플래그
+
+Docker의 `--user` 플래그를 사용하여 특정 사용자로 컨테이너를 실행할 수도 있습니다. 이 모드에서는 컨테이너가 권한을 자동으로 수정할 수 없으므로, 마운트된 볼륨이 제공한 UID/GID로 이미 쓰기 가능한 상태인지 확인하십시오.
+
+```bash
+docker run \
+  --name="sillytavern" \
+  --user 1000:1000 \
+  -p "$PUBLIC_PORT:8000/tcp" \
+  -v "$CONFIG_PATH:/home/node/app/config:rw" \
+  -v "$DATA_PATH:/home/node/app/data:rw" \
+  -v "$EXTENSIONS_PATH:/home/node/app/public/scripts/extensions/third-party:rw" \
+  -v "$PLUGINS_PATH:/home/node/app/plugins:rw" \
+  ghcr.io/sillytavern/sillytavern:"$SILLYTAVERN_VERSION"
+```
+
+## 컨테이너 상태 확인(Healthcheck)
+
+Docker 이미지에는 SillyTavern 서버의 응답성을 모니터링하는 내장 상태 확인(healthcheck) 메커니즘이 포함되어 있습니다. 이는 응답하지 않는 컨테이너를 감지하고 자동으로 재시작하기 위해 Docker Compose, Kubernetes, Docker Swarm과 같은 컨테이너 오케스트레이션 시스템에 유용합니다.
+
+### 작동 방식
+
+상태 확인은 하트비트 파일 메커니즘을 사용합니다:
+
+1. 활성화되면 SillyTavern 서버는 데이터 디렉터리의 `heartbeat.json` 파일에 주기적으로 타임스탬프를 기록합니다.
+2. 상태 확인 스크립트(`src/healthcheck.js`)는 하트비트 파일이 존재하고 최근에 업데이트되었는지 확인합니다.
+3. 하트비트 파일이 없거나 너무 오래된 경우(2번 이상의 간격을 놓친 경우) 컨테이너는 비정상(unhealthy) 상태로 표시됩니다.
+
+### 구성
+
+!!!warning
+상태 확인 스크립트는 명령줄 인수를 통한 데이터 디렉터리 재정의를 지원하지 않습니다. 기본값인 `/home/node/app/data`에서 데이터 디렉터리를 변경하는 경우 `SILLYTAVERN_DATAROOT` 환경 변수가 그에 맞게 설정되어 있는지 확인하십시오.
+!!!
+
+상태 확인은 `SILLYTAVERN_HEARTBEATINTERVAL` 환경 변수(또는 config.yaml의 `heartbeatInterval`)로 제어됩니다. 이 값은 하트비트 기록 사이의 간격(초)을 지정합니다.
+
+- **기본값:** `0` (비활성화)
+- **권장값:** Docker 상태 확인을 사용할 때 `30`초
+
+기본 `docker-compose.yml` 파일에는 하트비트가 활성화된 상태 확인 구성이 포함되어 있습니다:
+
+```yaml
+services:
+  sillytavern:
+    environment:
+      - SILLYTAVERN_HEARTBEATINTERVAL=30
+    healthcheck:
+      test: ["CMD", "node", "src/healthcheck.js"]
+      interval: 30s
+      timeout: 10s
+      start_period: 20s
+      retries: 3
+```
+
+### 컨테이너 상태 확인하기
+
+다음을 사용하여 컨테이너의 상태를 확인할 수 있습니다:
+
+```sh
+docker inspect --format='{{.State.Health.Status}}' sillytavern
+```
+
+또는 상태를 포함한 전체 컨테이너 상태를 확인합니다:
+
+```sh
+docker ps
+```
+
+`STATUS` 열에 가동 시간과 함께 `healthy`, `unhealthy`, 또는 `starting`이 표시됩니다.
+
+### 상태 확인 비활성화
+
+상태 확인 기능이 필요하지 않은 경우 다음과 같이 비활성화할 수 있습니다:
+
+1. 환경 변수를 `0`으로 설정합니다:
+
+    ```yaml
+    environment:
+      - SILLYTAVERN_HEARTBEATINTERVAL=0
+    ```
+
+2. `docker-compose.yml`에서 `healthcheck` 섹션을 제거하거나 주석 처리합니다.
+
 ## Docker의 일반적인 문제
 
 ### 마운트된 볼륨의 SELinux 권한 문제
@@ -269,10 +385,15 @@ volumes:
 
 ### 화이트리스트에 의해 금지됨
 
-!!!
-[whitelistDockerHosts](/Administration/config-yaml.md#ip-whitelisting) 구성 값이 `true`로 설정된 경우 Docker 게이트웨이 IP는 자동으로 화이트리스트에 추가되어야 합니다.
+!!!warning Docker Desktop 대 Docker CE
+[whitelistDockerHosts](/Administration/config-yaml.md#ip-whitelisting) 구성 옵션(기본적으로 활성화됨)은 `host.docker.internal` 및 `gateway.docker.internal` 호스트 이름을 확인하여 작동합니다. 이 호스트 이름은 **Docker Desktop(Windows/Mac)에서만 사용 가능**합니다. **Linux에서 Docker CE**를 사용하는 경우 이러한 호스트 이름이 확인되지 않으며 자동 화이트리스트 추가가 컨테이너 로그에 다음과 같은 오류와 함께 실패합니다:
 
-여전히 SillyTavern에 액세스할 수 없는 경우 아래 지침에 따라 화이트리스트를 수동으로 업데이트하세요.
+```
+Failed to resolve whitelist hostname host.docker.internal: getaddrinfo ENOTFOUND host.docker.internal
+Failed to resolve whitelist hostname gateway.docker.internal: getaddrinfo ENOTFOUND gateway.docker.internal
+```
+
+이 경우 아래 설명된 대로 Docker 게이트웨이 IP를 화이트리스트에 수동으로 추가해야 합니다.
 !!!
 
 1. 다음 Docker 명령을 실행하여 SillyTavern Docker 컨테이너의 IP를 가져옵니다.

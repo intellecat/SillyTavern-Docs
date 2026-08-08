@@ -1,5 +1,5 @@
 ---
-redirect: /installation/updating/
+redirect: /ko/installation/updating/
 visibility: hidden
 label: 업데이트
 title: 업데이트

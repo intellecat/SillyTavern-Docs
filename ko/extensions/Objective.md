@@ -1,5 +1,5 @@
 ---
-route: /extensions/objective/
+route: /ko/extensions/objective/
 ---
 
 # Objective

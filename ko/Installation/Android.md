@@ -1,6 +1,6 @@
 ---
 label: Android (Termux)
-route: /installation/android-(termux)/
+route: /ko/installation/android-(termux)/
 ---
 
 # Android (Termux) 설치

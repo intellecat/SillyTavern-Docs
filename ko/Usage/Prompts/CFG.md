@@ -1,6 +1,6 @@
 ---
 order: 60
-route: /usage/prompts/cfg/
+route: /ko/usage/prompts/cfg/
 ---
 
 # CFG
@@ -18,7 +18,7 @@ CFG, 즉 classifier-free guidance는 프롬프트의 일부를 덜 또는 더 �
 현재 지원되는 백엔드는 oobabooga의 textgen WebUI, NovelAI 및 TabbyAPI입니다.
 NovelAI에는 자체 [CFG 문서](https://web.archive.org/web/20240917150051/https://docs.novelai.net/text/cfg.html)가 있습니다.
 
-경고: CFG는 하나 이상의 프롬프트를 수집하기 때문에 vram 사용량을 증가시킵니다! CFG가 켜진 상태에서 프롬프트를 생성하는 동안 GPU 메모리가 부족하면 컨텍스트 크기를 줄이거나, 더 적은 파라미터 모델을 사용하거나, CFG를 완전히 끄는 것을 고려하세요.
+경고: CFG는 하나 이상의 프롬프트를 수집하기 때문에 VRAM 사용량을 증가시킵니다! CFG가 켜진 상태에서 프롬프트를 생성하는 동안 GPU 메모리가 부족하면 컨텍스트 크기를 줄이거나, 더 적은 파라미터 모델을 사용하거나, CFG를 완전히 끄는 것을 고려하세요.
 
 ---
 
@@ -112,7 +112,7 @@ John을 다시 예로 들어봅시다. negative 프롬프트는 `[John's feeling
 
 이것은 차례로 *negative* 프롬프트를 더 강조하고 John이 행복한 것보다 평소보다 더 슬프게 행동하기 시작하는 것을 볼 수 있습니다.
 
-요약; guidance scale `1.5`를 사용하고 출력에 따라 위아래로 작업하세요.
+TL;DR: guidance scale `1.5`를 사용하고 출력에 따라 위아래로 작업하세요.
 
 ### Prompt Cascading
 

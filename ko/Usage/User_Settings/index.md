@@ -1,7 +1,7 @@
 ---
 order: 120
 icon: gear
-route: /usage/user-settings/
+route: /ko/usage/user-settings/
 ---
 
 # 사용자 설정
@@ -156,7 +156,7 @@ SillyTavern 사용자 계정을 제어하고, 설정 및 사용자 데이터를 
 
 * **Reload Chat**: 현재 채팅을 다시 로드하고 다시 그립니다.
 * **[Debug Menu](#debug-menu)**: 디버깅 옵션에 액세스합니다.
-* **Smooth Streaming**: 텍스트를 글자별로 표시하여 스트리밍된 생성을 부드럽게 합니다. 속도 제어 슬라이더를 포함합니다.
+* **Smooth Streaming**: 텍스트를 글자별로 표시하여 스트리밍된 생성을 부드럽게 합니다. 속도 제어 슬라이더를 포함합니다. reasoning 블록을 smooth streaming에서 제외하려면 "Exclude 'Thinking...'" 옵션을 활성화하세요.
 * **Stream Fade-In**: 스트리밍된 텍스트에 페이드인 효과를 적용합니다. Smooth Streaming과 함께 또는 별도로 사용할 수 있습니다.
 * **[Message Sound](uicustomization.md#message-sound)**: 메시지 생성이 완료되면 소리를 재생합니다.
     - **Background Sound Only**: 브라우저 탭이 포커스되지 않은 경우에만 소리를 재생합니다.
@@ -180,6 +180,9 @@ SillyTavern 사용자 계정을 제어하고, 설정 및 사용자 데이터를 
     - Gradual push-out
     - Always include examples
     - Never include examples
+* **Image Swipe Behavior** (갤러리 스타일 이미지에 대한 스와이프 동작을 제어함):
+    - Generate new: [Image Generation](/extensions/Stable-Diffusion.md) 확장을 사용하여 새 이미지를 생성할 수 있습니다
+    - Roll over: 기존 이미지를 순환하며, 끝에서 다시 처음으로 돌아갑니다
 
 ### 입력 및 응답 컨트롤
 
@@ -226,6 +229,7 @@ AI가 다른 방식으로 작성했을 것보다 더 많이 작성하게 하지�
 * **Forbid External Media**: 외부 도메인의 내장된 미디어를 차단합니다
 * **Show {\{char}}: in responses**: 생성된 경우 응답에서 캐릭터 이름 접두사를 유지합니다
 * **Show {\{user}}: in responses**: 생성된 경우 응답에서 사용자 이름 접두사를 유지합니다
+* **Experimental Macro Engine**: 중첩을 지원하는 고급 매크로 처리를 활성화합니다
 * **Show tags in responses**: (일부) HTML 태그가 응답에서 HTML로 표시되도록 허용합니다
 * **Relax message trim in Groups**: 그룹 채팅에서 AI가 다른 캐릭터를 대신 말하도록 허용하며, 응답 생성을 중지하지 않습니다
 * **Show group chat queue**: 그룹 채팅에 대한 캐릭터 목록에 응답 순서를 표시합니다

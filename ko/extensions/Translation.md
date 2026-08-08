@@ -1,5 +1,5 @@
 ---
-route: /extensions/translation/
+route: /ko/extensions/translation/
 templating: false
 ---
 

@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/mancer/
+route: /ko/usage/api-connections/mancer/
 label: Mancer
 title: Mancer
 ---

@@ -3,7 +3,7 @@ order: 30
 label: 개발 및 자동화
 icon: command-palette
 expanded: true
-route: /for-contributors/
+route: /ko/for-contributors/
 ---
 
 # 개발 및 자동화
@@ -37,5 +37,5 @@ UI 익스텐션은 브라우저 환경에서 실행되며 이벤트와 API에 �
 :::callout
 **[국제화 (i18n)](i18n)**
 
-SillTavern의 UI를 여러분의 언어로 번역하는 방법을 배웁니다.
+SillyTavern의 UI를 여러분의 언어로 번역하는 방법을 배웁니다.
 :::

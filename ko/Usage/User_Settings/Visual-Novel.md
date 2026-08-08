@@ -5,7 +5,7 @@ tags:
         visual novel,
         vn,
     ]
-route: /usage/user-settings/visual-novel/
+route: /ko/usage/user-settings/visual-novel/
 ---
 
 # Visual Novel (VN) 모드

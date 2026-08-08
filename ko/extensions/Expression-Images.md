@@ -1,5 +1,5 @@
 ---
-route: /extensions/expression-images/
+route: /ko/extensions/expression-images/
 ---
 
 # Character Expressions

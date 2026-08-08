@@ -1,7 +1,7 @@
 ---
 label: MacOS & Linux
 order: 5
-route: /installation/linuxmacos/
+route: /ko/installation/linuxmacos/
 ---
 
 # Linux/MacOS 설치

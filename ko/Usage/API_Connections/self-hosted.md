@@ -1,7 +1,7 @@
 ---
 order: 90
 icon: desktop-download
-route: /usage/how-to-use-a-self-hosted-model/
+route: /ko/usage/how-to-use-a-self-hosted-model/
 label: 자체 호스팅 AI 모델
 title: 자체 호스팅 AI 모델
 ---
@@ -104,14 +104,18 @@ Docker에서 SillyTavern을 호스팅하는 경우 **http://127.0.0.1:\<port\>**
 
 ### Oobabooga 설치
 
+!!!note
+Oobabooga를 설치한 방법에 따라 파일 경로가 약간 다를 수 있습니다. git clone으로 설치한 경우 `/text-generation-webui/user_data`이고, .zip 방식을 사용한 경우 `/text-generation-webui-main/user_data`입니다.
+!!!
+
 더 정확하고 확실한 설치 절차는 다음과 같습니다:
 
 1. git clone <https://github.com/oobabooga/text-generation-webui> (또는 브라우저에서 저장소를 .zip으로 다운로드한 다음 추출)
-2. start_windows.bat 또는 OS에 맞는 것을 실행합니다
+2. `start_windows.bat` 또는 OS에 맞는 것을 실행합니다
 3. 묻는 경우 GPU 유형을 선택합니다. GGUF/CPU를 사용하려는 경우에도 GPU가 목록에 있으면 지금 선택하세요. GPU 샤딩이라는 속도 최적화 옵션을 사용할 수 있는 옵션을 제공합니다(처음부터 다시 설치할 필요 없음). 게임급 dGPU(NVIDIA, AMD)가 없으면 None을 선택합니다.
 4. 설치가 완료될 때까지 기다립니다
-5. kunoichi-dpo-v2-7b.Q6_K.gguf를 text-generation-webui/models에 배치합니다
-6. text-generation-webui/CMD_FLAGS.txt를 열고 내부의 모든 것을 삭제하고 다음을 작성합니다: --api
+5. kunoichi-dpo-v2-7b.Q6_K.gguf를 `text-generation-webui/user_data/models`에 배치합니다
+6. `text-generation-webui/user_data/CMD_FLAGS.txt`를 열고 내부의 모든 것을 삭제하고 다음을 작성합니다: `--api`
 7. Oobabooga를 다시 시작합니다
 8. <http://127.0.0.1:5000/docs>를 방문합니다. FastAPI 페이지가 로드되나요? 그렇지 않으면 어딘가에서 실수한 것입니다.
 

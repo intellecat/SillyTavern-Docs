@@ -2,7 +2,7 @@
 title: 다중 사용자 모드
 icon: people
 order: -10
-route: /administration/multi-user/
+route: /ko/administration/multi-user/
 ---
 
 다중 사용자 모드를 사용하면 여러 사람이 하나의 SillyTavern 서버를 사용할 수 있습니다. 각 사용자는 자신만의 설정, 확장 프로그램 및 데이터를 가지고 있습니다. 사용자 계정은 비밀번호로 보호할 수도 있습니다.

@@ -3,7 +3,7 @@ label: 업데이트
 icon: repo-pull
 order: -1
 expanded: false
-route: /installation/updating/
+route: /ko/installation/updating/
 ---
 
 # SillyTavern 업데이트 방법

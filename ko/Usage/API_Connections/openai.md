@@ -1,6 +1,6 @@
 ---
 order: 20
-route: /usage/api-connections/openai/
+route: /ko/usage/api-connections/openai/
 label: Chat Completions
 title: Chat Completions
 ---

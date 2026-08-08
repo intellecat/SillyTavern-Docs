@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/novelai/
+route: /ko/usage/api-connections/novelai/
 label: NovelAI
 title: NovelAI
 ---
@@ -54,7 +54,7 @@ Clio는 Tablet/scroll 계층에서 컨텍스트 크기가 더 크지만 Kayra의
 글쓰기 스타일을 수정하기 위해 채팅 바로 위에 삽입되는 텍스트. 권장 형식은 "[ Style: chat, detailed, sensory ]"와 같은 짧은 태그 목록입니다.
 
 ## 프리셋 설명
-Novel AI에 따르면 기본 프리셋이 무엇에 좋은지입니다.
+NovelAI에 따르면 기본 프리셋이 무엇에 좋은지입니다.
 
 ### Erato
 

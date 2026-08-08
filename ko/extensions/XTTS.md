@@ -1,6 +1,6 @@
 ---
 order: tts-xtts
-route: /extensions/xtts/
+route: /ko/extensions/xtts/
 ---
 
 # 음성 복제 기능이 있는 XTTS

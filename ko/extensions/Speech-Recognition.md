@@ -1,5 +1,5 @@
 ---
-route: /extensions/speech-recognition/
+route: /ko/extensions/speech-recognition/
 ---
 
 # Speech Recognition
@@ -12,7 +12,6 @@ route: /extensions/speech-recognition/
 
 - 최신 버전의 SillyTavern을 사용하고 있는지 확인하세요.
 - Extensions 패널(쌓인 블록 아이콘)의 "Download Extensions & Assets" 메뉴에서 "Speech Recognition" 확장 기능을 설치하세요.
-- ffmpeg 바이너리가 설치되어 있어야 합니다. 자세한 내용은 [RVC 설정](RVC.md#rvc-setup)을 참조하세요.
 
 ## 음성 인식 설정 (브라우저)
 
@@ -38,7 +37,22 @@ route: /extensions/speech-recognition/
 5. **녹음**:
    - 녹음을 시작하려면 전송 버튼 옆 메시지 영역 오른쪽에 있는 마이크 버튼을 클릭하세요. 녹음을 중지하려면 다시 클릭하세요. 음성이 감지되지 않으면 녹음이 자동으로 중지될 수 있습니다.
 
-## 음성 인식 설정 (Whisper/Vosk)
+## 음성 인식 설정 (API 소스)
+
+음성-텍스트 변환 API를 제공하는 OpenAI, MistralAI, Groq, Chutes, Z.AI 등의 소스를 지원합니다.
+
+설정 방법:
+
+1. Chat Completion API 설정에서 선택한 제공업체의 API 키를 입력하세요.
+2. SillyTavern을 시작하고 **Extensions** > **Speech Recognition**으로 이동하세요.
+3. 드롭다운 옵션에서 원하는 API 소스를 선택하세요.
+4. "Browser" provider 설정과 마찬가지로 필요에 따라 추가 설정을 구성하세요.
+
+## 음성 인식 설정 (Extras) - 지원 중단됨
+
+!!!
+ffmpeg 바이너리가 설치되어 있어야 합니다. 자세한 내용은 [RVC 설정](RVC.md#rvc-setup)을 참조하세요.
+!!!
 
 1. **Provider 활성화**:
    - 다음 명령을 사용하여 extras 서버에서 원하는 음성 인식 provider를 활성화하세요:
@@ -56,7 +70,11 @@ route: /extensions/speech-recognition/
    - 드롭다운 옵션에서 "Vosk" 또는 "Whisper"를 선택하세요(whisper가 더 정확합니다).
    - 설정은 "Browser" provider 설정과 유사합니다(언어 제외) 위를 참조하세요.
 
-## 음성 인식 설정 (스트리밍)
+## 음성 인식 설정 (스트리밍) - 지원 중단됨
+
+!!!
+ffmpeg 바이너리가 설치되어 있어야 합니다. 자세한 내용은 [RVC 설정](RVC.md#rvc-setup)을 참조하세요.
+!!!
 
 1. **Provider 활성화**:
    - 다음 명령으로 Sillytavern-extras에서 스트리밍 음성 인식 모듈을 활성화하세요:

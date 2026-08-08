@@ -1,5 +1,5 @@
 ---
-route: /extensions/smart-context/
+route: /ko/extensions/smart-context/
 ---
 
 # Smart Context
@@ -64,7 +64,7 @@ Smart Context 구성은 Extensions 메뉴 ![STExtensionMenuIcon](/static/extensi
 - 새 채팅이 시작될 때 ChromaDB는 비활성 상태입니다.
 - 채팅에 10개의 메시지가 누적되면 데이터베이스에 모든 메시지를 기록하기 시작하고 필요에 따라 메시지를 불러옵니다.
 
-#### Chat History Preservation ('kept mesages')
+#### Chat History Preservation ('kept messages')
 
 기본적으로 ChromaDB는 슬라이더에 지정된 만큼 최근 자연 채팅 기록 메시지를 유지합니다.
 이 양을 초과하는 메시지는 전송된 프롬프트에서 제거되고 데이터베이스에 '메모리'가 있으면 이전 채팅 기록 메시지 대신 추가됩니다(아래 Strategy 참조).

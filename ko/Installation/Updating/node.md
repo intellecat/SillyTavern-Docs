@@ -1,6 +1,6 @@
 ---
 order: -50
-route: /installation/updating/node/
+route: /ko/installation/updating/node/
 ---
 
 # Node.js 업데이트 방법

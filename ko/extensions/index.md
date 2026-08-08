@@ -3,7 +3,7 @@ label: 확장 기능
 icon: plug
 expanded: true
 order: 35
-route: /extensions/
+route: /ko/extensions/
 ---
 
 # 확장 기능
@@ -146,9 +146,9 @@ LLM 프롬프트에 웹 검색 결과를 추가합니다.
 :::
 
 :::callout
-**[AccuWeather](https://github.com/SillyTavern/Extension-AccuWeather)**
+**[Weather](https://github.com/SillyTavern/Extension-Weather)**
 
-슬래시 명령어 또는 함수 도구로 AccuWeather API를 사용하여 날씨 정보를 제공합니다.
+슬래시 명령어 또는 함수 도구로 사용 가능한 날씨 API 중 하나를 사용하여 날씨 정보를 제공합니다.
 :::
 
 :::callout

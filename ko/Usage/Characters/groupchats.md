@@ -1,6 +1,6 @@
 ---
 order: 70
-route: /usage/core-concepts/groupchats/
+route: /ko/usage/core-concepts/groupchats/
 ---
 
 # 그룹 채팅

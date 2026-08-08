@@ -1,5 +1,5 @@
 ---
-route: /extensions/stable-diffusion/
+route: /ko/extensions/stable-diffusion/
 templating: false
 ---
 
@@ -31,25 +31,30 @@ wand 메뉴 또는 slash 명령에서 채팅 기록 및 캐릭터 정보로부�
 
 | Source                                                                                            | 비고                                                                                         |
 |:--------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------|
-| [AI.ML API](https://aimlapi.com/)                                                                 | 클라우드, 유료                                                                                     |
+| [AI/ML API](https://aimlapi.com/)                                                                 | 클라우드, 유료                                                                                     |
 | [Black Forest Labs](https://bfl.ai/)                                                              | 클라우드, 유료                                                                                     |
+| [Cloudflare Workers AI](https://www.cloudflare.com/developer-platform/products/workers-ai/)       | 클라우드, 유료, 비전 기능이 있는 다양한 모델                                            |
+| [Chutes](https://chutes.ai/)                                                                      | 클라우드                                                                                           |
 | [ComfyUI](https://github.com/comfyanonymous/ComfyUI)                                              | 로컬, 오픈 소스 (GPL3), 무료, [ComfyUI Configuration](#comfyui-configuration) 참조. |
 | [Draw Things](https://drawthings.ai/)                                                             | 로컬, Mac/iOS, 무료                                                                  |
 | [Electron Hub](https://electronhub.ai/)                                                           | 클라우드, 유료                                                                                     |
 | [FAL.AI](https://fal.ai/)                                                                         | 클라우드, 유료                                                                                     |
-| [Google AI Studio](https://aistudio.google.com/) / [Google Vertex AI](https://cloud.google.com/vertex-ai) | 클라우드, 유료. Imagen 모델 시리즈. AI Studio는 Imagen 3.0 002 모델만 지원.         |
+| [Google AI Studio](https://aistudio.google.com/) / [Google Vertex AI](https://cloud.google.com/vertex-ai) | 클라우드, 유료. Imagen 모델 시리즈. AI Studio는 더 적은 모델을 지원합니다.                       |
 | [HuggingFace Serverless](https://huggingface.co/docs/api-inference/index)                         | 클라우드, 무료                                                                           |
 | [NanoGPT](https://nano-gpt.com/)                                                                  | 클라우드, 유료                                                                                     |
 | [NovelAI Diffusion](https://novelai.net/)                                                         | 클라우드, 활성 구독 필요                                                          |
 | [OpenAI](https://platform.openai.com/)                                                            | 클라우드, 유료                                                                                     |
-| [Pollinations](https://pollinations.ai/)                                                          | 클라우드, 오픈 소스 (MIT), 무료                                                        |
+| [OpenRouter](https://openrouter.ai/)                                                              | 클라우드                                                                                           |
+| [Pollinations](https://pollinations.ai/)                                                          | 클라우드, 오픈 소스 (MIT), 유료                                                        |
 | [SD.Next / vladmandic](https://github.com/vladmandic/automatic)                                   | 로컬, 오픈 소스 (AGPL3), 무료                                                      |
 | [SillyTavern Extras](https://github.com/SillyTavern/SillyTavern-Extras)                           | 더 이상 사용되지 않음, 권장하지 않음                                                                     |
+| [stable-diffusion.cpp](https://github.com/leejet/stable-diffusion.cpp)                            | 로컬, 오픈 소스 (MIT), 무료                                                        |
 | [Stability AI](https://platform.stability.ai/)                                                    | 클라우드, 유료                                                                                     |
 | [Stable Diffusion WebUI / AUTOMATIC1111](https://github.com/AUTOMATIC1111/stable-diffusion-webui) | 로컬, 오픈 소스 (AGPL3), 무료                                                      |
 | [Stable Horde](https://stablehorde.net/)                                                          | 클라우드, 오픈 소스 (AGPL3), 무료                                                      |
 | [TogetherAI](https://docs.together.ai/docs/serverless-models#image-models)                        | 클라우드                                                                                           |
 | [x.AI](https://x.ai/)                                                                             | 클라우드, 유료                                                                                     |
+| [Z.AI](https://z.ai/)                                                                             | 클라우드, 유료                                                                                     |
 
 ## 생성 모드
 
@@ -106,7 +111,7 @@ free-prompt 모드에서 특수 `{{charPrefix}}` 매크로를 사용하여 현�
 
 ### 이미지 스와이프
 
-이미지 스와이프를 사용하면 같은 프롬프트를 유지하면서 이미지 생성을 다시 시도할 수 있습니다. 고정 시드가 설정된 경우 다음 생성을 위해 무작위화됩니다.
+이미지 스와이프를 사용하면 같은 프롬프트를 유지하면서 이미지 생성을 다시 시도할 수 있습니다. 고정 시드가 설정된 경우 다음 생성을 위해 무작위화됩니다. `/sd` slash 명령을 통해 재정의된 이미지 크기는 스와이프된 이미지에도 유지됩니다.
 
 이미지를 순환하려면 생성된 이미지 위에 마우스 커서를 올려놓고(모바일에서는 탭) 화살표 버튼과 스와이프 카운터를 표시합니다. 최신 이미지에서 오른쪽 화살표를 탭하면 새 이미지가 생성됩니다.
 
@@ -116,7 +121,7 @@ free-prompt 모드에서 특수 `{{charPrefix}}` 매크로를 사용하여 현�
 
 ### 생성 전 프롬프트 편집
 
-Stable Diffusion API로 보내기 전에 자동으로 생성된 프롬프트를 수동으로 편집할 수 있습니다.
+이 옵션을 사용하면 Image Generation API로 전송되기 전에 자동으로 생성된 프롬프트를 편집할 수 있습니다. 또한 저장된 negative 프롬프트를 편집하거나 삭제할 수 있으며, 원래 `/sd` 명령으로 생성된 이미지를 재생성할 때 해상도를 재정의할 수 있습니다.
 
 ### function tool 사용
 
@@ -159,6 +164,10 @@ function tool이 활성화되면 대화형 모드가 트리거되지 않습니�
 ### free-mode 프롬프트 확장
 
 대화형 모드 또는 slash 명령을 사용할 때 main API를 프롬프트하여 free-mode 생성 주제 설명을 자동으로 확장합니다.
+
+### 최소 프롬프트 처리
+
+활성화되면 이미지 생성을 위해 LLM이 반환한 프롬프트에 적용되는 처리를 줄입니다. 정규화 및 공백 축소만 수행되며 기본적으로 수행되는 적극적인 살균(sanitization) 과정은 건너뜁니다. JSON과 같은 구조화된 프롬프트 형식을 허용하는 고급 워크플로(예: ComfyUI)로 작업할 때 유용합니다.
 
 ### 자동 조정된 해상도 스냅
 
@@ -231,12 +240,40 @@ ComfyUI에 익숙하지 않다면 기본 워크플로를 사용하여 SillyTaver
 
 이 패널을 사용하면 SillyTavern과 ComfyUI 통합을 구성하고 관리할 수 있습니다.
 
+#### 서버 유형
+
+* Standard Server는 로컬 머신이든 다른 곳에서 호스팅되든 ComfyUI를 직접 호출하는 경우입니다.
+* RunPod Serverless Endpoint는 [RunPod의 serverless API](https://www.runpod.io/product/serverless)를 통해 ComfyUI를 실행하기 위한 것입니다. Serverless는 standard server와 동일한 수준의 워크플로 제어를 유지하면서 더 강력한 호스팅 GPU를 활용하고 실제로 이미지를 생성할 때만 비용이 청구되므로 원격 생성에 좋은 옵션이 될 수 있습니다. 대부분의 사용법은 동일합니다. standard server 설정 및 동작과의 차이점은 [아래](#comfyui-runpod-setup)에 설명되어 있습니다.
+
+#### Standard Server 설정
+
 **ComfyUI URL** 입력 필드에 ComfyUI 서버의 URL을 입력합니다. 기본값은 `http://127.0.0.1:8188`입니다.
 [SwarmUI](https://github.com/mcmonkeyprojects/SwarmUI)를 사용하는 경우
 [managed ComfyUI server](https://github.com/mcmonkeyprojects/SwarmUI/blob/master/src/BuiltinExtensions/ComfyUIBackend/README.md)의 기본 포트는 `7821`이며
 SwarmUI의 기본 포트보다 20 포트 높습니다.
 
 URL을 입력한 후 <i class="fa-solid fa-check"></i> **Connect**를 선택하여 연결을 확인하고 설정합니다. ComfyUI 서버는 SillyTavern 호스트 머신에서 액세스할 수 있어야 합니다.
+
+#### ComfyUI RunPod 설정
+
+* RunPod 계정이 필요하며 어느 정도 금액을 충전해야 합니다. RTX 4090에서 Qwen 이미지 생성 기준으로 이미지당 약 2센트를 예상할 수 있지만 결과는 다를 수 있습니다(YMMV). $5의 크레딧이면 상당 기간 사용할 수 있습니다.
+* <https://console.runpod.io/hub/runpod-workers/worker-comfyui>는 자신만의 serverless endpoint를 만드는 데 사용할 수 있는 flux1 dev 구성입니다.
+  * 다른 모델을 사용하거나 LoRA를 추가하려는 경우 자신만의 구성을 만드는 방법에 대한 정보가 있습니다.
+* serverless endpoint에 액세스하기 위한 API 키를 생성합니다: <https://console.runpod.io/user/settings>
+
+* ST에서 **Source**로 **ComfyUI**를, **Server Type**으로 **RunPod Serverless Endpoint**를 선택합니다.
+* **ComfyUI RunPod URL**을 엔드포인트의 URL로 설정합니다.
+* API 키를 설정합니다.
+* **Connect**를 클릭합니다. API 키와 URL이 올바르면 성공을 나타내는 토스트가 표시됩니다.
+* ComfyUI 워크플로 구성 과정은 로컬과 동일합니다.
+  * "Export (API)" 옵션을 사용하세요.
+  * 로컬 설정에 따라 RunPod에서 사용할 모델의 변형을 선택해야 할 수도 있습니다. 예를 들어 로컬에서 양자화된 GGUF를 사용하지만 RunPod에서는 fp16 버전을 사용하고 싶은 경우입니다. ST에서 사용하는 JSON 워크플로에 이 변경 사항이 반영되어야 합니다.
+  * 모델, 샘플러, VAE 등은 동적으로 결정할 수 없으므로 워크플로에 이러한 값이 하드코딩되어 있어야 합니다(`%model%` 치환 없음).
+  * 다른 치환은 로컬과 동일하게 작동해야 합니다.
+
+!!!info 참고
+serverless 구성은 현재 워크플로를 출력 이미지에 임베드하지 않습니다. 즉, 시드나 프롬프트를 확인하기 위해 이미지를 로컬 ComfyUI로 드래그 앤 드롭할 수 없습니다. 이것은 RunPod 핸들러의 한계일 뿐이며 해당 측에서 추가될 수 있는 기능입니다.
+!!!
 
 ### 워크플로 관리
 
@@ -466,7 +503,7 @@ ComfyUI에서 워크플로를 테스트하기 위한 base64로 인코딩된 이�
 
 사용자 정의 자리 표시자는 사전 정의된 자리 표시자 아래의 별도 목록에 나타납니다.
 
-예를 들어 기본 워크플로에서 저장된 이미지 파일 이름의 "SillyTavern" 접두사를 사용자 정의 자리 표시자로 교체할 수 있습니다. `find`를 `filename_prefix`로 설정하고 `replace`를 `ServiceTesnor`로 설정한 새 사용자 정의 자리 표시자를 추가합니다. 워크플로 JSON에 새 `%filename_prefix%` 자리 표시자를 삽입합니다. 이제 사용자 정의 자리 표시자의 값을 변경하여 파일 이름 접두사를 SillyTavern에서 ServiceTesnor로 변경할 수 있습니다.
+예를 들어 기본 워크플로에서 저장된 이미지 파일 이름의 "SillyTavern" 접두사를 사용자 정의 자리 표시자로 교체할 수 있습니다. `find`를 `filename_prefix`로 설정하고 `replace`를 `ServiceTensor`로 설정한 새 사용자 정의 자리 표시자를 추가합니다. 워크플로 JSON에 새 `%filename_prefix%` 자리 표시자를 삽입합니다. 이제 사용자 정의 자리 표시자의 값을 변경하여 파일 이름 접두사를 SillyTavern에서 ServiceTensor로 변경할 수 있습니다.
 
 +++ 자리 표시자가 있는 JSON
 ```json

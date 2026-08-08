@@ -2,7 +2,7 @@
 order: 50
 icon: package
 expanded: true
-route: /installation/
+route: /ko/installation/
 label: 설치
 ---
 

@@ -1,5 +1,5 @@
 ---
-route: /extensions/live2d/
+route: /ko/extensions/live2d/
 ---
 
 # Live2D

@@ -2,7 +2,7 @@
 icon: report
 order: 170
 expanded: false
-route: /usage/chatting/
+route: /ko/usage/chatting/
 ---
 
 # 채팅

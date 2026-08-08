@@ -1,5 +1,5 @@
 ---
-route: /extensions/rvc/
+route: /ko/extensions/rvc/
 ---
 
 # Retrieval-based Voice Conversion (RVC)
@@ -117,14 +117,14 @@ python -m rvc_python api -p 5050 -l -md models_path
 
 * 음성 맵을 설정하려면 "Character" 드롭다운에서 캐릭터 또는 페르소나 이름을 선택한 다음 RVC "Voice"를 선택하고 Apply를 클릭합니다.
 * 선택적으로 피치 보정 또는 필터링과 같은 다른 관련 설정을 구성할 수도 있습니다.
-* 모든 것을 올바르게 수행했다면 Voice Map 디버그 영역에 'Betty:MyVoice(rvpme)'와 같은 내용이 표시됩니다.
+* 모든 것을 올바르게 수행했다면 Voice Map 디버그 영역에 'Betty:MyVoice(rmvpe)'와 같은 내용이 표시됩니다.
 
 ### SillyTavern Extras 설정
 
 #### 1. RVC 모델 파일 준비
 
 * 파일 브라우저에서 `\SillyTavern-extras\data\models\rvc`로 이동합니다.
-* 'Betty'와 같은 하위 폴더를 만들고 `.pth` 및 `.index` 파일을 넣습니다. (힌트: https://voice-models.com에서 음성 파일을 다운로드할 수 있습니다. 음성 이름이 RVPME라고 표시되어 있는지 확인하세요.)
+* 'Betty'와 같은 하위 폴더를 만들고 `.pth` 및 `.index` 파일을 넣습니다. (힌트: https://voice-models.com에서 음성 파일을 다운로드할 수 있습니다. 음성 이름이 RMVPE라고 표시되어 있는지 확인하세요.)
 
 #### 2. 요구 사항 설치
 
@@ -146,7 +146,7 @@ python server.py --enable-modules=rvc,edge-tts
 
 #### 4. 음성 매핑 설정
 
-RVC용 음성 맵을 만듭니다. Character를 원하는 SillyTavern 캐릭터 이름으로 설정하고 Voice를 1단계에서 만든 RVC 폴더로 설정한 다음 Apply를 클릭합니다. 제대로 했다면 Voice Map에 'Betty:MyVoice(rvpme)'와 같은 내용이 표시됩니다.
+RVC용 음성 맵을 만듭니다. Character를 원하는 SillyTavern 캐릭터 이름으로 설정하고 Voice를 1단계에서 만든 RVC 폴더로 설정한 다음 Apply를 클릭합니다. 제대로 했다면 Voice Map에 'Betty:MyVoice(rmvpe)'와 같은 내용이 표시됩니다.
 
 #### 5. 피치 추출 선택
 

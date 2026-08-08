@@ -1,7 +1,7 @@
 ---
 order: -30
 icon: server
-route: /for-contributors/server-plugins/
+route: /ko/for-contributors/server-plugins/
 label: 서버 플러그인
 ---
 

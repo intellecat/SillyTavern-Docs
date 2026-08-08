@@ -1,5 +1,5 @@
 ---
-route: /extensions/chat-vectorization/
+route: /ko/extensions/chat-vectorization/
 tags:
     [
         vector storage,

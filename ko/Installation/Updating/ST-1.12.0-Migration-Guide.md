@@ -1,6 +1,6 @@
 ---
 order: 112
-route: /installation/st-1.12.0-migration-guide/
+route: /ko/installation/st-1.12.0-migration-guide/
 ---
 
 # 1.12.0 마이그레이션 가이드

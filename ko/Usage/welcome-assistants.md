@@ -1,7 +1,7 @@
 ---
 tags: ['>=1.13.0']
 icon: people
-route: /usage/welcome-assistants/
+route: /ko/usage/welcome-assistants/
 label: 환영 페이지 어시스턴트
 title: 환영 페이지 어시스턴트
 ---

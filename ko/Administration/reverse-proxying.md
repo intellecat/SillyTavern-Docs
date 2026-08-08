@@ -2,7 +2,7 @@
 label: 리버스 프록시
 order: -50
 icon: server
-route: /usage/st-reverse-proxy-guide/
+route: /ko/usage/st-reverse-proxy-guide/
 ---
 
 !!!danger 참고

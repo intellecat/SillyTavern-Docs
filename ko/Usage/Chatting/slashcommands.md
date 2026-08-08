@@ -1,6 +1,6 @@
 ---
 icon: rel-file-path
-route: /usage/core-concepts/slashcommands/
+route: /ko/usage/core-concepts/slashcommands/
 ---
 
 # 슬래시 명령

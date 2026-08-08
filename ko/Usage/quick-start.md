@@ -1,7 +1,7 @@
 ---
 order: 190
 icon: rocket
-route: /usage/quick-start/
+route: /ko/usage/quick-start/
 label: 빠른 시작
 title: 빠른 시작
 ---

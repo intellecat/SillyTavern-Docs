@@ -2,7 +2,7 @@
 order: 140
 icon: typography
 templating: false
-route: /usage/prompts/
+route: /ko/usage/prompts/
 ---
 
 # 프롬프트
@@ -69,7 +69,7 @@ Chat Completion API에 대한 프롬프트 구성을 사용자 정의하려면 [
 
 \{\{char\}\} 및 \{\{user\}\} 플레이스홀더는 대화에서 정의한 캐릭터 및 페르소나의 이름으로 대체됩니다.
 
-메인 프롬프트에서 지원되는 [\{\{매크로\}\}](/Usage/Characters/macros.md) 태그를 사용하여 대화 간에 다를 수 있거나 대화가 진행됨에 따라 변경되는 정보를 포함할 수 있습니다.
+메인 프롬프트에서 지원되는 [\{\{매크로\}\}](/usage/macros.md) 태그를 사용하여 대화 간에 다를 수 있거나 대화가 진행됨에 따라 변경되는 정보를 포함할 수 있습니다.
 
 ### 메인 프롬프트 조정
 

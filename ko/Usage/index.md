@@ -2,7 +2,7 @@
 order: 40
 icon: plus
 expanded: true
-route: /usage/
+route: /ko/usage/
 label: 사용법
 ---
 

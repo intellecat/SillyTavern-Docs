@@ -1,6 +1,6 @@
 ---
 order: 20
-route: /usage/core-concepts/uicustomization/
+route: /ko/usage/core-concepts/uicustomization/
 ---
 
 # UI 사용자 정의
@@ -44,6 +44,17 @@ Circle, Square, Rectangle 또는 Rounded Square 중에서 선택합니다. 이 �
 * Bottom Left
 * Bottom Center
 * Bottom Right
+
+### 미디어 스타일
+
+채팅 메시지에서 미디어 첨부 파일(이미지, 오디오, 비디오)의 기본 표시 스타일입니다. 채팅 메시지에 미디어를 추가하는 확장 프로그램은 이 설정을 재정의할 수 있습니다. 메시지 컨텍스트 메뉴의 "Toggle media display style" 작업을 사용하여 메시지별로 수동으로 변경할 수도 있습니다.
+
+* **List**: 모든 미디어 첨부 파일을 그리드와 같은 레이아웃으로 한 번에 표시합니다.
+* **Gallery**: 미디어 첨부 파일을 캐러셀 스타일 갤러리로 표시합니다.
+
+!!!
+이 설정은 인라인 미디어 첨부 파일이 지원되는 Chat Completion 소스로 전송되는 방식에도 영향을 미칩니다: list는 모든 첨부 파일을 한 번에 전송하고, gallery는 선택한 첨부 파일을 전송합니다.
+!!!
 
 ### 테마 색상
 

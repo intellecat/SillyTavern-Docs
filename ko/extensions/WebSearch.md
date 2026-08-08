@@ -1,5 +1,5 @@
 ---
-route: /extensions/websearch/
+route: /ko/extensions/websearch/
 ---
 
 # 웹 검색
@@ -7,7 +7,7 @@ route: /extensions/websearch/
 LLM 프롬프트에 웹 검색 결과를 추가합니다.
 
 !!! Note
-일부 [Chat Completion](/Usage/API_Connections/openai.md) 소스는 내장 웹 검색 기능을 제공합니다. 이 경우 이 확장 기능은 대부분 중복됩니다. **<i class="fa-solid fa-sliders"></i> AI Response Configuration** 패널에서 "Enable web search" 토글을 확인하세요. 예를 들어 Claude, Google AI Studio / Vertex AI, xAI 및 OpenRouter 백엔드에 사용할 수 있습니다.
+일부 [Chat Completion](/Usage/API_Connections/openai.md) 소스는 내장 웹 검색 기능을 제공합니다. 이 경우 이 확장 기능은 대부분 중복됩니다. **<i class="fa-solid fa-sliders"></i> AI Response Configuration** 패널에서 "Enable web search" 토글을 확인하세요. 예를 들어 Claude, Google AI Studio / Vertex AI, OpenRouter, Chutes 및 기타 백엔드에 사용할 수 있습니다.
 !!!
 
 ## 사용 가능한 소스
@@ -57,6 +57,14 @@ KoboldCpp URL은 Text Completion API 설정에서 제공해야 합니다. Kobold
 API 키가 필요합니다.
 
 여기에서 키를 받으세요: <https://serper.dev/>
+
+### Z.AI
+
+API 키가 필요하며 먼저 Chat Completion API 설정에서 설정해야 합니다. Coding API 구독과는 호환되지 않습니다!
+
+여기에서 키를 받으세요: <https://z.ai/manage-apikey/apikey-list/>
+
+문서: <https://docs.z.ai/api-reference/tools/web-search>
 
 ## 사용 방법
 
@@ -174,3 +182,8 @@ Web Search function tool은 활성화되고 사용 가능한 경우 항상 다�
 3. Page snippets.
 4. Relevant questions.
 5. Images.
+
+#### Z.AI
+
+1. Page titles.
+2. Page snippets.

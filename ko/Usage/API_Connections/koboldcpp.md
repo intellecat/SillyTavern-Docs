@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/koboldcpp/
+route: /ko/usage/api-connections/koboldcpp/
 label: KoboldCpp
 title: KoboldCpp
 ---

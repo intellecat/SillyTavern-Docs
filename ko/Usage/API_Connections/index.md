@@ -2,7 +2,7 @@
 order: 150
 icon: repo-forked
 expanded: false
-route: /usage/api-connections/
+route: /ko/usage/api-connections/
 label: API 연결
 title: API 연결
 ---
@@ -16,7 +16,7 @@ SillyTavern은 다양한 LLM API에 연결할 수 있습니다.
 
 ST의 "API 연결" 페이지로 처음 이동하면 "Chat Completion" 및 "Text Completion"과 같은 명명법을 사용하는 옵션 중에서 선택하는 드롭다운 옵션이 표시됩니다. 이것이 무엇을 의미하는지 이해하는 것이 도움이 됩니다.
 
-그것이 아닌 것: "Text Completion"을 로컬 모델로, "Chat Completion"을 클라우드 기반 LLM으로 생각하기 쉽지만 그렇지 않습니다. 예를 들어 "Novel AI" 또는 "Kobold"가 실제로 별도의 모델 유형인 것도 아닙니다. ST의 API 드롭다운에서 별도의 옵션이지만 말입니다. 적절한 백엔드로 모델을 다른 API 구조로 강제할 수 있지만 이 섹션의 요점은 아닙니다.
+그것이 아닌 것: "Text Completion"을 로컬 모델로, "Chat Completion"을 클라우드 기반 LLM으로 생각하기 쉽지만 그렇지 않습니다. 예를 들어 "NovelAI" 또는 "Kobold"가 실제로 별도의 모델 유형인 것도 아닙니다. ST의 API 드롭다운에서 별도의 옵션이지만 말입니다. 적절한 백엔드로 모델을 다른 API 구조로 강제할 수 있지만 이 섹션의 요점은 아닙니다.
 
 ST를 사용하여 메시지를 보내면 채팅, 캐릭터 설명 및 lorebooks나 작성자 노트와 같은 기타 프롬프트가 AI로 보낼 단일 "프롬프트"로 구성됩니다. 사용 중인 모델의 API "유형"은 이 프롬프트가 정확히 어떻게 구성될지 결정합니다(ST가 백그라운드에서 자동으로 처리하는 것 - ST 터미널을 열고 AI로 전송되는 프롬프트가 정확히 어떻게 보이는지 확인할 수 있습니다).
 

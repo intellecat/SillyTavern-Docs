@@ -1,5 +1,5 @@
 ---
-route: /extensions/blip/
+route: /ko/extensions/blip/
 ---
 
 # Blip

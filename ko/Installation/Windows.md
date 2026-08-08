@@ -1,7 +1,7 @@
 ---
 order: 10
 label: Windows
-route: /installation/windows/
+route: /ko/installation/windows/
 ---
 # Windows 설치
 
@@ -10,7 +10,7 @@ Windows가 제어하는 폴더(Program Files, System32 등)에 설치하지 마�
 
 관리자 권한으로 START.BAT를 실행하지 마세요
 
-Windows 7에서는 NodeJS 18.16을 실행할 수 없으므로 설치가 불가능합니다
+Windows 7에서는 NodeJS 20을 실행할 수 없으므로 설치가 불가능합니다
 !!!
 
 ## Git를 통한 설치

@@ -2,7 +2,7 @@
 label: VPN 및 터널링
 order: -40
 icon: lock
-route: /administration/tunneling/
+route: /ko/administration/tunneling/
 ---
 
 VPN과 터널은 세계 어디서나 홈 네트워크에 안전하게 액세스할 수 있는 방법입니다. 이 가이드는 VPN 또는 터널을 사용하여 어디서나 SillyTavern 인스턴스에 액세스하는 방법을 보여줍니다.
@@ -47,6 +47,8 @@ Tailscale은 PC에 안전한 원격 연결을 가능하게 하는 VPN 제공업�
 ### 3. 화이트리스트에 장치 추가
 
 * [화이트리스트 IP 관리](./remote-connections.md#whitelist-based-access-control)에 따라 연결 장치의 컴퓨터 이름(SillyTavern과 함께 사용하려는 장치)을 SillyTavern의 화이트리스트에 추가합니다.
+
+**참고:** [원격 연결](./remote-connections.md#allowing-remote-connections)을 참조하지 않았다면 구성을 편집할 때 listen을 true로 설정해야 합니다.
 
 ### 4. 연결
 

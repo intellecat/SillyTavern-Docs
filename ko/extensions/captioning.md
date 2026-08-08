@@ -1,5 +1,5 @@
 ---
-route: /extensions/captioning/
+route: /ko/extensions/captioning/
 templating: false
 ---
 
@@ -174,7 +174,9 @@ SillyTavern에서 이미지에 캡션을 작성하는 모든 방법:
 | API 공급자                      | 설명                                                                                                                                                                   |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AI/ML API                         | 클라우드, 유료, 비전 기능이 있는 다양한 GPT, Claude 및 Gemini 모델                                                                                                  |
+| Chutes                            | 클라우드, 비전 기능이 있는 다양한 모델                                                                                                                                |
 | Claude                            | 클라우드, 유료, 비전 기능이 있는 모든 Claude 모델                                                                                                                       |
+| Cloudflare Workers AI             | 클라우드, 유료, 비전 기능이 있는 다양한 모델                                                                                                                          |
 | Cohere                            | 클라우드, 유료, Aya Vision 8B / 32B                                                                                                                                              |
 | Custom (OpenAI-compatible)        | 사용자 지정 OpenAI 호환 API의 경우 API Connections 탭에서 현재 구성된 모델을 사용                                                                                     |
 | Electron Hub                      | 클라우드, 유료, 비전 기능이 있는 다양한 모델.                                                                                                                         |
@@ -193,6 +195,7 @@ SillyTavern에서 이미지에 캡션을 작성하는 모든 방법:
 | Text Generation WebUI (oobabooga) | 로컬, ooba에서 모델을 구성해야 함                                                                                                                                           |
 | vLLM                              | 로컬                                                                                                                                                                         |
 | xAI (Grok)                        | 클라우드, 유료, grok-vision                                                                                                                                                      |
+| Z.AI (GLM).                       | 클라우드, 유료, GLM Vision 모델                                                                                                                                                |
 
 ### 보조 엔드포인트
 

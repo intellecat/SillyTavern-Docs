@@ -1,6 +1,6 @@
 ---
 order: 100
-route: /usage/core-concepts/advancedformatting/
+route: /ko/usage/core-concepts/advancedformatting/
 ---
 
 # Advanced Formatting

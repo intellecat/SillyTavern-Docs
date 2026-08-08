@@ -1,7 +1,7 @@
 ---
 icon: gear
 label: 로컬 설치
-route: /extensions/extras/installation/
+route: /ko/extensions/extras/installation/
 ---
 
 # Extras 설치

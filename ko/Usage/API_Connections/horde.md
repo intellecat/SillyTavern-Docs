@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/horde/
+route: /ko/usage/api-connections/horde/
 label: AI Horde
 title: AI Horde
 ---

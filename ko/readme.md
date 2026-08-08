@@ -8,7 +8,7 @@ route: /ko/
 
 SillyTavern(줄여서 ST)은 텍스트 생성 LLM, 이미지 생성 엔진 및 TTS 음성 모델과 상호작용할 수 있는 로컬 설치형 사용자 인터페이스입니다. 우리의 목표는 사용자에게 LLM 프롬프트에 대한 최대한의 유틸리티와 제어권을 부여하는 것이며, 가파른 학습 곡선도 즐거움의 일부로 받아들입니다.
 
-SillyTavern은 LLM 애호가들로 구성된 헌신적인 커뮤니티가 제공하는 열정 프로젝트이며 항상 무료이자 오픈소스로 제공될 것입니다. 2023년 2월 TavernAI 1.2.8의 포크로 시작된 SillyTavern은 현재 200명 이상의 기여자와 2년간의 독립적인 개발을 거쳐, 숙련된 AI 애호가들을 위한 선도적인 소프트웨어로 계속 기능하고 있습니다.
+SillyTavern은 LLM 애호가들로 구성된 헌신적인 커뮤니티가 제공하는 열정 프로젝트이며 항상 무료이자 오픈소스로 제공될 것입니다. 2023년 2월 TavernAI 1.2.8의 포크로 시작된 SillyTavern은 현재 300명 이상의 기여자와 3년간의 독립적인 개발을 거쳐, 숙련된 AI 애호가들을 위한 선도적인 소프트웨어로 계속 기능하고 있습니다.
 
 ## 스크린샷
 
@@ -18,7 +18,7 @@ SillyTavern은 LLM 애호가들로 구성된 헌신적인 커뮤니티가 제공
 
 ## 설치 요구사항
 
-하드웨어 요구사항은 최소한입니다: NodeJS 18 이상을 실행할 수 있는 모든 환경에서 실행됩니다. 로컬 머신에서 LLM 추론을 수행하려는 경우, 최소 6GB VRAM을 갖춘 3000 시리즈 NVIDIA 그래픽 카드를 권장합니다.
+하드웨어 요구사항은 최소한입니다: NodeJS 20 이상을 실행할 수 있는 모든 환경에서 실행됩니다. 로컬 머신에서 LLM 추론을 수행하려는 경우, 최소 6GB VRAM을 갖춘 3000 시리즈 NVIDIA 그래픽 카드를 권장합니다.
 
 플랫폼별 설치 가이드를 따라주세요:
 
@@ -66,7 +66,7 @@ SillyTavern은 확장성을 지원합니다.
 * [채팅 기록 자동 요약](/extensions/Summarize.md)
 * 자동 UI 및 [채팅 번역](extensions/Translation.md)
 * [Stable Diffusion/FLUX/DALL-E 이미지 생성](/extensions/Stable-Diffusion.md)
-* [AI 응답 메시지를 위한 텍스트 음성 변환 (ElevenLabs, Silero 또는 OS의 시스템 TTS를 통해)](/extensions/TTS.md)
+* [AI 응답 메시지를 위한 텍스트 음성 변환](/extensions/TTS.md)
 * [프롬프트에 추가 실제 세계 컨텍스트를 추가하기 위한 웹 검색 기능](/extensions/WebSearch.md)
 * "Download Extensions & Assets" 메뉴에서 더 많은 확장 기능을 다운로드할 수 있습니다.
 

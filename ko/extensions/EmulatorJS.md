@@ -1,5 +1,5 @@
 ---
-route: /extensions/emulatorjs/
+route: /ko/extensions/emulatorjs/
 templating: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 order: 90
 templating: false
-route: /usage/prompts/context-template/
+route: /ko/usage/prompts/context-template/
 ---
 
 # Context Template
@@ -18,7 +18,7 @@ Chat Completion API의 동등한 설정은 [Prompt Manager](prompt-manager.md)�
 
 이 필드는 프롬프트 서문(내부적으로 story string으로 알려짐)에 대한 템플릿입니다. 이것은 text completion 및 instruct 모델에 대한 [캐릭터 카드](/Usage/Characters/index.md)에서 정의된 정보를 추가하는 주요 방법입니다.
 
-템플릿은 Handlebars 구문, 사용자 정의 텍스트 주입 또는 형식화 및 기타 [매크로](/Usage/Characters/macros.md)를 지원합니다. 언어 참조는 여기를 참조하세요: <https://handlebarsjs.com/guide/>
+템플릿은 Handlebars 구문, 사용자 정의 텍스트 주입 또는 형식화 및 기타 [매크로](/usage/macros.md)를 지원합니다. 언어 참조는 여기를 참조하세요: <https://handlebarsjs.com/guide/>
 
 Handlebars 평가기에 다음 매개변수를 제공합니다(이중 중괄호로 감싸짐):
 

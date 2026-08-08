@@ -1,6 +1,6 @@
 ---
 order: 60
-route: /usage/core-concepts/tags/
+route: /ko/usage/core-concepts/tags/
 ---
 
 # 태그

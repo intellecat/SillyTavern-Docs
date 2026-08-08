@@ -1,6 +1,6 @@
 ---
 order: 10
-route: /usage/api-connections/openrouter/
+route: /ko/usage/api-connections/openrouter/
 label: OpenRouter
 title: OpenRouter
 ---

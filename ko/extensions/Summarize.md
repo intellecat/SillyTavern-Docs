@@ -1,5 +1,5 @@
 ---
-route: /extensions/summarize/
+route: /ko/extensions/summarize/
 ---
 
 # Summarize

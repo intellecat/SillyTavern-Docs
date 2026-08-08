@@ -1,5 +1,5 @@
 ---
-route: /extensions/regex/
+route: /ko/extensions/regex/
 ---
 
 # Regex
@@ -56,7 +56,7 @@ RegEx는 채팅의 특정 단어에 찾기-바꾸기 기능을 적용하거나, 
 
 - **Name** : 확장의 스크립트 목록에 표시되는 스크립트의 레이블입니다. **슬래시 명령 또는 STscript를 통해 스크립트를 트리거할 때 스크립트를 대상으로 지정하는 데도 사용됩니다.**
 
-- **Find Regex** : 대상 텍스트 패턴을 감지하는 데 사용되는 정규 표현식입니다. 일반적으로 RegEx 스크립트의 가장 복잡한 부분이며 실수하기 가장 쉬운 곳입니다. RegEx 시퀀스 작성 방법에 대한 정보는 페이지 상단의 링크를 참조하세요. 이 상자는 'Macros in Find Regex'가 그렇게 설정된 경우(아래 참조) [일반적인 SillyTavern 매크로](/Usage/Characters/macros.md)(예: \{\{user\}\}, \{\{char\}\} 등)의 값을 해결할 수 있습니다.
+- **Find Regex** : 대상 텍스트 패턴을 감지하는 데 사용되는 정규 표현식입니다. 일반적으로 RegEx 스크립트의 가장 복잡한 부분이며 실수하기 가장 쉬운 곳입니다. RegEx 시퀀스 작성 방법에 대한 정보는 페이지 상단의 링크를 참조하세요. 이 상자는 'Macros in Find Regex'가 그렇게 설정된 경우(아래 참조) [일반적인 SillyTavern 매크로](/usage/macros.md)(예: \{\{user\}\}, \{\{char\}\} 등)의 값을 해결할 수 있습니다.
 
 - **Replace With**: 일치하는 시퀀스를 대체할 항목입니다. 매우 간단한 예로 'Find Regex'가 `apple`이고 'Replace With'가 `orange`인 경우 스크립트가 적용되는 텍스트에서 'apple'의 첫 번째 발생이 자동으로 'orange'로 변경됩니다.
 

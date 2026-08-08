@@ -1,6 +1,6 @@
 ---
 icon: paperclip
-route: /usage/core-concepts/connection-profiles/
+route: /ko/usage/core-concepts/connection-profiles/
 order: 100
 label: 연결 프로필
 title: 연결 프로필

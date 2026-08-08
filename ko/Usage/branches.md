@@ -1,5 +1,5 @@
 ---
-redirect: /installation/
+redirect: /ko/installation/
 visibility: hidden
 label: 브랜치
 ---
