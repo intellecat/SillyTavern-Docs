@@ -31,25 +31,30 @@ Most common Stable Diffusion generation settings are customizable within the Sil
 
 | Source                                                                                            | Remarks                                                                                         |
 |:--------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------|
-| [AI.ML API](https://aimlapi.com/)                                                                 | Cloud, paid                                                                                     |
+| [AI/ML API](https://aimlapi.com/)                                                                 | Cloud, paid                                                                                     |
 | [Black Forest Labs](https://bfl.ai/)                                                              | Cloud, paid                                                                                     |
+| [Cloudflare Workers AI](https://www.cloudflare.com/developer-platform/products/workers-ai/)       | Cloud, paid, various models with vision capabilities                                            |
+| [Chutes](https://chutes.ai/)                                                                      | Cloud                                                                                           |
 | [ComfyUI](https://github.com/comfyanonymous/ComfyUI)                                              | Local, open source (GPL3), free of charge, see [ComfyUI Configuration](#comfyui-configuration). |
 | [Draw Things](https://drawthings.ai/)                                                             | Local, Mac/iOS, free of charge                                                                  |
 | [Electron Hub](https://electronhub.ai/)                                                           | Cloud, paid                                                                                     |
 | [FAL.AI](https://fal.ai/)                                                                         | Cloud, paid                                                                                     |
-| [Google AI Studio](https://aistudio.google.com/) / [Google Vertex AI](https://cloud.google.com/vertex-ai) | Cloud, paid. Imagen model series. AI Studio only supports Imagen 3.0 002 model.         |
+| [Google AI Studio](https://aistudio.google.com/) / [Google Vertex AI](https://cloud.google.com/vertex-ai) | Cloud, paid. Imagen model series. AI Studio supports less models.                       |
 | [HuggingFace Serverless](https://huggingface.co/docs/api-inference/index)                         | Cloud, free of charge                                                                           |
 | [NanoGPT](https://nano-gpt.com/)                                                                  | Cloud, paid                                                                                     |
 | [NovelAI Diffusion](https://novelai.net/)                                                         | Cloud, requires an active subscription                                                          |
 | [OpenAI](https://platform.openai.com/)                                                            | Cloud, paid                                                                                     |
-| [Pollinations](https://pollinations.ai/)                                                          | Cloud, open source (MIT), free of charge                                                        |
+| [OpenRouter](https://openrouter.ai/)                                                              | Cloud                                                                                           |
+| [Pollinations](https://pollinations.ai/)                                                          | Cloud, open source (MIT), Paid                                                        |
 | [SD.Next / vladmandic](https://github.com/vladmandic/automatic)                                   | Local, open source (AGPL3), free of charge                                                      |
 | [SillyTavern Extras](https://github.com/SillyTavern/SillyTavern-Extras)                           | Deprecated, not recommended                                                                     |
+| [stable-diffusion.cpp](https://github.com/leejet/stable-diffusion.cpp)                            | Local, open source (MIT), free of charge                                                        |
 | [Stability AI](https://platform.stability.ai/)                                                    | Cloud, paid                                                                                     |
 | [Stable Diffusion WebUI / AUTOMATIC1111](https://github.com/AUTOMATIC1111/stable-diffusion-webui) | Local, open source (AGPL3), free of charge                                                      |
 | [Stable Horde](https://stablehorde.net/)                                                          | Cloud, open source (AGPL3), free of charge                                                      |
 | [TogetherAI](https://docs.together.ai/docs/serverless-models#image-models)                        | Cloud                                                                                           |
 | [x.AI](https://x.ai/)                                                                             | Cloud, paid                                                                                     |
+| [Z.AI](https://z.ai/)                                                                             | Cloud, paid                                                                                     |
 
 ## Generation modes
 
@@ -106,9 +111,9 @@ The example below will send the generated image using Markdown as a user persona
 
 ### Image swipes
 
-Images swipes allow to reroll the image generation while keeping the same prompt. If a fixed seed is set, it will be randomized for the next generation. 
+Image swipes allow rerolling the image generation while keeping the same prompt. If a fixed seed is set, it will be randomized for the next generation. Image dimensions that were overridden via the `/sd` slash command are preserved for swiped images.
 
-To cycle through images, hover a mouse cursor (tap on mobile) over a generated image to reveal arrow buttons and swipes counter. Tapping right arrow on the latest image will generate a new one.
+To cycle through images, hover a mouse cursor (tap on mobile) over a generated image to reveal arrow buttons and swipes counter. Tapping the right arrow on the latest image will generate a new one.
 
 *'Swipes' here is just a name, don't try the actual swiping gesture, as this will regenerate the message itself, not the attached image.*
 
@@ -116,7 +121,7 @@ To cycle through images, hover a mouse cursor (tap on mobile) over a generated i
 
 ### Edit prompts before generation
 
-Allow to edit the automatically generated prompts manually before sending them to the Stable Diffusion API.
+This option lets you edit automatically generated prompts before they are sent to the Image Generation API. You can also edit or discard the saved negative prompt and override the resolution when regenerating an image that was originally created with the `/sd` command.
 
 ### Use function tool
 
@@ -135,7 +140,7 @@ The interactive mode will not trigger when the function tool is enabled.
 
 ### Use interactive mode
 
-Allows to trigger an image generation instead of text as a reply to a user message that follows the special pattern:
+Allows you to trigger an image generation instead of text as a reply to a user message that follows the special pattern:
 
 1. Contains one of the following verbs: send, mail, imagine, generate, make, create, draw, paint, render
 2. Followed by one of the following nouns (not further than 10 characters away): pic, picture, image, drawing, painting, photo, photograph
@@ -159,6 +164,10 @@ Some special subjects trigger a predefined generation mode:
 ### Extend free-mode prompts
 
 When using the interactive mode of the slash command, automatically extend free-mode generation subject descriptions by prompting your main API.
+
+### Minimal prompt processing
+
+When enabled, reduces the processing applied to prompts returned by the LLM for image generation. Only normalization and whitespace reduction are performed, skipping the aggressive sanitization that is done by default. This is useful when working with advanced workflows (e.g., ComfyUI) that accept structured prompt formats like JSON.
 
 ### Snap auto-adjusted resolutions
 
@@ -231,6 +240,13 @@ If you're not familiar with ComfyUI, you can still use it to generate images in 
 
 This panel allows you to configure and manage your ComfyUI integration with SillyTavern.
 
+#### Server Type
+
+* Standard Server is when you call ComfyUI directly whether on your local machine or hosted elsewhere.
+* RunPod Serverless Endpoint is for running ComfyUI through [RunPod's serverless API](https://www.runpod.io/product/serverless). Serverless can be a good option for remote generation as you can get the same control over workflows as a standard server but can take advantage of more powerful hosted GPUs and only be charged when you're actively generating images. The majority of the usage is the same. Differences from standard server setup and behavior is described [below](#comfyui-runpod-setup).
+
+#### Standard Server setup
+
 Enter the URL of your ComfyUI server in the **ComfyUI URL** input field. The default value is `http://127.0.0.1:8188`. 
 If you are using [SwarmUI](https://github.com/mcmonkeyprojects/SwarmUI), the default port for the 
 [managed ComfyUI server](https://github.com/mcmonkeyprojects/SwarmUI/blob/master/src/BuiltinExtensions/ComfyUIBackend/README.md) is `7821`, 
@@ -238,6 +254,27 @@ If you are using [SwarmUI](https://github.com/mcmonkeyprojects/SwarmUI), the def
 
 After entering the URL, choose <i class="fa-solid fa-check"></i> **Connect** to validate and establish a connection. The ComfyUI server must be accessible from the SillyTavern host machine.
  
+#### ComfyUI RunPod Setup
+
+* You'll need a RunPod account and to add some money to it. You can probably expect around 2 cents per image for Qwen image generation on an RTX 4090 though YMMV. $5 in credits should last a while.
+* <https://console.runpod.io/hub/runpod-workers/worker-comfyui> is a flux1 dev configuration that you can use to create your own serverless endpoint.
+  * There is information there on creating your own configuration if you want to use a different model or add LoRAs.
+* Create an API key for access to the serverless endpoint: <https://console.runpod.io/user/settings>
+
+* In ST, select **ComfyUI** as the **Source** and **RunPod Serverless Endpoint** as the **Server Type**.
+* Set the **ComfyUI RunPod URL** to the URL of your endpoint.
+* Set the API key.
+* Click **Connect**. If the API key and URL are correct, you should get toasts indicating success.
+* The ComfyUI workflow configuration flow is the same as local.
+  * Use the "Export (API)" option.
+  * Depending on your local setup, you may need to/want to pick a variation of the model for use on RunPod. For example, if you use a quantized GGUF locally, but want to use an fp16 version on RunPod. The JSON workflow you use in ST needs to have this change.
+  * Model, samplers, VAE, etc cannot be determined dynamically so your workflow needs to have these hard coded (no `%model%` substitution).
+  * Other substitutions should work the same as local.
+
+!!!info Note
+The serverless configuration does not currently embed the workflow into the output image. i.e., you won't be able to drag/drop the image into local ComfyUI to see the seed or prompt. This is just a limitation of the RunPod handler and is a capability that could be added on that side.
+!!!
+
 ### Workflow Management
 
 Select a ComfyUI workflow from the dropdown menu. Two default workflows are provided:
@@ -466,7 +503,7 @@ You can add custom placeholders to your workflow:
 
 Custom placeholders will appear in a separate list below the predefined ones.
 
-For example, you could replace the "SillyTavern" prefix for saved image filenames in the default workflow with a custom placeholder. Add a new custom placeholder with `find` set to `filename_prefix` and `replace` set to `ServiceTesnor`. Insert the new `%filename_prefix%` placeholder into your workflow JSON. Now you can change the filename prefix from SillyTavern to ServiceTesnor by changing the value of the custom placeholder.
+For example, you could replace the "SillyTavern" prefix for saved image filenames in the default workflow with a custom placeholder. Add a new custom placeholder with `find` set to `filename_prefix` and `replace` set to `ServiceTensor`. Insert the new `%filename_prefix%` placeholder into your workflow JSON. Now you can change the filename prefix from SillyTavern to ServiceTensor by changing the value of the custom placeholder.
 
 +++ JSON with placeholder
 ```json
@@ -492,7 +529,7 @@ For example, you could replace the "SillyTavern" prefix for saved image filename
 
 ### Comfy tricks
 
-Read all the general information on this page so you're familiar with the image generation options. Options such as switchable styles and common prompt prefixes, when combined wih the total flexibility of ComfyUI workflows, allow you to create a wide variety of image generation setups.
+Read all the general information on this page so you're familiar with the image generation options. Options such as switchable styles and common prompt prefixes, when combined with the total flexibility of ComfyUI workflows, allow you to create a wide variety of image generation setups.
 
 #### Loading LoRAs
 

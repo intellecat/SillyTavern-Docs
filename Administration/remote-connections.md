@@ -15,7 +15,7 @@ You should not use port forwarding to expose your ST server to the internet. Ins
 !!!
 
 !!!danger Disclaimer
-**NEVER HOST ANY INSTANCES TO THE OPEN INTERNET WITHOUT ENSURING PROPER SECURITY MEASURES FIRST.**
+**NEVER HOST ANY INSTANCES ON THE OPEN INTERNET WITHOUT ENSURING PROPER SECURITY MEASURES FIRST.**
 
 **WE ARE NOT RESPONSIBLE FOR ANY DAMAGE OR LOSSES IN CASES OF UNAUTHORIZED ACCESS DUE TO IMPROPER OR INADEQUATE SECURITY IMPLEMENTATION.**
 !!!
@@ -151,7 +151,7 @@ There is no rate-limiting to prevent brute-force attacks. If this is a concern, 
 
 The server will ask for username and password whenever a client connects via HTTP. **This only works if the Remote connections (listen: true) are enabled.**
 
-To enable HTTP BA, Open `config.yaml` in the SillyTavern base directory and search for `basicAuthMode` Set basicAuthMode to true and set username and password. Note: `config.yaml` will only exist if ST has been executed before at least once.
+To enable HTTP BA, Open `config.yaml` in the SillyTavern base directory and search for `basicAuthMode`. Set basicAuthMode to true and set username and password. Note: `config.yaml` will only exist if ST has been executed before at least once.
 
 ```yaml
 basicAuthMode: true
@@ -172,11 +172,45 @@ In this `perUserBasicAuth` mode the basic auth's username and password will be t
 
 Save the file and restart SillyTavern if it was already running. You should be prompted for username and password when connecting to your ST. Both username and password are transmitted in plain text. If you are concerned about this, you can serve ST via HTTPS.
 
+### Private address whitelisting
+
+While making outbound HTTP requests to addresses in the private IP ranges (e.g., `192.168.x.x`, `10.x.x.x`) from the server is allowed by default, you can restrict access to specific private addresses using the whitelist configuration. This is recommended when you have a private API running on your local network that you want to allow ST to access, but you want to prevent ST from accessing other devices on the local network.
+
+#### What is considered a "private address"?
+
+* Loopback addresses: `127.0.0.0/8` for IPv4 and `::1/128` for IPv6.
+* IPv4 private address ranges: class A (`10.0.0.0/8`), class B (`172.16.0.0/12`), class C (`192.168.0.0/16`).
+* Link-local addresses: `169.254.0.0/16` for IPv4 and `fe80::/10` for IPv6.
+* Unique local addresses: `fc00::/7` for IPv6.
+
+#### Toggle private address whitelisting
+
+To enable private address whitelisting, edit the `config.yaml` file in the SillyTavern root directory:
+
+```yaml
+privateAddressWhitelist:
+    enabled: true
+```
+
+#### Add private addresses to the whitelist
+
+By default, this only allows making requests to loopback addresses (`127.0.0.1` and `::1`) from the server. To add more private addresses to the whitelist, include them in the `privateAddressWhitelist.allowedRanges` section:
+
+```yaml
+privateAddressWhitelist:
+  allowedRanges:
+    - "127.0.0.0/8"
+    - "::1/128"
+    - "192.168.0.0/16"
+```
+
+This example allows making requests to any address in the `192.168.x.x` range and loopback addresses from the server, while still blocking access to other private IP ranges.
+
 ### Host whitelisting
 
 When hosting a server over the network without HTTPS, it is highly recommended to enable request host verification. This helps prevent various attacks, such as DNS rebinding. By default, the SillyTavern server will log a console message on a first connection from an unrecognized host.
 
-### Toggle host whitelisting
+#### Toggle host whitelisting
 
 To enable host whitelisting, edit the `config.yaml` file in the SillyTavern root directory:
 
@@ -185,7 +219,7 @@ hostWhitelist:
     enabled: true
 ```
 
-### Add trusted hosts
+#### Add trusted hosts
 
 To add a host name to a list of trusted hosts, include it in the `hostWhitelist.hosts` section:
 
@@ -202,7 +236,7 @@ hostWhitelist:
     - ".trycloudflare.com"
 ```
 
-### Toggle console messages
+#### Toggle console messages
 
 To disable console messages for unrecognized hosts, set the `hostWhitelist.scan` option to `false`:
 
@@ -310,3 +344,24 @@ The user you're running SillyTavern with requires read permissions on the certif
 ### How to get a certificate
 
 The simplest, quickest way to get a certificate is by using [certbot](https://letsencrypt.org/getting-started/).
+
+### Certificates in Docker
+
+!!!warning
+For security and privacy reasons, do not include your SSL certificates inside the Docker image if you are building one. Instead, use volume mounts to provide the certificates at runtime.
+!!!
+
+When running SillyTavern in Docker, the recommended way to provide SSL certificates is by placing them in the `/config` volume mount. This allows you to manage certificates without rebuilding the container image.
+
+1. Place your certificate files (e.g., `privkey.pem` and `cert.pem`) in your local config directory that is mounted to `/config` in the container.
+
+2. Update your `config.yaml` to reference the certificates:
+
+    ```yaml
+    ssl:
+      enabled: true
+      certPath: ./config/cert.pem
+      keyPath: ./config/privkey.pem
+    ```
+
+3. Restart your Docker container to apply the changes.

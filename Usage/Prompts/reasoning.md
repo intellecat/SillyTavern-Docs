@@ -24,7 +24,7 @@ By default, reasoning blocks are collapsed to save space. Click a block to expan
 
 When a reasoning block is expanded, you can copy or edit its contents using the **<i class="fa-solid fa-copy"></i> Copy** and **<i class="fa-solid fa-pencil"></i> Edit** buttons.
 
-Some models models support reasoning, but will not send their thoughts back. It is possible to still show the reasoning block with reasoning time for those by toggling the **Show Hidden** setting.
+Some models support reasoning, but will not send their thoughts back. It is possible to still show the reasoning block with reasoning time for those by toggling the **Show Hidden** setting.
 
 ## Adding Reasoning
 
@@ -53,14 +53,29 @@ Supported sources:
 - OpenRouter
 - xAI (Grok)
 - AI/ML API
+- Z.AI
+- Pollinations
+- MistralAI
+- Electron Hub
+- Chutes
+- NanoGPT
+- Moonshot
 
-"Request model reasoning" does not determine whether a model does reasoning. Claude and Google (2.5 Flash) allow thinking mode to be toggled; see [Reasoning Effort](#reasoning-effort).
+!!!
+For **most** sources, "Request model reasoning" does not determine whether a model does reasoning as it can't be disabled. If the backend and model support explicitly requesting disabled reasoning, the setting will do so. Otherwise, the model will always reason.
+!!!
+
+Provider-specific notes:
+
+- Claude and Google (2.5 Flash) allow thinking mode to be toggled; see [Reasoning Effort](#reasoning-effort).
+- Reasoning can be disabled for [Z.AI (GLM)](https://docs.z.ai/api-reference/llm/chat-completion#body-one-of-0-thinking) and [Moonshot (Kimi)](https://platform.moonshot.ai/docs/guide/use-kimi-k2-thinking-model). The setting maps to the `thinking.type` parameter. They do not support "Reasoning Effort".
+- For OpenRouter, when the "Request model reasoning" toggle is deactivated with the minimal reasoning effort set, thinking will be set to disabled for models that support it. The behavior is model-dependent; certain providers may reject such requests.
 
 ### By Parsing
 
 Enable "Auto-Parse" in the **<i class="fa-solid fa-font"></i> Advanced Formatting** panel to automatically parse reasoning from the model's output.
 
-The response must contain a reasoning section wrapped in configured Prefix and Suffix sequences. The sequences provided by default correspond to the DeepSeek R1 reasoning format.
+The response must contain a reasoning section wrapped in configured Prefix and Suffix sequences. The sequences provided by default correspond to the DeepSeek R1 reasoning format. This is required to be enabled for some API sources that return unparsed reasoning, such as MiniMax or Perplexity.
 
 Example with prefix `<think>` and suffix `</think>`:
 
@@ -82,7 +97,7 @@ Most model providers do not recommend sending CoT back to the model in multi-tur
 
 ### Continuing from Reasoning
 
-A special case when the reasoning can be sent back to the model without having the "Add to Prompts" toggle enabled is when the generation is continued (e.g. by pressing "Continue" from the **<i class="fa-solid fa-bars"></i> Options** menu), but the message being continued contains only the reasoning without an actual content. This gives the model an opportunity to finish an incomplete reasoning and start generating the main content. The prompt will be sent as follows:
+A special case when the reasoning can be sent back to the model without having the "Add to Prompts" toggle enabled is when the generation is continued (e.g. by pressing "Continue" from the **<i class="fa-solid fa-bars"></i> Options** menu), but the message being continued contains only the reasoning without actual content. This gives the model an opportunity to finish an incomplete reasoning and start generating the main content. The prompt will be sent as follows:
 
 ```txt
 <think>
@@ -104,25 +119,31 @@ Different ephemerality options affect reasoning blocks in the following ways:
 
 Reasoning Effort is a Chat Completion setting in the **<i class="fa-solid fa-sliders"></i> AI Response Configuration** panel that influences how many tokens may potentially be used on reasoning. The effect of each option depends on the source connected to. For the sources below, Auto simply means the relevant parameter is not included in the request.
 
-| Option  | Claude (≤ 21333 if no streaming) | OpenAI (keyword)     | OpenRouter (keyword)             | xAI (Grok) (keyword) | Perplexity (keyword) |
-| ------- | -------------------------------- | -------------------- | -------------------------------- | -------------------- | -------------------- |
-| Models  | Opus 4, Sonnet 4/3.7             | o4-mini, o3\*, o1\*  | applicable models                | grok-3-mini          | sonar-deep-research  |
-| Auto    | not specified, **no thinking**   | not specified        | not specified, effect depends    | not specified        | not specified        |
-| Minimum | budgets 1024 tokens              | "low"                | "low", or 20% of max response    | "low"                | "low"                |
-| Low     | 15% of max response, min 1024    | "low"                | "low", or 20% of max response    | "low"                | "low"                |
-| Medium  | 25% of max response, min 1024    | "medium"             | "medium", or 50% of max response | "low"                | "medium"             |
-| High    | 50% of max response, min 1024    | "high"               | "high", or 80% of max response   | "high"               | "high"               |
-| Maximum | 95% of max response, min 1024    | "high"               | "high", or 80% of max response   | "high"               | "high"               | 
+| Option  | Claude (≤ 21333 if no streaming) | OpenAI (keyword)     | OpenRouter (keyword)             | xAI (Grok) (keyword) | Perplexity (keyword) | NanoGPT (keyword) |
+| ------- | -------------------------------- | -------------------- | -------------------------------- | -------------------- | -------------------- | ----------------- |
+| Models  | Opus 4, Sonnet 4/3.7             | o4-mini, o3\*, o1\*  | applicable models                | grok-3-mini          | sonar-deep-research  | applicable models |
+| Auto    | not specified, **no thinking**   | not specified        | not specified, effect depends    | not specified        | not specified        | not specified     |
+| Minimum | budgets 1024 tokens              | "low"                | "low", or 20% of max response    | "low"                | "low"                | "none"            |
+| Low     | 15% of max response, min 1024    | "low"                | "low", or 20% of max response    | "low"                | "low"                | "minimal"         |
+| Medium  | 25% of max response, min 1024    | "medium"             | "medium", or 50% of max response | "low"                | "medium"             | "low"             |
+| High    | 50% of max response, min 1024    | "high"               | "high", or 80% of max response   | "high"               | "high"               | "medium"          |
+| Maximum | 95% of max response, min 1024    | "high"               | "high", or 80% of max response   | "high"               | "high"               | "high"            |
 
-- For Claude, budget is capped to 21333 if streaming is disabled. If the calculated budget would be less than 1024, then max response is changed to 2048.
-- For OpenRouter, Perplexity and AI/ML API, only an OpenAI-style keyword is sent.
+- For older Claude models that don't support adaptive thinking, budget is capped to 21333 if streaming is disabled. If the calculated budget would be less than 1024, then max response is changed to 2048.
+- Claude also supports adaptive thinking for Opus 4.6+ models, which can be enabled via `claude.enableAdaptiveThinking` in [config.yaml](/Administration/config-yaml.md) (always on for Opus 4.7+). When enabled, the Reasoning Effort setting maps to adaptive thinking levels instead of token budgets. This setting takes precedence over the "Verbosity" setting for applicable models.
+- For OpenRouter, Pollinations, Perplexity, xAI, Chutes, DeepSeek, AI/ML API, xAI, Electron Hub, only an OpenAI-style keyword is sent.
+- For GPT-5.4 and GPT-5.5 models on OpenAI, "Minimal" reasoning effort corresponds to "none", which disables reasoning.
+- For KoboldCpp running as a Chat Completion Custom API source, reasoning effort is sent as a `reasoning_effort` parameter with values "minimal", "low", "medium", "high", and "xhigh".
+- For other Custom (OpenAI-compatible) sources, a reasoning effort is sent only if the model supports it on the official OpenAI source.
 
 Google AI Studio and Vertex AI are as follows:
 
 | Model          | Auto (dynamic thinking) | Minimum            | Low                          | Medium     | High       | Maximum               |
-| -------------- | ----------------------- | ------------------ | ---------------------------- | ---------- | ---------- | --------------------- | 
+| -------------- | ----------------------- | ------------------ | ---------------------------- | ---------- | ---------- | --------------------- |
 | 2.5 Pro        | thinkingBudget = -1     | 128                | 15% of max response, min 128 | 25% of max | 50% of max | lower of max or 32768 |
 | 2.5 Flash      | thinkingBudget = -1     | 0, **no thinking** | 15% of max response          | 25% of max | 50% of max | lower of max or 24576 |
 | 2.5 Flash Lite | thinkingBudget = -1     | 0, **no thinking** | 15% of max response, min 512 | 25% of max | 50% of max | lower of max or 24576 |
+| 3.0/3.1 Pro    | thinkingLevel = null    | "low"              | "low"                        | "low"      | "high"     | "high"                |
+| 3.0/3.1 Flash  | thinkingLevel = null    | "minimal"          | "low"                        | "medium"   | "high"     | "high"                |
 
 - For Gemini 2.5 Pro and 2.5 Flash/Lite, budget is capped to 32768 or 24576 tokens respectively, regardless of the streaming setting.

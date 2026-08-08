@@ -73,6 +73,7 @@ Now let's add a little bit of interactivity to the script. We will accept the in
 - `/setinput (text)` — replaces the contents of the user input bar with the provided text.
 - `/speak voice="name" (text)` — narrates the text using the selected TTS engine and the character name from the voice map, e.g. `/speak name="Donald Duck" Quack!`.
 - `/buttons labels=["a","b"] (text)` — shows a blocking popup with the specified text and button labels. `labels` must be a JSON-serialized array of strings or a variable name containing such an array. Returns the clicked button label into the pipe or empty string if canceled. The text supports lite HTML formatting.
+- `/beep` — plays the message notification sound.
 
 #### Arguments for `/popup` and `/input`
 
@@ -81,6 +82,9 @@ Now let's add a little bit of interactivity to the script. We will accept the in
 - `wide=on/off` - increases the horizontal size of the popup. Default: `off`.
 - `okButton=string` - adds ability to customize the text on the "Ok" button. Default: `Ok`.
 - `rows=number` - (only for `/input`) increases the size of the input control. Default: 1.
+- `placeholder=string` - sets placeholder text in the input field.
+- `tooltip=string` - sets a tooltip displayed on hover.
+- `icon=string` - sets a Font Awesome icon class for the popup.
 
 Example:
 ```stscript
@@ -154,7 +158,7 @@ Examples:
 
 The following modifications can be applied to commands to work with these variables:
 
-- `/len` commands gets a number of items in the array.
+- `/len` command gets a number of items in the array.
 - `index=number/string` named argument can be added `/getvar` or `/setvar` and their global counterparts to get or set sub-values by either a zero-based index for arrays or a string key for objects.
   - If a numeric index is used on a nonexistent variable, the variable will be created as an empty array `[]`.
   - If a string index is used on a nonexistent variable, the variable will be created as an empty object `{}`.
@@ -612,7 +616,7 @@ The `/break` command can be used to break out of a loop (`/while` or `/times`) o
 10. `/cos (a)` – performs a cosine operation of a value, e.g. `/cos i`
 11. `/log (a)` – performs a natural logarithm operation of a value, e.g. `/log i`
 12. `/abs (a)` – performs an absolute value operation of a value, e.g. `/abs -10`
-13. `/sqrt (a)`– performs a square root operation of a value, e.g. `/sqrt 9`
+13. `/sqrt (a)` – performs a square root operation of a value, e.g. `/sqrt 9`
 14. `/round (a)` – performs a rounding to the nearest integer operation of a value, e.g. `/round 3.14`
 15. `/rand (round=round|ceil|floor from=number=0 to=number=1)` – returns a random number between from and to, e.g. `/rand` or `/rand 10` or `/rand from=5 to=10`. Ranges are inclusive. The returned value will contain a fractional part. Use `round` named argument to get an integral value, e.g. `/rand round=ceil` to round up, `round=floor` to round down, and `round=round` to round to nearest.
 
@@ -647,6 +651,9 @@ Scripts can make requests to your currently connected LLM API using the followin
 - `/gen (prompt)` — generates text using the provided prompt for the selected character and including chat messages.
 - `/genraw (prompt)` — generates text using just the provided prompt, ignoring the current character and chat.
 - `/trigger` — triggers a normal generation (equivalent to clicking a "Send" button). If in group chat, you can optionally provide a 1-based group member index or a character name to have them reply, otherwise triggers a group round according to the group settings.
+- `/swipe` — triggers a swipe on the last character message.
+- `/regenerate` — regenerates the last character message.
+- `/continue` — attempts to continue the last message.
 
 ### Arguments for `/gen` and `/genraw`
 
@@ -659,7 +666,7 @@ Scripts can make requests to your currently connected LLM API using the followin
 - `instruct` (only `/genraw`) — can be `on` or `off`. Allows to use instruct formatting on the input prompt (if instruct mode is enabled and the API supports it). Set to `off` to force pure prompts. Default: `on`.
 - `as` (for Text Completion APIs) — can be `system` (default) or `char`. Defines how the last prompt line will be formatted. `char` will use a character name, `system` will use no or neutral name.
 
-The generated text is then passed through the pipe to the next command and can be saved to a variable or displaced using the I/O capabilities:
+The generated text is then passed through the pipe to the next command and can be saved to a variable or displayed using the I/O capabilities:
 
 ```stscript
 /genraw Write a funny message from Cthulhu about taking over the world. Use emojis. |
@@ -777,11 +784,29 @@ This will insert a user message at the beginning of the conversation history:
 4. `/delname (character name)` — deletes all messages in the current chat that belong to a character with the specified name.
 5. `/delchat` — deletes the current chat.
 
+## Character management commands
+
+1. `/char-create` — creates a new character using the data provided with named arguments.
+2. `/char-update` — updates the current character using the data provided with named arguments.
+3. `/char-get` — retrieves the current character's data as a JSON object and passes it to the pipe.
+4. `/char-delete (name)` — deletes the character with the specified name.
+5. `/char-duplicate (name)` — duplicates the character with the specified name.
+6. `/tag-import (name)` — imports tags from a character card file.
+
+## Loader commands
+
+The loader system provides a reusable overlay for time consuming tasks that should provide visual feedback and/or temporarily block the UI.
+
+1. `/loader-show (text)` — shows a loading overlay with the specified text.
+2. `/loader-hide` — hides the loading overlay.
+3. `/loader-wrap (closure)` — shows a loading overlay, executes the provided closure, and hides the overlay when done.
+4. `/loader-stop` — stops and removes the loading overlay.
+
 ## World Info commands
 
 World Info (also known as Lorebook) is a highly utilitarian tool for dynamically inserting data into the prompt. See the dedicated page for more detailed explanation: [World Info](/Usage/worldinfo.md).
 
-1. `/getchatbook` – gets a name of the chat-bound World Info file or create a new one if was unbound, and pass it down the pipe.
+1. `/getchatbook` – gets a name of the chat-bound World Info file or create a new one if it was unbound, and pass it down the pipe.
 2. `/findentry file=bookName field=fieldName [text]` – finds a UID of the record from the specified file (or a variable pointing to a file name) using fuzzy matching of a field value with the provided text (default field: `key`) and passes the UID down the pipe, e.g. `/findentry file=chatLore field=key Shadowfang`.
 3. `/getentryfield file=bookName field=field [UID]` – gets a field value (default field: `content`) of the record with the UID from the specified World Info file (or a variable pointing to a file name) and passes the value down the pipe, e.g. `/getentryfield file=chatLore field=content 123`.
 4. `/setentryfield file=bookName uid=UID field=field [text]` – sets a field value (default field: `content`) of the record with the UID (or a variable pointing to UID) from the specified World Info file (or a variable pointing to a file name). To set multiple values for key fields, use a comma-delimited list as a text value, e.g. `/setentryfield file=chatLore uid=123 field=key Shadowfang,sword,weapon`.
@@ -893,7 +918,7 @@ There's a variety of useful text manipulation utility commands to be used in var
 ```
 
 1. `direction` sets the direction for trimming, which can be either `start` or `end`. Default: `end`.
-2. `limit` sets the amount of tokens to left in the output. Can also specify a variable name containing the number. **Required argument.**
+2. `limit` sets the amount of tokens to leave in the output. Can also specify a variable name containing the number. **Required argument.**
 3. Unnamed argument is the input text to be trimmed.
 
 ### Arguments for `/fuzzy`
@@ -1148,7 +1173,7 @@ Arguments:
 * `/qr-update (arguments, [message])` – updates Quick Reply, example: `/qr-update set=MyPreset label=MyButton newlabel=MyRenamedButton /echo 123`
 
 Arguments:
-- `newlabel` - string - new text fort the button, e.g. `newlabel=MyRenamedButton`
+- `newlabel` - string - new text for the button, e.g. `newlabel=MyRenamedButton`
 - `label`    - string - text on the button, e.g., `label=MyButton`
 - `set`      - string - name of the QR set, e.g., `set=PresetName1`
 - `hidden`   - bool   - whether the button should be hidden, e.g., `hidden=true`
@@ -1160,7 +1185,7 @@ Arguments:
 
 ####
 
-* `qr-get` - retrieves all of a Quick Reply's properties, eample: `/qr-get set=myQrSet id=42`
+* `qr-get` - retrieves all of a Quick Reply's properties, example: `/qr-get set=myQrSet id=42`
 
 #### Create or update QR preset
 

@@ -69,7 +69,7 @@ The default Main Prompt is:
 
 The \{\{char\}\} and \{\{user\}\} placeholders are replaced with the names of the character and persona that you've defined in the conversation. 
 
-You can use any of the supported [\{\{macro\}\}](/Usage/Characters/macros.md) tags in the Main Prompt to include information that might vary between conversations or changes as the conversation progresses.
+You can use any of the supported [\{\{macro\}\}](/usage/macros.md) tags in the Main Prompt to include information that might vary between conversations or changes as the conversation progresses.
 
 ### Adjusting the Main Prompt
 
@@ -103,7 +103,7 @@ There is often a better place than the Main Prompt to include information about 
 
 ### Effect of Message History
 
-When adjusting the main prompt to improve the AI's responses, consder that the AI picks up a lot from the message history. The history is its memory of past events, character interactions and relationships, and its style guide for word choice and writing style.
+When adjusting the main prompt to improve the AI's responses, consider that the AI picks up a lot from the message history. The history is its memory of past events, character interactions and relationships, and its style guide for word choice and writing style.
 
 Use this to your advantage by also providing [example messages](/Usage/Characters/characterdesign.md#examples-of-dialogue) showing how you want the AI to respond. Showing what you want is often easier than trying to explain it!
 
@@ -111,7 +111,7 @@ When your conversation already has history, changing the main prompt has a limit
 
 * insert current instructions close to or after the end of message history, for example by using an [Author's Note](/Usage/Characters/Author's-Note.md)
 * test your changes to the main prompt by starting a new conversation
-* edit the message history to remove or correct examples of unwanted behaviour
+* edit the message history to remove or correct examples of unwanted behavior
 * use the [Post-History Instructions](#post-history-instructions) to provide final instructions to the AI
 
 !!! Get it right the first time!
