@@ -9,7 +9,7 @@ route: /extensions/
 # Extensions
 
 SillyTavern comes with many extensions that can be enabled or disabled in the Extensions panel. Extensions can add new
-features, change the behaviour of existing features, or provide additional content for your AI to use. More extensions
+features, change the behavior of existing features, or provide additional content for your AI to use. More extensions
 can be installed from the "Download Extensions & Assets" menu in the Extensions panel.
 
 ## Extensions panel
@@ -148,9 +148,9 @@ Adds web search results to LLM prompts.
 :::
 
 :::callout
-**[AccuWeather](https://github.com/SillyTavern/Extension-AccuWeather)**
+**[Weather](https://github.com/SillyTavern/Extension-Weather)**
 
-Provides weather information using the AccuWeather API as a slash command or a function tool.
+Provides weather information using one of the available weather APIs as a slash command or a function tool.
 :::
 
 :::callout
