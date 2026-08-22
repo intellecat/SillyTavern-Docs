@@ -424,9 +424,9 @@ Falsy 값: 빈 문자열, `false`, `0`, `off`, `no`.
 | `--`     | [Decrement](#decrement)   | `{{.counter--}}`       | 1씩 감소시키고, 새 값을 반환합니다                     |
 | `+=`     | [Add](#add)               | `{{.score += 10}}`     | 변수에 더함(숫자 또는 문자열 연결), 아무것도 반환하지 않습니다 |
 | `-=`     | [Subtract](#subtract)     | `{{.health -= 5}}`     | 변수에서 뺌(숫자만 해당), 아무것도 반환하지 않습니다 |
-| `\|\|`   | [Logical Or](#logical-or) | `{{.name \|\| Guest}}` | 변수가 falsy이면 대체 값을 반환합니다                  |
+| `||`   | [Logical Or](#logical-or) | `{{.name || Guest}}` | 변수가 falsy이면 대체 값을 반환합니다                  |
 | `??`     | [Nullish Coalescing](#nullish-coalescing) | `{{.name ?? Guest}}` | 변수가 정의되지 않은 경우에만 대체 값을 반환합니다 |
-| `\|\|=`  | [Logical Or Assign](#logical-or-assign) | `{{.name \|\|= Guest}}` | 변수가 falsy이면 값을 설정하고, 새 값을 반환합니다 |
+| `||=`  | [Logical Or Assign](#logical-or-assign) | `{{.name ||= Guest}}` | 변수가 falsy이면 값을 설정하고, 새 값을 반환합니다 |
 | `??=`    | [Nullish Coalescing Assign](#nullish-coalescing-assign) | `{{.name ??= Guest}}` | 변수가 정의되지 않은 경우에만 값을 설정하고, 새 값을 반환합니다 |
 | `==`     | [Equals](#equals)         | `{{.status == active}}`| 값을 비교하고, `"true"` 또는 `"false"`를 반환합니다         |
 | `!=`     | [Not Equals](#not-equals) | `{{.status != active}}`| 값을 비교하고, 같지 않으면 `"true"`를 반환합니다         |
