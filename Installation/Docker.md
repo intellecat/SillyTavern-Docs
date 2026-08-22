@@ -245,6 +245,122 @@ If you already see a _plugins_ folder within the `docker` folder, you can skip S
     docker compose restart sillytavern
     ```
 
+## Non-root user mode
+
+By default, the container runs as root. If you want files created in mounted volumes to be owned by a specific host user (for example, to avoid root-owned files), you can enable non-root mode.
+
+### Option 1: PUID/PGID (recommended)
+
+Set `PUID` and `PGID` environment variables to the UID/GID you want the container to use. The entrypoint will update ownership of required directories and then run the server as the mapped user.
+
+Docker Compose example:
+
+```yaml
+services:
+  sillytavern:
+    environment:
+      - PUID=1000
+      - PGID=1000
+```
+
+Docker CLI example:
+
+```bash
+docker run \
+  --name="sillytavern" \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -p "$PUBLIC_PORT:8000/tcp" \
+  -v "$CONFIG_PATH:/home/node/app/config:rw" \
+  -v "$DATA_PATH:/home/node/app/data:rw" \
+  -v "$EXTENSIONS_PATH:/home/node/app/public/scripts/extensions/third-party:rw" \
+  -v "$PLUGINS_PATH:/home/node/app/plugins:rw" \
+  ghcr.io/sillytavern/sillytavern:"$SILLYTAVERN_VERSION"
+```
+
+### Option 2: Docker `--user` flag
+
+You can also run the container as a specific user with Docker's `--user` flag. In this mode, the container cannot automatically fix permissions, so ensure your mounted volumes are already writable by the UID/GID you provide.
+
+```bash
+docker run \
+  --name="sillytavern" \
+  --user 1000:1000 \
+  -p "$PUBLIC_PORT:8000/tcp" \
+  -v "$CONFIG_PATH:/home/node/app/config:rw" \
+  -v "$DATA_PATH:/home/node/app/data:rw" \
+  -v "$EXTENSIONS_PATH:/home/node/app/public/scripts/extensions/third-party:rw" \
+  -v "$PLUGINS_PATH:/home/node/app/plugins:rw" \
+  ghcr.io/sillytavern/sillytavern:"$SILLYTAVERN_VERSION"
+```
+
+## Container Healthcheck
+
+The Docker image includes a built-in healthcheck mechanism that monitors the SillyTavern server's responsiveness. This is useful for container orchestration systems (like Docker Compose, Kubernetes, or Docker Swarm) to detect and automatically restart unresponsive containers.
+
+### How it works
+
+The healthcheck uses a heartbeat file mechanism:
+
+1. When enabled, the SillyTavern server periodically writes a timestamp to a `heartbeat.json` file in the data directory.
+2. The healthcheck script (`src/healthcheck.js`) verifies that the heartbeat file exists and was recently updated.
+3. If the heartbeat file is missing or too old (more than 2 missed intervals), the container is marked as unhealthy.
+
+### Configuration
+
+!!!warning
+The healthcheck script doesn't support overriding the data directory via command line arguments. If you change the data directory from the default `/home/node/app/data`, ensure that the `SILLYTAVERN_DATAROOT` environment variable is set accordingly.
+!!!
+
+The healthcheck is controlled by the `SILLYTAVERN_HEARTBEATINTERVAL` environment variable (or `heartbeatInterval` in config.yaml). This value specifies the interval in seconds between heartbeat writes.
+
+- **Default:** `0` (disabled)
+- **Recommended:** `30` seconds when using Docker healthchecks
+
+The default `docker-compose.yml` file includes healthcheck configuration with the heartbeat enabled:
+
+```yaml
+services:
+  sillytavern:
+    environment:
+      - SILLYTAVERN_HEARTBEATINTERVAL=30
+    healthcheck:
+      test: ["CMD", "node", "src/healthcheck.js"]
+      interval: 30s
+      timeout: 10s
+      start_period: 20s
+      retries: 3
+```
+
+### Checking container health status
+
+You can check the health status of your container using:
+
+```sh
+docker inspect --format='{{.State.Health.Status}}' sillytavern
+```
+
+Or view the full container status including health:
+
+```sh
+docker ps
+```
+
+The `STATUS` column will show `healthy`, `unhealthy`, or `starting` alongside the uptime.
+
+### Disabling the healthcheck
+
+If you don't need the healthcheck feature, you can disable it by:
+
+1. Setting the environment variable to `0`:
+
+    ```yaml
+    environment:
+      - SILLYTAVERN_HEARTBEATINTERVAL=0
+    ```
+
+2. Removing or commenting out the `healthcheck` section in your `docker-compose.yml`.
+
 ## Common issues with Docker
 
 ### SELinux Permission Issues with Mounted Volumes
@@ -269,10 +385,15 @@ volumes:
 
 ### Forbidden by Whitelist
 
-!!!
-Docker gateway IPs should be whitelisted automatically if [whitelistDockerHosts](/Administration/config-yaml.md#ip-whitelisting) config value is set to `true`.
+!!!warning Docker Desktop vs Docker CE
+The [whitelistDockerHosts](/Administration/config-yaml.md#ip-whitelisting) config option (enabled by default) works by resolving `host.docker.internal` and `gateway.docker.internal` hostnames. These hostnames are **only available in Docker Desktop** (Windows/Mac). If you are using **Docker CE on Linux**, these hostnames will not resolve and the auto-whitelisting will fail with errors like this in the container logs:
 
-If you are still unable to access SillyTavern, follow the instructions below to update the whitelist manually.
+```
+Failed to resolve whitelist hostname host.docker.internal: getaddrinfo ENOTFOUND host.docker.internal
+Failed to resolve whitelist hostname gateway.docker.internal: getaddrinfo ENOTFOUND gateway.docker.internal
+```
+
+In this case, you need to manually add the Docker gateway IP to the whitelist as described below.
 !!!
 
 1. Execute the following Docker command to obtain the IP of your SillyTavern Docker container.

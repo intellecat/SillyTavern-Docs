@@ -84,9 +84,9 @@ If you are hosting SillyTavern on Docker, use **http://host.docker.internal:\<po
 ### Downloading and using KoboldCpp (No installation required, GGUF models)
 
 1. Visit https://koboldai.org/cpp where you will see the latest version with various files you can download.
-At the time of writing the newest CUDA version they list is cu12 which will work best on modern Nvidia GPU's, if you have an older GPU or a different brand you can use the regular koboldcpp.exe. If you have an old CPU its possible that KoboldCpp will crash when you try to load models, in that case try the _oldcpu version to see if it resolves your issue.
+At the time of writing the newest CUDA version they list is cu12 which will work best on modern Nvidia GPUs, if you have an older GPU or a different brand you can use the regular koboldcpp.exe. If you have an old CPU its possible that KoboldCpp will crash when you try to load models, in that case try the _oldcpu version to see if it resolves your issue.
 2. KoboldCpp does not need to be installed, once you start KoboldCpp you will immediately be able to select your GGUF model such as the one linked above using the Browse button next to the Model field.
-3. By default KoboldCpp runs at a maximum of 4K context even if you set this higher in SillyTavern, if you wish to run a model at higher context make sure to adjust the context slider on this screen before launching the model. Keep in mind that more context size means higher (video) memory requirements, if you set this to high or load a model that is to big for your system KoboldCpp will automatically begin using your CPU for the layers it can not fit on your GPU, this will be much slower.
+3. By default KoboldCpp runs at a maximum of 4K context even if you set this higher in SillyTavern, if you wish to run a model at higher context make sure to adjust the context slider on this screen before launching the model. Keep in mind that more context size means higher (video) memory requirements, if you set this too high or load a model that is too big for your system KoboldCpp will automatically begin using your CPU for the layers it can not fit on your GPU, this will be much slower.
 4. Click Launch, if everything goes well a new webpage will open with KoboldAI Lite where you can test if everything works correctly.
 5. Open SillyTavern and click API Connections (2nd button in the top bar)
 6. Set API to Text Completion and the API Type to KoboldCpp.
@@ -95,21 +95,25 @@ At the time of writing the newest CUDA version they list is cu12 which will work
 9. Chat with a character to test that it works.
 
 ### Tips for Optimizing KoboldCpp's speed
-1. Flash Attention will help reduce the memory requirements, it can be faster or slowing depending on your system and will allow you to fit more layers on your GPU than the default.
+1. Flash Attention will help reduce the memory requirements, it can be faster or slower depending on your system and will allow you to fit more layers on your GPU than the default.
 2. KoboldCpp will leave some space for other software when it guesses layers to prevent issues, if you have few programs open and are unable to fit the model entirely in the GPU you may be able to add a few extra layers.
-3. If the model uses up to much memory for the context size you can decrease this by Quantizing the KV. This will reduce the quality of the output but can help you put more layers on the GPU. To do this you go to the Tokens tab in KoboldCpp and then disable Context Shifting and enable Flash Attention. This will unlock the Quantized KV Cache slider, a lower number means less memory / intelligence of the model.
+3. If the model uses up too much memory for the context size you can decrease this by Quantizing the KV. This will reduce the quality of the output but can help you put more layers on the GPU. To do this you go to the Tokens tab in KoboldCpp and then disable Context Shifting and enable Flash Attention. This will unlock the Quantized KV Cache slider, a lower number means less memory / intelligence of the model.
 4. Running KoboldCpp on a slower system where it takes long to process the prompt? Context Shifting works best when you avoid using Lorebooks, randomization or other features that dynamically change the input. Leaving context shifting enabled KoboldCpp will help you avoid long reprocessing times.
 
 ### Installing Oobabooga
 
-Here's a more correct/dummy proof installation procedure:
+!!!note
+Depending on how you have installed Oobabooga, the file paths can be slightly different; i.e. `/text-generation-webui/user_data` if you installed via git clone, and `/text-generation-webui-main/user_data` if you used the .zip method.  
+!!!
+
+Here's a more correct/dummy-proof installation procedure:
 
 1. git clone <https://github.com/oobabooga/text-generation-webui> (or download their repo as a .zip in your browser, then extract it)
-2. Run start_windows.bat or whatever your OS is
+2. Run `start_windows.bat` or whatever your OS is
 3. When asked, select your GPU type. Even if you intend to use GGUF/CPU, if your GPU is in the list, select it now, because it will give you the option to use a speed optimization later called GPU sharding (without having to reinstall from scratch). If you have no gaming-grade dGPU (NVIDIA, AMD), select None.
 4. Wait for the installation to finish
-5. Place kunoichi-dpo-v2-7b.Q6_K.gguf in text-generation-webui/models
-6. Open text-generation-webui/CMD_FLAGS.txt, delete everything inside and write: --api
+5. Place kunoichi-dpo-v2-7b.Q6_K.gguf in `text-generation-webui/user_data/models`
+6. Open `text-generation-webui/user_data/CMD_FLAGS.txt`, delete everything inside and write: `--api`
 7. Restart Oobabooga
 8. Visit <http://127.0.0.1:5000/docs>. Does it load a FastAPI page? If not, you messed up somewhere.
 
