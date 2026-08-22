@@ -8,7 +8,7 @@ route: /
 
 SillyTavern (or ST for short) is a locally installed user interface that allows you to interact with text generation LLMs, image generation engines, and TTS voice models. Our goal is to empower users with as much utility and control over their LLM prompts as possible, embracing the steep learning curve as part of the fun.
 
-SillyTavern is a passion project brought to you by a dedicated community of LLM enthusiasts and will always be free and open-sourced. Beginning in February 2023 as a fork of TavernAI 1.2.8, SillyTavern now has over 200 contributors and 2 years of independent development under its belt, and continues to serve as a leading software for savvy AI hobbyists.
+SillyTavern is a passion project brought to you by a dedicated community of LLM enthusiasts and will always be free and open-sourced. Beginning in February 2023 as a fork of TavernAI 1.2.8, SillyTavern now has over 300 contributors and 3 years of independent development under its belt, and continues to serve as a leading software for savvy AI hobbyists.
 
 ## Screenshots
 
@@ -18,7 +18,7 @@ SillyTavern is a passion project brought to you by a dedicated community of LLM 
 
 ## Installation Requirements
 
-The hardware requirements are minimal: it will run on anything that can run NodeJS 18 or higher. If you intend to do LLM inference on your local machine, we recommend a 3000-series NVIDIA graphics card with at least 6GB of VRAM.
+The hardware requirements are minimal: it will run on anything that can run NodeJS 20 or higher. If you intend to do LLM inference on your local machine, we recommend a 3000-series NVIDIA graphics card with at least 6GB of VRAM.
 
 Follow the installation guide for your platform:
 
@@ -66,7 +66,7 @@ SillyTavern has extensibility support.
 * [Auto-Summary of the chat history](/extensions/Summarize.md)
 * Automatic UI and [chat translation](extensions/Translation.md)
 * [Stable Diffusion/FLUX/DALL-E image generation](/extensions/Stable-Diffusion.md)
-* [Text-to-speech for AI response messages (via ElevenLabs, Silero, or the OS's System TTS)](/extensions/TTS.md)
+* [Text-to-speech for AI response messages](/extensions/TTS.md)
 * [Web Search capabilities for adding additional real world context to your prompts](/extensions/WebSearch.md)
 * Many more are available to download from the "Download Extensions & Assets" menu.
 

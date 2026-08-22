@@ -7,7 +7,7 @@ route: /extensions/websearch/
 Adds web search results to LLM prompts.
 
 !!! Note
-Some [Chat Completion](/Usage/API_Connections/openai.md) sources provide built-in web search functionality. In this case, this extension will be largely redundant. Check the **<i class="fa-solid fa-sliders"></i> AI Response Configuration** panel for the "Enable web search" toggle. For example, this is available for Claude, Google AI Studio / Vertex AI, xAI, and OpenRouter backends.
+Some [Chat Completion](/Usage/API_Connections/openai.md) sources provide built-in web search functionality. In this case, this extension will be largely redundant. Check the **<i class="fa-solid fa-sliders"></i> AI Response Configuration** panel for the "Enable web search" toggle. For example, this is available for Claude, Google AI Studio / Vertex AI, OpenRouter, Chutes, and other backends.
 !!!
 
 ## Available sources
@@ -57,6 +57,14 @@ See: <https://github.com/LostRuins/koboldcpp/releases/tag/v1.81.1>
 Requires an API key.
 
 Get the key here: <https://serper.dev/>
+
+### Z.AI
+
+Requires an API key, set it in the Chat Completion API settings first. Not compatible with the Coding API subscription!
+
+Get the key here: <https://z.ai/manage-apikey/apikey-list/>
+
+Docs: <https://docs.z.ai/api-reference/tools/web-search>
 
 ## How to use
 
@@ -148,7 +156,7 @@ Example: /websearch links=off snippets=on how to make a sandwich
 1. Google - answer box, knowledge graph, page snippets.
 2. DuckDuckGo - page snippets.
 
-**Selenium Plugin** can additionaly provide images.
+**Selenium Plugin** can additionally provide images.
 
 #### SearXNG
 
@@ -174,3 +182,8 @@ Example: /websearch links=off snippets=on how to make a sandwich
 3. Page snippets.
 4. Relevant questions.
 5. Images.
+
+#### Z.AI
+
+1. Page titles.
+2. Page snippets.

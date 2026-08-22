@@ -174,7 +174,9 @@ To use one of these caption sources, select Multimodal in the Source dropdown.
 | API Provider                      | Description                                                                                                                                                                   |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | AI/ML API                         | Cloud, paid, various GPT, Claude, and Gemini models with vision capabilities                                                                                                  |
+| Chutes                            | Cloud, various models with vision capabilities                                                                                                                                |
 | Claude                            | Cloud, paid, all Claude models with vision capabilities                                                                                                                       |
+| Cloudflare Workers AI             | Cloud, paid, various models with vision capabilities                                                                                                                          |
 | Cohere                            | Cloud, paid, Aya Vision 8B / 32B                                                                                                                                              |
 | Custom (OpenAI-compatible)        | For custom OpenAI-compatible APIs, uses currently configured model in API Connections tab                                                                                     |
 | Electron Hub                      | Cloud, paid, various models with vision capabilities.                                                                                                                         |
@@ -193,6 +195,7 @@ To use one of these caption sources, select Multimodal in the Source dropdown.
 | Text Generation WebUI (oobabooga) | Local, must configure model in ooba                                                                                                                                           |
 | vLLM                              | Local                                                                                                                                                                         |
 | xAI (Grok)                        | Cloud, paid, grok-vision                                                                                                                                                      |
+| Z.AI (GLM).                       | Cloud, paid, GLM Vision models                                                                                                                                                |
 
 ### Secondary endpoints
 
