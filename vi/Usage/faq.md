@@ -1,7 +1,7 @@
 ---
 order: 180
 icon: question
-route: /usage/faq/
+route: /vi/usage/faq/
 ---
 
 # FAQ
@@ -186,4 +186,4 @@ Chiến lược để sửa lỗi này:
 
 * Phản hồi của \{\{char\}\} chỉ nên thụ động và phản ứng với hành động của \{\{user\}\}.
 * Phản hồi tiếp theo của bạn chỉ nên từ POV của \{\{char\}\}.
-* Bạn không bao giờ được phép ra lệnh hành động hoặc lời nói cho \{\{user\}\}
+* Bạn không bao giờ được phép ra lệnh hành động hoặc lời nói cho \{\{user\}\}.

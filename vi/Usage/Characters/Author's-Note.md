@@ -1,6 +1,6 @@
 ---
 order: 50
-route: /usage/core-concepts/authors-note/
+route: /vi/usage/core-concepts/authors-note/
 ---
 
 # Author's Note

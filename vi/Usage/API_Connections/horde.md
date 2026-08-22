@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/horde/
+route: /vi/usage/api-connections/horde/
 ---
 
 # AI Horde

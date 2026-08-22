@@ -1,7 +1,7 @@
 ---
 order: 10
 label: Windows
-route: /installation/windows/
+route: /vi/installation/windows/
 ---
 # Cài đặt Windows
 
@@ -10,7 +10,7 @@ KHÔNG CÀI ĐẶT VÀO BẤT KỲ THƯ MỤC NÀO DO WINDOWS KIỂM SOÁT (Prog
 
 KHÔNG CHẠY START.BAT VỚI QUYỀN ADMIN
 
-CÀI ĐẶT TRÊN WINDOWS 7 LÀ KHÔNG THỂ VÌ NÓ KHÔNG THỂ CHẠY NODEJS 18.16
+CÀI ĐẶT TRÊN WINDOWS 7 LÀ KHÔNG THỂ VÌ NÓ KHÔNG THỂ CHẠY NODEJS 20
 !!!
 
 ## Cài đặt qua Git

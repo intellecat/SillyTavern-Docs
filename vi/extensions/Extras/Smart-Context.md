@@ -1,5 +1,5 @@
 ---
-route: /extensions/smart-context/
+route: /vi/extensions/smart-context/
 ---
 
 # Smart Context
@@ -64,7 +64,7 @@ Có 4 khái niệm chính cần lưu ý:
 - Khi bắt đầu một cuộc trò chuyện mới, ChromaDB không hoạt động.
 - Khi cuộc trò chuyện đã tích lũy 10 tin nhắn, nó sẽ bắt đầu ghi lại tất cả tin nhắn vào cơ sở dữ liệu và gọi lại tin nhắn khi cần.
 
-#### Chat History Preservation ('kept mesages')
+#### Chat History Preservation ('kept messages')
 
 Theo mặc định, ChromaDB sẽ giữ càng nhiều tin nhắn lịch sử chat tự nhiên gần đây như được chỉ định trong thanh trượt.
 Bất kỳ tin nhắn nào vượt quá số lượng này sẽ bị xóa khỏi lời nhắc được gửi của bạn, và nếu 'memories' tồn tại trong cơ sở dữ liệu, chúng sẽ được thêm vào thay thế các tin nhắn lịch sử chat cũ hơn (xem Chiến lược bên dưới).
@@ -123,7 +123,7 @@ Chiến lược này giữ lịch sử chat ở trạng thái tự nhiên và th
 Nhược điểm
 
 - vì không có mục chat nào bị xóa/thay thế, có khả năng cao hơn là bạn sẽ làm tràn giới hạn ngữ cảnh.
-- vì memories tồn tại rất gần cuối lời nhắc, chúng có thể có QUẤY NHIỀU tác động đến phản hồi của AI.
+- vì memories tồn tại rất gần cuối lời nhắc, chúng có thể có QUÁ NHIỀU tác động đến phản hồi của AI.
 
 #### Custom Depth
 

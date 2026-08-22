@@ -1,6 +1,6 @@
 ---
 order: 109
-route: /installation/updating/migration-guide-1-09/
+route: /vi/installation/updating/migration-guide-1-09/
 ---
 
 # Hướng dẫn di chuyển 1.9.0

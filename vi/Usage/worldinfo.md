@@ -1,7 +1,7 @@
 ---
 order: 130
 icon: globe
-route: /usage/core-concepts/worldinfo/
+route: /vi/usage/core-concepts/worldinfo/
 templating: false
 ---
 
@@ -28,7 +28,11 @@ Engine SillyTavern kích hoạt và tích hợp liền mạch lore phù hợp v�
 
 * [World Info Encyclopedia](https://rentry.co/world-info-encyclopedia): Hướng dẫn chuyên sâu đầy đủ về World Info và Lorebooks. Bởi kingbri, Alicat, Trappu.
 
-## Character Lore
+## Context-Specific Sources
+
+Ngoài bộ chọn World Info toàn cầu, các lorebook có thể được gán cho các ngữ cảnh cụ thể — một nhân vật, một persona, hoặc một cuộc trò chuyện riêng lẻ. Các nguồn theo ngữ cảnh cụ thể này được kích hoạt tự động khi nhân vật, persona hoặc cuộc trò chuyện liên quan đang hoạt động.
+
+### Character Lore
 
 Tùy chọn, các tệp World Info có thể được gán cho một nhân vật để phục vụ như các nguồn lore chuyên dụng trên tất cả các cuộc trò chuyện với nhân vật đó (bao gồm cả nhóm).
 
@@ -36,9 +40,35 @@ Một World Info chính có thể được gắn vào nhân vật. Để làm đ
 
 Để hủy gắn, thay đổi hoặc gán thêm tệp World Info làm character lore, shift-click nút globe hoặc nhấp "More..." sau đó "Link World Info". Lưu ý rằng chỉ tệp World Info chính được xuất cùng với nhân vật.
 
-### Chiến lược chèn Character Lore
+Khi đổi tên một tệp World Info, bạn sẽ được nhắc liên kết lại lorebook (tùy chọn) trên tất cả các nhân vật tham chiếu đến nó. Điều này đảm bảo các liên kết character lore hiện có vẫn còn nguyên vẹn sau khi đổi tên.
 
-Khi tạo phản hồi AI, các entry từ World Info nhân vật sẽ được kết hợp với các entry từ bộ chọn World Info toàn cầu bằng một trong các chiến lược sau:
+### Persona Lorebook
+
+Một tệp World Info có thể được gán cho [persona](/Usage/personas.md) đang hoạt động hiện tại. Các entry từ lorebook này sẽ được kích hoạt bất cứ khi nào persona đó được chọn, bất kể nhân vật hoặc cuộc trò chuyện nào đang mở.
+
+Để gán một lorebook cho một persona, mở bảng điều khiển **Persona Management** và nhấp vào nút <i class="fa-solid fa-globe"></i> **Persona Lore**. Chọn một tệp World Info từ danh sách thả xuống. Nếu một lorebook đã được gắn, nhấp vào nút sẽ mở trực tiếp trình chỉnh sửa lorebook.
+
+!!!
+Để mở lại popup gán khi một lorebook đã được gắn, hãy sử dụng **nhấn giữ** (trên di động) hoặc **Shift+Click / Alt+Click** (trên desktop) trên nút Persona Lore.
+!!!
+
+### Chat Lorebook
+
+Một tệp World Info cũng có thể được gán cho một cuộc trò chuyện riêng lẻ. Các entry từ một lorebook gắn với cuộc trò chuyện chỉ hoạt động trong cuộc trò chuyện cụ thể đó và sẽ không được chuyển sang các cuộc trò chuyện khác với cùng nhân vật.
+
+Để gán một lorebook cho một cuộc trò chuyện, nhấp vào nút <i class="fa-solid fa-passport"></i> **Chat Lore** trong bảng điều khiển Character Management. Chọn một tệp World Info từ danh sách thả xuống. Nếu một lorebook đã được gắn, nhấp vào nút sẽ mở trực tiếp trình chỉnh sửa lorebook.
+
+!!!
+Để mở lại popup gán khi một lorebook đã được gắn, hãy sử dụng **nhấn giữ** (trên di động) hoặc **Shift+Click / Alt+Click** (trên desktop) trên nút Chat Lore.
+!!!
+
+### Lore Insertion Strategy
+
+Khi tạo phản hồi AI, các entry từ character World Info và các nguồn phụ khác sẽ được kết hợp với các entry từ bộ chọn World Info toàn cầu. Theo mặc định, các entry sẽ được chèn theo thứ tự sau:
+
+* [Chat Lore](#chat-lorebook)
+* [Persona Lore](#persona-lorebook)
+* Character Lore hoặc Global Lore bằng một trong các chiến lược sau:
 
 #### Sorted Evenly (mặc định)
 
@@ -52,13 +82,13 @@ Các entry từ Character World Info sẽ được bao gồm trước theo Inser
 
 Các entry từ Global World Info sẽ được bao gồm trước theo Insertion Order của chúng, sau đó là các entry từ Character World Info.
 
-### World Info Entry
+## World Info Entry
 
-#### Key
+### Key
 
 Danh sách các từ khóa kích hoạt một entry World Info. Các key không phân biệt chữ hoa chữ thường theo mặc định (điều này có thể [cấu hình](#case-sensitive-keys)).
 
-##### Regular Expression (Regex) làm Keys
+#### Regular Expression (Regex) làm Keys
 
 Các key cho phép cách tiếp cận linh hoạt hơn để khớp bằng cách hỗ trợ regex. Điều này giúp có thể khớp nội dung động hơn với các từ hoặc ký tự tùy chọn, khoảng trắng và tất cả các tiện ích khác mà regex cung cấp.
 Nếu một key được định nghĩa là regex hợp lệ (kiểu regex Javascript, với `/` làm dấu phân cách. Tất cả các flag đều được phép), nó sẽ được xử lý như vậy khi kiểm tra xem một entry có nên được kích hoạt hay không. Nhiều regex có thể được nhập dưới dạng các key riêng biệt và sẽ hoạt động cùng nhau. Bên trong một regex, dấu phẩy là có thể. Các key plaintext không hỗ trợ dấu phẩy, vì chúng được xử lý như dấu phân cách key.
@@ -72,7 +102,7 @@ Một entry/instruction nên được chèn vào khi char đang thực hiện h�
 
 Để biết thêm thông tin về cú pháp và khả năng Regex: [Regular expressions - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions)
 
-###### Advanced Regex Per-Message Matching
+##### Advanced Regex Per-Message Matching
 
 ST thêm tiền tố cho mỗi tin nhắn trò chuyện trong buffer quét WI với `character name:` và sau v1.12.6, nối thêm chúng bằng ký tự giá trị 1 (`\x01`).
 Điều này có nghĩa là bạn có thể khớp đầu vào hoặc đầu ra cụ thể từ một nhân vật nhất định bằng regex gắn với ký tự phân tách đó.
@@ -83,11 +113,11 @@ Ví dụ, để chỉ khớp người dùng nói "hello", bạn có thể sử d
 /\x01{{user}}:[^\x01]*?hello/
 ```
 
-##### Key Input
+#### Key Input
 
 Có hai chế độ để nhập từ khóa, mỗi chế độ có giao diện người dùng hơi khác nhau. Trong ⌨️ *plaintext mode* (mặc định), các key có thể được nhập dưới dạng danh sách phân tách bằng dấu phẩy trong một trường văn bản duy nhất. Regex cũng có thể được bao gồm, nhưng chúng không có bất kỳ làm nổi bật đặc biệt nào. Trong ✨ *fancy mode*, các key xuất hiện dưới dạng các phần tử riêng biệt và regex sẽ được làm nổi bật như vậy. Control hỗ trợ chỉnh sửa và xóa keys. Chế độ có thể được chuyển đổi qua nút inline bên trong input control.
 
-#### Optional Filter
+### Optional Filter
 
 Danh sách các từ khóa bổ sung phân tách bằng dấu phẩy kết hợp với primary key.
 Nếu không có đối số nào được cung cấp, flag này bị bỏ qua.
@@ -100,15 +130,15 @@ Hỗ trợ logic cho AND ANY, NOT ANY, hoặc NOT ALL
 
 Các key này cũng hỗ trợ [regex](#regular-expression-regex-as-keys).
 
-#### Entry Content
+### Entry Content
 
 Văn bản được chèn vào prompt khi entry được kích hoạt.
 
-#### Insertion Order
+### Insertion Order
 
 Giá trị số. Xác định mức độ ưu tiên của entry nếu nhiều entry được kích hoạt cùng một lúc. Các entry có số order lớn hơn sẽ được chèn gần cuối context hơn vì chúng sẽ có tác động nhiều hơn đến đầu ra. Ví dụ, một entry có số Order 100 sẽ xuất hiện trong context trước một entry có số Order 250.
 
-#### Insertion Position
+### Insertion Position
 
 * **Before Char Defs:** Entry World Info được chèn trước mô tả và kịch bản của nhân vật. Có tác động trung bình đến cuộc trò chuyện.
 * **After Char Defs:** Entry World Info được chèn sau mô tả và kịch bản của nhân vật. Có tác động lớn hơn đến cuộc trò chuyện.
@@ -126,7 +156,7 @@ Các entry Example Message sẽ được định dạng theo cài đặt xây d�
 
 Nếu Author's Note của bạn bị vô hiệu hóa (Insertion Frequency = 0), các entry World Info ở vị trí A/N sẽ bị bỏ qua!
 
-#### Outlet Name
+### Outlet Name
 
 Khi vị trí chèn **Outlet** được chọn, một trường **Outlet Name** bổ sung sẽ có sẵn cho entry. Tên bạn cung cấp ở đây nhóm các entry lại với nhau và xác định token bạn sẽ sử dụng để kéo chúng vào prompt theo cách thủ công.
 
@@ -134,7 +164,7 @@ Sử dụng macro `{{outlet::YourName}}` trong [Prompt Manager](./Prompts/prompt
 
 Nếu một outlet entry thiếu tên, nó sẽ bị bỏ qua trong quá trình tạo, vì vậy hãy đảm bảo điền vào trường. Outlet name hỗ trợ tự động hoàn thành dựa trên các tên bạn đã sử dụng để dễ dàng sử dụng lại các nhãn nhất quán.
 
-##### Hạn chế và lưu ý
+#### Hạn chế và lưu ý
 
 * Đặt outlet macro bên trong các entry World Info không được hỗ trợ và sẽ không hoạt động. Điều này xung đột với thứ tự đánh giá của World Info và có thể dẫn đến vòng lặp vô hạn.
 * Lồng outlet không được hỗ trợ. Bạn không thể đặt outlet macro bên trong nội dung outlet khác. Giống như trên, điều này có thể dẫn đến vòng lặp vô hạn.
@@ -144,21 +174,21 @@ Nếu một outlet entry thiếu tên, nó sẽ bị bỏ qua trong quá trình 
 * Khoảng trắng đầu hoặc cuối trong outlet name bị bỏ qua khi bạn gọi macro, vì vậy các tên được lưu với khoảng trắng thừa sẽ không khớp. Tránh thêm khoảng trắng vào tên để chúng có thể được giải quyết chính xác.
 * Các outlet macro không có nội dung nào được gán sẽ được thay thế bằng chuỗi rỗng.
 
-#### Entry Title / Memo
+### Entry Title / Memo
 
 Một trường văn bản để thuận tiện cho bạn gắn nhãn các entry của bạn, không được sử dụng bởi AI hoặc bất kỳ logic trigger nào.
 
 Nếu trống, có thể được điền lại bằng key đầu tiên của các entry bằng cách nhấp vào nút "Fill empty memos".
 
-#### Strategy
+### Strategy
 
-1. 🔵 (Blue Circle) = Entry sẽ luôn có mặt trong prompt.
+1. 🔵 (Blue Circle) = Entry không cần bất kỳ từ khóa nào, và sẽ kích hoạt bất kể nội dung.
 2. 🟢 (Green Circle) = Entry sẽ chỉ được kích hoạt khi có từ khóa.
 3. 🔗 (Chain Link) = Entry được phép được chèn bằng độ tương đồng embedding.
 
 Mỗi Entry cũng có một toggle cho phép bạn bật hoặc tắt entry.
 
-#### Probability (Trigger %)
+### Probability (Trigger %)
 
 Giá trị này hoạt động như một bộ lọc bổ sung thêm cơ hội để entry KHÔNG được chèn khi nó được kích hoạt bằng bất kỳ phương tiện nào (constant, primary key, recursion).
 
@@ -168,7 +198,7 @@ Giá trị này hoạt động như một bộ lọc bổ sung thêm cơ hội �
 
 Sử dụng điều này để tạo các sự kiện ngẫu nhiên trong cuộc trò chuyện của bạn. Ví dụ, mỗi tin nhắn có thể có 1% cơ hội đánh thức Elder God nếu tên của nó được đề cập trong tin nhắn.
 
-#### Inclusion Group
+### Inclusion Group
 
 Inclusion group kiểm soát cách các entry được chọn khi nhiều entry có cùng nhãn group được kích hoạt đồng thời. Nếu nhiều entry có cùng nhãn group được kích hoạt, chỉ một sẽ được chèn vào prompt.
 
@@ -176,13 +206,13 @@ Theo mặc định, entry được chọn được chọn ngẫu nhiên dựa tr
 
 Một entry duy nhất có thể là một phần của nhiều inclusion group nếu chúng được định nghĩa dưới dạng danh sách phân tách bằng dấu phẩy. Cùng logic như giải thích ở trên sẽ được áp dụng. Nếu entry đó được kích hoạt, nó sẽ *vô hiệu hóa* tất cả các entry khác là một phần của bất kỳ group nào của nó. Do đó, nếu bất kỳ group nào được kích hoạt, entry này sẽ không được kích hoạt.
 
-#### Prioritize Inclusion
+### Prioritize Inclusion
 
 Để cung cấp nhiều quyền kiểm soát hơn đối với entry nào được kích hoạt qua [Inclusion Group](/Usage/worldinfo.md#inclusion-group), bạn có thể sử dụng cài đặt 'Prioritize Inclusion'. Tùy chọn này cho phép bạn chỉ định một cách xác định entry nào sẽ chọn thay vì ngẫu nhiên cuộn cơ hội Group Weight.
 
 Nếu nhiều entry có cùng nhãn group và cài đặt này được bật được kích hoạt, entry có giá trị 'Order' cao nhất sẽ được chọn. Điều này hữu ích để tạo các chuỗi dự phòng qua inclusion group. Ví dụ để ưu tiên các entry độ sâu thấp với sự nhấn mạnh nhiều hơn, hoặc để chọn một hướng dẫn cụ thể về thiết lập cảnh hơn một hướng dẫn khác nếu cả hai đều hợp lệ.
 
-#### Use Group Scoring
+### Use Group Scoring
 
 Khi cài đặt này được bật toàn cầu hoặc cho mỗi entry, số lượng key entry đã kích hoạt xác định người chiến thắng group. Chỉ tập hợp con của một group có số lượng key khớp cao nhất sẽ còn lại để được kích hoạt bởi Group Weight hoặc Inclusion Priority - phần còn lại sẽ bị vô hiệu hóa và loại khỏi group.
 
@@ -203,7 +233,7 @@ Ví dụ:
 
 Đầu vào `sing me a song` có thể kích hoạt cả hai entry (cả hai đã kích hoạt 2 key), nhưng `sing me a song about Ghosts` sẽ chỉ kích hoạt Entry 2 (đã kích hoạt 3 key).
 
-#### Automation ID
+### Automation ID
 
 Cho phép tích hợp các entry World Info với [STscripts](/For_Contributors/st-script.md) từ extension Quick Replies. Nếu cả lệnh quick reply và entry WI đều có cùng Automation ID, lệnh sẽ được thực thi tự động khi entry có ID khớp được kích hoạt.
 
@@ -211,13 +241,13 @@ Automation được thực thi theo thứ tự chúng được kích hoạt, tu�
 
 Lệnh script sẽ chỉ chạy một lần nếu nhiều entry có cùng Automation ID được kích hoạt.
 
-#### Character Filter
+### Character Filter
 
 Danh sách tên nhân vật mà entry này có thể được kích hoạt. Nếu danh sách này không trống, entry sẽ chỉ được kích hoạt cho các nhân vật có tên trong danh sách. Khi một tag được chọn, entry sẽ chỉ được kích hoạt cho các nhân vật có tag cụ thể đó.
 
 Chế độ "Exclude" đảo ngược bộ lọc, có nghĩa là entry sẽ được kích hoạt cho tất cả các nhân vật ngoại trừ những nhân vật được thêm vào danh sách hoặc có (các) tag đã chọn.
 
-#### Triggers
+### Triggers
 
 Các loại tạo mà entry World Info này có thể được kích hoạt. Nếu không có gì được chọn, entry có thể được kích hoạt cho tất cả các loại tạo. Nếu một hoặc nhiều được chọn, entry sẽ chỉ được kích hoạt cho các loại tạo cụ thể đó:
 
@@ -232,7 +262,7 @@ Các loại tạo mà entry World Info này có thể được kích hoạt. N�
 Trigger "Regenerate" không khả dụng trong cuộc trò chuyện nhóm vì nó sử dụng logic tạo lại khác: tất cả các tin nhắn từ phản hồi cuối cùng bị xóa và các tin nhắn được xếp hàng bằng loại tạo "Normal" theo [Chiến lược phản hồi nhóm](/Usage/Characters/groupchats.md#reply-order-strategies) đã chọn.
 !!!
 
-#### Additional matching sources
+### Additional matching sources
 
 Theo mặc định, các entry World Info chỉ được khớp với nội dung từ cuộc trò chuyện hiện tại. Các tùy chọn này cho phép bạn khớp entry với thông tin nhân vật khác nhau không xuất hiện trong cuộc trò chuyện, hoặc thậm chí thông tin persona. Điều này hữu ích khi bạn muốn có nhiều entry được sử dụng giữa một số nhân vật nhưng không muốn phải quản lý danh sách tag lớn, hoặc không muốn phải cập nhật danh sách bộ lọc nhân vật mỗi khi bạn tạo một nhân vật mới. Điều này cũng cho phép bạn khớp các entry dựa trên persona bạn đang kích hoạt.
 

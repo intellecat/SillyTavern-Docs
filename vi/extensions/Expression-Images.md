@@ -1,5 +1,5 @@
 ---
-route: /extensions/expression-images/
+route: /vi/extensions/expression-images/
 ---
 
 # Character Expressions

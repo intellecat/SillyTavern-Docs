@@ -1,6 +1,6 @@
 ---
 label: Android (Termux)
-route: /installation/android-(termux)/
+route: /vi/installation/android-(termux)/
 ---
 
 # Cài đặt Android (Termux)

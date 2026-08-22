@@ -2,7 +2,7 @@
 order: 25
 icon: gear
 expanded: true
-route: /administration/
+route: /vi/administration/
 ---
 
 # Quản Trị
@@ -45,6 +45,69 @@ Bạn có thể truy cập instance SillyTavern của mình từ điện thoại
 Những người đam mê có thể thiết lập reverse proxy để truy cập instance SillyTavern của họ từ internet.
 :::
 
+## Cấu Trúc Dữ Liệu
+
+Phần này cung cấp tổng quan về cấu trúc lưu trữ dữ liệu người dùng trong SillyTavern. Chỉ có cấu trúc dữ liệu mặc định (thư mục gốc dữ liệu là một thư mục con của thư mục cài đặt SillyTavern) được mô tả ở đây. Nếu bạn đã tùy chỉnh cấu trúc dữ liệu, hãy tham khảo cấu hình tùy chỉnh của bạn để biết chi tiết.
+
+### `data/[user-handle]` (ví dụ: `data/default-user`)
+
+Được tạo cho mỗi tài khoản người dùng, thư mục này chứa dữ liệu cụ thể của người dùng như tệp nhân vật, lịch sử trò chuyện và cài đặt.
+
+### `data/_cache`
+
+Nơi lưu trữ các tệp được máy chủ tải xuống, chẳng hạn như tệp tokenizer và các model transformers.js.
+
+#### `data/_cache/characters`
+
+Chứa dữ liệu nhân vật đã được phân tích khi cài đặt `performance.useDiskCache` được bật, được đồng bộ hóa khi khởi động và khi nhân vật được cập nhật.
+
+Điều này cho phép tải dữ liệu nhân vật nhanh hơn với chi phí là dung lượng đĩa.
+
+### `data/_css`
+
+Nơi lưu trữ các tệp CSS tùy chỉnh.
+
+Hiện tại, chỉ tệp `user.css` được hỗ trợ, cho phép bạn thêm các kiểu tùy chỉnh vào frontend.
+
+### `data/_errors`
+
+Nơi lưu trữ các tệp HTML chứa các trang lỗi cho các mã trạng thái HTTP khác nhau. Các tệp này được sử dụng để hiển thị các trang lỗi tùy chỉnh khi máy chủ gặp lỗi.
+
+- `forbidden-by-whitelist.html`: Được hiển thị khi một yêu cầu bị chặn bởi whitelist địa chỉ IP.
+- `host-not-allowed.html`: Được hiển thị khi một yêu cầu bị chặn bởi whitelist host.
+- `unauthorized.html`: Được hiển thị khi xác thực cơ bản thất bại.
+- `url-not-found.html`: Được hiển thị khi không tìm thấy tài nguyên được yêu cầu.
+
+### `data/_storage`
+
+Nơi lưu trữ [dữ liệu tài khoản người dùng](./multi-user.md).
+
+Không nên chỉnh sửa các tệp này theo cách thủ công vì có thể dẫn đến hỏng dữ liệu.
+
+### `data/_uploads`
+
+Nơi lưu trữ tạm thời cho các tệp được người dùng tải lên, trong khi chúng đang được máy chủ xử lý.
+
+Các tệp này được tự động xóa mỗi khi khởi động.
+
+### `data/_webpack`
+
+Nơi lưu trữ các tài sản webpack đã biên dịch và các tệp cache.
+
+Nếu bạn gặp sự cố với frontend sau khi cập nhật, hãy thử xóa thư mục này để buộc xây dựng lại hoàn toàn các tài sản frontend.
+
+### `data/access.log`
+
+Một tệp log ghi lại các yêu cầu HTTP đến máy chủ, sau lần kết nối thành công đầu tiên.
+
+Hãy kiểm tra tệp này thường xuyên để theo dõi bất kỳ hoạt động đáng ngờ nào.
+
+### `data/cookie-secret.txt`
+
+Chứa khóa bí mật được sử dụng để ký cookie trong máy chủ.
+
+Tệp này được tự động tạo ra khi khởi động lần đầu nếu nó không tồn tại.
+
 ## Danh sách kiểm tra bảo mật
 
 **Đây chỉ là những khuyến nghị. Vui lòng tham khảo ý kiến chuyên gia bảo mật ứng dụng web trước khi đưa instance ST của bạn lên mạng.**
@@ -58,5 +121,6 @@ Những người đam mê có thể thiết lập reverse proxy để truy cập
 7. Kiểm tra log truy cập thường xuyên. Chúng được ghi vào console máy chủ và vào tệp `access.log` và cung cấp thông tin về các kết nối đến, chẳng hạn như địa chỉ IP và user agent.
 8. Cấu hình HTTPS. Đối với máy chủ localhost, bạn có thể tạo và sử dụng chứng chỉ tự ký. Nếu không, bạn có thể cần triển khai máy chủ web reverse-proxy như [Traefik](https://traefik.io/) hoặc [Caddy](https://caddyserver.com/docs/getting-started).
 9. Cấu hình và bật [whitelist host](/Administration/config-yaml.md#host-whitelisting), đặc biệt nếu bạn không sử dụng mã hóa HTTPS trên mạng cục bộ.
+10. Cấu hình và bật [whitelist địa chỉ riêng tư](/Administration/config-yaml.md#private-address-whitelisting) để ngăn chặn các cuộc tấn công SSRF.
 
 Tìm thêm thông tin về proxy an toàn trong hướng dẫn sau: [Reverse Proxying SillyTavern](reverse-proxying).

@@ -1,6 +1,6 @@
 ---
 order: 20
-route: /usage/api-connections/openai/
+route: /vi/usage/api-connections/openai/
 ---
 
 # Chat Completions

@@ -1,7 +1,7 @@
 ---
 order: 160
 icon: sliders
-route: /usage/common-settings/
+route: /vi/usage/common-settings/
 ---
 
 # Cài đặt chung

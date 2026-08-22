@@ -1,6 +1,6 @@
 ---
 order: 60
-route: /usage/core-concepts/tags/
+route: /vi/usage/core-concepts/tags/
 ---
 
 # Tags

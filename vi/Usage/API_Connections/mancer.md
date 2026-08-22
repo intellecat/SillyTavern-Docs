@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/mancer/
+route: /vi/usage/api-connections/mancer/
 ---
 
 # Mancer

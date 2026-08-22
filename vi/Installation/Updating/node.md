@@ -1,6 +1,6 @@
 ---
 order: -50
-route: /installation/updating/node/
+route: /vi/installation/updating/node/
 ---
 
 # Cách cập nhật Node.js

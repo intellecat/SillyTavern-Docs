@@ -1,6 +1,6 @@
 ---
 order: 10
-route: /usage/api-connections/openrouter/
+route: /vi/usage/api-connections/openrouter/
 ---
 
 # OpenRouter

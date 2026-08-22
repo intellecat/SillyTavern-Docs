@@ -1,7 +1,7 @@
 ---
 order: 100
 icon: person-fill
-route: /usage/characters/
+route: /vi/usage/characters/
 ---
 
 # Nhân vật
@@ -57,8 +57,8 @@ Mở bảng <i class="fa-solid fa-address-card"></i> **Characters** từ navbar 
 
 - <i class="fa-solid fa-star"></i> Chuyển đổi yêu thích
 - <i class="fa-solid fa-book"></i> Định nghĩa nâng cao
-- <i class="fa-solid fa-globe"></i> Character lore
-- <i class="fa-solid fa-passport"></i> Chat lore: liên kết chat với [World Info](/Usage/worldinfo.md)
+- <i class="fa-solid fa-globe"></i> [Character lore](/Usage/worldinfo.md#character-lore)
+- <i class="fa-solid fa-passport"></i> [Chat lore](/Usage/worldinfo.md#chat-lorebook): liên kết chat với World Info
 - <i class="fa-solid fa-file-export"></i> Xuất nhân vật
 - <i class="fa-solid fa-clone"></i> Nhân bản
 - <i class="fa-solid fa-skull"></i> Xóa

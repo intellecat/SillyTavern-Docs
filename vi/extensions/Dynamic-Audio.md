@@ -1,5 +1,5 @@
 ---
-route: /extensions/dynamic-audio/
+route: /vi/extensions/dynamic-audio/
 ---
 
 # Dynamic Audio

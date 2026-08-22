@@ -1,6 +1,6 @@
 ---
 order: 30
-route: /usage/core-concepts/data-bank/
+route: /vi/usage/core-concepts/data-bank/
 tags:
     [
         vector storage,
@@ -159,6 +159,12 @@ Tất cả các nguồn này yêu cầu API key của dịch vụ tương ứng 
 5. TogetherAI
 6. MistralAI
 7. NomicAI
+8. OpenRouter
+9. Electron Hub
+10. Chutes
+11. NanoGPT
+12. SiliconFlow
+13. Cloudflare Workers AI
 
 ## Cài đặt Vectorization
 

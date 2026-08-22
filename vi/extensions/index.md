@@ -3,7 +3,7 @@ label: Extensions
 icon: plug
 expanded: true
 order: 35
-route: /extensions/
+route: /vi/extensions/
 ---
 
 # Extensions
@@ -100,7 +100,7 @@ Hoạt hình text của các tin nhắn nhân vật với tốc độ có thể 
 :::callout
 **[Dynamic Audio](Dynamic-Audio.md)**
 
-Thêm nhạc nền và âm thanh xung quanh ngập ngừng vào các chats của bạn.
+Thêm nhạc nền và âm thanh xung quanh sống động vào các chats của bạn.
 :::
 
 :::callout
@@ -146,9 +146,9 @@ Thêm kết quả tìm kiếm web vào các LLM prompts.
 :::
 
 :::callout
-**[AccuWeather](https://github.com/SillyTavern/Extension-AccuWeather)**
+**[Weather](https://github.com/SillyTavern/Extension-Weather)**
 
-Cung cấp thông tin thời tiết bằng cách sử dụng AccuWeather API như một slash command hoặc một function tool.
+Cung cấp thông tin thời tiết bằng cách sử dụng một trong các weather API có sẵn như một slash command hoặc một function tool.
 :::
 
 :::callout
@@ -280,7 +280,7 @@ Cung cấp hình ảnh màn hình cho các mô hình đa phương tiện khi b�
 :::callout
 **[Silence Player](https://github.com/SillyTavern/Extension-Silence)**
 
-Thêm một silence audio player vào menu extensions. Có thể giúp nếu tab trình duyệt đang bị giết ở nền tảng.
+Thêm một silence audio player vào menu extensions. Có thể giúp nếu tab trình duyệt đang bị tắt khi chạy nền.
 :::
 
 :::callout

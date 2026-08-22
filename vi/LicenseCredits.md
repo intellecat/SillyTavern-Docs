@@ -1,36 +1,23 @@
 ---
-order: -100
 icon: law
+route: /vi/licensecredits/
 ---
 
 # Giấy phép và tín dụng
 
-## Giấy phép dự án
+**Chương trình này được phân phối với hy vọng rằng nó sẽ hữu ích, nhưng KHÔNG CÓ BẤT KỲ BẢO HÀNH NÀO; kể cả bảo hành ngụ ý về KHẢ NĂNG BÁN ĐƯỢC hoặc SỰ PHÙ HỢP CHO MỘT MỤC ĐÍCH CỤ THỂ.**
 
-SillyTavern được phát hành theo giấy phép [GNU Affero General Public License v3.0 (AGPL-3.0)](https://github.com/SillyTavern/SillyTavern/blob/release/LICENSE).
+**Xem GNU Affero General Public License để biết thêm chi tiết.**
 
-## Tín dụng
+[TavernAI](https://github.com/TavernAI/TavernAI) 1.2.8 gốc bởi Humi: MIT License
 
-SillyTavern được phát triển và duy trì bởi [Cohee](https://github.com/Cohee1207), [RossAscends](https://github.com/RossAscends), và [Wolfsblvt](https://github.com/Wolfsblvt), cùng với các đóng góp từ cộng đồng tuyệt vời của chúng tôi.
+## Người đóng góp trước phiên bản v1.9.0
+Lịch sử commit git đã được nén (squash) về trạng thái của bản phát hành 1.9.0.
 
-### Đóng góp
+Đáng tiếc là, việc mất lịch sử commit cũng đồng nghĩa với việc mất lịch sử đóng góp mã nguồn. Nếu bạn đã đóng góp cho quá trình phát triển SillyTavern và muốn được ghi nhận trong tệp README và trang web Docs, vui lòng liên hệ với chúng tôi!
 
-Cảm ơn tất cả những người đóng góp của chúng tôi! Một danh sách đầy đủ có thể được tìm thấy trên trang [Contributors](https://github.com/SillyTavern/SillyTavern/graphs/contributors) của GitHub.
+## Người đóng góp tài liệu
 
-### Thư viện bên thứ ba
+Nhấp vào hình ảnh bên dưới để xem danh sách đầy đủ những người đóng góp cho tài liệu SillyTavern.
 
-SillyTavern sử dụng các thư viện mã nguồn mở sau:
-
-- [Node.js](https://nodejs.org/)
-- [Express](https://expressjs.com/)
-- [Socket.IO](https://socket.io/)
-- Và nhiều thư viện tuyệt vời khác được liệt kê trong package.json của chúng tôi
-
-### Tài sản
-
-- Biểu tượng và tài sản được tạo bởi các thành viên trong cộng đồng SillyTavern
-- Thư viện biểu tượng: [Font Awesome](https://fontawesome.com/)
-
-### Cảm ơn đặc biệt
-
-Cảm ơn đặc biệt đến cộng đồng SillyTavern vì sự hỗ trợ, phản hồi và đóng góp liên tục của họ!
+[![Contributors](https://contrib.rocks/image?repo=SillyTavern/SillyTavern-Docs)](https://github.com/SillyTavern/SillyTavern-Docs/graphs/contributors)

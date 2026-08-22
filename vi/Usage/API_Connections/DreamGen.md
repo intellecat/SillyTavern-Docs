@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/dreamgen/
+route: /vi/usage/api-connections/dreamgen/
 ---
 
 # DreamGen
@@ -100,7 +100,7 @@ Xem ["Style" documentation](https://v2.dreamgen.com/docs/scenario-editor#style) 
 
 Sử dụng tùy chọn `/sys` để gửi hướng dẫn đến mô hình. Một số ví dụ:
 
-> The inkeeper offers Daria and the others a pint of ale.
+> The innkeeper offers Daria and the others a pint of ale.
 
 > The next message is from Draco and should be at least 200 words, focusing on his inner conflict about the decision.
 

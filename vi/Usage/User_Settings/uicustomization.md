@@ -1,6 +1,6 @@
 ---
 order: 20
-route: /usage/core-concepts/uicustomization/
+route: /vi/usage/core-concepts/uicustomization/
 ---
 
 # Tùy chỉnh Giao diện
@@ -44,6 +44,17 @@ Chọn giữa Circle, Square, Rectangle, hoặc Rounded Square. Cài đặt này
 * Bottom Left
 * Bottom Center
 * Bottom Right
+
+### Kiểu Media
+
+Kiểu hiển thị mặc định cho các media đính kèm (hình ảnh, âm thanh, video) trong tin nhắn chat. Các tiện ích mở rộng thêm media vào tin nhắn chat có thể ghi đè cài đặt này. Cũng có thể thay đổi thủ công cho từng tin nhắn bằng hành động "Toggle media display style" trong menu ngữ cảnh tin nhắn.
+
+* **List**: Hiển thị tất cả media đính kèm cùng lúc theo bố cục dạng lưới.
+* **Gallery**: Hiển thị media đính kèm theo kiểu gallery dạng carousel.
+
+!!!
+Cài đặt này cũng ảnh hưởng đến cách các media đính kèm inline được gửi đến các nguồn Chat Completion được hỗ trợ: list gửi tất cả các media đính kèm cùng lúc, trong khi gallery gửi media đính kèm đã chọn.
+!!!
 
 ### Màu Chủ đề
 

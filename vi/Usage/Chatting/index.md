@@ -2,7 +2,7 @@
 icon: report
 order: 170
 expanded: false
-route: /usage/chatting/
+route: /vi/usage/chatting/
 ---
 
 # Trò chuyện

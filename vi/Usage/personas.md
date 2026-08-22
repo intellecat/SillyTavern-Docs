@@ -1,7 +1,7 @@
 ---
 order: 110
 icon: smiley
-route: /usage/core-concepts/personas/
+route: /vi/usage/core-concepts/personas/
 templating: false
 ---
 
@@ -33,7 +33,7 @@ Vì macro `{{user}}` và `{{char}}` có ý nghĩa ngược lại khi được s�
 
 ## Mô tả Persona
 
-Mỗi persona có thể lưu trữ một mô tả văn bản tùy chỉnh — các đặc điểm tinh thần và thể chất, tuổi tác, nghề nghiệp, hoặc bất kỳ chi tiết cá nhân nào. Chúng cũng có thể bao gồm các macro mẫu như `{{char}}` hoặc `{{user}}` (xem [Macros](/Usage/Characters/macros.md)).
+Mỗi persona có thể lưu trữ một mô tả văn bản tùy chỉnh — các đặc điểm tinh thần và thể chất, tuổi tác, nghề nghiệp, hoặc bất kỳ chi tiết cá nhân nào. Chúng cũng có thể bao gồm các macro mẫu như `{{char}}` hoặc `{{user}}` (xem [Macros](/usage/macros.md)).
 
 Vị trí mô tả persona của bạn được chèn vào prompt AI phụ thuộc vào cài đặt **Position** trong bảng điều khiển Persona Management:
 

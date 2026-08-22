@@ -1,7 +1,7 @@
 ---
 order: 0
 icon: file-symlink-file
-route: /usage/st-script/
+route: /vi/usage/st-script/
 templating: false
 ---
 
@@ -73,6 +73,7 @@ Bây giờ hãy thêm một chút tương tác vào script. Chúng ta sẽ chấ
 - `/setinput (text)` — thay thế nội dung của thanh nhập người dùng bằng văn bản được cung cấp.
 - `/speak voice="name" (text)` — kể văn bản bằng công cụ TTS đã chọn và tên nhân vật từ voice map, ví dụ: `/speak name="Donald Duck" Quack!`.
 - `/buttons labels=["a","b"] (text)` — hiển thị một popup chặn với văn bản và nhãn nút được chỉ định. `labels` phải là một mảng JSON-serialized các chuỗi hoặc tên biến chứa mảng như vậy. Trả về nhãn nút được nhấp vào pipe hoặc chuỗi rỗng nếu bị hủy. Văn bản hỗ trợ định dạng HTML nhẹ.
+- `/beep` — phát âm thanh thông báo tin nhắn.
 
 #### Các đối số cho `/popup` và `/input`
 
@@ -81,6 +82,9 @@ Bây giờ hãy thêm một chút tương tác vào script. Chúng ta sẽ chấ
 - `wide=on/off` - tăng kích thước ngang của popup. Mặc định: `off`.
 - `okButton=string` - thêm khả năng tùy chỉnh văn bản trên nút "Ok". Mặc định: `Ok`.
 - `rows=number` - (chỉ cho `/input`) tăng kích thước của điều khiển nhập. Mặc định: 1.
+- `placeholder=string` - đặt văn bản placeholder trong trường nhập.
+- `tooltip=string` - đặt một tooltip được hiển thị khi di chuột qua.
+- `icon=string` - đặt một class icon Font Awesome cho popup.
 
 Ví dụ:
 ```stscript
@@ -646,6 +650,9 @@ Script có thể thực hiện các yêu cầu đến LLM API hiện đang đư�
 - `/gen (prompt)` — tạo văn bản bằng lời nhắc được cung cấp cho nhân vật đã chọn và bao gồm tin nhắn trò chuyện.
 - `/genraw (prompt)` — tạo văn bản chỉ bằng lời nhắc được cung cấp, bỏ qua nhân vật và trò chuyện hiện tại.
 - `/trigger` — kích hoạt một thế hệ bình thường (tương đương với nhấp vào nút "Send"). Nếu trong trò chuyện nhóm, bạn có thể tùy chọn cung cấp chỉ số thành viên nhóm dựa trên 1 hoặc tên nhân vật để họ trả lời, nếu không kích hoạt một vòng nhóm theo cài đặt nhóm.
+- `/swipe` — kích hoạt một lượt swipe trên tin nhắn nhân vật cuối cùng.
+- `/regenerate` — tạo lại tin nhắn nhân vật cuối cùng.
+- `/continue` — cố gắng tiếp tục tin nhắn cuối cùng.
 
 ### Các đối số cho `/gen` và `/genraw`
 
@@ -658,7 +665,7 @@ Script có thể thực hiện các yêu cầu đến LLM API hiện đang đư�
 - `instruct` (chỉ `/genraw`) — có thể là `on` hoặc `off`. Cho phép sử dụng định dạng hướng dẫn trên lời nhắc đầu vào (nếu chế độ hướng dẫn được bật và API hỗ trợ nó). Đặt thành `off` để buộc lời nhắc thuần túy. Mặc định: `on`.
 - `as` (cho Text Completion API) — có thể là `system` (mặc định) hoặc `char`. Xác định cách dòng lời nhắc cuối cùng sẽ được định dạng. `char` sẽ sử dụng tên nhân vật, `system` sẽ không sử dụng hoặc sử dụng tên trung tính.
 
-Văn bản được tạo sau đó được truyền qua pipe đến lệnh tiếp theo và có thể được lưu vào một biến hoặc được di chuyển bằng khả năng I/O:
+Văn bản được tạo sau đó được truyền qua pipe đến lệnh tiếp theo và có thể được lưu vào một biến hoặc được hiển thị bằng khả năng I/O:
 
 ```stscript
 /genraw Write a funny message from Cthulhu about taking over the world. Use emojis. |
@@ -774,6 +781,24 @@ Một script có thể gửi tin nhắn dưới dạng người dùng, nhân v�
 3. `/delswipe (1-based swipe id)` — xóa một swipe từ tin nhắn nhân vật cuối cùng dựa trên swipe ID dựa trên 1 được cung cấp.
 4. `/delname (character name)` — xóa tất cả tin nhắn trong cuộc trò chuyện hiện tại thuộc về một nhân vật với tên được chỉ định.
 5. `/delchat` — xóa cuộc trò chuyện hiện tại.
+
+## Các lệnh quản lý nhân vật
+
+1. `/char-create` — tạo một nhân vật mới bằng dữ liệu được cung cấp với các đối số có tên.
+2. `/char-update` — cập nhật nhân vật hiện tại bằng dữ liệu được cung cấp với các đối số có tên.
+3. `/char-get` — lấy dữ liệu của nhân vật hiện tại dưới dạng một đối tượng JSON và truyền nó vào pipe.
+4. `/char-delete (name)` — xóa nhân vật có tên được chỉ định.
+5. `/char-duplicate (name)` — nhân bản nhân vật có tên được chỉ định.
+6. `/tag-import (name)` — nhập các tag từ một tệp thẻ nhân vật.
+
+## Các lệnh Loader
+
+Hệ thống loader cung cấp một lớp phủ có thể tái sử dụng cho các tác vụ tốn thời gian cần cung cấp phản hồi trực quan và/hoặc tạm thời chặn giao diện.
+
+1. `/loader-show (text)` — hiển thị một lớp phủ đang tải với văn bản được chỉ định.
+2. `/loader-hide` — ẩn lớp phủ đang tải.
+3. `/loader-wrap (closure)` — hiển thị một lớp phủ đang tải, thực thi closure được cung cấp, và ẩn lớp phủ khi hoàn tất.
+4. `/loader-stop` — dừng và loại bỏ lớp phủ đang tải.
 
 ## Các lệnh World Info
 

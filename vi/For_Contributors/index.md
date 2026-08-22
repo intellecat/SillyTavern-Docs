@@ -3,7 +3,7 @@ order: 30
 label: Phát triển và Tự động hóa
 icon: command-palette
 expanded: true
-route: /for-contributors/
+route: /vi/for-contributors/
 ---
 
 # Phát triển và Tự động hóa

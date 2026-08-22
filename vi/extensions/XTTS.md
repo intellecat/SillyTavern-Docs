@@ -1,15 +1,15 @@
 ---
 order: tts-xtts
-route: /extensions/xtts/
+route: /vi/extensions/xtts/
 ---
 
 # XTTS với voice cloning
 
-Lời chào! Vì vậy, bạn đã bị ngạc nhiên bởi những bài đăng trên Reddit giới thiệu độ xa của công nghệ cho AI text-to-speech?
+Lời chào! Vì vậy, bạn đã choáng ngợp trước những bài đăng trên Reddit cho thấy công nghệ AI text-to-speech đã tiến xa đến đâu?
 
 Cảm thấy phấn khích khi cho robotic waifu/husbando của bạn một bộ điều chỉnh giọng nói mới lấp lánh?
 
-Đừng sợ, công nghệ breakthrough được ghi chú này đã có sẵn tại SillyTavern cục bộ của bạn, bạn chỉ cần một...
+Đừng sợ, công nghệ đột phá đáng kinh ngạc này đã có sẵn tại SillyTavern cục bộ của bạn, bạn chỉ cần một...
 
 ## Điều kiện tiên quyết
 
@@ -72,7 +72,7 @@ Nếu bạn muốn chỉ sử dụng CPU inference, hãy bỏ phần cuối cùn
     python -m xtts_api_server
     ```
 8. Trong lần khởi động đầu tiên, mô hình sẽ được tải xuống (khoảng ~2 GB).
-Đừng quên đọc thông báo pháp lý từ Coqui AI rất cẩn thận. Lol, tôi đang đùa, chỉ cần hit "y" một lần nữa.
+Đừng quên đọc thông báo pháp lý từ Coqui AI rất cẩn thận. Lol, tôi đang đùa, chỉ cần nhấn "y" một lần nữa.
 
 ### Kết nối tới SillyTavern
 
@@ -80,7 +80,7 @@ Nếu bạn muốn chỉ sử dụng CPU inference, hãy bỏ phần cuối cùn
 2. Chọn ngôn ngữ text-to-speech của bạn trong dropdown Language (Tôi sẽ buồn nếu nó không phải là Tiếng Ba Lan).
 3. Xác minh rằng endpoint nhà cung cấp trỏ tới <http://localhost:8020> và "Available voices" hiển thị danh sách các mẫu giọng nói của bạn.
 4. Chọn bất kỳ nhân vật nào và đặt ánh xạ giữa mẫu giọng nói và nhân vật.
-Nếu danh sách nhân vật trống, hãy hit "Reload" một vài lần.
+Nếu danh sách nhân vật trống, hãy nhấn "Reload" một vài lần.
 5. Cấu hình các cài đặt TTS còn lại theo tùy chọn của bạn.
 
 ### Bây giờ bạn đã sẵn sàng!
@@ -120,6 +120,6 @@ Chỉ cần làm các bước 1, 3 và 7 từ hướng dẫn cài đặt.
 
 ### Android??
 
-Không chắc, nó không thể chạy các ứng dụng yêu cầu PyTorch mà không có một số phù phiếm đen tối mà chúng ta không cung cấp hỗ trợ cho. Bạn có thể thử nó với rủi ro của chính mình, nhưng sẽ không được cung cấp hỗ trợ nếu bạn gặp bất kỳ sự cố nào.
+Không chắc, nó không thể chạy các ứng dụng yêu cầu PyTorch nếu không có một số phép thuật huyền bí mà chúng tôi không hỗ trợ. Bạn có thể tự thử với rủi ro của riêng mình, nhưng sẽ không được hỗ trợ nếu bạn gặp bất kỳ sự cố nào.
 
 Giải pháp tốt nhất của bạn là host TTS API trên PC của bạn trên mạng cục bộ, chỉ cần đừng quên chỉ định host và port để lắng nghe - xem [README](https://github.com/daswer123/xtts-api-server/blob/main/README.md).

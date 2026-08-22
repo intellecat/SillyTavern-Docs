@@ -1,5 +1,5 @@
 ---
-route: /extensions/websearch/
+route: /vi/extensions/websearch/
 ---
 
 # Tìm kiếm Web
@@ -7,7 +7,7 @@ route: /extensions/websearch/
 Thêm kết quả tìm kiếm web vào các LLM prompts.
 
 !!! Note
-Một số nguồn [Chat Completion](/Usage/API_Connections/openai.md) cung cấp chức năng tìm kiếm web tích hợp. Trong trường hợp này, extension này sẽ phần lớn là dư thừa. Kiểm tra panel **<i class="fa-solid fa-sliders"></i> AI Response Configuration** cho toggle "Enable web search". Ví dụ, điều này có sẵn cho Claude, Google AI Studio / Vertex AI, xAI và OpenRouter backends.
+Một số nguồn [Chat Completion](/Usage/API_Connections/openai.md) cung cấp chức năng tìm kiếm web tích hợp. Trong trường hợp này, extension này sẽ phần lớn là dư thừa. Kiểm tra panel **<i class="fa-solid fa-sliders"></i> AI Response Configuration** cho toggle "Enable web search". Ví dụ, điều này có sẵn cho các backend Claude, Google AI Studio / Vertex AI, OpenRouter, Chutes và các backend khác.
 !!!
 
 ## Các nguồn có sẵn
@@ -57,6 +57,14 @@ Xem: <https://github.com/LostRuins/koboldcpp/releases/tag/v1.81.1>
 Yêu cầu một khóa API.
 
 Lấy khóa ở đây: <https://serper.dev/>
+
+### Z.AI
+
+Yêu cầu một khóa API, đặt nó trong cài đặt Chat Completion API trước. Không tương thích với gói đăng ký Coding API!
+
+Lấy khóa ở đây: <https://z.ai/manage-apikey/apikey-list/>
+
+Tài liệu: <https://docs.z.ai/api-reference/tools/web-search>
 
 ## Cách sử dụng
 
@@ -148,7 +156,7 @@ Ví dụ: /websearch links=off snippets=on how to make a sandwich
 1. Google - answer box, knowledge graph, page snippets.
 2. DuckDuckGo - page snippets.
 
-**Plugin Selenium** có thể additionally cung cấp hình ảnh.
+**Plugin Selenium** có thể cung cấp thêm hình ảnh.
 
 #### SearXNG
 
@@ -174,3 +182,8 @@ Ví dụ: /websearch links=off snippets=on how to make a sandwich
 3. Page snippets.
 4. Relevant questions.
 5. Images.
+
+#### Z.AI
+
+1. Page titles.
+2. Page snippets.

@@ -1,6 +1,6 @@
 ---
 order: 80
-route: /usage/core-concepts/chatfilemanagement/
+route: /vi/usage/core-concepts/chatfilemanagement/
 ---
 
 # Quản lý tệp Chat

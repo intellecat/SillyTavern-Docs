@@ -3,7 +3,7 @@ label: Cập nhật
 icon: repo-pull
 order: -1
 expanded: false
-route: /installation/updating/
+route: /vi/installation/updating/
 ---
 
 # Cách cập nhật SillyTavern

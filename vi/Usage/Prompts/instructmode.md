@@ -1,6 +1,6 @@
 ---
 order: 80
-route: /usage/core-concepts/instructmode/
+route: /vi/usage/core-concepts/instructmode/
 ---
 
 # Instruct Mode

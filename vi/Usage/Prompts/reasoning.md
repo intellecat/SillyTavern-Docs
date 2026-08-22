@@ -1,7 +1,7 @@
 ---
 order: 40
 tags: ['>=1.12.12']
-route: /usage/prompts/reasoning/
+route: /vi/usage/prompts/reasoning/
 ---
 
 # Reasoning
@@ -53,14 +53,29 @@ Các nguồn được hỗ trợ:
 - OpenRouter
 - xAI (Grok)
 - AI/ML API
+- Z.AI
+- Pollinations
+- MistralAI
+- Electron Hub
+- Chutes
+- NanoGPT
+- Moonshot
 
-"Request model reasoning" không xác định xem một model có thực hiện reasoning hay không. Claude và Google (2.5 Flash) cho phép chế độ thinking được chuyển đổi; xem [Reasoning Effort](#reasoning-effort).
+!!!
+Đối với **hầu hết** các nguồn, "Request model reasoning" không xác định xem một model có thực hiện reasoning hay không vì nó không thể bị vô hiệu hóa. Nếu backend và model hỗ trợ yêu cầu tường minh vô hiệu hóa reasoning, cài đặt này sẽ thực hiện điều đó. Nếu không, model sẽ luôn reasoning.
+!!!
+
+Ghi chú theo từng nhà cung cấp:
+
+- Claude và Google (2.5 Flash) cho phép chế độ thinking được chuyển đổi; xem [Reasoning Effort](#reasoning-effort).
+- Reasoning có thể bị vô hiệu hóa đối với [Z.AI (GLM)](https://docs.z.ai/api-reference/llm/chat-completion#body-one-of-0-thinking) và [Moonshot (Kimi)](https://platform.moonshot.ai/docs/guide/use-kimi-k2-thinking-model). Cài đặt này ánh xạ đến tham số `thinking.type`. Chúng không hỗ trợ "Reasoning Effort".
+- Đối với OpenRouter, khi toggle "Request model reasoning" bị tắt với reasoning effort được đặt ở mức tối thiểu, thinking sẽ được đặt thành vô hiệu hóa đối với các models hỗ trợ điều đó. Hành vi này phụ thuộc vào model; một số nhà cung cấp có thể từ chối các request như vậy.
 
 ### Bằng Parsing
 
 Bật "Auto-Parse" trong panel **<i class="fa-solid fa-font"></i> Advanced Formatting** để tự động phân tích reasoning từ output của model.
 
-Response phải chứa một phần reasoning được bọc trong các chuỗi Prefix và Suffix đã cấu hình. Các chuỗi được cung cấp theo mặc định tương ứng với định dạng reasoning DeepSeek R1.
+Response phải chứa một phần reasoning được bọc trong các chuỗi Prefix và Suffix đã cấu hình. Các chuỗi được cung cấp theo mặc định tương ứng với định dạng reasoning DeepSeek R1. Điều này bắt buộc phải được bật đối với một số nguồn API trả về reasoning chưa được phân tích, chẳng hạn như MiniMax hoặc Perplexity.
 
 Ví dụ với prefix `<think>` và suffix `</think>`:
 
@@ -104,25 +119,31 @@ Các tùy chọn ephemerality khác nhau ảnh hưởng đến reasoning blocks 
 
 Reasoning Effort là một cài đặt Chat Completion trong panel **<i class="fa-solid fa-sliders"></i> AI Response Configuration** ảnh hưởng đến có bao nhiêu tokens có thể được sử dụng cho reasoning. Hiệu ứng của mỗi tùy chọn phụ thuộc vào nguồn được kết nối. Đối với các nguồn dưới đây, Auto đơn giản có nghĩa là tham số liên quan không được bao gồm trong request.
 
-| Option  | Claude (≤ 21333 nếu không streaming) | OpenAI (keyword)     | OpenRouter (keyword)             | xAI (Grok) (keyword) | Perplexity (keyword) |
-| ------- | ------------------------------------ | -------------------- | -------------------------------- | -------------------- | -------------------- |
-| Models  | Opus 4, Sonnet 4/3.7                 | o4-mini, o3\*, o1\*  | các models áp dụng               | grok-3-mini          | sonar-deep-research  |
-| Auto    | không chỉ định, **không thinking**   | không chỉ định       | không chỉ định, hiệu ứng phụ thuộc | không chỉ định      | không chỉ định       |
-| Minimum | ngân sách 1024 tokens                | "low"                | "low", hoặc 20% max response     | "low"                | "low"                |
-| Low     | 15% max response, tối thiểu 1024     | "low"                | "low", hoặc 20% max response     | "low"                | "low"                |
-| Medium  | 25% max response, tối thiểu 1024     | "medium"             | "medium", hoặc 50% max response  | "low"                | "medium"             |
-| High    | 50% max response, tối thiểu 1024     | "high"               | "high", hoặc 80% max response    | "high"               | "high"               |
-| Maximum | 95% max response, tối thiểu 1024     | "high"               | "high", hoặc 80% max response    | "high"               | "high"               |
+| Option  | Claude (≤ 21333 nếu không streaming) | OpenAI (keyword)     | OpenRouter (keyword)             | xAI (Grok) (keyword) | Perplexity (keyword) | NanoGPT (keyword) |
+| ------- | ------------------------------------ | -------------------- | -------------------------------- | -------------------- | -------------------- | ------------------ |
+| Models  | Opus 4, Sonnet 4/3.7                 | o4-mini, o3\*, o1\*  | các models áp dụng               | grok-3-mini          | sonar-deep-research  | các models áp dụng |
+| Auto    | không chỉ định, **không thinking**   | không chỉ định       | không chỉ định, hiệu ứng phụ thuộc | không chỉ định      | không chỉ định       | không chỉ định     |
+| Minimum | ngân sách 1024 tokens                | "low"                | "low", hoặc 20% max response     | "low"                | "low"                | "none"             |
+| Low     | 15% max response, tối thiểu 1024     | "low"                | "low", hoặc 20% max response     | "low"                | "low"                | "minimal"          |
+| Medium  | 25% max response, tối thiểu 1024     | "medium"             | "medium", hoặc 50% max response  | "low"                | "medium"             | "low"              |
+| High    | 50% max response, tối thiểu 1024     | "high"               | "high", hoặc 80% max response    | "high"               | "high"               | "medium"           |
+| Maximum | 95% max response, tối thiểu 1024     | "high"               | "high", hoặc 80% max response    | "high"               | "high"               | "high"             |
 
-- Đối với Claude, budget được giới hạn ở 21333 nếu streaming bị vô hiệu hóa. Nếu budget được tính toán sẽ ít hơn 1024, thì max response được thay đổi thành 2048.
-- Đối với OpenRouter, Perplexity và AI/ML API, chỉ một keyword kiểu OpenAI được gửi.
+- Đối với các model Claude cũ hơn không hỗ trợ adaptive thinking, budget được giới hạn ở 21333 nếu streaming bị vô hiệu hóa. Nếu budget được tính toán sẽ ít hơn 1024, thì max response được thay đổi thành 2048.
+- Claude cũng hỗ trợ adaptive thinking cho các model Opus 4.6+, có thể được bật qua `claude.enableAdaptiveThinking` trong [config.yaml](/Administration/config-yaml.md) (luôn bật đối với Opus 4.7+). Khi được bật, cài đặt Reasoning Effort ánh xạ đến các mức adaptive thinking thay vì token budget. Cài đặt này được ưu tiên hơn cài đặt "Verbosity" đối với các model áp dụng.
+- Đối với OpenRouter, Pollinations, Perplexity, xAI, Chutes, DeepSeek, AI/ML API, xAI, Electron Hub, chỉ một keyword kiểu OpenAI được gửi.
+- Đối với các model GPT-5.4 và GPT-5.5 trên OpenAI, reasoning effort "Minimal" tương ứng với "none", tức là vô hiệu hóa reasoning.
+- Đối với KoboldCpp chạy như một nguồn Chat Completion Custom API, reasoning effort được gửi dưới dạng tham số `reasoning_effort` với các giá trị "minimal", "low", "medium", "high", và "xhigh".
+- Đối với các nguồn Custom (tương thích OpenAI) khác, reasoning effort chỉ được gửi nếu model hỗ trợ nó trên nguồn OpenAI chính thức.
 
 Google AI Studio và Vertex AI như sau:
 
-| Model          | Auto (dynamic thinking) | Minimum            | Low                              | Medium     | High       | Maximum               |
-| -------------- | ----------------------- | ------------------ | -------------------------------- | ---------- | ---------- | --------------------- |
-| 2.5 Pro        | thinkingBudget = -1     | 128                | 15% max response, tối thiểu 128  | 25% of max | 50% of max | thấp hơn max hoặc 32768 |
-| 2.5 Flash      | thinkingBudget = -1     | 0, **không thinking** | 15% max response              | 25% of max | 50% of max | thấp hơn max hoặc 24576 |
-| 2.5 Flash Lite | thinkingBudget = -1     | 0, **không thinking** | 15% max response, tối thiểu 512 | 25% of max | 50% of max | thấp hơn max hoặc 24576 |
+| Model          | Auto (dynamic thinking) | Minimum               | Low                              | Medium     | High       | Maximum                 |
+| -------------- | ------------------------ | ---------------------- | -------------------------------- | ---------- | ---------- | ----------------------- |
+| 2.5 Pro        | thinkingBudget = -1      | 128                    | 15% max response, tối thiểu 128  | 25% of max | 50% of max | thấp hơn max hoặc 32768 |
+| 2.5 Flash      | thinkingBudget = -1      | 0, **không thinking**  | 15% max response                 | 25% of max | 50% of max | thấp hơn max hoặc 24576 |
+| 2.5 Flash Lite | thinkingBudget = -1      | 0, **không thinking**  | 15% max response, tối thiểu 512  | 25% of max | 50% of max | thấp hơn max hoặc 24576 |
+| 3.0/3.1 Pro    | thinkingLevel = null     | "low"                  | "low"                            | "low"      | "high"     | "high"                  |
+| 3.0/3.1 Flash  | thinkingLevel = null     | "minimal"              | "low"                            | "medium"   | "high"     | "high"                  |
 
 - Đối với Gemini 2.5 Pro và 2.5 Flash/Lite, budget được giới hạn ở 32768 hoặc 24576 tokens tương ứng, bất kể cài đặt streaming.

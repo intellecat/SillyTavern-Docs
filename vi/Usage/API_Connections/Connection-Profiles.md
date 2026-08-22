@@ -1,6 +1,6 @@
 ---
 icon: paperclip
-route: /usage/core-concepts/connection-profiles/
+route: /vi/usage/core-concepts/connection-profiles/
 order: 100
 ---
 
@@ -10,7 +10,7 @@ Lưu Hồ Sơ Kết Nối để nhanh chóng chuyển đổi giữa các API, m�
 
 ## Truy Cập Hồ Sơ Kết Nối
 
-Tính năng này được bật mặc định từ SillyTavern 1.12.6 trở lên dưới dạng extension tích hợp, và có sẵn trong menu API Connections. Nếu bạn muốn *tắt* tính năng này, hãy mở panel Extensions, nhấp vào "Manager extensions", tìm Connection Profiles trong danh sách, bỏ chọn hộp kiểm "Enabled", sau đó nhấp "Close".
+Tính năng này được bật mặc định từ SillyTavern 1.12.6 trở lên dưới dạng extension tích hợp, và có sẵn trong menu API Connections. Nếu bạn muốn *tắt* tính năng này, hãy mở panel Extensions, nhấp vào "Manage extensions", tìm Connection Profiles trong danh sách, bỏ chọn hộp kiểm "Enabled", sau đó nhấp "Close".
 
 ## Những Gì Được Lưu
 

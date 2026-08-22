@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/google/
+route: /vi/usage/api-connections/google/
 ---
 
 # Google Gemini

@@ -2,7 +2,7 @@
 label: Reverse proxying
 order: -50
 icon: server
-route: /usage/st-reverse-proxy-guide/
+route: /vi/usage/st-reverse-proxy-guide/
 ---
 
 !!!danger Lưu Ý
@@ -103,7 +103,7 @@ Bạn phải có kiến thức trước về
     certificatesResolvers:
         cloudflare:
             acme:
-                email: YOUR_CLOUDFLARE_EMAL@DOMAIN.com
+                email: YOUR_CLOUDFLARE_EMAIL@DOMAIN.com
                 storage: acme.json
                 dnsChallenge:
                     provider: cloudflare

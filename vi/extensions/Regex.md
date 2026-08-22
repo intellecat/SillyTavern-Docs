@@ -1,5 +1,5 @@
 ---
-route: /extensions/regex/
+route: /vi/extensions/regex/
 ---
 
 # Regex
@@ -56,7 +56,7 @@ Dưới đây là danh sách các script của bạn với một số nút hành
 
 - **Name** : Nhãn cho script được hiển thị trong danh sách script của extension. **Điều này cũng được sử dụng để nhắm mục tiêu script khi kích hoạt nó thông qua slash command hoặc STscript.**
 
-- **Find Regex** : Đây là Regular Expression được sử dụng để phát hiện mẫu văn bản được nhắm mục tiêu của bạn. Đây thường là phần phức tạp nhất của bất kỳ script RegEx nào, và là nơi dễ dàng nhất để mắc lỗi. Tham khảo các liên kết ở đầu trang để biết thông tin cách viết một chuỗi RegEx. Hộp này có thể giải quyết các giá trị của [common SillyTavern macros](/Usage/Characters/macros.md) (như \{\{user\}\}, \{\{char\}\}, v.v.) nếu 'Macros in Find Regex' được đặt để làm như vậy (xem bên dưới).
+- **Find Regex** : Đây là Regular Expression được sử dụng để phát hiện mẫu văn bản được nhắm mục tiêu của bạn. Đây thường là phần phức tạp nhất của bất kỳ script RegEx nào, và là nơi dễ dàng nhất để mắc lỗi. Tham khảo các liên kết ở đầu trang để biết thông tin cách viết một chuỗi RegEx. Hộp này có thể giải quyết các giá trị của [common SillyTavern macros](/usage/macros.md) (như \{\{user\}\}, \{\{char\}\}, v.v.) nếu 'Macros in Find Regex' được đặt để làm như vậy (xem bên dưới).
 
 - **Replace With**: Đây là những gì sẽ thay thế chuỗi được khớp. Trong một ví dụ rất đơn giản, nếu 'Find Regex' của bạn là `apple` và 'Replace With' của bạn là `orange`, thì lần xuất hiện đầu tiên của 'apple' sẽ được tự động thay đổi thành 'orange' trong bất kỳ văn bản nào được áp dụng script.
 

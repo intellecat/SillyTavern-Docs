@@ -2,7 +2,7 @@
 title: Chế độ đa người dùng
 icon: people
 order: -10
-route: /administration/multi-user/
+route: /vi/administration/multi-user/
 ---
 
 Chế độ đa người dùng cho phép nhiều người sử dụng một máy chủ SillyTavern. Mỗi người dùng có cài đặt, tiện ích mở rộng và dữ liệu riêng của họ. Tài khoản người dùng cũng có thể được bảo vệ bằng mật khẩu.

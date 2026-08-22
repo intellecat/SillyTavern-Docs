@@ -1,6 +1,6 @@
 ---
 order: 60
-route: /usage/prompts/cfg/
+route: /vi/usage/prompts/cfg/
 ---
 
 # CFG
@@ -18,7 +18,7 @@ CFG, hay classifier-free guidance là một phương pháp được sử dụng 
 Hiện tại, các backend được hỗ trợ là oobabooga's textgen WebUI, NovelAI, và TabbyAPI.
 NovelAI có [tài liệu riêng cho CFG](https://web.archive.org/web/20240917150051/https://docs.novelai.net/text/cfg.html).
 
-CẢNH BÁO: CFG tăng việc sử dụng vram do xử lý nhiều hơn 1 prompt! Nếu bộ nhớ GPU của bạn hết trong khi tạo prompt với CFG bật, hãy xem xét giảm kích thước context, sử dụng model với ít tham số hơn, hoặc tắt CFG hoàn toàn.
+CẢNH BÁO: CFG tăng việc sử dụng VRAM do xử lý nhiều hơn 1 prompt! Nếu bộ nhớ GPU của bạn hết trong khi tạo prompt với CFG bật, hãy xem xét giảm kích thước context, sử dụng model với ít tham số hơn, hoặc tắt CFG hoàn toàn.
 
 ---
 
@@ -112,7 +112,7 @@ Hãy sử dụng ví dụ với John một lần nữa. Negative prompt là `[Jo
 
 Điều này sẽ làm nổi bật *negative* prompt hơn và bạn sẽ thấy John bắt đầu hành động buồn hơn bình thường thay vì vui vẻ hơn.
 
-tldr; Sử dụng guidance scale là `1.5` và điều chỉnh lên xuống từ đó dựa trên outputs của bạn.
+TL;DR: Sử dụng guidance scale là `1.5` và điều chỉnh lên xuống từ đó dựa trên outputs của bạn.
 
 ### Prompt Cascading
 

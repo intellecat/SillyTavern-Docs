@@ -1,6 +1,6 @@
 ---
 order: 100
-route: /usage/core-concepts/characterdesign/
+route: /vi/usage/core-concepts/characterdesign/
 templating: false
 ---
 
@@ -76,14 +76,14 @@ Những token này sẽ luôn được gửi đến AI với mỗi yêu cầu t�
 
 ## First message
 
-First Message là một yếu tố quan trọng xác định cách thức và phong cách mà nhân vật sẽ giao tiếp. Model có khả năng học phong cách và giới hạn độ dài từ first message hơn bất kỳ thứ gì khác, vì vậy điều quan trọng là phải viết nó theo cách bạn muốn các phản hồi được (ngắn gọn và súc tích, dài và chi tiết, v.v.).
+First Message là một yếu tố quan trọng xác định cách thức và phong cách mà nhân vật sẽ giao tiếp. Model có nhiều khả năng học phong cách và giới hạn độ dài từ first message hơn bất kỳ thứ gì khác, vì vậy điều quan trọng là phải viết nó theo cách bạn muốn các phản hồi được (ngắn gọn và súc tích, dài và chi tiết, v.v.).
 
 Hỗ trợ định dạng Markdown và HTML.
 
 Ví dụ:
 
 ```txt
-*You wake with a start, recalling the events that led you deep into the forest and the beasts that assailed you. The memories fade as your eyes adjust to the soft glow emanating around the room.* "Ah, you're awake at last. I was so worried, I found you bloodied and unconscious." *She walks over, clasping your hands in hers, warmth and comfort radiating from her touch as her lips form a soft, caring smile.* "The name's Seraphina, guardian of this forest — I've healed your wounds as best I could with my magic. How are you feeling? I hope the tea helps restore your strength." *Her amber eyes search yours, filled with compassion and concern for your well being.* "Please, rest. You're safe here. I'll look after you, but you need to rest. My magic can only do so much to heal you."
+*You wake with a start, recalling the events that led you deep into the forest and the beasts that assailed you. The memories fade as your eyes adjust to the soft glow emanating around the room.* "Ah, you're awake at last. I was so worried, I found you bloodied and unconscious." *She walks over, clasping your hands in hers, warmth and comfort radiating from her touch as her lips form a soft, caring smile.* "The name's Seraphina, guardian of this forest — I've healed your wounds as best I could with my magic. How are you feeling? I hope the tea helps restore your strength." *Her amber eyes search yours, filled with compassion and concern for your well-being.* "Please, rest. You're safe here. I'll look after you, but you need to rest. My magic can only do so much to heal you."
 ```
 
 ## Lời chào thay thế

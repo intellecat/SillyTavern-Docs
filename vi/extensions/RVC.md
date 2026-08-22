@@ -1,5 +1,5 @@
 ---
-route: /extensions/rvc/
+route: /vi/extensions/rvc/
 ---
 
 # Retrieval-based Voice Conversion (RVC)
@@ -19,7 +19,7 @@ SillyTavern's RVC hỗ trợ nhiều nguồn API thực hiện chuyển đổi �
 
 ### Các điều kiện tiên quyết chung
 
-Trước khi bắt đầu, hãy chắc rằng bạn đã memenuhi các điều kiện tiên quyết sau.
+Trước khi bắt đầu, hãy chắc rằng bạn đã đáp ứng các điều kiện tiên quyết sau.
 
 #### ffmpeg
 
@@ -117,14 +117,14 @@ python -m rvc_python api -p 5050 -l -md models_path
 
 * Để thiết lập voice map, chọn tên nhân vật hoặc persona của bạn từ dropdown "Character", sau đó chọn RVC "Voice", sau đó nhấp Apply.
 * Tùy chọn, bạn cũng có thể cấu hình các cài đặt liên quan khác như pitch correction hoặc filtering.
-* Nếu bạn đã làm mọi thứ đúng cách, vùng gỡ lỗi Voice Map sẽ hiển thị một cái gì đó như 'Betty:MyVoice(rvpme)'.
+* Nếu bạn đã làm mọi thứ đúng cách, vùng gỡ lỗi Voice Map sẽ hiển thị một cái gì đó như 'Betty:MyVoice(rmvpe)'.
 
 ### SillyTavern Extras Setup
 
 #### 1. Chuẩn bị RVC Model Files
 
 * Trong một file browser, điều hướng tới: `\SillyTavern-extras\data\models\rvc`.
-* Tạo một subfolder như 'Betty' và đặt các file `.pth` và `.index` vào trong nó. (Gợi ý: bạn có thể tải xuống các file giọng nói từ https://voice-models.com, hãy chắc rằng tên giọng nói nói rằng đó là RVPME.)
+* Tạo một subfolder như 'Betty' và đặt các file `.pth` và `.index` vào trong nó. (Gợi ý: bạn có thể tải xuống các file giọng nói từ https://voice-models.com, hãy chắc rằng tên giọng nói nói rằng đó là RMVPE.)
 
 #### 2. Cài đặt Requirements
 
@@ -146,7 +146,7 @@ Tùy chọn, bạn có thể muốn chạy RVC trên GPU của bạn nếu bạn
 
 #### 4. Thiết lập Voice Mapping
 
-Tạo một Voice map cho RVC. Đặt Character của bạn thành tên nhân vật SillyTavern mong muốn của bạn, và đặt Voice thành folder RVC bạn đã tạo ở bước 1, sau đó nhấp Apply. Nếu bạn đã làm mọi thứ đúng cách, Voice Map sẽ hiển thị một cái gì đó như 'Betty:MyVoice(rvpme)'.
+Tạo một Voice map cho RVC. Đặt Character của bạn thành tên nhân vật SillyTavern mong muốn của bạn, và đặt Voice thành folder RVC bạn đã tạo ở bước 1, sau đó nhấp Apply. Nếu bạn đã làm mọi thứ đúng cách, Voice Map sẽ hiển thị một cái gì đó như 'Betty:MyVoice(rmvpe)'.
 
 #### 5. Chọn Pitch Extraction
 
@@ -200,7 +200,7 @@ git clone https://github.com/deffcolony/rvc-easy-menu.git
 
 #### 3. Hoàn thành Cài đặt
 
-Khi được nhắc, cài đặt các package và dependiencies được yêu cầu.
+Khi được nhắc, cài đặt các package và dependencies được yêu cầu.
 
 #### 4. Mở WebUI cho Voice Training
 

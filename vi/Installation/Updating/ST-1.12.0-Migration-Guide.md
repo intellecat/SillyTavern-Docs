@@ -1,6 +1,6 @@
 ---
 order: 112
-route: /installation/st-1.12.0-migration-guide/
+route: /vi/installation/st-1.12.0-migration-guide/
 ---
 
 # Hướng dẫn di chuyển 1.12.0

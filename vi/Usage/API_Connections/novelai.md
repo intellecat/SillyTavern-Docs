@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/novelai/
+route: /vi/usage/api-connections/novelai/
 ---
 
 # NovelAI
@@ -52,7 +52,7 @@ Bao nhiêu token của cuộc trò chuyện được giữ trong context tại b
 Văn bản được chèn ngay phía trên cuộc trò chuyện để sửa đổi phong cách viết. Định dạng được đề xuất là một danh sách các tag ngắn, như "[ Style: chat, detailed, sensory ]".
 
 ## Mô Tả Preset
-Đây là, theo Novel AI, những gì các preset mặc định phù hợp.
+Đây là, theo NovelAI, những gì các preset mặc định phù hợp.
 
 ### Erato
 

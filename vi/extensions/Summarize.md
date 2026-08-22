@@ -1,12 +1,12 @@
 ---
-route: /extensions/summarize/
+route: /vi/extensions/summarize/
 ---
 
 # Tóm tắt
 
 ## Nó là gì?
 
-Extension này cho phép bạn tạo, lưu trữ và sử dụng các tóm tắt được tạo tự động dựa trên các sự kiện xảy ra trong các chats của bạn. Tóm tắt có thể giúp liệt kê các chi tiết chung về những gì đang xảy ra trong câu chuyện, điều này *có thể* được diễn giải như một bộ nhớ dài hạn, nhưng hãy xem câu nói đó bằng một hạt muối. Vì các bản tóm tắt được tạo bởi các mô hình ngôn ngữ, các đầu ra có thể mất một số chi tiết quan trọng hoặc chứa các hallucinations, vì vậy bạn luôn được khuyên giữ track trạng thái tóm tắt và sửa nó theo cách thủ công nếu cần.
+Extension này cho phép bạn tạo, lưu trữ và sử dụng các tóm tắt được tạo tự động dựa trên các sự kiện xảy ra trong các chats của bạn. Tóm tắt có thể giúp liệt kê các chi tiết chung về những gì đang xảy ra trong câu chuyện, điều này *có thể* được diễn giải như một bộ nhớ dài hạn, nhưng đừng tin tưởng tuyệt đối vào điều đó. Vì các bản tóm tắt được tạo bởi các mô hình ngôn ngữ, các đầu ra có thể mất một số chi tiết quan trọng hoặc chứa các hallucinations, vì vậy bạn luôn được khuyên nên theo dõi trạng thái tóm tắt và sửa nó theo cách thủ công nếu cần.
 
 ## Cấu hình chung
 
@@ -33,7 +33,7 @@ Tùy chọn này có các sub-modes sau khác nhau tùy thuộc vào cách xây 
 2. Raw, non-blocking. Giống như trên, nhưng tạo chat sẽ không bị chặn trong quá trình tạo tóm tắt. Không phải mọi backend đều hỗ trợ các yêu cầu đồng thời, vì vậy chuyển sang chế độ blocking nếu tóm tắt không thành công.
 3. Classic, blocking. Prompt tóm tắt sẽ được gửi ở cuối prompt tạo thông thường của bạn, như một hướng dẫn hệ thống trung lập, không bỏ qua card nhân vật, prompt chính, ví dụ đối thoại và các phần khác của prompts chat. Điều này thường dẫn đến các prompts hoạt động tốt với việc tái sử dụng processed prompts, vì vậy được khuyến nghị sử dụng với llama.cpp và những người anh em của nó.
 
-#### Summary Settings explained
+#### Giải thích cài đặt tóm tắt
 
 1. **Summary Prompt** - định nghĩa prompt sẽ được sử dụng để tạo tóm tắt. Có thể bao gồm bất kỳ macros nào được biết đến, cũng như một macro đặc biệt \{\{words\}\} (xem bên dưới).
 2. **Target summary length (words)** - định nghĩa giá trị của macro \{\{words\}\} có thể được chèn vào Summary Prompt. Cài đặt này hoàn toàn tùy chọn và không có hiệu ứng nào nếu macro không được sử dụng.
@@ -98,7 +98,7 @@ Nó có một kích thước bối cảnh rất nhỏ (~1024 tokens), vì vậy 
 1. Cài đặt hoặc Cập nhật [Extras](https://github.com/SillyTavern/SillyTavern-extras) lên phiên bản mới nhất.
 2. Chạy Extras với module `summarize` được bật: `python server.py --enable-modules=summarize`
 
-#### Changing Summary Model
+#### Thay đổi mô hình tóm tắt
 
 Theo mặc định, Summarize sử dụng mô hình [Qiliang/bart-large-cnn-samsum-ChatGPT_v3](https://huggingface.co/Qiliang/bart-large-cnn-samsum-ChatGPT_v3) cho mục đích tóm tắt.
 

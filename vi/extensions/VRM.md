@@ -1,5 +1,5 @@
 ---
-route: /extensions/vrm/
+route: /vi/extensions/vrm/
 ---
 
 # VRM
@@ -8,7 +8,7 @@ Hướng dẫn này sẽ hướng dẫn bạn qua quá trình thiết lập và 
 
 ## Điều kiện tiên quyết
 
-Trước khi bắt đầu, hãy chắc rằng bạn đã memenuhi các điều kiện tiên quyết sau:
+Trước khi bắt đầu, hãy chắc rằng bạn đã đáp ứng các điều kiện tiên quyết sau:
 
 1. **Lựa chọn Branch**: Hãy chắc rằng bạn đang sử dụng branch phiên bản mới nhất của SillyTavern để truy cập các tính năng và cập nhật mới nhất.
 
@@ -32,7 +32,7 @@ Extension VRM cung cấp các cài đặt khác nhau để tùy chỉnh hành vi
    - Bật hộp kiểm này để làm cho mắt mô hình VRM nhìn vào máy ảnh.
 
 3. **Blink**:
-   - Bật hộp kiểm này để làm cho mắt mô hình VRM nhấp nháy ở các khoảng thời gian ngẫu nhiên. Biểu hiện mô hình nên định nghĩa đúng tính chất weight nhấp nháy otherwize mô hình có thể nhấp nháy với các mắt đóng chẳng hạn, nếu điều đó xảy ra thì:
+   - Bật hộp kiểm này để làm cho mắt mô hình VRM nhấp nháy ở các khoảng thời gian ngẫu nhiên. Biểu hiện mô hình nên định nghĩa đúng tính chất weight nhấp nháy, nếu không mô hình có thể nhấp nháy với các mắt đóng chẳng hạn, nếu điều đó xảy ra thì:
     - sửa chữa mô hình nếu bạn có file .vroid
     - không sử dụng biểu hiện mặt không chính xác đó
     - vô hiệu hóa nhấp nháy hoàn toàn bằng hộp kiểm này
@@ -46,7 +46,7 @@ Extension VRM cung cấp các cài đặt khác nhau để tùy chỉnh hành vi
 ### Cài đặt Hiệu suất
 
 1. **Body hitboxes**
-    - Bật hộp kiểm này để kích hoạt phát hiện nhấp vào nhiều phần của mô hình VRM tùy thuộc vào mô hình các vùng sau có thể được phát hiện: head/chest/hands/groin/butt/legs/feets. Vị trí Hitboxes được tính toán ở mỗi khung hình và theo các animation của cơ thể, vô hiệu hóa tùy chọn này có thể cải thiện hiệu suất.
+    - Bật hộp kiểm này để kích hoạt phát hiện nhấp vào nhiều phần của mô hình VRM tùy thuộc vào mô hình các vùng sau có thể được phát hiện: head/chest/hands/groin/butt/legs/feet. Vị trí Hitboxes được tính toán ở mỗi khung hình và theo các animation của cơ thể, vô hiệu hóa tùy chọn này có thể cải thiện hiệu suất.
 
 2. **Use model cache**
     - Bật hộp kiểm này để giữ trong bộ nhớ mô hình VRM khi chuyển đổi các mô hình, cho phép chuyển về mô hình trước đó nhanh hơn. Hữu ích nếu bạn sử dụng các mô hình khác nhau cho cùng một nhân vật để thay đổi trang phục hoặc hình thức chẳng hạn. Có thể ảnh hưởng đến hiệu suất.
@@ -209,6 +209,6 @@ Cảm ơn vì đã làm theo hướng dẫn này! Trải nghiệm SillyTavern c�
 ## Nhận xét
     - Các mô hình VRM được tải bởi extension này là các file .vrm không phải các file .vroid.
     - Các file Animation nên tương thích VRM, bạn có thể sử dụng một công cụ như XR animation (https://github.com/ButzYung/SystemAnimatorOnline) để chuyển đổi file fbx/bvh animation.
-    - Bạn có thể tạo các nhóm animation bằng cách có các file có cùng tên kết thúc bằng các số khác nhau, ví dụ: "idle1.bvh", "idle2.bhv", "idle3.bvh" sẽ được coi là một nhóm "idle" và khi được chọn trong một ánh xạ một số sẽ được phát khi kích hoạt, có thể được sử dụng để thêm nhiều loại animations.
+    - Bạn có thể tạo các nhóm animation bằng cách có các file có cùng tên kết thúc bằng các số khác nhau, ví dụ: "idle1.bvh", "idle2.bvh", "idle3.bvh" sẽ được coi là một nhóm "idle" và khi được chọn trong một ánh xạ một số sẽ được phát khi kích hoạt, có thể được sử dụng để thêm nhiều loại animations.
     - Bạn có thể nhận được các animation được curation từ repository này: https://github.com/test157t/VRM-Animations-Pack-For-Silly-Tavern
     - Nitral có một số video hướng dẫn về cách sử dụng extension và repo animation: https://www.youtube.com/@nitralai

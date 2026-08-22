@@ -1,5 +1,5 @@
 ---
-route: /extensions/speech-recognition/
+route: /vi/extensions/speech-recognition/
 ---
 
 # Nhận dạng giọng nói
@@ -8,11 +8,10 @@ Hướng dẫn này sẽ hướng dẫn bạn cách thiết lập nhận dạng 
 
 ## Điều kiện tiên quyết
 
-Trước khi bắt đầu, hãy chắc rằng bạn đã memenuhi các điều kiện tiên quyết sau:
+Trước khi bắt đầu, hãy chắc rằng bạn đã đáp ứng các điều kiện tiên quyết sau:
 
 - Hãy chắc rằng bạn đang sử dụng phiên bản mới nhất của SillyTavern.
 - Cài đặt extension "Speech Recognition" từ menu "Download Extensions & Assets" trong Extensions panel (icon stacked blocks).
-- Có ffmpeg binary được cài đặt. Xem [RVC setup](RVC.md#rvc-setup) để biết thêm chi tiết.
 
 ## Thiết lập Nhận dạng Giọng nói (Trình duyệt)
 
@@ -38,7 +37,22 @@ Trước khi bắt đầu, hãy chắc rằng bạn đã memenuhi các điều k
 5. **Ghi âm**:
    - Để bắt đầu ghi âm, nhấp vào nút microphone ở bên phải vùng tin nhắn bên cạnh nút send. Nhấp lại để dừng ghi âm. Ghi âm có thể dừng tự động nếu không phát hiện được giọng nói.
 
-## Thiết lập Nhận dạng Giọng nói (Whisper/Vosk)
+## Thiết lập Nhận dạng Giọng nói (Nguồn API)
+
+Hỗ trợ các nguồn như OpenAI, MistralAI, Groq, Chutes, Z.AI và các nguồn khác cung cấp API chuyển giọng nói thành văn bản (speech-to-text).
+
+Để thiết lập:
+
+1. Cung cấp API key cho nhà cung cấp đã chọn trong cài đặt Chat Completion API.
+2. Khởi chạy SillyTavern và đi tới **Extensions** > **Speech Recognition**.
+3. Chọn nguồn API mong muốn từ các tùy chọn dropdown.
+4. Cấu hình thêm các cài đặt cần thiết, tương tự như thiết lập nhà cung cấp "Browser".
+
+## Thiết lập Nhận dạng Giọng nói (Extras) - Đã ngừng dùng
+
+!!!
+Yêu cầu ffmpeg binary được cài đặt. Xem [RVC setup](RVC.md#rvc-setup) để biết thêm chi tiết.
+!!!
 
 1. **Bật Provider**:
    - Bật nhà cung cấp nhận dạng giọng nói mong muốn trên máy chủ extras bằng lệnh sau:
@@ -56,7 +70,11 @@ Trước khi bắt đầu, hãy chắc rằng bạn đã memenuhi các điều k
    - Chọn "Vosk" hoặc "Whisper" từ các tùy chọn dropdown (whisper chính xác hơn).
    - Các cài đặt tương tự như thiết lập nhà cung cấp "Browser" (ngoại trừ ngôn ngữ) xem trên.
 
-## Thiết lập Nhận dạng Giọng nói (Streaming)
+## Thiết lập Nhận dạng Giọng nói (Streaming) - Đã ngừng dùng
+
+!!!
+Yêu cầu ffmpeg binary được cài đặt. Xem [RVC setup](RVC.md#rvc-setup) để biết thêm chi tiết.
+!!!
 
 1. **Bật Provider**:
    - Bật module nhận dạng giọng nói streaming trên Sillytavern-extras bằng lệnh sau:

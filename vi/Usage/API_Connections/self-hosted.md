@@ -1,7 +1,7 @@
 ---
 order: 90
 icon: desktop-download
-route: /usage/how-to-use-a-self-hosted-model/
+route: /vi/usage/how-to-use-a-self-hosted-model/
 ---
 
 # Mô hình AI tự lưu trữ
@@ -102,14 +102,18 @@ Tại thời điểm viết, phiên bản CUDA mới nhất họ liệt kê là 
 
 ### Cài Đặt Oobabooga
 
+!!!note
+Tùy thuộc vào cách bạn đã cài đặt Oobabooga, đường dẫn file có thể hơi khác nhau; tức là `/text-generation-webui/user_data` nếu bạn cài đặt qua git clone, và `/text-generation-webui-main/user_data` nếu bạn dùng phương pháp .zip.
+!!!
+
 Đây là thủ tục cài đặt chính xác/chống ngu hơn:
 
 1. git clone <https://github.com/oobabooga/text-generation-webui> (hoặc tải xuống repo của họ dưới dạng .zip trong trình duyệt của bạn, sau đó giải nén nó)
-2. Chạy start_windows.bat hoặc bất kỳ OS nào của bạn
+2. Chạy `start_windows.bat` hoặc bất kỳ OS nào của bạn
 3. Khi được hỏi, chọn loại GPU của bạn. Ngay cả khi bạn dự định sử dụng GGUF/CPU, nếu GPU của bạn có trong danh sách, hãy chọn nó bây giờ, vì nó sẽ cho bạn tùy chọn sử dụng tối ưu hóa tốc độ sau này được gọi là GPU sharding (mà không cần phải cài đặt lại từ đầu). Nếu bạn không có dGPU cấp game (NVIDIA, AMD), hãy chọn None.
 4. Đợi quá trình cài đặt hoàn tất
-5. Đặt kunoichi-dpo-v2-7b.Q6_K.gguf vào text-generation-webui/models
-6. Mở text-generation-webui/CMD_FLAGS.txt, xóa mọi thứ bên trong và viết: --api
+5. Đặt kunoichi-dpo-v2-7b.Q6_K.gguf vào `text-generation-webui/user_data/models`
+6. Mở `text-generation-webui/user_data/CMD_FLAGS.txt`, xóa mọi thứ bên trong và viết: `--api`
 7. Khởi động lại Oobabooga
 8. Truy cập <http://127.0.0.1:5000/docs>. Nó có tải trang FastAPI không? Nếu không, bạn đã làm sai ở đâu đó.
 

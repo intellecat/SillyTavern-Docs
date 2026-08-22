@@ -1,7 +1,7 @@
 ---
 order: 50
 templating: false
-route: /usage/prompts/prompt-manager/
+route: /vi/usage/prompts/prompt-manager/
 ---
 
 # Prompt Manager

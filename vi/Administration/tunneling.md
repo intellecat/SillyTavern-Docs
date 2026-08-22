@@ -2,7 +2,7 @@
 label: VPN và Tunneling
 order: -40
 icon: lock
-route: /administration/tunneling/
+route: /vi/administration/tunneling/
 ---
 
 VPN và tunnel là một cách an toàn để truy cập mạng gia đình của bạn từ bất kỳ đâu trên thế giới. Hướng dẫn này sẽ chỉ cho bạn cách sử dụng VPN hoặc tunnel để truy cập instance SillyTavern của bạn từ bất kỳ đâu.
@@ -47,6 +47,8 @@ Tailscale là một nhà cung cấp VPN cho phép kết nối từ xa an toàn �
 ### 3. Thêm thiết bị của bạn vào whitelist
 
 * Thêm tên máy của thiết bị kết nối của bạn (thiết bị mà bạn muốn sử dụng SillyTavern) vào whitelist của SillyTavern bằng cách làm theo [Quản lý IP được whitelist](./remote-connections.md#whitelist-based-access-control).
+
+**LƯU Ý:** Khi chỉnh sửa cấu hình, bạn nên đặt listen thành true nếu bạn chưa tham khảo từ [Kết nối từ xa](./remote-connections.md#allowing-remote-connections).
 
 ### 4. Kết nối
 

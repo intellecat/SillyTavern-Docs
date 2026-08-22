@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/koboldcpp/
+route: /vi/usage/api-connections/koboldcpp/
 ---
 
 # KoboldCpp

@@ -1,7 +1,7 @@
 ---
 icon: gear
 label: Cài đặt cục bộ
-route: /extensions/extras/installation/
+route: /vi/extensions/extras/installation/
 ---
 
 # Cài đặt Extras

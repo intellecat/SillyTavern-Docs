@@ -3,7 +3,7 @@ order: -100
 icon: zap
 expanded: false
 label: Extras
-route: /extensions/extras/
+route: /vi/extensions/extras/
 ---
 
 !!! Đã ngừng phát triển

@@ -2,7 +2,7 @@
 order: 150
 icon: repo-forked
 expanded: false
-route: /usage/api-connections/
+route: /vi/usage/api-connections/
 ---
 
 # Kết Nối API
@@ -14,7 +14,7 @@ Dưới đây là mô tả về điểm mạnh, điểm yếu và các trường
 
 Khi bạn lần đầu tiên điều hướng đến trang "API Connections" trong ST, bạn sẽ nhận thấy một tùy chọn dropdown để chọn giữa các tùy chọn sử dụng cách đặt tên như "Chat Completion" và "Text Completion". Việc hiểu điều này nghĩa là gì sẽ hữu ích.
 
-Nó không phải là gì: Dễ nghĩ "Text Completion" là các mô hình local và "Chat Completion" là các LLM dựa trên cloud, nhưng không phải như vậy. Cũng không phải là ví dụ "Novel AI" hay "Kobold" thực sự là một loại mô hình riêng biệt, mặc dù chúng là các tùy chọn riêng biệt trong dropdown API trong ST. Bạn có thể ép các mô hình vào các cấu trúc API khác nhau với backend phù hợp, nhưng đó không phải là trọng tâm của phần này.
+Nó không phải là gì: Dễ nghĩ "Text Completion" là các mô hình local và "Chat Completion" là các LLM dựa trên cloud, nhưng không phải như vậy. Cũng không phải là ví dụ "NovelAI" hay "Kobold" thực sự là một loại mô hình riêng biệt, mặc dù chúng là các tùy chọn riêng biệt trong dropdown API trong ST. Bạn có thể ép các mô hình vào các cấu trúc API khác nhau với backend phù hợp, nhưng đó không phải là trọng tâm của phần này.
 
 Khi bạn gửi tin nhắn bằng ST, cuộc trò chuyện của bạn, mô tả nhân vật và các prompt khác như lorebook hoặc ghi chú của tác giả được xây dựng thành một "prompt" duy nhất để gửi đến mô hình. "Loại" API cho mô hình bạn đang sử dụng quyết định chính xác cách prompt này sẽ được xây dựng (điều mà ST tự động xử lý cho bạn ở nền - bạn có thể mở terminal ST của mình và xem chính xác prompt được gửi đến AI trông như thế nào).
 

@@ -1,7 +1,7 @@
 ---
 label: MacOS & Linux
 order: 5
-route: /installation/linuxmacos/
+route: /vi/installation/linuxmacos/
 ---
 
 # Cài đặt Linux/MacOS

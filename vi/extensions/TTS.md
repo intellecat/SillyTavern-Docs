@@ -1,6 +1,6 @@
 ---
 order: tts
-route: /extensions/tts/
+route: /vi/extensions/tts/
 ---
 
 # TTS
@@ -40,6 +40,7 @@ Các tùy chọn có sẵn (danh sách có thể thay đổi theo thời gian):
 - **Ignore \*text, even "quotes", inside asterisks\*** - TTS sẽ không phát bất kỳ văn bản nào trong `*asterisks*`, thậm chí "quotes" (tên biến nội bộ = `narrate_dialogues_only`)
 - *nếu cả hai hộp kiểm "only narrate quotes" và "ignore asterisks" được chọn sẽ dẫn đến TTS chỉ đọc "quotes" không ở trong asterisks, và bỏ qua tất cả mọi thứ khác.*
 - **Narrate only the translated text** - điều này sẽ làm cho TTS chỉ kể lại văn bản được dịch.
+- **Apply regex** - áp dụng một mẫu regex được cung cấp cho văn bản trước khi gửi tới nhà cung cấp TTS. Hữu ích để loại bỏ các phần không mong muốn khỏi văn bản đầu vào, chẳng hạn như emoji hoặc các ký tự ngôn ngữ không phải bản địa mà TTS engine không xử lý tốt.
 
 Với ví dụ văn bản: `*Cohee approaches you with a faint "nya"* "Good evening, senpai", she says.`
 Đây là một bảng cho thấy cách văn bản sẽ được sửa đổi dựa trên các trạng thái boolean của **Ignore \*text, even "quotes", inside asterisks\*** và **Only narrate "quotes"**:

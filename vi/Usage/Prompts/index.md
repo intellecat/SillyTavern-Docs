@@ -2,7 +2,7 @@
 order: 140
 icon: typography
 templating: false
-route: /usage/prompts/
+route: /vi/usage/prompts/
 ---
 
 # Prompts
@@ -69,7 +69,7 @@ Main Prompt mặc định là:
 
 Các placeholders \{\{char\}\} và \{\{user\}\} được thay thế bằng tên của nhân vật và persona mà bạn đã định nghĩa trong cuộc trò chuyện.
 
-Bạn có thể sử dụng bất kỳ thẻ [\{\{macro\}\}](/Usage/Characters/macros.md) được hỗ trợ nào trong Main Prompt để bao gồm thông tin có thể thay đổi giữa các cuộc trò chuyện hoặc thay đổi khi cuộc trò chuyện tiến triển.
+Bạn có thể sử dụng bất kỳ thẻ [\{\{macro\}\}](/usage/macros.md) được hỗ trợ nào trong Main Prompt để bao gồm thông tin có thể thay đổi giữa các cuộc trò chuyện hoặc thay đổi khi cuộc trò chuyện tiến triển.
 
 ### Điều chỉnh Main Prompt
 

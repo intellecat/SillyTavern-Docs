@@ -1,7 +1,7 @@
 ---
 order: 190
 icon: rocket
-route: /usage/quick-start/
+route: /vi/usage/quick-start/
 ---
 
 # Khởi động nhanh

@@ -1,5 +1,5 @@
 ---
-route: /extensions/captioning/
+route: /vi/extensions/captioning/
 templating: false
 ---
 
@@ -65,7 +65,7 @@ Tất cả các cách để chú thích hình ảnh trong SillyTavern:
 * Dán một hình ảnh trực tiếp vào chat input với [auto-captioning](#auto-captioning) được bật
 * Gắn một file hình ảnh vào một tin nhắn bằng nút <i class="fa-solid fa-paperclip"></i> **Embed File or Image** trong các tác vụ của một tin nhắn.
 * Gửi một tin nhắn với một hình ảnh nhúng
-* Sử dụng slash command `/caption` (#slash-command-caption)
+* Sử dụng [slash command](#slash-command-caption) `/caption`
 
 ## Auto-Captioning
 Tính năng auto-captioning cho phép bạn tự động tạo chú thích cho hình ảnh khi chúng được thêm vào chat, mà không cần kích hoạt quy trình chú thích thủ công mỗi lần.
@@ -170,9 +170,75 @@ Bạn vẫn có thể sử dụng Claude cho chats và Google AI Studio cho chú
 * "Tôi muốn giữ giấc mơ của AI cục bộ sống": [KoboldCpp](#koboldcpp)
 * "Tôi muốn phàn nàn khi nó không hoạt động": ~~Extras~~
 
-## Ghi chú kỹ thuật
+| Nhà cung cấp API                  | Mô tả                                                                                                                                                                          |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| AI/ML API                         | Cloud, trả phí, nhiều mô hình GPT, Claude và Gemini có khả năng vision                                                                                                          |
+| Chutes                            | Cloud, nhiều mô hình khác nhau có khả năng vision                                                                                                                               |
+| Claude                            | Cloud, trả phí, tất cả các mô hình Claude có khả năng vision                                                                                                                    |
+| Cloudflare Workers AI             | Cloud, trả phí, nhiều mô hình khác nhau có khả năng vision                                                                                                                      |
+| Cohere                            | Cloud, trả phí, Aya Vision 8B / 32B                                                                                                                                             |
+| Custom (OpenAI-compatible)        | Cho các API tương thích OpenAI tùy chỉnh, sử dụng mô hình hiện được cấu hình trong tab API Connections                                                                          |
+| Electron Hub                      | Cloud, trả phí, nhiều mô hình khác nhau có khả năng vision.                                                                                                                     |
+| Google AI Studio                  | Cloud, gói miễn phí sau đó trả phí, Gemini Flash/Pro                                                                                                                            |
+| Google Vertex AI                  | Cloud, gói miễn phí, Gemini Flash/Pro                                                                                                                                           |
+| Groq                              | Cloud, llama-4 scout/maverick                                                                                                                                                   |
+| KoboldCpp                         | Local, phải cấu hình mô hình trong KoboldCpp                                                                                                                                    |
+| llama.cpp                         | Local, phải cấu hình mô hình trong llama.cpp                                                                                                                                    |
+| MistralAI                         | Cloud, trả phí, pixtral-large, pixtral-12B, magistral, mistral-large, v.v.                                                                                                      |
+| Moonshot AI                       | Cloud, trả phí, moonshot-vision                                                                                                                                                 |
+| NanoGPT                           | Cloud, trả phí, nhiều mô hình GPT/Claude/Google khác nhau có khả năng vision                                                                                                    |
+| Ollama                            | Local, có thể chuyển đổi giữa các mô hình có sẵn và tải xuống [các mô hình vision bổ sung](https://ollama.com/search?c=vision) trong Captioning sau khi cấu hình trong API Connections |
+| OpenAI                            | Cloud, trả phí, GPT-4 Vision, 4-turbo, 4o, 4o-mini                                                                                                                              |
+| OpenRouter                        | Cloud, trả phí (có thể có tùy chọn miễn phí), nhiều mô hình, chọn từ những gì có sẵn trong Captioning sau khi cấu hình trong API connections                                    |
+| Pollinations                      | Cloud, miễn phí                                                                                                                                                                 |
+| Text Generation WebUI (oobabooga) | Local, phải cấu hình mô hình trong ooba                                                                                                                                         |
+| vLLM                              | Local                                                                                                                                                                           |
+| xAI (Grok)                        | Cloud, trả phí, grok-vision                                                                                                                                                     |
+| Z.AI (GLM).                       | Cloud, trả phí, các mô hình GLM Vision                                                                                                                                          |
 
-- Hỗ trợ mã hóa UTF-8, ký tự đặc biệt và emojis
-- Xử lý các tin nhắn lớn bằng cách chia thành các chunks khi cần
-- Bảo tồn định dạng và hình ảnh nhúng trong tin nhắn
-- Lưu trữ các chú thích để tránh các lệnh gọi API dư thừa
+### Secondary endpoints
+
+Theo mặc định, nguồn Multimodal sử dụng endpoint chính được cấu hình trong tab API Connections.
+Bạn cũng có thể thiết lập một endpoint phụ dành riêng cho chú thích multimodal.
+
+- Mở panel **Image Captioning** trong panel **<i class="fa-solid fa-cubes"></i> Extensions**.
+- Chọn "Multimodal" làm nguồn chú thích và một nhà cung cấp API ưa thích.
+- Nhập một URL hợp lệ cho endpoint phụ vào trường "Secondary captioning endpoint URL".
+- Chọn hộp "Use secondary URL" để bật endpoint phụ.
+
+!!!tip
+Đừng thêm `/v1` hoặc `/chat/completions` vào cuối URL. Extension sẽ tự động xử lý điều đó.
+!!!
+
+Điều này chỉ được hỗ trợ bởi các API sau:
+
+- KoboldCpp
+- llama.cpp
+- Ollama
+- Text Generation WebUI (oobabooga)
+- vLLM
+
+### Hướng dẫn theo từng nguồn cụ thể
+
+#### KoboldCpp
+
+Để biết thông tin chung về cài đặt và sử dụng [KoboldCpp](https://github.com/LostRuins/koboldcpp), xem [tài liệu KoboldCpp](https://github.com/LostRuins/koboldcpp/wiki).
+
+Để sử dụng KoboldCpp cho chú thích multimodal:
+
+* lấy một mô hình có khả năng multimodal, được huấn luyện để xử lý các prompt văn bản và hình ảnh cùng lúc.
+* cũng lấy multimodal projections cho mô hình. Các trọng số này cho phép mô hình hiểu cách các phần văn bản và hình ảnh của đầu vào liên quan đến nhau.
+* tải mô hình và projections trong KoboldCpp launch GUI hoặc command line interface.
+
+Mô hình multimodal cục bộ gốc và cổ điển là LLaVA. Các file định dạng GGUF cho mô hình và projections có sẵn từ [Mozilla/llava-v1.5-7b-llamafile](https://huggingface.co/Mozilla/llava-v1.5-7b-llamafile). Để tải chúng từ command line, đặt mô hình và projections bằng các cờ `--model` và `--mmproj`. Ví dụ:
+
+```shell
+./koboldcpp \
+--model="models/llava-v1.5-7b-Q4_K.gguf" \
+--mmproj="models/ llava-v1.5-7b-mmproj-Q4_0.gguf" \
+... other flags ...
+```
+
+Một số bản finetune LLaVA bạn có thể thử: [xtuner/llava-llama-3-8b-v1_1-gguf](https://huggingface.co/xtuner/llava-llama-3-8b-v1_1-gguf), [xtuner/llava-phi-3-mini-gguf](https://huggingface.co/xtuner/llava-phi-3-mini-gguf).
+
+Bạn có thể sử dụng multimodal projections cho mô hình cơ sở mà bản finetune cụ thể của bạn được xây dựng từ đó. Projections cho một số mô hình cơ sở phổ biến có sẵn từ [koboldcpp/mmproj](https://huggingface.co/koboldcpp/mmproj/tree/main).

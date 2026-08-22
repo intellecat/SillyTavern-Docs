@@ -5,7 +5,7 @@ tags:
         visual novel,
         vn,
     ]
-route: /usage/user-settings/visual-novel/
+route: /vi/usage/user-settings/visual-novel/
 ---
 
 # Chế độ Visual Novel (VN)

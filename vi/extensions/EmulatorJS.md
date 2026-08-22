@@ -1,5 +1,5 @@
 ---
-route: /extensions/emulatorjs/
+route: /vi/extensions/emulatorjs/
 templating: false
 ---
 

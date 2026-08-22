@@ -1,5 +1,5 @@
 ---
-route: /usage/api-connections/tabbyapi/
+route: /vi/usage/api-connections/tabbyapi/
 ---
 
 # TabbyAPI

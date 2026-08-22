@@ -1,5 +1,5 @@
 ---
-route: /extensions/stable-diffusion/
+route: /vi/extensions/stable-diffusion/
 templating: false
 ---
 
@@ -31,25 +31,30 @@ Hầu hết các cài đặt tạo Stable Diffusion phổ biến có thể tùy 
 
 | Nguồn                                                                                             | Ghi chú                                                                                         |
 |:--------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------|
-| [AI.ML API](https://aimlapi.com/)                                                                 | Cloud, trả phí                                                                                     |
+| [AI/ML API](https://aimlapi.com/)                                                                 | Cloud, trả phí                                                                                     |
 | [Black Forest Labs](https://bfl.ai/)                                                              | Cloud, trả phí                                                                                     |
+| [Cloudflare Workers AI](https://www.cloudflare.com/developer-platform/products/workers-ai/)       | Cloud, trả phí, nhiều mô hình khác nhau có khả năng vision                                            |
+| [Chutes](https://chutes.ai/)                                                                      | Cloud                                                                                           |
 | [ComfyUI](https://github.com/comfyanonymous/ComfyUI)                                              | Local, open source (GPL3), miễn phí, xem [ComfyUI Configuration](#comfyui-configuration). |
 | [Draw Things](https://drawthings.ai/)                                                             | Local, Mac/iOS, miễn phí                                                                                  |
 | [Electron Hub](https://electronhub.ai/)                                                           | Cloud, trả phí                                                                                     |
 | [FAL.AI](https://fal.ai/)                                                                         | Cloud, trả phí                                                                                     |
-| [Google AI Studio](https://aistudio.google.com/) / [Google Vertex AI](https://cloud.google.com/vertex-ai) | Cloud, trả phí. Mô hình loạt Imagen. AI Studio chỉ hỗ trợ mô hình Imagen 3.0 002.         |
+| [Google AI Studio](https://aistudio.google.com/) / [Google Vertex AI](https://cloud.google.com/vertex-ai) | Cloud, trả phí. Mô hình loạt Imagen. AI Studio hỗ trợ ít mô hình hơn.                       |
 | [HuggingFace Serverless](https://huggingface.co/docs/api-inference/index)                         | Cloud, miễn phí                                                                           |
 | [NanoGPT](https://nano-gpt.com/)                                                                  | Cloud, trả phí                                                                                     |
 | [NovelAI Diffusion](https://novelai.net/)                                                         | Cloud, cần subscription hoạt động                                                          |
 | [OpenAI](https://platform.openai.com/)                                                            | Cloud, trả phí                                                                                     |
-| [Pollinations](https://pollinations.ai/)                                                          | Cloud, open source (MIT), miễn phí                                                        |
+| [OpenRouter](https://openrouter.ai/)                                                              | Cloud                                                                                           |
+| [Pollinations](https://pollinations.ai/)                                                          | Cloud, open source (MIT), trả phí                                                        |
 | [SD.Next / vladmandic](https://github.com/vladmandic/automatic)                                   | Local, open source (AGPL3), miễn phí                                                      |
 | [SillyTavern Extras](https://github.com/SillyTavern/SillyTavern-Extras)                           | Không được dùng nữa, không được khuyến nghị                                                                     |
+| [stable-diffusion.cpp](https://github.com/leejet/stable-diffusion.cpp)                            | Local, open source (MIT), miễn phí                                                        |
 | [Stability AI](https://platform.stability.ai/)                                                    | Cloud, trả phí                                                                                     |
 | [Stable Diffusion WebUI / AUTOMATIC1111](https://github.com/AUTOMATIC1111/stable-diffusion-webui) | Local, open source (AGPL3), miễn phí                                                      |
 | [Stable Horde](https://stablehorde.net/)                                                          | Cloud, open source (AGPL3), miễn phí                                                        |
 | [TogetherAI](https://docs.together.ai/docs/serverless-models#image-models)                        | Cloud                                                                                           |
 | [x.AI](https://x.ai/)                                                                             | Cloud, trả phí                                                                                     |
+| [Z.AI](https://z.ai/)                                                                             | Cloud, trả phí                                                                                     |
 
 ## Chế độ tạo hình ảnh
 
@@ -106,7 +111,7 @@ Ví dụ dưới đây sẽ gửi hình ảnh được tạo ra bằng cách s�
 
 ### Image swipes
 
-Image swipes cho phép bạn cuộn lại tạo hình ảnh trong khi giữ nguyên prompt. Nếu một seed cố định được đặt, nó sẽ được ngẫu nhiên hóa cho lần tạo tiếp theo.
+Image swipes cho phép bạn cuộn lại tạo hình ảnh trong khi giữ nguyên prompt. Nếu một seed cố định được đặt, nó sẽ được ngẫu nhiên hóa cho lần tạo tiếp theo. Kích thước hình ảnh đã được ghi đè thông qua slash command `/sd` sẽ được giữ nguyên cho các hình ảnh được swipe.
 
 Để chu kỳ qua các hình ảnh, di chuyển con trỏ chuột (nhấn trên di động) trên một hình ảnh được tạo để tiết lộ các nút mũi tên và bộ đếm swipes. Nhấp mũi tên bên phải trên hình ảnh mới nhất sẽ tạo ra một hình ảnh mới.
 
@@ -116,7 +121,7 @@ Image swipes cho phép bạn cuộn lại tạo hình ảnh trong khi giữ nguy
 
 ### Chỉnh sửa prompts trước khi tạo hình ảnh
 
-Cho phép chỉnh sửa các prompts được tạo tự động theo cách thủ công trước khi gửi chúng tới API Stable Diffusion.
+Tùy chọn này cho phép bạn chỉnh sửa các prompts được tạo tự động trước khi chúng được gửi tới API Tạo Hình ảnh. Bạn cũng có thể chỉnh sửa hoặc loại bỏ prompt âm đã lưu và ghi đè độ phân giải khi tạo lại một hình ảnh ban đầu được tạo bằng lệnh `/sd`.
 
 ### Sử dụng function tool
 
@@ -160,6 +165,10 @@ Một số chủ đề đặc biệt kích hoạt một chế độ tạo hình 
 
 Khi sử dụng chế độ tương tác của slash command, tự động mở rộng các mô tả chủ đề tạo hình ảnh ở chế độ miễn phí bằng cách nhắc API chính của bạn.
 
+### Minimal prompt processing
+
+Khi được bật, giảm bớt quá trình xử lý được áp dụng cho các prompts do LLM trả về để tạo hình ảnh. Chỉ thực hiện chuẩn hóa và giảm khoảng trắng, bỏ qua việc làm sạch (sanitization) mạnh tay được thực hiện theo mặc định. Điều này hữu ích khi làm việc với các quy trình làm việc nâng cao (ví dụ: ComfyUI) chấp nhận các định dạng prompt có cấu trúc như JSON.
+
 ### Snap auto-adjusted resolutions
 
 Snap các yêu cầu tạo hình ảnh có tỷ lệ khung hình buộc (chân dung, nền) đến độ phân giải nào gần đây nhất, trong khi cố gắng giữ nguyên số pixel tuyệt đối. Tham khảo dropdown "Resolution" để biết danh sách các tùy chọn có thể có.
@@ -196,7 +205,7 @@ Bạn cũng có thể chỉ định một tiền tố prompt âm cho bất kỳ 
 
 Hạn chế:
 1. Hoạt động chỉ trong các chats 1-to-1. Sẽ không được sử dụng trong các nhóm.
-2. Sẽ không được sử dụng cho nền tảng và tạo hình ảnh ở chế độ miễn phí.
+2. Sẽ không được sử dụng cho hình nền và tạo hình ảnh ở chế độ miễn phí.
 
 !!! Note
 Để buộc bao gồm một tiền tố nhân vật vào một prompt ở chế độ miễn phí, sử dụng macro `{{charPrefix}}` ở bất kỳ nơi nào trong prompt.
@@ -231,12 +240,40 @@ Nếu bạn không quen thuộc với ComfyUI, bạn vẫn có thể sử dụng
 
 Bảng điều khiển này cho phép bạn cấu hình và quản lý tích hợp ComfyUI của bạn với SillyTavern.
 
+#### Server Type
+
+* Standard Server là khi bạn gọi ComfyUI trực tiếp, dù trên máy cục bộ hay được host ở nơi khác.
+* RunPod Serverless Endpoint dùng để chạy ComfyUI thông qua [RunPod's serverless API](https://www.runpod.io/product/serverless). Serverless có thể là một lựa chọn tốt cho việc tạo hình ảnh từ xa vì bạn vẫn có cùng mức kiểm soát đối với các quy trình làm việc như một máy chủ tiêu chuẩn, nhưng có thể tận dụng các GPU được host mạnh mẽ hơn và chỉ bị tính phí khi bạn đang thực sự tạo hình ảnh. Phần lớn cách sử dụng là giống nhau. Sự khác biệt so với thiết lập và hành vi của máy chủ tiêu chuẩn được mô tả [bên dưới](#comfyui-runpod-setup).
+
+#### Standard Server setup
+
 Nhập URL của máy chủ ComfyUI của bạn vào trường nhập **ComfyUI URL**. Giá trị mặc định là `http://127.0.0.1:8188`.
 Nếu bạn đang sử dụng [SwarmUI](https://github.com/mcmonkeyprojects/SwarmUI), cổng mặc định cho
 [máy chủ ComfyUI được quản lý](https://github.com/mcmonkeyprojects/SwarmUI/blob/master/src/BuiltinExtensions/ComfyUIBackend/README.md) là `7821`,
 20 cổng cao hơn cổng mặc định cho SwarmUI.
 
 Sau khi nhập URL, chọn <i class="fa-solid fa-check"></i> **Connect** để xác thực và thiết lập kết nối. Máy chủ ComfyUI phải có thể truy cập được từ máy chủ SillyTavern.
+
+#### ComfyUI RunPod Setup
+
+* Bạn sẽ cần một tài khoản RunPod và nạp thêm tiền vào đó. Bạn có thể mong đợi khoảng 2 cent cho mỗi hình ảnh khi tạo hình ảnh Qwen trên RTX 4090, tuy kết quả thực tế có thể khác. $5 tín dụng nên dùng được một thời gian.
+* <https://console.runpod.io/hub/runpod-workers/worker-comfyui> là một cấu hình flux1 dev mà bạn có thể sử dụng để tạo endpoint serverless của riêng mình.
+  * Có thông tin ở đó về việc tạo cấu hình riêng của bạn nếu bạn muốn sử dụng một mô hình khác hoặc thêm LoRAs.
+* Tạo một API key để truy cập endpoint serverless: <https://console.runpod.io/user/settings>
+
+* Trong ST, chọn **ComfyUI** làm **Source** và **RunPod Serverless Endpoint** làm **Server Type**.
+* Đặt **ComfyUI RunPod URL** thành URL của endpoint của bạn.
+* Đặt API key.
+* Nhấp **Connect**. Nếu API key và URL đúng, bạn sẽ nhận được các toast thông báo thành công.
+* Luồng cấu hình quy trình làm việc ComfyUI giống như khi dùng cục bộ.
+  * Sử dụng tùy chọn "Export (API)".
+  * Tùy thuộc vào thiết lập cục bộ của bạn, bạn có thể cần/muốn chọn một biến thể của mô hình để sử dụng trên RunPod. Ví dụ, nếu bạn sử dụng một GGUF đã lượng hóa cục bộ, nhưng muốn sử dụng phiên bản fp16 trên RunPod. Quy trình làm việc JSON bạn sử dụng trong ST cần có thay đổi này.
+  * Model, samplers, VAE, v.v. không thể được xác định động nên quy trình làm việc của bạn cần có các giá trị này được viết cứng (không dùng thay thế `%model%`).
+  * Các thay thế khác sẽ hoạt động giống như khi dùng cục bộ.
+
+!!!info Note
+Cấu hình serverless hiện chưa nhúng quy trình làm việc vào hình ảnh đầu ra. Tức là, bạn sẽ không thể kéo/thả hình ảnh vào ComfyUI cục bộ để xem seed hoặc prompt. Đây chỉ là một hạn chế của trình xử lý RunPod và là một khả năng có thể được thêm vào ở phía đó.
+!!!
 
 ### Quản lý Quy trình Làm việc
 
@@ -466,7 +503,7 @@ Bạn có thể thêm các trình giữ chỗ tùy chỉnh vào quy trình làm 
 
 Các trình giữ chỗ tùy chỉnh sẽ xuất hiện trong một danh sách riêng biệt bên dưới những cái được định nghĩa trước.
 
-Ví dụ, bạn có thể thay thế tiền tố "SillyTavern" cho các tên tệp hình ảnh đã lưu trong quy trình làm việc mặc định bằng một trình giữ chỗ tùy chỉnh. Thêm một trình giữ chỗ tùy chỉnh mới với `find` được đặt thành `filename_prefix` và `replace` được đặt thành `ServiceTesnor`. Chèn trình giữ chỗ mới `%filename_prefix%` vào JSON quy trình làm việc của bạn. Bây giờ bạn có thể thay đổi tiền tố tên tệp từ SillyTavern thành ServiceTesnor bằng cách thay đổi giá trị của trình giữ chỗ tùy chỉnh.
+Ví dụ, bạn có thể thay thế tiền tố "SillyTavern" cho các tên tệp hình ảnh đã lưu trong quy trình làm việc mặc định bằng một trình giữ chỗ tùy chỉnh. Thêm một trình giữ chỗ tùy chỉnh mới với `find` được đặt thành `filename_prefix` và `replace` được đặt thành `ServiceTensor`. Chèn trình giữ chỗ mới `%filename_prefix%` vào JSON quy trình làm việc của bạn. Bây giờ bạn có thể thay đổi tiền tố tên tệp từ SillyTavern thành ServiceTensor bằng cách thay đổi giá trị của trình giữ chỗ tùy chỉnh.
 
 +++ JSON with placeholder
 ```json

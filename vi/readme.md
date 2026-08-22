@@ -1,5 +1,5 @@
 ---
-route: /
+route: /vi/
 ---
 
 # SillyTavern là gì?
@@ -8,7 +8,7 @@ route: /
 
 SillyTavern (hoặc viết tắt là ST) là giao diện người dùng được cài đặt cục bộ cho phép bạn tương tác với các mô hình LLM tạo văn bản, công cụ tạo hình ảnh và mô hình giọng nói TTS. Mục tiêu của chúng tôi là trao quyền cho người dùng với càng nhiều tiện ích và khả năng kiểm soát các lời nhắc LLM càng tốt, đồng thời xem đường cong học tập dốc như một phần của niềm vui.
 
-SillyTavern là một dự án đam mê được mang đến cho bạn bởi cộng đồng những người đam mê LLM tận tâm và sẽ luôn miễn phí và mã nguồn mở. Bắt đầu vào tháng 2 năm 2023 như một nhánh rẽ của TavernAI 1.2.8, SillyTavern hiện có hơn 200 người đóng góp và 2 năm phát triển độc lập, và tiếp tục phục vụ như một phần mềm hàng đầu cho những người đam mê AI am hiểu.
+SillyTavern là một dự án đam mê được mang đến cho bạn bởi cộng đồng những người đam mê LLM tận tâm và sẽ luôn miễn phí và mã nguồn mở. Bắt đầu vào tháng 2 năm 2023 như một nhánh rẽ của TavernAI 1.2.8, SillyTavern hiện có hơn 300 người đóng góp và 3 năm phát triển độc lập, và tiếp tục phục vụ như một phần mềm hàng đầu cho những người đam mê AI am hiểu.
 
 ## Ảnh chụp màn hình
 
@@ -18,7 +18,7 @@ SillyTavern là một dự án đam mê được mang đến cho bạn bởi c�
 
 ## Yêu cầu cài đặt
 
-Yêu cầu phần cứng là tối thiểu: nó sẽ chạy trên bất kỳ thứ gì có thể chạy NodeJS 18 trở lên. Nếu bạn định thực hiện suy luận LLM trên máy cục bộ của mình, chúng tôi khuyên dùng card đồ họa NVIDIA dòng 3000 với ít nhất 6GB VRAM.
+Yêu cầu phần cứng là tối thiểu: nó sẽ chạy trên bất kỳ thứ gì có thể chạy NodeJS 20 trở lên. Nếu bạn định thực hiện suy luận LLM trên máy cục bộ của mình, chúng tôi khuyên dùng card đồ họa NVIDIA dòng 3000 với ít nhất 6GB VRAM.
 
 Làm theo hướng dẫn cài đặt cho nền tảng của bạn:
 
@@ -66,7 +66,7 @@ SillyTavern hỗ trợ khả năng mở rộng.
 * [Tự động tóm tắt lịch sử trò chuyện](/extensions/Summarize.md)
 * Tự động dịch giao diện và [trò chuyện](extensions/Translation.md)
 * [Tạo hình ảnh Stable Diffusion/FLUX/DALL-E](/extensions/Stable-Diffusion.md)
-* [Chuyển văn bản thành giọng nói cho tin nhắn phản hồi AI (qua ElevenLabs, Silero hoặc System TTS của hệ điều hành)](/extensions/TTS.md)
+* [Chuyển văn bản thành giọng nói cho tin nhắn phản hồi AI](/extensions/TTS.md)
 * [Khả năng tìm kiếm web để thêm ngữ cảnh thế giới thực bổ sung vào lời nhắc của bạn](/extensions/WebSearch.md)
 * Nhiều tiện ích khác có sẵn để tải xuống từ menu "Download Extensions & Assets".
 

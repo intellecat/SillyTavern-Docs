@@ -1,6 +1,6 @@
 ---
 order: 70
-route: /usage/core-concepts/groupchats/
+route: /vi/usage/core-concepts/groupchats/
 ---
 
 # Group Chats

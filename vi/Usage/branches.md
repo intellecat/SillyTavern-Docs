@@ -1,5 +1,5 @@
 ---
-redirect: /installation/
+redirect: /vi/installation/
 visibility: hidden
 ---
 

@@ -1,7 +1,7 @@
 ---
 order: 90
 templating: false
-route: /usage/prompts/context-template/
+route: /vi/usage/prompts/context-template/
 ---
 
 # Context Template
@@ -18,7 +18,7 @@ Chỉnh sửa các cài đặt này trong panel "[Advanced Formatting](advancedf
 
 Trường này là một template cho phần mở đầu prompt (được biết nội bộ là một story string). Đây là cách chính để thêm thông tin được định nghĩa trong [Character Cards](/Usage/Characters/index.md) cho các model text completion và instruct.
 
-Template hỗ trợ cú pháp Handlebars, chèn văn bản tùy chỉnh hoặc định dạng, và bất kỳ [macros](/Usage/Characters/macros.md) nào khác. Xem tài liệu ngôn ngữ tại đây: <https://handlebarsjs.com/guide/>
+Template hỗ trợ cú pháp Handlebars, chèn văn bản tùy chỉnh hoặc định dạng, và bất kỳ [macros](/usage/macros.md) nào khác. Xem tài liệu ngôn ngữ tại đây: <https://handlebarsjs.com/guide/>
 
 Chúng tôi cung cấp các tham số sau cho Handlebars evaluator (được bọc trong dấu ngoặc nhọn kép):
 

@@ -1,6 +1,6 @@
 ---
 icon: rel-file-path
-route: /usage/core-concepts/slashcommands/
+route: /vi/usage/core-concepts/slashcommands/
 ---
 
 # Lệnh Slash

@@ -1,5 +1,5 @@
 ---
-route: /extensions/blip/
+route: /vi/extensions/blip/
 ---
 
 # Blip

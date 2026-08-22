@@ -1,7 +1,7 @@
 ---
 icon: rss
 order: -30
-route: /usage/remoteconnections/
+route: /vi/usage/remoteconnections/
 ---
 
 # Kết nối từ xa
@@ -151,7 +151,7 @@ Không có giới hạn tốc độ để ngăn chặn các cuộc tấn công b
 
 Máy chủ sẽ yêu cầu tên người dùng và mật khẩu bất cứ khi nào client kết nối qua HTTP. **Điều này chỉ hoạt động nếu Kết nối từ xa (listen: true) được bật.**
 
-Để bật HTTP BA, Mở `config.yaml` trong thư mục cơ sở SillyTavern và tìm kiếm `basicAuthMode` Đặt basicAuthMode thành true và đặt username và password. Lưu ý: `config.yaml` sẽ chỉ tồn tại nếu ST đã được thực thi ít nhất một lần trước đó.
+Để bật HTTP BA, Mở `config.yaml` trong thư mục cơ sở SillyTavern và tìm kiếm `basicAuthMode`. Đặt basicAuthMode thành true và đặt username và password. Lưu ý: `config.yaml` sẽ chỉ tồn tại nếu ST đã được thực thi ít nhất một lần trước đó.
 
 ```yaml
 basicAuthMode: true
@@ -172,11 +172,45 @@ Trong chế độ `perUserBasicAuth` này, tên người dùng và mật khẩu 
 
 Lưu tệp và khởi động lại SillyTavern nếu nó đã chạy. Bạn sẽ được nhắc nhập tên người dùng và mật khẩu khi kết nối với ST của bạn. Cả tên người dùng và mật khẩu đều được truyền dưới dạng văn bản thuần. Nếu bạn lo lắng về điều này, bạn có thể phục vụ ST qua HTTPS.
 
+### Whitelist địa chỉ riêng tư
+
+Trong khi việc thực hiện các yêu cầu HTTP đi ra đến các địa chỉ trong dải IP riêng tư (ví dụ: `192.168.x.x`, `10.x.x.x`) từ máy chủ được cho phép theo mặc định, bạn có thể hạn chế quyền truy cập đến các địa chỉ riêng tư cụ thể bằng cách sử dụng cấu hình whitelist. Điều này được khuyến nghị khi bạn có một API riêng tư đang chạy trên mạng cục bộ của bạn mà bạn muốn cho phép ST truy cập, nhưng bạn muốn ngăn ST truy cập các thiết bị khác trên mạng cục bộ.
+
+#### Điều gì được coi là "địa chỉ riêng tư"?
+
+* Địa chỉ loopback: `127.0.0.0/8` cho IPv4 và `::1/128` cho IPv6.
+* Dải địa chỉ riêng tư IPv4: lớp A (`10.0.0.0/8`), lớp B (`172.16.0.0/12`), lớp C (`192.168.0.0/16`).
+* Địa chỉ link-local: `169.254.0.0/16` cho IPv4 và `fe80::/10` cho IPv6.
+* Địa chỉ local duy nhất: `fc00::/7` cho IPv6.
+
+#### Bật/tắt whitelist địa chỉ riêng tư
+
+Để bật whitelist địa chỉ riêng tư, chỉnh sửa tệp `config.yaml` trong thư mục gốc SillyTavern:
+
+```yaml
+privateAddressWhitelist:
+    enabled: true
+```
+
+#### Thêm các địa chỉ riêng tư vào whitelist
+
+Theo mặc định, điều này chỉ cho phép thực hiện các yêu cầu đến các địa chỉ loopback (`127.0.0.1` và `::1`) từ máy chủ. Để thêm nhiều địa chỉ riêng tư hơn vào whitelist, hãy đưa chúng vào phần `privateAddressWhitelist.allowedRanges`:
+
+```yaml
+privateAddressWhitelist:
+  allowedRanges:
+    - "127.0.0.0/8"
+    - "::1/128"
+    - "192.168.0.0/16"
+```
+
+Ví dụ này cho phép thực hiện các yêu cầu đến bất kỳ địa chỉ nào trong dải `192.168.x.x` và các địa chỉ loopback từ máy chủ, trong khi vẫn chặn quyền truy cập đến các dải IP riêng tư khác.
+
 ### Whitelist Host
 
 Khi lưu trữ máy chủ qua mạng mà không có HTTPS, rất khuyến nghị bật xác minh host yêu cầu. Điều này giúp ngăn chặn các cuộc tấn công khác nhau, chẳng hạn như DNS rebinding. Theo mặc định, máy chủ SillyTavern sẽ ghi một thông báo console khi có kết nối đầu tiên từ một host không được nhận dạng.
 
-### Bật/tắt whitelist host
+#### Bật/tắt whitelist host
 
 Để bật whitelist host, chỉnh sửa tệp `config.yaml` trong thư mục gốc SillyTavern:
 
@@ -185,7 +219,7 @@ hostWhitelist:
     enabled: true
 ```
 
-### Thêm các host tin cậy
+#### Thêm các host tin cậy
 
 Để thêm tên host vào danh sách các host tin cậy, bao gồm nó trong phần `hostWhitelist.hosts`:
 
@@ -202,7 +236,7 @@ hostWhitelist:
     - ".trycloudflare.com"
 ```
 
-### Bật/tắt thông báo console
+#### Bật/tắt thông báo console
 
 Để vô hiệu hóa thông báo console cho các host không được nhận dạng, đặt tùy chọn `hostWhitelist.scan` thành `false`:
 
@@ -310,3 +344,24 @@ Người dùng mà bạn đang chạy SillyTavern cần quyền đọc trên cá
 ### Cách lấy chứng chỉ
 
 Cách đơn giản, nhanh nhất để lấy chứng chỉ là sử dụng [certbot](https://letsencrypt.org/getting-started/).
+
+### Chứng chỉ trong Docker
+
+!!!warning
+Vì lý do bảo mật và quyền riêng tư, không đưa chứng chỉ SSL của bạn vào bên trong image Docker nếu bạn đang xây dựng một image. Thay vào đó, hãy sử dụng volume mount để cung cấp chứng chỉ khi chạy.
+!!!
+
+Khi chạy SillyTavern trong Docker, cách được khuyến nghị để cung cấp chứng chỉ SSL là đặt chúng trong volume mount `/config`. Điều này cho phép bạn quản lý chứng chỉ mà không cần xây dựng lại image container.
+
+1. Đặt các tệp chứng chỉ của bạn (ví dụ: `privkey.pem` và `cert.pem`) vào thư mục cấu hình cục bộ của bạn được mount vào `/config` trong container.
+
+2. Cập nhật `config.yaml` của bạn để tham chiếu đến chứng chỉ:
+
+    ```yaml
+    ssl:
+      enabled: true
+      certPath: ./config/cert.pem
+      keyPath: ./config/privkey.pem
+    ```
+
+3. Khởi động lại container Docker của bạn để áp dụng các thay đổi.

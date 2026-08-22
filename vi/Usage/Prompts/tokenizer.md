@@ -1,6 +1,6 @@
 ---
 order: 70
-route: /usage/prompts/tokenizer/
+route: /vi/usage/prompts/tokenizer/
 ---
 
 # Tokenizer

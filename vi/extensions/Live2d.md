@@ -1,5 +1,5 @@
 ---
-route: /extensions/live2d/
+route: /vi/extensions/live2d/
 ---
 
 # Live2D

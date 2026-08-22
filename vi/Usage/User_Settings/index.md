@@ -1,7 +1,7 @@
 ---
 order: 120
 icon: gear
-route: /usage/user-settings/
+route: /vi/usage/user-settings/
 ---
 
 # Cài đặt Người dùng
@@ -156,7 +156,7 @@ Thay đổi giao diện của giao diện chat theo sở thích của bạn.
 
 * **Reload Chat**: Tải lại và vẽ lại cuộc trò chuyện hiện tại.
 * **[Debug Menu](#debug-menu)**: Truy cập các tùy chọn gỡ lỗi.
-* **Smooth Streaming**: Làm mượt mà việc tạo văn bản stream bằng cách hiển thị văn bản từng chữ cái một. Bao gồm thanh trượt điều khiển tốc độ.
+* **Smooth Streaming**: Làm mượt mà việc tạo văn bản stream bằng cách hiển thị văn bản từng chữ cái một. Bao gồm thanh trượt điều khiển tốc độ. Để loại trừ các reasoning block khỏi smooth streaming, bật tùy chọn "Exclude 'Thinking...'".
 * **Stream Fade-In**: Áp dụng hiệu ứng fade-in cho văn bản stream. Có thể sử dụng với hoặc không có Smooth Streaming.
 * **[Message Sound](uicustomization.md#message-sound)**: Phát âm thanh khi hoàn thành tạo tin nhắn.
     - **Background Sound Only**: Chỉ phát âm thanh khi tab trình duyệt không được focus.
@@ -180,6 +180,9 @@ Kiểm soát cách tin nhắn được tải và hiển thị trong giao diện 
     - Gradual push-out
     - Always include examples
     - Never include examples
+* **Image Swipe Behavior** (kiểm soát hành động vuốt cho hình ảnh theo kiểu gallery):
+    - Generate new: Cho phép tạo hình ảnh mới bằng tiện ích mở rộng [Image Generation](/extensions/Stable-Diffusion.md)
+    - Roll over: Xoay vòng qua các hình ảnh hiện có, quay lại từ đầu khi đến cuối
 
 ### Điều khiển Đầu vào & Phản hồi
 
@@ -226,6 +229,7 @@ Kiểm soát cách tin nhắn được định dạng và nội dung nào đư�
 * **Forbid External Media**: Chặn phương tiện nhúng từ các domain bên ngoài
 * **Show {\{char}}: in responses**: Giữ tiền tố tên nhân vật trong phản hồi nếu được tạo
 * **Show {\{user}}: in responses**: Giữ tiền tố tên người dùng trong phản hồi nếu được tạo
+* **Experimental Macro Engine**: Bật xử lý macro nâng cao có hỗ trợ lồng nhau
 * **Show tags in responses**: Cho phép (một số) thẻ HTML trong phản hồi được hiển thị dưới dạng HTML
 * **Relax message trim in Groups**: Cho phép AI nói thay cho các nhân vật khác trong chat nhóm, thay vì dừng tạo phản hồi
 * **Show group chat queue**: Hiển thị thứ tự phản hồi trong danh sách nhân vật cho chat nhóm

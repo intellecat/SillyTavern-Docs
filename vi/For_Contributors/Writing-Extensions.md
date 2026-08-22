@@ -2,7 +2,7 @@
 order: -20
 icon: file-added
 templating: false
-route: /for-contributors/writing-extensions/
+route: /vi/for-contributors/writing-extensions/
 ---
 
 # UI Extensions
@@ -94,6 +94,14 @@ Các extension có thể tải xuống được mount vào thư mục `/scripts/
     "minimum_client_version": "1.0.0",
     "i18n": {
         "de-de": "i18n/de-de.json"
+    },
+    "hooks": {
+        "install": "onInstall",
+        "update": "onUpdate",
+        "delete": "onDelete",
+        "enable": "onEnable",
+        "disable": "onDisable",
+        "activate": "onActivate"
     }
 }
 ```
@@ -110,6 +118,7 @@ Các extension có thể tải xuống được mount vào thư mục `/scripts/
 * `dependencies` là một mảng tùy chọn các chuỗi chỉ định các **extension** khác mà extension này phụ thuộc vào.
 * `generate_interceptor` là một chuỗi tùy chọn chỉ định tên của một hàm toàn cục được gọi trên các yêu cầu tạo văn bản.
 * `minimum_client_version` là một chuỗi tùy chọn chỉ định phiên bản SillyTavern tối thiểu cần thiết để extension này hoạt động.
+* `hooks` là một đối tượng tùy chọn chỉ định tên hàm [lifecycle hook](#lifecycle-hooks) được export từ module JS entry point.
 
 ### Dependencies
 
@@ -130,6 +139,12 @@ Ví dụ:
 Để kiểm tra module nào hiện đang được cung cấp bởi Extras API được kết nối, hãy import mảng `modules` từ `scripts/extensions.js`.
 
 ## Scripting
+
+### Thực hành tốt nhất cho việc khởi tạo extension
+
+* Sử dụng hook `activate` cho việc thiết lập đồng bộ cần chạy trong giai đoạn tải của SillyTavern trong khi loader chặn vẫn đang hoạt động.
+* Sử dụng sự kiện `APP_INITIALIZED` cho việc thiết lập cần chạy sau khi tất cả extension và các thành phần giao diện đã được tải và thiết lập, nhưng trong khi loader vẫn đang chặn.
+* Sử dụng sự kiện `APP_READY` cho việc thiết lập không đồng bộ không cần chặn SillyTavern khỏi việc sẵn sàng sử dụng. Nó nên sử dụng một timer hoặc cơ chế tương tự để trì hoãn việc xử lý, vì trình xử lý sự kiện sẽ được await.
 
 ### Sử dụng getContext
 
@@ -156,12 +171,27 @@ Nếu bạn thiếu bất kỳ hàm/thuộc tính nào trong `getContext`, vui l
 Hầu hết các thư viện npm được sử dụng nội bộ bởi frontend SillyTavern được chia sẻ trong thuộc tính `libs` của đối tượng toàn cục `SillyTavern`.
 
 * `lodash` - Thư viện tiện ích. [Docs](https://lodash.com/).
-* `localforage` - Thư viện lưu trữ trình duyệt. [Docs](https://localforage.github.io/localForage/).
 * `Fuse` - Thư viện tìm kiếm mờ. [Docs](https://www.fusejs.io/).
 * `DOMPurify` - Thư viện làm sạch HTML. [Docs](https://github.com/cure53/DOMPurify).
+* `hljs` - Thư viện làm nổi bật cú pháp. [Docs](https://highlightjs.org/).
+* `localforage` - Thư viện lưu trữ trình duyệt (lớp trừu tượng IndexedDB/localStorage). [Docs](https://localforage.github.io/localForage/).
 * `Handlebars` - Thư viện templating. [Docs](https://handlebarsjs.com/).
-* `moment` - Thư viện thao tác ngày/giờ. [Docs](http://momentjs.com/).
+* `css` - Công cụ phân tích/chuyển đổi CSS. [Docs](https://github.com/nicolo-ribaudo/css-tools).
+* `Bowser` - Thư viện phát hiện trình duyệt/nền tảng. [Docs](https://github.com/bowser-js/bowser).
+* `DiffMatchPatch` - Thư viện diff, so khớp và vá văn bản. [Docs](https://github.com/google/diff-match-patch).
+* `Readability` / `isProbablyReaderable` - Thư viện trích xuất bài viết của Mozilla. [Docs](https://github.com/mozilla/readability).
+* `SVGInject` - Thư viện chèn SVG nội tuyến. [Docs](https://github.com/nicolo-ribaudo/svg-inject).
 * `showdown` - Thư viện chuyển đổi Markdown. [Docs](https://showdownjs.com/).
+* `moment` - Thư viện thao tác ngày/giờ. [Docs](http://momentjs.com/).
+* `seedrandom` - Trình tạo số ngẫu nhiên có seed. [Docs](https://github.com/davidbau/seedrandom).
+* `Popper` - Công cụ định vị tooltip/popover. [Docs](https://popper.js.org/).
+* `droll` - Thư viện tung xúc xắc. [Docs](https://github.com/thebinarypenguin/droll).
+* `morphdom` - Thư viện diffing/vá DOM nhanh. [Docs](https://github.com/patrick-steele-iber/morphdom).
+* `slideToggle` - Hiệu ứng trượt bật/tắt bằng JS thuần. [Docs](https://github.com/nicolo-ribaudo/slidetoggle).
+* `chalk` - Tạo kiểu chuỗi terminal (sử dụng hạn chế trong trình duyệt). [Docs](https://github.com/chalk/chalk).
+* `yaml` - Trình phân tích và chuyển đổi YAML. [Docs](https://eemeli.org/yaml/).
+* `chevrotain` - Bộ công cụ xây dựng parser. [Docs](https://chevrotain.io/).
+* `gzipSync` / `gzip` - Các tiện ích nén nhanh từ fflate. [Docs](https://github.com/101arrowz/fflate).
 
 Bạn có thể tìm thấy danh sách đầy đủ các thư viện được xuất trong [mã nguồn SillyTavern](https://github.com/SillyTavern/SillyTavern/blob/staging/public/lib.js).
 
@@ -192,6 +222,49 @@ declare global {
     // Add global type declarations here
 }
 ```
+
+### HTML templates
+
+Extension có thể sử dụng template HTML Handlebars để xây dựng giao diện của chúng. Đặt các file template `.html` trong thư mục extension của bạn và render chúng bằng hàm `renderExtensionTemplateAsync()` từ `getContext()`.
+
+Hàm này nhận tên thư mục extension của bạn, tên file template (không có `.html`), và một đối tượng dữ liệu tùy chọn cho các biến template Handlebars. HTML trả về được tự động làm sạch bằng DOMPurify và bản địa hóa với các thuộc tính `data-i18n`.
+
+```js
+const { renderExtensionTemplateAsync } = SillyTavern.getContext();
+
+// Renders 'third-party/my-extension/settings.html' with the given data
+const settingsHtml = await renderExtensionTemplateAsync(
+    'third-party/my-extension',
+    'settings',
+    { title: 'My Extension', version: '1.0', defaultValue: 'test' }
+);
+
+// Append to the extensions settings panel
+$('#extensions_settings2').append(settingsHtml);
+```
+
+**Ví dụ file template** (`settings.html`):
+
+```html
+<div class="my-extension-settings">
+    <div class="inline-drawer">
+        <div class="inline-drawer-toggle inline-drawer-header">
+            <b data-i18n="{{title}}">{{title}}</b>
+            <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+        </div>
+        <div class="inline-drawer-content">
+            <label for="my_ext_option">
+                <span data-i18n="Option">Option</span>
+            </label>
+            <input id="my_ext_option" type="text" value="{{defaultValue}}" />
+        </div>
+    </div>
+</div>
+```
+
+!!!warning
+`renderExtensionTemplate()` (đồng bộ) đã lỗi thời. Luôn sử dụng `renderExtensionTemplateAsync()` thay thế.
+!!!
 
 ### Import từ các file khác
 
@@ -459,18 +532,75 @@ function handleIncomingMessage(data) {
 
 Các loại sự kiện chính là:
 
+**Vòng đời ứng dụng:**
+
+* `APP_INITIALIZED`: ứng dụng đã được khởi tạo và gần sẵn sàng, nhưng loader vẫn đang hiển thị. Các sửa đổi giao diện có thể được thực hiện tại đây. Nó sẽ tự động kích hoạt mỗi khi một listener mới được đính kèm sau khi ứng dụng được khởi tạo.
 * `APP_READY`: ứng dụng đã được tải đầy đủ và sẵn sàng sử dụng. Nó sẽ tự động kích hoạt mỗi khi một listener mới được đính kèm sau khi ứng dụng sẵn sàng.
-* `MESSAGE_RECEIVED`: tin nhắn LLM được tạo và ghi vào đối tượng `chat` nhưng chưa được hiển thị trong giao diện người dùng.
+
+**Tin nhắn:**
+
 * `MESSAGE_SENT`: tin nhắn được gửi bởi người dùng và ghi vào đối tượng `chat` nhưng chưa được hiển thị trong giao diện người dùng.
+* `MESSAGE_RECEIVED`: tin nhắn LLM được tạo và ghi vào đối tượng `chat` nhưng chưa được hiển thị trong giao diện người dùng.
 * `USER_MESSAGE_RENDERED`: tin nhắn được gửi bởi người dùng được hiển thị trong giao diện người dùng.
 * `CHARACTER_MESSAGE_RENDERED`: tin nhắn LLM được tạo được hiển thị trong giao diện người dùng.
-* `CHAT_CHANGED`: cuộc trò chuyện đã được chuyển đổi (ví dụ: chuyển sang nhân vật khác hoặc cuộc trò chuyện khác được tải).
+* `MESSAGE_EDITED`: một tin nhắn đã được người dùng chỉnh sửa.
+* `MESSAGE_DELETED`: một tin nhắn đã bị xóa.
+* `MESSAGE_SWIPED`: một lượt swipe tin nhắn đã được kích hoạt.
+* `STREAM_TOKEN_RECEIVED`: một token mới đã được nhận trong quá trình tạo streaming.
+
+**Tạo:**
+
 * `GENERATION_AFTER_COMMANDS`: việc tạo sắp bắt đầu sau khi xử lý các slash command.
+* `GENERATION_STARTED`: việc tạo đã bắt đầu.
 * `GENERATION_STOPPED`: việc tạo đã bị dừng bởi người dùng.
 * `GENERATION_ENDED`: việc tạo đã hoàn thành hoặc đã gặp lỗi.
-* `SETTINGS_UPDATED`: cài đặt ứng dụng đã được cập nhật.
 
-Phần còn lại có thể được tìm thấy [trong mã nguồn](https://github.com/SillyTavern/SillyTavern/blob/staging/public/scripts/events.js).
+**Trò chuyện:**
+
+* `CHAT_CHANGED`: cuộc trò chuyện đã được chuyển đổi (ví dụ: chuyển sang nhân vật khác hoặc cuộc trò chuyện khác được tải).
+* `CHAT_CREATED`: một cuộc trò chuyện mới đã được tạo.
+* `CHAT_DELETED`: một cuộc trò chuyện đã bị xóa.
+
+**Nhân vật:**
+
+* `CHARACTER_EDITED`: dữ liệu của một nhân vật đã bị thay đổi.
+* `CHARACTER_DELETED`: một nhân vật đã bị xóa.
+* `CHARACTER_DUPLICATED`: một nhân vật đã được nhân bản.
+
+**Persona:**
+
+* `PERSONA_CHANGED`: persona đang hoạt động đã được thay đổi.
+* `PERSONA_CREATED`: một persona mới đã được tạo.
+* `PERSONA_UPDATED`: một persona đã được cập nhật.
+* `PERSONA_RENAMED`: một persona đã được đổi tên.
+* `PERSONA_DELETED`: một persona đã bị xóa.
+
+**Cài đặt và preset:**
+
+* `SETTINGS_UPDATED`: cài đặt ứng dụng đã được cập nhật.
+* `PRESET_CHANGED`: preset đang hoạt động đã được thay đổi.
+* `MAIN_API_CHANGED`: loại API chính đã được chuyển đổi.
+* `CHATCOMPLETION_SOURCE_CHANGED`: nguồn chat completion đã thay đổi.
+* `CHATCOMPLETION_MODEL_CHANGED`: model chat completion đã thay đổi.
+* `CONNECTION_PROFILE_LOADED`: một connection profile đã được tải.
+
+**World Info:**
+
+* `WORLDINFO_UPDATED`: dữ liệu world info đã được cập nhật.
+* `WORLDINFO_SETTINGS_UPDATED`: cài đặt world info đã được thay đổi.
+
+**Tool calling:**
+
+* `TOOL_CALLS_PERFORMED`: các tool call đã được thực thi.
+* `TOOL_CALLS_RENDERED`: kết quả tool call đã được hiển thị trong trò chuyện.
+
+**Text-to-Speech:**
+
+* `TTS_JOB_STARTED`: một tác vụ TTS đã bắt đầu.
+* `TTS_AUDIO_READY`: dữ liệu âm thanh TTS đã sẵn sàng để phát.
+* `TTS_JOB_COMPLETE`: một tác vụ TTS đã hoàn thành.
+
+Danh sách đầy đủ các loại sự kiện có thể được tìm thấy [trong mã nguồn](https://github.com/SillyTavern/SillyTavern/blob/staging/public/scripts/events.js).
 
 !!!info Dữ liệu sự kiện
 Cách mỗi sự kiện truyền dữ liệu của nó cho listener không đồng nhất. Một số sự kiện không phát ra bất kỳ dữ liệu nào; một số truyền một đối tượng hoặc một giá trị nguyên thủy. Vui lòng tham khảo mã nguồn nơi sự kiện được phát ra để xem dữ liệu nào nó truyền, hoặc kiểm tra với debugger.
@@ -535,6 +665,94 @@ globalThis.myCustomInterceptorFunction = async function(chat, contextSize, abort
     chat.splice(chat.length - 1, 0, systemNote);
 }
 ```
+
+## Lifecycle Hooks
+
+Extension có thể định nghĩa các lifecycle hook trong `manifest.json` được gọi tại các điểm cụ thể trong vòng đời của extension. Mỗi hook ánh xạ đến một **hàm được export** từ module JS entry point của extension (file được chỉ định trong trường `js`).
+
+Tất cả các hook đều là tùy chọn. Hàm hook có thể trả về một `Promise` sẽ được await (với timeout 5 giây). Nếu một hook vượt quá thời gian chờ, một cảnh báo sẽ được ghi log và việc thực thi tiếp tục. Lỗi trong hook được bắt và ghi log mà không chặn hoạt động.
+
+### Các hook có sẵn
+
+| Hook | Khi nào được gọi |
+|------|-----------------|
+| `activate` | Khi extension được kích hoạt thành công trong quá trình tải trang |
+| `install` | Sau khi extension được cài đặt và cài đặt của nó được tải |
+| `update` | Sau khi cập nhật extension thành công (trước toast thông báo tải lại) |
+| `delete` | Trước khi extension bị xóa khỏi server |
+| `enable` | Trước khi extension được bật và cài đặt được lưu |
+| `disable` | Trước khi extension bị tắt và cài đặt được lưu |
+| `clean` | Khi người dùng nhấp vào nút "Clean extension data" trong trình quản lý extension, hoặc chọn một tùy chọn để dọn dẹp khi xóa extension |
+
+### Cấu hình manifest
+
+Thêm một đối tượng `hooks` vào `manifest.json` của bạn ánh xạ tên hook đến tên hàm được export:
+
+```json
+{
+    "display_name": "My Extension",
+    "js": "index.js",
+    // Other fields here...
+    "hooks": {
+        "install": "onInstall",
+        "update": "onUpdate",
+        "delete": "onDelete",
+        "enable": "onEnable",
+        "disable": "onDisable",
+        "activate": "onActivate",
+        "clean": "onClean"
+    }
+}
+```
+
+Tên có thể được chọn tự do, miễn là chúng là tên hàm JS hợp lệ.
+Bạn có thể cấu hình bao nhiêu hook tùy thích, bạn không cần phải điền và triển khai tất cả chúng.
+
+### Triển khai
+
+Export các hàm hook từ JS entry point chính của bạn. Mỗi hàm không nhận tham số và có thể tùy chọn trả về một `Promise`:
+
+```js
+// index.js - your extension's entry point
+
+export async function onInstall() {
+    console.log('Extension installed! Performing first-time setup...');
+    // e.g., initialize default data, create storage entries
+}
+
+export async function onActivate() {
+    console.log('Extension activated during page load');
+}
+
+export async function onUpdate() {
+    console.log('Extension updated! Running migrations...');
+    // e.g., migrate data from old format to new format
+}
+
+export async function onDelete() {
+    console.log('Extension about to be deleted. Cleaning up...');
+    // e.g., remove stored data, clean up localStorage
+    const { localforage } = SillyTavern.libs;
+    await localforage.removeItem('my_extension_data');
+}
+
+export function onEnable() {
+    console.log('Extension enabled');
+}
+
+export function onDisable() {
+    console.log('Extension disabled');
+}
+
+export async function onClean() {
+    console.log('Extension data cleaned');
+    // e.g., cleanup of the extension's data here
+}
+```
+
+!!!warning
+Hàm hook có **timeout 5 giây**. Nếu hook của bạn mất nhiều thời gian hơn, việc thực thi sẽ tiếp tục và một cảnh báo sẽ được ghi log. Giữ cho logic hook nhanh và nhẹ.
+!!!
 
 ## Tạo văn bản
 
@@ -655,34 +873,408 @@ const quietResult = await generateQuietPrompt({
 
 Bạn có thể đăng ký các macro tùy chỉnh có thể được sử dụng ở bất cứ đâu hỗ trợ thay thế macro, ví dụ: trong các trường character card, lệnh STscript, template prompt, v.v.
 
-Để đăng ký một macro, sử dụng hàm `registerMacro()` từ đối tượng `SillyTavern.getContext()`. Hàm chấp nhận một tên macro phải là một chuỗi duy nhất, và một chuỗi hoặc một hàm trả về một chuỗi. Hàm sẽ được gọi với một chuỗi `nonce` duy nhất sẽ khác nhau giữa mỗi lần gọi `substituteParams`.
+### Hệ thống macro mới
+
+Cách được khuyến nghị để đăng ký macro là thông qua hàm `macros.register()` có sẵn qua `SillyTavern.getContext()`. Hệ thống này hỗ trợ các tham số, danh mục, mô tả và metadata tài liệu phong phú.
 
 ```js
-const { registerMacro } = SillyTavern.getContext();
+const { macros } = SillyTavern.getContext();
 
-// Simple string macro
-registerMacro('fizz', 'buzz');
-// Function macro
-registerMacro('tomorrow', () => {
-    return new Date(Date.now() + 24 * 60 * 60 * 1000).toLocaleDateString();
+// Simple macro with a handler function
+macros.register('tomorrow', {
+    description: 'Returns tomorrow\'s date',
+    handler: () => {
+        return new Date(Date.now() + 24 * 60 * 60 * 1000).toLocaleDateString();
+    },
+});
+
+// Macro with unnamed arguments and a category
+macros.register('greet', {
+    description: 'Generates a greeting for the given name',
+    category: macros.category.UTILITY,
+    unnamedArgs: [
+        { name: 'name', description: 'The name to greet' },
+    ],
+    handler: ({ unnamedArgs }) => {
+        const [name] = unnamedArgs;
+        return `Hello, ${name}!`;
+    },
 });
 ```
 
-Khi một macro tùy chỉnh không còn cần thiết nữa, hãy xóa nó bằng hàm `unregisterMacro()`:
+Hàm `handler` nhận một đối tượng [MacroExecutionContext](https://github.com/SillyTavern/SillyTavern/blob/staging/public/scripts/macros/engine/MacroRegistry.js) chứa
+
+* `args` - Tất cả các tham số không có tên được truyền vào macro.
+* `unnamedArgs` - Các tham số vị trí khớp với danh sách tham số được định nghĩa.
+* `list` - Các tham số dạng danh sách (sau các tham số không có tên), hoặc `null` nếu list không được bật.
+* `env` - Môi trường macro với quyền truy cập vào dữ liệu nhân vật, trạng thái trò chuyện, v.v.
+* `resolve(text)` - Hàm để phân giải các macro lồng nhau trong văn bản (khi `delayArgResolution` là `true`).
+
+Và nhiều hơn nữa.
+
+Handler sẽ chạy đồng bộ, vì vậy chúng không bao giờ có thể trả về một `Promise` hoặc gọi các hành động không đồng bộ một cách đồng bộ.
+
+Để hủy đăng ký một macro:
 
 ```js
-const { unregisterMacro } = SillyTavern.getContext();
+const { macros } = SillyTavern.getContext();
 
-// Unregister the 'fizz' macro
+macros.registry.unregisterMacro('greet');
+```
+
+Bạn cũng có thể đăng ký các alias cho các macro hiện có:
+
+```js
+const { macros } = SillyTavern.getContext();
+
+macros.registerAlias('greet', 'hello', { visible: true });
+```
+
+### Hệ thống macro cũ (đã lỗi thời)
+
+!!!warning
+`registerMacro()` và `unregisterMacro()` từ `getContext()` đã **lỗi thời**. Sử dụng `macros.register()` và `macros.registry.unregisterMacro()` thay thế.
+!!!
+
+API cũ vẫn khả dụng để tương thích ngược, nhưng sẽ bị loại bỏ trong một bản phát hành tương lai:
+
+```js
+const { registerMacro, unregisterMacro } = SillyTavern.getContext();
+
+// Simple string macro
+registerMacro('fizz', 'buzz');
+// Function macro (must be synchronous)
+registerMacro('tomorrow', () => {
+    return new Date(Date.now() + 24 * 60 * 60 * 1000).toLocaleDateString();
+});
+
+// Unregister
 unregisterMacro('fizz');
 ```
 
-**Chi tiết quan trọng và hạn chế đã biết liên quan đến macro tùy chỉnh:**
+## Message formatting hooks
 
-1. Hiện tại chỉ hỗ trợ các macro thay thế chuỗi đơn giản. Chúng tôi đang làm việc để thêm hỗ trợ cho các macro phức tạp hơn trong tương lai.
-2. Các macro sử dụng hàm để cung cấp giá trị *phải* là đồng bộ. Trả về một `Promise` sẽ không hoạt động.
-3. Bạn không cần bao bọc tên macro trong dấu ngoặc nhọn kép (`{{ }}`) khi đăng ký nó. SillyTavern sẽ làm điều đó cho bạn.
-4. Vì macro là các thay thế biểu thức chính quy thuần túy, việc đăng ký nhiều macro sẽ gây ra vấn đề về hiệu suất, vì vậy hãy sử dụng chúng một cách tiết kiệm.
+!!!warning Tính năng Staging
+Điều này hiện chỉ khả dụng trên nhánh `staging` của SillyTavern, và không phải là một phần của bản phát hành mới nhất.
+!!!
+
+Extension có thể móc vào pipeline định dạng tin nhắn để biến đổi văn bản tin nhắn trước khi nó đến DOM. Điều này hữu ích để thêm chú thích (ruby tag, tooltip), làm nổi bật, hoặc các biến đổi văn bản tùy chỉnh.
+
+!!!warning
+Hook chạy đồng bộ và **phải trả về một chuỗi**. Các hàm async và các giá trị trả về không phải chuỗi sẽ ném ra một `TypeError` tại thời điểm đăng ký hoặc bị bỏ qua một cách âm thầm khi chạy với một cảnh báo trên console. Không thực hiện các hoạt động tốn kém trong các hook này — chúng chạy trên mỗi lần render tin nhắn.
+!!!
+
+### Các giai đoạn pipeline
+
+Hook có thể được đăng ký cho ba giai đoạn pipeline. Tất cả các giai đoạn chạy **trước** khi làm sạch bằng DOMPurify, vì vậy đầu ra luôn an toàn:
+
+| Giai đoạn | Khi nào nó chạy | Định dạng văn bản |
+|-------|--------------|-------------|
+| `beforeRegex` | Sau khi loại bỏ prompt-bias, trước các quy tắc regex tùy chỉnh | Văn bản thuần |
+| `afterRegex` | Sau các quy tắc regex tùy chỉnh, trước khi chuyển đổi Markdown | Văn bản thuần |
+| `afterMarkdown` | Sau khi chuyển đổi Markdown sang HTML (showdown), trước DOMPurify | Chuỗi HTML |
+
+Giai đoạn `afterMarkdown` là mặc định và là điểm chèn phổ biến nhất cho các extension muốn chú thích HTML đã render.
+
+### Đăng ký một hook
+
+Truy cập `messageFormatter` từ `getContext()`:
+
+```js
+const { messageFormatter } = SillyTavern.getContext();
+
+// Simple hook - transforms message text
+messageFormatter.addHook((mes, ctx) => {
+    // Skip user messages
+    if (ctx.isUser) return mes;
+
+    // Add furigana to Japanese text
+    return addFurigana(mes);
+});
+
+// Hook with explicit stage and order
+messageFormatter.addHook((mes, ctx) => {
+    // Transform after Markdown conversion but before sanitization
+    return mes.replace(/\*\*(.+?)\*\*/g, '<mark>$1</mark>');
+}, {
+    stage: messageFormatter.stage.AFTER_MARKDOWN,
+    order: messageFormatter.order.EARLY,
+});
+```
+
+### Ngữ cảnh hook
+
+Hook nhận một đối tượng ngữ cảnh bất biến với metadata tin nhắn:
+
+| Thuộc tính | Kiểu | Mô tả |
+|----------|------|-------------|
+| `characterName` | `string` | Tên nhân vật liên kết với tin nhắn |
+| `isSystem` | `boolean` | Tin nhắn có phải là tin nhắn hệ thống hay không |
+| `isUser` | `boolean` | Tin nhắn có được gửi bởi người dùng hay không |
+| `messageId` | `number` | Chỉ số của tin nhắn trong mảng chat, hoặc `-1` cho các tin nhắn tạm thời (bản xem trước streaming) |
+| `isReasoning` | `boolean` | Tin nhắn có phải là đầu ra reasoning/thinking hay không |
+| `stage` | `string` | Giai đoạn pipeline hiện đang được thực thi |
+
+Đối tượng ngữ cảnh được đóng băng bằng `Object.freeze()` — việc cố gắng sửa đổi nó sẽ không có tác dụng.
+
+### Thứ tự hook
+
+Các hook trong một giai đoạn chạy theo thứ tự tăng dần. Sử dụng tùy chọn `order` để kiểm soát thứ tự thực thi:
+
+```js
+const { hook_order } = messageFormatter;
+
+// Predefined constants
+hook_order.EARLIEST;  // 0
+hook_order.EARLY;     // 10
+hook_order.NORMAL;    // 50 (default)
+hook_order.LATE;      // 90
+hook_order.LATEST;    // 100
+
+// Custom numeric value
+messageFormatter.addHook(myHook, { order: 25 });
+```
+
+Số nhỏ hơn chạy trước. Điều này hữu ích khi nhiều extension biến đổi cùng một văn bản — ví dụ, một extension có thể trích xuất dữ liệu sớm, và một extension khác có thể định dạng nó sau đó.
+
+### Xử lý lỗi
+
+Việc thực thi hook được bọc trong try/catch. Nếu một hook ném lỗi, nó sẽ bị bỏ qua và một lỗi console được ghi log — pipeline tiếp tục với các hook còn lại.
+
+Nếu một hook trả về một giá trị không phải chuỗi (bao gồm `undefined` hoặc một `Promise`), một cảnh báo console sẽ được phát ra và giá trị trả về sẽ bị bỏ qua. Pipeline tiếp tục với văn bản trước đó không thay đổi.
+
+### Thứ tự pipeline đầy đủ
+
+Để tham khảo, pipeline định dạng tin nhắn hoàn chỉnh là:
+
+1. Loại bỏ prompt-bias (chỉ tin nhắn 0)
+2. Chuẩn hóa comment / tin nhắn ẩn
+3. Hook extension `beforeRegex`
+4. Các quy tắc regex tùy chỉnh (`getRegexedString`)
+5. Hook extension `afterRegex`
+6. Tự động sửa Markdown (`fixMarkdown`)
+7. Mã hóa thẻ HTML (`encode_tags`)
+8. Chuyển đổi Showdown Markdown → HTML
+9. Hook extension `afterMarkdown`
+10. Loại bỏ tiền tố tên (`allow_name2_display`)
+11. Làm sạch DOMPurify
+
+Tất cả các hook extension (bước 3, 5, 9) chạy **trước** DOMPurify để đầu ra của chúng luôn được làm sạch.
+
+## Function tool calling
+
+Extension có thể đăng ký các function tool tùy chỉnh mà LLM có thể gọi trong quá trình chat completion. Điều này cho phép extension của bạn phản ứng với dữ liệu có cấu trúc từ model — ví dụ, truy vấn API, thực hiện tính toán, hoặc kích hoạt các tính năng của extension.
+
+Để có hướng dẫn đầy đủ bao gồm các yêu cầu tiên quyết, API được hỗ trợ, các trường đăng ký, và mẹo, xem trang [Function Calling](./Function-Calling.md) chuyên dụng.
+
+**Ví dụ nhanh:**
+
+```js
+const { registerFunctionTool } = SillyTavern.getContext();
+
+registerFunctionTool({
+    name: 'get_weather',
+    displayName: 'Get Weather',
+    description: 'Get the current weather for a given location',
+    parameters: {
+        $schema: 'http://json-schema.org/draft-04/schema#',
+        type: 'object',
+        properties: {
+            location: { type: 'string', description: 'City name' },
+        },
+        required: ['location'],
+    },
+    action: async ({ location }) => {
+        const data = await fetchWeatherData(location);
+        return JSON.stringify(data);
+    },
+});
+```
+
+## Action loader
+
+Action loader cung cấp một lớp phủ tải và hệ thống thông báo toast cho các hoạt động chạy lâu. Nó thay thế các hàm `showLoader()` / `hideLoader()` đã lỗi thời.
+
+Truy cập nó qua `loader` từ `getContext()`:
+
+```js
+const { loader } = SillyTavern.getContext();
+
+// Basic blocking loader with a stoppable toast
+const handle = loader.show({ message: 'Processing data...' });
+try {
+    const result = await someExpensiveOperation();
+} finally {
+    await handle.hide();
+}
+```
+
+### Tùy chọn
+
+| Tùy chọn | Mặc định | Mô tả |
+|--------|---------|-------------|
+| `blocking` | `true` | Hiển thị một lớp phủ toàn màn hình chặn tương tác |
+| `message` | `'Generating...'` | Thông điệp được hiển thị trong thông báo toast |
+| `title` | `''` | Tiêu đề tùy chọn cho toast |
+| `toastMode` | `'stoppable'` | `'stoppable'` (có nút dừng), `'static'` (không có nút), hoặc `'none'` (không có toast) |
+| `stopTooltip` | `'Stop'` | Văn bản tooltip cho nút dừng |
+| `onStop` | `null` | Trình xử lý dừng tùy chỉnh. Mặc định là `stopGeneration()` |
+| `onHide` | `null` | Được gọi khi loader bị ẩn (không phải dừng) |
+| `overlayContent` | `null` | Phần tử HTML hoặc chuỗi tùy chỉnh thay thế spinner mặc định |
+
+### Xếp chồng loader
+
+Nhiều loader có thể hoạt động đồng thời. Lớp phủ vẫn hiển thị miễn là có ít nhất một blocking loader đang hoạt động:
+
+```js
+const { loader } = SillyTavern.getContext();
+
+const loader1 = loader.show({ message: 'Task 1...' });
+const loader2 = loader.show({ message: 'Task 2...' });
+await loader1.hide(); // Overlay stays — loader2 is still active
+await loader2.hide(); // Now overlay hides
+```
+
+### Loader không chặn
+
+Đối với các tác vụ nền không nên chặn giao diện:
+
+```js
+const { loader } = SillyTavern.getContext();
+
+const handle = loader.show({
+    blocking: false,
+    message: 'Downloading in background...',
+    onStop: () => abortDownload(),
+});
+```
+
+## Popups và phản hồi người dùng
+
+### Popup helper
+
+SillyTavern cung cấp các popup helper tiện lợi qua `Popup.show` từ `getContext()`:
+
+```js
+const { Popup } = SillyTavern.getContext();
+
+// Confirmation dialog — returns POPUP_RESULT.AFFIRMATIVE or POPUP_RESULT.NEGATIVE
+const confirmed = await Popup.show.confirm('Confirm Action', 'Are you sure you want to proceed?');
+
+// Text input dialog — returns the entered string, or null if cancelled
+const userInput = await Popup.show.input('Enter Name', 'Please provide a name:', 'default value');
+
+// Information display — returns the clicked button result
+await Popup.show.text('Info', 'Operation completed successfully.');
+```
+
+### Popup tùy chỉnh
+
+Đối với các popup phức tạp hơn, khởi tạo `Popup` trực tiếp với đầy đủ tùy chọn:
+
+```js
+const { Popup, POPUP_TYPE, POPUP_RESULT } = SillyTavern.getContext();
+
+const popup = new Popup(
+    '<div>Custom HTML content here</div>',
+    POPUP_TYPE.TEXT,
+    '',
+    {
+        wide: true,              // Wide display mode
+        okButton: 'Save',       // Custom OK button text
+        cancelButton: 'Discard', // Custom Cancel button text
+        customButtons: [
+            {
+                text: 'Export',
+                icon: 'fa-download',
+                result: POPUP_RESULT.CUSTOM1,
+            },
+        ],
+        customInputs: [
+            {
+                id: 'my_checkbox',
+                label: 'Enable feature',
+                type: 'checkbox',
+                defaultState: false,
+            },
+        ],
+        allowVerticalScrolling: true,
+    }
+);
+
+const result = await popup.show();
+
+if (result === POPUP_RESULT.AFFIRMATIVE) {
+    // OK was clicked
+} else if (result === POPUP_RESULT.CUSTOM1) {
+    // Export button was clicked
+}
+
+// Read custom input values
+const checkboxValue = popup.inputResults?.get('my_checkbox');
+```
+
+### Các loại Popup
+
+| Loại | Mô tả |
+|------|-------------|
+| `POPUP_TYPE.TEXT` | Popup nội dung chung với các nút |
+| `POPUP_TYPE.CONFIRM` | Hộp thoại xác nhận Có/Không |
+| `POPUP_TYPE.INPUT` | Popup với một trường nhập văn bản |
+| `POPUP_TYPE.DISPLAY` | Popup chỉ có nội dung với một nút đóng |
+| `POPUP_TYPE.CROP` | Popup cắt hình ảnh |
+
+### Thông báo Toast
+
+Đối với phản hồi nhẹ, sử dụng `toastr` (khả dụng toàn cục):
+
+```js
+toastr.success('Data saved successfully');
+toastr.error('Failed to connect to API');
+toastr.warning('This feature is experimental');
+toastr.info('Processing...');
+```
+
+## Data bank scraper
+
+Extension có thể đăng ký các data scraper tùy chỉnh cho tính năng Data Bank. Scraper cung cấp một cách để nhập dữ liệu từ các nguồn tùy chỉnh (ví dụ: trang web, API, định dạng file):
+
+```js
+const { registerDataBankScraper } = SillyTavern.getContext();
+
+await registerDataBankScraper({
+    id: 'my_scraper',
+    name: 'My Data Source',
+    description: 'Import data from My Data Source',
+    iconClass: 'fa-solid fa-database',
+    iconAvailable: true,
+    isAvailable: async () => true,
+    scrape: async () => {
+        // Return an array of File objects
+        const content = await fetchDataFromSource();
+        return [new File([content], 'data.txt', { type: 'text/plain' })];
+    },
+});
+```
+
+## Debug functions
+
+Extension có thể đăng ký các hàm debug tùy chỉnh xuất hiện trong Debug Menu (có thể truy cập qua cài đặt power user). Điều này hữu ích để lộ diện các công cụ chẩn đoán, chức năng cache/cleanup hoặc các trigger thủ công trong quá trình phát triển:
+
+```js
+const { registerDebugFunction } = SillyTavern.getContext();
+
+registerDebugFunction(
+    'my_ext_clear_cache',        // Unique function ID
+    'Clear My Extension Cache',   // Display name
+    'Clears all cached data for My Extension', // Description
+    async () => {
+        const { localforage } = SillyTavern.libs;
+        await localforage.removeItem('my_extension_cache');
+        toastr.success('Cache cleared');
+    }
+);
+```
 
 ## Thực hiện yêu cầu Extras
 
@@ -728,3 +1320,156 @@ Bạn có thể chỉ định:
 * Các header bổ sung
 * Body cho các yêu cầu POST
 * Bất kỳ tùy chọn fetch nào khác
+
+## Thực hành tốt nhất
+
+### Bảo mật
+
+**Không bao giờ lưu trữ API key hoặc bí mật trong `extensionSettings`**
+
+Cài đặt extension có thể truy cập được bởi tất cả các extension khác và được lưu trữ dưới dạng văn bản thuần. Không lưu trữ dữ liệu nhạy cảm ở phía client:
+
+```js
+// BAD - Don't do this!
+extensionSettings[MODULE_NAME].apiKey = 'secret_key_123';
+
+// NOTE: There is no secure way to store secrets in client-side extensions.
+// If you need to handle sensitive data, use server plugins instead.
+// See: https://docs.sillytavern.app/for-contributors/server-plugins/
+```
+
+**Làm sạch đầu vào của người dùng**
+
+Luôn xác thực và làm sạch dữ liệu từ đầu vào của người dùng trước khi sử dụng nó trong các lệnh, lời gọi API, hoặc thao tác DOM:
+
+```js
+// Validate input type first
+if (typeof userInput !== 'string') {
+    toastr.error('Invalid input type');
+    return;
+}
+// Use DOMPurify to sanitize HTML input
+const { DOMPurify } = SillyTavern.libs;
+const cleanInput = DOMPurify.sanitize(userInput);
+```
+
+**Tránh sử dụng `eval()` hoặc các constructor `Function()`**
+
+Chúng có thể thực thi mã tùy ý và gây ra rủi ro bảo mật. Nếu bạn cần đánh giá động, hãy sử dụng các phương án thay thế an toàn hơn hoặc hạn chế đầu vào một cách cẩn thận.
+
+### Hiệu năng
+
+**Không lưu trữ dữ liệu lớn trong `extensionSettings`**
+
+Cài đặt extension được tải vào bộ nhớ và lưu thường xuyên. Dữ liệu lớn có thể gây ra vấn đề về hiệu năng:
+
+```js
+// BAD - Don't store large data
+extensionSettings[MODULE_NAME].largeDataset = { /* megabytes of data */ };
+
+// GOOD - Use localforage (abstraction over IndexedDB/localStorage)
+const { localforage } = SillyTavern.libs;
+await localforage.setItem(`${MODULE_NAME}_data`, largeData);
+
+// Or use localStorage for smaller data
+localStorage.setItem(`${MODULE_NAME}_data`, JSON.stringify(smallData));
+```
+
+**Dọn dẹp các event listener**
+
+Loại bỏ các event listener khi chúng không còn cần thiết để tránh rò rỉ bộ nhớ:
+
+```js
+function cleanup() {
+    eventSource.removeListener(event_types.MESSAGE_RECEIVED, handleMessage);
+    document.getElementById('myElement').removeEventListener('click', handleClick);
+}
+```
+
+**Không chặn luồng giao diện (UI thread)**
+
+Đối với các hoạt động nặng, sử dụng async/await hoặc web worker:
+
+```js
+// Use async for I/O operations
+async function processData() {
+    const result = await fetch('/api/process');
+    return result.json();
+}
+
+// Break up heavy computations
+async function heavyComputation(data) {
+    for (let i = 0; i < data.length; i++) {
+        // Process chunk
+        if (i % 1000 === 0) {
+            await new Promise(resolve => setTimeout(resolve, 0)); // Yield to UI
+        }
+    }
+}
+```
+
+### Khả năng tương thích
+
+**Ưu tiên `getContext()` hơn là import trực tiếp**
+
+API ngữ cảnh ổn định hơn và ít có khả năng bị hỏng khi SillyTavern cập nhật:
+
+```js
+// GOOD - Stable API
+const { chat, characters, saveSettingsDebounced } = SillyTavern.getContext();
+
+// AVOID - May break with internal changes
+import { chat, characters } from '../../../../script.js';
+```
+
+**Sử dụng tên module duy nhất**
+
+Ngăn chặn xung đột với các extension khác bằng cách sử dụng một tên module mô tả, duy nhất:
+
+```js
+// GOOD - Specific and unique
+const MODULE_NAME = 'my_extension_name';
+
+// BAD - Too generic, likely to conflict
+const MODULE_NAME = 'settings';
+```
+
+### Trải nghiệm người dùng
+
+**Cung cấp phản hồi rõ ràng**
+
+Sử dụng `toastr` cho các thông báo nhẹ và `Popup` cho các tương tác quan trọng của người dùng. Xem phần [Popups và phản hồi người dùng](#popups-va-phan-hoi-nguoi-dung) để biết đầy đủ chi tiết.
+
+Đối với các hoạt động chạy lâu, sử dụng [Action loader](#action-loader) thay vì chặn giao diện một cách âm thầm.
+
+**Cung cấp thông điệp console hữu ích**
+
+Sử dụng một tiền tố nhất quán cho các log console của bạn. Nhưng không spam console với quá nhiều log trong môi trường production:
+
+```js
+const MODULE_NAME = 'MyExtension';
+
+console.log(`[${MODULE_NAME}] Extension loaded`);
+console.debug(`[${MODULE_NAME}] Processing data:`, data);
+console.error(`[${MODULE_NAME}] Error occurred:`, error);
+```
+
+### Chất lượng code
+
+**Sử dụng các thư viện được đóng gói sẵn từ `lib.js`**
+
+Trước khi thêm dependency mới, hãy kiểm tra phần [Shared libraries](#shared-libraries) — SillyTavern đóng gói nhiều thư viện phổ biến (lodash, Fuse, DOMPurify, moment, yaml, v.v.) có sẵn qua `SillyTavern.libs`.
+
+**Khởi tạo cài đặt đúng cách**
+
+Luôn cung cấp giá trị mặc định và xử lý các khóa bị thiếu:
+
+```js
+function loadSettings() {
+    // Merge with defaults to handle new keys after updates and initialize if it doesn't exist.
+    extensionSettings[MODULE_NAME] = SillyTavern.libs.lodash.merge(
+        structuredClone(defaultSettings),
+        extensionSettings[MODULE_NAME]
+    );
+}
+```

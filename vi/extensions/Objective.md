@@ -1,5 +1,5 @@
 ---
-route: /extensions/objective/
+route: /vi/extensions/objective/
 ---
 
 # Objective

@@ -1,7 +1,7 @@
 ---
 # icon: container
 label: Docker
-route: /installation/docker/
+route: /vi/installation/docker/
 ---
 
 # Cài đặt Docker
@@ -245,6 +245,122 @@ Nếu bạn đã thấy thư mục _plugins_ trong thư mục `docker`, bạn c�
     docker compose restart sillytavern
     ```
 
+## Chế độ người dùng không phải root
+
+Theo mặc định, container chạy dưới quyền root. Nếu bạn muốn các tệp được tạo trong các volumes được gắn kết thuộc sở hữu của một người dùng cụ thể trên host (ví dụ, để tránh các tệp thuộc sở hữu root), bạn có thể bật chế độ không phải root.
+
+### Tùy chọn 1: PUID/PGID (khuyến nghị)
+
+Đặt các biến môi trường `PUID` và `PGID` thành UID/GID mà bạn muốn container sử dụng. Entrypoint sẽ cập nhật quyền sở hữu của các thư mục cần thiết và sau đó chạy máy chủ với tư cách người dùng được ánh xạ.
+
+Ví dụ Docker Compose:
+
+```yaml
+services:
+  sillytavern:
+    environment:
+      - PUID=1000
+      - PGID=1000
+```
+
+Ví dụ Docker CLI:
+
+```bash
+docker run \
+  --name="sillytavern" \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -p "$PUBLIC_PORT:8000/tcp" \
+  -v "$CONFIG_PATH:/home/node/app/config:rw" \
+  -v "$DATA_PATH:/home/node/app/data:rw" \
+  -v "$EXTENSIONS_PATH:/home/node/app/public/scripts/extensions/third-party:rw" \
+  -v "$PLUGINS_PATH:/home/node/app/plugins:rw" \
+  ghcr.io/sillytavern/sillytavern:"$SILLYTAVERN_VERSION"
+```
+
+### Tùy chọn 2: Cờ `--user` của Docker
+
+Bạn cũng có thể chạy container với tư cách một người dùng cụ thể bằng cờ `--user` của Docker. Trong chế độ này, container không thể tự động sửa quyền, vì vậy hãy đảm bảo các volumes được gắn kết của bạn đã có thể ghi được bởi UID/GID bạn cung cấp.
+
+```bash
+docker run \
+  --name="sillytavern" \
+  --user 1000:1000 \
+  -p "$PUBLIC_PORT:8000/tcp" \
+  -v "$CONFIG_PATH:/home/node/app/config:rw" \
+  -v "$DATA_PATH:/home/node/app/data:rw" \
+  -v "$EXTENSIONS_PATH:/home/node/app/public/scripts/extensions/third-party:rw" \
+  -v "$PLUGINS_PATH:/home/node/app/plugins:rw" \
+  ghcr.io/sillytavern/sillytavern:"$SILLYTAVERN_VERSION"
+```
+
+## Healthcheck của Container
+
+Docker image bao gồm một cơ chế healthcheck tích hợp giám sát khả năng phản hồi của máy chủ SillyTavern. Điều này hữu ích cho các hệ thống điều phối container (như Docker Compose, Kubernetes, hoặc Docker Swarm) để phát hiện và tự động khởi động lại các container không phản hồi.
+
+### Cách thức hoạt động
+
+Healthcheck sử dụng cơ chế tệp heartbeat:
+
+1. Khi được bật, máy chủ SillyTavern định kỳ ghi một dấu thời gian vào tệp `heartbeat.json` trong thư mục dữ liệu.
+2. Script healthcheck (`src/healthcheck.js`) xác minh rằng tệp heartbeat tồn tại và đã được cập nhật gần đây.
+3. Nếu tệp heartbeat bị thiếu hoặc quá cũ (nhiều hơn 2 khoảng thời gian bị bỏ lỡ), container được đánh dấu là không khỏe mạnh.
+
+### Cấu hình
+
+!!!warning
+Script healthcheck không hỗ trợ ghi đè thư mục dữ liệu thông qua các đối số dòng lệnh. Nếu bạn thay đổi thư mục dữ liệu khỏi giá trị mặc định `/home/node/app/data`, hãy đảm bảo biến môi trường `SILLYTAVERN_DATAROOT` được đặt tương ứng.
+!!!
+
+Healthcheck được kiểm soát bởi biến môi trường `SILLYTAVERN_HEARTBEATINTERVAL` (hoặc `heartbeatInterval` trong config.yaml). Giá trị này chỉ định khoảng thời gian tính bằng giây giữa các lần ghi heartbeat.
+
+- **Mặc định:** `0` (tắt)
+- **Khuyến nghị:** `30` giây khi sử dụng Docker healthchecks
+
+Tệp `docker-compose.yml` mặc định bao gồm cấu hình healthcheck với heartbeat được bật:
+
+```yaml
+services:
+  sillytavern:
+    environment:
+      - SILLYTAVERN_HEARTBEATINTERVAL=30
+    healthcheck:
+      test: ["CMD", "node", "src/healthcheck.js"]
+      interval: 30s
+      timeout: 10s
+      start_period: 20s
+      retries: 3
+```
+
+### Kiểm tra trạng thái sức khỏe của container
+
+Bạn có thể kiểm tra trạng thái sức khỏe của container của mình bằng cách sử dụng:
+
+```sh
+docker inspect --format='{{.State.Health.Status}}' sillytavern
+```
+
+Hoặc xem trạng thái container đầy đủ bao gồm cả sức khỏe:
+
+```sh
+docker ps
+```
+
+Cột `STATUS` sẽ hiển thị `healthy`, `unhealthy`, hoặc `starting` cùng với thời gian hoạt động.
+
+### Tắt healthcheck
+
+Nếu bạn không cần tính năng healthcheck, bạn có thể tắt nó bằng cách:
+
+1. Đặt biến môi trường thành `0`:
+
+    ```yaml
+    environment:
+      - SILLYTAVERN_HEARTBEATINTERVAL=0
+    ```
+
+2. Xóa hoặc comment phần `healthcheck` trong `docker-compose.yml` của bạn.
+
 ## Vấn đề phổ biến với Docker
 
 ### Vấn đề quyền SELinux với Volumes được gắn kết
@@ -269,10 +385,15 @@ volumes:
 
 ### Bị cấm bởi Whitelist
 
-!!!
-Các IP gateway của Docker nên được đưa vào danh sách trắng tự động nếu giá trị cấu hình [whitelistDockerHosts](/Administration/config-yaml.md#ip-whitelisting) được đặt thành `true`.
+!!!warning Docker Desktop và Docker CE
+Tùy chọn cấu hình [whitelistDockerHosts](/Administration/config-yaml.md#ip-whitelisting) (được bật theo mặc định) hoạt động bằng cách phân giải các hostname `host.docker.internal` và `gateway.docker.internal`. Các hostname này **chỉ khả dụng trong Docker Desktop** (Windows/Mac). Nếu bạn đang sử dụng **Docker CE trên Linux**, các hostname này sẽ không phân giải được và việc tự động thêm vào whitelist sẽ thất bại với các lỗi như sau trong log của container:
 
-Nếu bạn vẫn không thể truy cập SillyTavern, hãy làm theo hướng dẫn dưới đây để cập nhật danh sách trắng theo cách thủ công.
+```
+Failed to resolve whitelist hostname host.docker.internal: getaddrinfo ENOTFOUND host.docker.internal
+Failed to resolve whitelist hostname gateway.docker.internal: getaddrinfo ENOTFOUND gateway.docker.internal
+```
+
+Trong trường hợp này, bạn cần thêm thủ công IP gateway của Docker vào whitelist như được mô tả bên dưới.
 !!!
 
 1. Thực thi lệnh Docker sau để lấy IP của Docker container SillyTavern của bạn.
